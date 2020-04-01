@@ -1,0 +1,186 @@
+@import url(https://fonts.googleapis.com/css?family=Lato:700);
+
+// -- vars
+$bg-color: #34495e;
+$default-size: 66px;
+$label-font-size: $default-size / 4;
+$label-font-size-redo: $default-size * 4;
+
+// -- mixins
+@mixin size($width, $height) {
+  height: 66px;
+  width: 66px;
+}
+
+@mixin draw-progress($progress, $color) {
+  .pie {
+    .half-circle {
+      border-color: $color;
+    }
+
+    .left-side {
+      transform: rotate($progress * 3.6deg);
+    }
+
+    @if $progress <= 50 {
+      .right-side {
+        display: none;
+      }
+    } @else {
+      clip: rect(auto, auto, auto, auto);
+
+      .right-side {
+        transform: rotate(-210deg);
+      }
+    }
+  }
+}
+
+@mixin draw-progress--solid($progress, $color, $bg-color) {
+  background: linear-gradient(to left, $color 50%, $bg-color 50%);
+
+  &:before {
+    @if $progress <= 50 {
+      background: $bg-color;
+      transform: rotate((100 - (50 - $progress)) / 100 * 180deg * -1);
+    } @else {
+      background: $color;
+      transform: rotate((100 - $progress) / 100 * 180deg);
+    }
+  }
+}
+
+// -- selectors
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+.set-size {
+  font-size: 10em;
+}
+
+.charts-container {
+  &:after {
+    clear: both;
+    content: '';
+    display: table;
+  }
+}
+
+.pie-wrapper {
+  @include size($default-size, $default-size);
+  float: left;
+  margin: 15px;
+  position: relative;
+
+  &:nth-child(3n + 1) {
+    clear: both;
+  }
+
+  .pie {
+    @include size(100%, 100%);
+    clip: rect(0, $default-size, $default-size, $default-size / 2);
+    left: 0;
+    position: absolute;
+    top: 0;
+
+    .half-circle {
+      @include size(100%, 100%);
+      border: ($default-size / 10) solid #3498db;
+      border-radius: 50%;
+      clip: rect(0, $default-size / 2, $default-size, 0);
+      left: 0;
+      position: absolute;
+      top: 0;
+    }
+  }
+
+  .label {
+    background: #fff;
+    border-radius: 50%;
+    color:#30353E;
+    cursor: default;
+    display: block;
+    font-family: $font-family;
+    font-size: 16px;
+    position: absolute;
+    text-align: center;
+    top: 5px;
+    width: 55px;
+    height: 55px;
+    left: 15px;
+    top: 25px;
+
+    .smaller {
+      color: #bdc3c7;
+      font-size: .45em;
+      padding-bottom: 20px;
+      vertical-align: super;
+    }
+  }
+
+  .shadow {
+    @include size(100%, 100%);
+    border: $default-size / 10 solid #bdc3c7;
+    border-radius: 50%;
+  }
+
+  &.style-2 {
+    .label {
+      background: none;
+      color: #7f8c8d;
+
+      .smaller {
+        color: #bdc3c7;
+      }
+    }
+  }
+
+  &.progress-30 {
+    @include draw-progress(30, #3498db);
+  }
+
+  &.progress-60 {
+    @include draw-progress(60, #FFBF37 );
+  }
+
+  &.progress-90 {
+    @include draw-progress(90, #2C78F6);
+  }
+
+  &.progress-45 {
+    @include draw-progress(45, #1abc9c);
+  }
+
+  &.progress-75 {
+    @include draw-progress(75, #2C78F6);
+  }
+
+  &.progress-95 {
+    @include draw-progress(95, #e74c3c);
+  }
+}
+
+.personal_cabinet__events--progress .label::before
+{
+ content: "";
+ position: absolute;
+ background-image: url("../img/pc_cap.svg");
+ width: 20px;
+ height: 15px;
+ left: -0px;
+ top: 2px;
+}
+
+.personal_cabinet__points--progress .label::before
+{
+ content: "";
+ position: absolute;
+ background-image: url("../img/pc_star.svg");
+ width: 19px;
+height: 19px;
+ left: -0px;
+ top: 0px;
+}

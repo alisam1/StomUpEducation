@@ -1,0 +1,14 @@
+{# <script src="https://maps.api.2gis.ru/2.0/loader.js?pkg=full"></script> #}
+<script src="/modules/js/2gis.js"></script>
+
+<script type="text/javascript">
+var map;
+DG.then(function () {
+    map = DG.map( '{{map_id}}', {
+        center: [ {{cord}} ],
+        zoom: 15,
+        scrollWheelZoom: false,
+    });
+    DG.marker([ {{cord}} ]).addTo(map);
+});
+</script>

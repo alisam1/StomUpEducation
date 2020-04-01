@@ -1,0 +1,152 @@
+{# MOBILE #}
+   <div class="main-center__mobile">
+           <div class="main-center__mobile">
+                   <div class="main-center__content">
+
+          {{ include('center/sidebar/_m.sidebar.twig') }}
+
+                       <div class="main-center__right">
+                       <div class="container">
+                               <div class="events">
+                                         <div class="bottom-content__info">
+                                            <a class="popup-modal popup-modal-top" href="#add-events"><button>Создать мероприятие</button></a>
+                                            <h3 class="bottom-content__title bottom-content__title--lectures bottom-content__title--events">Мероприятия</h3>
+                                          </div>
+                                       <div class="events__type">
+                                       {# направление мероприятия #}
+                                       {% for event_way in all_event_way %}
+                                       <div class="block__events" data-way_id="{{event_way.id}}"><span class="block__dot" style="background-color:{{event_way.color}}"></span>{{event_way.way_name}}</div>
+                                       {% endfor %}
+                                       </div>
+                                       <div class="events__main">
+                                           <div class="events__left">
+                                               <div class="events__choise">
+                                                   <div class="events__calendar">
+                                                   {# календарь #}
+                                                  <p id="date_calendar"></p>
+                                                  <input type="hidden" id="events_data" value="{{my_events | json_encode()}}">
+                                                  {# календарь #}
+                                                   </div>
+
+                                                   <p class="events__popup events__popup--center">
+                                                       <a href="#form-modal" class="events__modal popup-modal">Показать все фильтры</a>
+                                                   </p>
+                                                   <div id="form-modal" class="modal-events white-popup-block mfp-hide">
+                                                           <p><a class="modal-events popup-modal-dismiss" href="#"><img src="/img/close_modal.svg" alt="close_modal"></a></p>
+                                                           <div class="events__modal">
+                                                                   <div class="events__event">
+                                                                           <div id = "checkselect__events" class="checkselect">
+                                                                           {% for event_type in all_event_type %}
+                                                                               <label><input type="checkbox" name="event_types[]" value="{{event_type.id}}"> {{event_type.type_name}}</label>
+                                                                           {% endfor %}
+                                                                               </div>
+                                                                           </div>
+                                                                           <div class="events__lector">
+                                                                                   <div id = "checkselect__lector" class="checkselect">
+                                                                                   {% for lector in lectors_list %}
+                                                                                       <label><input type="checkbox" name="lectors[]" value="{{lector.id}}"> {{lector.full_name}}</label>
+                                                                                   {% endfor %}
+                                                                                       </div>
+                                                                                   </div>
+
+                                                                                   <div id = "range__mobile" class="events__range">
+                                                                                       <label for="amount__mobile">Стоимость</label>
+                                                                                           <div id="slider-range__mobile"></div>
+                                                                                               <p class="events__polz__mobile">
+                                                                                                       <input type="text" id="min__mobile" readonly/>
+                                                                                                       <input type="text" id="max__mobile" readonly/>
+                                                                                               </p>
+                                                                                   </div>
+
+
+                                                                           <div class="events__agree">
+                                                                               <input id = "checkbox__agree" type="checkbox">
+                                                                               <label for="checkbox__agree">Только бесплатные</label>
+                                                                           </div>
+
+                                                                           <div class="events__buttons">
+                                                                                  <button class="events__clear">Очистить</button>
+                                                                                  <button class="events__apply">Применить</button>
+                                                                           </div>
+                                                           </div>
+                                                       </div>
+                                               </div>
+                                           </div>
+                                           <div class="events__right">
+                                               <div class="events__group events__group--events">
+
+                                                       {% for event in my_events %}
+                                                           {% set dateStart = event.event_start_time|date('d.m.Y') %}
+                                                           {% set dateEnd = event.event_end_time|date('d.m.Y') %}
+                                                           {% set timeStart = event.event_start_time|date('H:i') %}
+                                                           {% set timeEnd = event.event_end_time|date('H:i') %}
+                                                         {# блок эвентов #}
+                                                             <div class="lectures-group__block block">
+                                                             <a class="ahref__noslyle" href="/cabinet/events/{{ event.id }}">
+                                                                     <div class="block__top" style="background-image:url({{ event.event_main_img }});">
+                                                                         <div class="block__when">
+                                                                         <div class="block__data">
+                                                                         {% if dateStart == dateEnd %}
+                                                                           {{ dateStart }}
+                                                                         {% else %}
+                                                                           {{dateStart}}-{{dateEnd}}
+                                                                         {% endif %}
+                                                                         </div>
+                                                                         <div class="block__time">{{timeStart}} - {{timeEnd}}</div>
+                                                                         </div>
+                                                                         <div class="block__address">{{event.event_city}}, {{event.event_address}}</div>
+                                                                     </div>
+                                                                     </a>
+                                                                     <div class="block__bottom">
+                                                                     <a class="ahref__noslyle" href="/cabinet/events/{{ event.id }}">
+                                                                         <div class="block__high">
+                                                                             <div class="block__topic block__topic--card"><span class="block__dot block__dot--paradont" style="background:{{event.color}}"></span>{{ event.way_name }}</div>
+                                                                             <div class="block__type">{{event.type_name}}</div>
+                                                                         </div>
+                                                                         <div class="block__center">
+                                                                             <div class="block__title">{{event.event_name|str30()}}</div>
+                                                                             <div class="block__price">
+                                                                             {% if event.is_free == 1 %}
+                                                                               {{ event.price }} ₽
+                                                                             {% else %}
+                                                                             Бесплатно
+                                                                             {% endif %}
+                                                                             </div>
+                                                                         </div>
+                                                                         </a>
+                                                                         <div class="block__about">
+                                                                             <div class="block__doctor">
+                                                                                 <div class="block__photo"><img src="{{event.photo}}" alt="block__photo"></div>
+                                                                                 <div class="block__fio">
+                                                                                     <div class="block__name">{{event.full_name}}</div>
+                                                                                     <div class="block__work">{{event.worker_position}}</div>
+                                                                                 </div>
+                                                                             </div>
+                                                                             <div class="block__add">
+                                                                             {% if event.rule_point > 0 %}
+                                                                                 <div class="block__star">{{event.rule_point}}</div>
+                                                                             {% endif %}
+                                                                             {% if event.rule_sertificate is not null %}
+                                                                                 <div class="block__sert">Сертификат</div>
+                                                                             {% endif %}
+                                                                                 <div class="block__more">еще</div>
+                                                                             </div>
+                                                                         </div>
+                                                                     </div>
+
+                                                                 </div>
+                                                                 {# конец блока эвентов #}
+
+                                                                 {% endfor %}
+
+
+
+                                           </div>
+                                       </div>
+                                       </div>
+                                   </div>
+                       </div>
+           </div>
+    </div>
+   </div>
+   </div>

@@ -1,0 +1,44 @@
+{# модальное окно для создания нового отзыва #}
+<div id="modal_new_review" class="form-events form-web white-popup-block mfp-hide">
+    <p><a class="popup-modal-dismiss" href="#"><img src="/img/close_modal.svg" alt="close_modal"></a></p>
+    <div class="events__card">
+        <h3 class="events-form__title">Новый отзыв</h3>
+        <div class="events-form__form">
+            <form class="review_send_form" action="/catch/catch_new_review" method="post" enctype="multipart/form-data">
+                <div class="events-form__top events-form__top-reviews">
+                    <div class="events-form__reviews-name">
+                    <div class="events-form__reviews-fio">
+                        <label for="">Фамилия</label>
+                        <input type="text" name="review_name" placeholder="Бадалян">
+                    </div>
+                    <div class="events-form__reviews-fio">
+                        <label for="">Имя</label>
+                        <input type="text" name="review_name" placeholder="Кристина">
+                    </div>
+                    <div class="events-form__reviews-fio">
+                        <label for="">Отчество</label>
+                        <input type="text" name="review_name" placeholder="Юрьевна">
+                    </div>
+                    </div>
+
+                    <div class="events-form__reviews-name events-form__reviews-work" style="margin-top:20px;">
+                        <label for="">Должность</label>
+                        <input type="text" name="review_position" placeholder="Стоматолог-терапевт">
+                    </div>
+                    <div class="events-form__reviews-texrarea">
+                            <textarea name="review_texrarea" id="reviews-texrarea" cols="30" rows="10" placeholder="Введите отзыв"></textarea>
+                        </div>
+                </div>
+
+                <div class="events-form__addlector">
+                    <div class="events-form__span">Вы сможете отредактировать данную информацию позднее в своём личном кабинете</div>
+                    <div class="events-form__button">
+                        <input type="submit" value="Сохранить">
+                    </div>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>
+{# модальное окно для создания нового отзыва #}

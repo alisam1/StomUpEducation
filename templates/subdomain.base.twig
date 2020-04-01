@@ -1,0 +1,95 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, user-scalable=no, initial-scale=1" name="viewport">
+  <title>{% block title %}StomUp - 404 - страница не найдена{% endblock %}</title>
+  <meta name="description" content="{% block description %} {% endblock %}"/>
+   <link href="/css/main.css?ver=1.1" rel="stylesheet">
+    <link href="/css/style.css" rel="stylesheet">
+    <link rel="shortcut icon" href="/img/favicon_3.ico" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css">
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+        <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+
+            {% block stylesheets %}{% endblock %}
+            {% set is_login = app.session.get('f22') %}
+
+
+
+
+</head>
+
+<body style="margin:0">
+
+
+
+        {% block body %}{% endblock %}
+        {% block javascripts %}{% endblock %}
+
+
+
+ {# popup мироприятий - важно что бы в данные контроллеры передавался $lectors_list #}
+{% if app.request.pathinfo == '/cabinet' or app.request.pathinfo == '/cabinet/site' %}
+{{ include('popups/events.popup.twig') }}
+{{ include('popups/lectors.popup.twig') }}
+{% endif %}
+
+        {# hiddenBlock #}
+        <input type="hidden" id="realDate" name="" value="{{ "now"|date("Y-m-d") }}">
+        {# modules #}
+
+
+        <script src="/js/sweetalert-min.js" charset="utf-8"></script>
+        <script src="/js/inputmask.plugin-min.js" charset="utf-8"></script>
+        <script src="/js/allmask-min.js" charset="utf-8"></script>
+        {# all #}
+
+
+                <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+                {# sliders #}
+                <script src="/js/slick-min.js"></script>
+                <script src="/js/sliders-min.js" charset="utf-8"></script>
+                <script src="/js/lectors-min.js" charset="utf-8"></script>
+        {# фильтры #}
+        <script src="/js/cabinet_events_filter-min.js" charset="utf-8"></script>
+
+
+
+        <script src="/js/profile_edit-min.js" charset="utf-8"></script>
+        <script src="/js/magnific-min.js" charset="utf-8"></script>
+        <script src="/js/chats-min.js" charset="utf-8"></script>
+       {# добавлен 12.11.2019 #}
+        <script src="/js/events-min.js" charset="utf-8"></script>
+        <script src="/js/input_range-min.js" charset="utf-8"></script>
+        <script src="/js/popups-min.js" charset="utf-8"></script>
+        {# календарь #}
+        <script src="/js/calendar_logic-min.js" charset="utf-8"></script>
+        <script src="/js/calendar-min.js" charset="utf-8"></script>
+
+        {# popups #}
+         <script src="/js/sendservice-min.js" charset="utf-8"></script>
+
+         {# web #}
+         <script src="/js/web_load-min.js" charset="utf-8"></script>
+
+        {# web #}
+         <script src="/js/scroll-min.js" charset="utf-8"></script>
+
+          {# sidebar_laptop #}
+         <script src="/js/sidebar_laptop.js" charset="utf-8"></script>
+
+           {# search #}
+         <script src="/js/sidebar_mobile-min.js" charset="utf-8"></script>
+
+
+
+
+
+</body>
+
+</html>

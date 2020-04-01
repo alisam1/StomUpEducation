@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Лектор{% endblock %}
+
+{% block body %}
+
+<main class="main-center">
+        {% if mobileDetect == true %}
+        {{ include('main/view/lector.view.mobile.twig') }}
+        {% else %}
+        {{ include('main/view/lector.view.desktop.twig') }}
+        {% endif %}
+
+</main>
+
+{% endblock %}

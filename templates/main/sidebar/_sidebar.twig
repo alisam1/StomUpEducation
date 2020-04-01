@@ -1,0 +1,91 @@
+ <div class="main__left main__left-main-site">
+<div class="main-center-sidebar">
+
+                <div class="main-center-sidebar__laptop main-center-sidebar__laptop--cabinet">
+
+                <input type="checkbox" id="nav-toggle" hidden>
+                     <div class="main-center-sidebar__item">
+                                 <a href="/">
+                                 <img src="/img/sidebar_icon_13.svg">
+                                 </a>
+                     </div>
+                     <div class="main-center-sidebar__item main-center-sidebar__item-ways">
+                                 <a href="/ways">
+                                 <img src="/img/menu_icon_10.svg">
+                                 </a>
+                     </div>
+                     <div class="main-center-sidebar__item">
+                                 <a href="/lectors">
+                                 <img src="/img/sidebar_icon_4.svg">
+                                 </a>
+                     </div>
+                     <div class="main-center-sidebar__item">
+                              <a href="/events">
+                                 <img src="/img/sidebar_icon_5.svg">
+                                 </a>
+                     </div>
+                     <div class="main-center-sidebar__item">
+                           <a href="/centers">
+                              <img src="/img/sidebar_icon_2.svg">
+                           </a>
+                     </div>
+                     <div class="main-center-sidebar__item">
+                           <a href="/login">
+                              <img src="/img/sidebar_icon_14.svg">
+                           </a>
+                     </div>
+                     <div class="main-center-sidebar__item">
+                           <a href="/logout">
+                              <img src="/img/sidebar_icon_8.svg">
+                           </a>
+                     </div>
+
+              <nav class="nav nav-site">
+
+               <label for="nav-toggle" class="nav-toggle" onclick></label>
+                  <ul class="nav-site">
+                   <li class = "main-sidebar_menu nav-name">Меню</li>
+                  <li class="main-sidebar_main"><a href="/">Главная</a></li>
+                   <li class="main-sidebar_catalog"><a href="/ways">Каталог</a></li>    
+                        <li class="main-sidebar_lectors"><a href="/lectors">Лекторы</a></li>
+                        <li class="main-sidebar_events"><a href="/events">Мероприятия</a></li>
+                        <li class="main-sidebar_centers"><a href="/centers">Лекционные центры</a></li>
+                        {# <li class="template-center-item"><a href="">Литература</a></li> #}
+                        {# <li class="template-center-item">Литература</li> #}
+                        {% if is_user %}
+                        <li class="sidebar_content-reg"> <a href="/cabinet">В кабинет</a> </li>
+                        <li class="sidebar_content-logout"> <a href="/logout">Выйти</a> </li>
+                        {% else %}
+                        <li class="sidebar_content-reg main-sidebar_reg"><a href="/login">Войти</a><a class = "reg_class" href="/registration">Регистрация</a></li>
+                        {% endif %}
+                  </ul>
+               </nav>
+                </div>
+
+
+                <div class = "main-center-sidebar__desktop">
+                <div class="template-center-menu template-center-menu-main">
+                 <p class="template-center-item template-center-item--menu">Меню</p>
+                    <ul class="template-center-list">
+                        <li class="template-center-item template-center-item--main"><a href="/">Главная</a></li>
+                        <li class="template-center-item template-center-item--ways"><a href="/ways">Каталог</a></li>
+                        <li class="template-center-item template-center-item--lectors"><a href="/lectors">Лекторы</a></li>
+                        <li class="template-center-item template-center-item--events"><a href="/events">Мероприятия</a></li>
+                        <li class="template-center-item template-center-item--center"><a href="/centers">Лекционные центры</a></li>
+                {# <li class="template-center-item"><a href="">Литература</a></li> #}
+                        {# <li class="template-center-item">Литература</li> #}
+                    </ul>
+
+                    {% if is_user %}
+                    <p class="template-center-item template-center-item--reg"><a href="/cabinet">В кабинет</a></p>
+                    <p class="template-center-item template-center-item--reg template-center-item--out"><a href="/logout">Выйти</a></p>
+                    {% else %}
+                    <p class="template-center-item template-center-item--reg"><a href="/login">Войти</a><a class = "reg_class" href="/registration">Регистрация</a></p>
+                    {% endif %}
+
+
+                </div>
+                </div>
+
+            </div>
+            </div>

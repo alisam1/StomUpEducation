@@ -1,0 +1,112 @@
+{# DESKTOP #}
+<div class="main-center__desktop">
+
+<div class="main-center__content">
+
+{{ include('center/sidebar/_sidebar.twig') }}
+
+<div class="main-center__right">
+    <div class="container">
+
+<div class="content">
+
+<div class="top-content">
+
+    <div class="top-content__left left">
+        <h3 class="left__title">Добавить мероприятие</h3>
+        <div class="left__block">
+            <p class="left__text"><a class = "popup-modal" href="#add-events">Добавить новое мероприятие</a></p>
+        </div>
+    </div>
+
+    <div class="top-content__right right">
+        <h3 class="right__title">Баннеры</h3>
+
+        {# виден только если не создано личного сайта #}
+        <div class="{% if site_exist %} right__block--hide {% else %} right__block {% endif %}">
+            <p class="right__text">Для того, чтобы воспользоваться данным функционалом, создайте свой сайт</p>
+            <a href="/cabinet/site" class="right__button"><span>создать сайт</span></a>
+        </div>
+
+        {# видино только есть создан сайт #}
+      <div style="padding-top:10px;" class="{% if site_exist %} right__block {% else %} right__block--hide {% endif %}">
+
+      {% if site_exist %}
+      {% for banner in banners %}
+          {% if banner.img != 'image' %}
+
+            <div class="banner-block">
+                <div class="banner-block__img"><img src="{{banner.img}}" alt="banner_1"></div>
+                <div class="banner-block__name">{{banner.text_h}}</div>
+                <div class="banner-block__change"><a href="/cabinet/site/banners">Изменить</a></div>
+                <div class="banner-block__delete"><a href="#test-modal{{banner.id}}" class="popup-modal">Удалить</a></div>
+                <div id="test-modal{{banner.id}}" class="delete-confirm white-popup-block mfp-hide">
+                        <p><a class="popup-modal-dismiss" href="#"><img src="/img/close_modal.svg" alt="close_modal"></a></p>
+                        <h3 class="delete-confirm__title">Подтвердите действие</h3>
+                        <p class="delete-confirm__desc">Вы уверены, что хотите удалить данный баннер?</p>
+                        <div class="delete-confirm__group">
+                          <input type="hidden" class="this_banner_id" name="" value="{{banner.id}}">
+                            <button class="delete-confirm__button ask_no">Нет</button>
+                            <button class="delete-confirm__button ask_yes">Да</button>
+                        </div>
+                    </div>
+            </div>
+
+            {% endif %}
+          {% endfor %}
+        {% endif %}
+
+                <div class="banner-block">
+                    <div class="banner-block__create">
+                    <div class="banner-block__img banner-block__img--new"><img src="/img/banner_3.png" alt="banner_3"></div>
+                    <div class="banner-block__name">Новый баннер</div>
+                    <button class="banner-block__button"><a href="/cabinet/site/banners">Добавить</a></button>
+                    </div>
+                </div>
+            </div>
+
+    </div>
+
+</div>
+
+<div class="bottom-content">
+
+    <div class="bottom-content__center">
+        <h3 class="bottom-content__title">Заявки</h3>
+            <div class="events">
+            {% set itters = 0 %}
+            {% for event_request in events_request %}
+              {# event EL #}
+            <div class="events__block {% if itters == 0 %}events__block--first{% endif %}">
+                    <div class="events__photo events__photo--app"><img src="{{event_request.photo}}"></div>
+                    <h3 class="events__lead">{{event_request.event_name}}<span>{{event_request.event_start_time}}</span></h3>
+                    <div class="events__status"><span class="events__red"><img src="/img/red_icon.svg" alt="red_icon"></span>Не оплачен</div>
+                    <div class="events__name">{{event_request.req_full_name}}</div>
+                    <div class="events__phone"><a href="">{{event_request.req_phone}}</a></div>
+                    <div class="events__mail"><a href="">{{event_request.req_email}}</a></div>
+                    <div class="events__city">{{event_request.req_city}}</div>
+                    <div class="events__more">
+                            <a class="support" tabindex="1">
+                                    <span class="tip-click">?</span>
+                                    <span class="tip">
+                                        <p>Дополнительно</p>
+                                        <p>Отправить счет</p>
+                                    </span>
+                            </a>
+                    </div>
+                </div>
+                {% set itters = itters + 1 %}
+                {# event EL #}
+              {% endfor %}
+
+            </div>
+    </div>
+</div>
+
+</div>
+</div>
+
+</div>
+</div>
+
+</div>

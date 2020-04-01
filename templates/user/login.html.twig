@@ -1,0 +1,100 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Войти{% endblock %}
+
+{% block body %}
+<main class="main">
+
+  <input type="hidden" id="whats_choose" name="" value="1">
+
+    <div class="main-left">
+
+        <div class="main-left__content">
+        <h3 class="main-left__title">Добро пожаловать</h3>
+        <div class="main-left__description">Заполните пару простых шагов, чтобы начать работу с сервисом</div>
+        </div>
+        <div class="main-left__img"><img src="img/form_bg.png" alt="form_bg"></div>
+
+    </div>
+
+
+    <div class="main-right">
+
+            <div class="flat-design-form">
+
+                            <div class="registration-form registration-login">
+
+                                <div class="registration-page registration-page--mobile">
+                                    <div class="registration-form__content">
+                                      <div class="registration-form__content-mobile">
+                                        <div class="main-left__content">
+                                            <h3 class="main-left__title">Добро пожаловать</h3>
+                                            <div class="main-left__description">Заполните пару простых шагов, чтобы начать работу с сервисом</div>
+                                        </div>
+                                        <div class="main-left__img"><img src="img/form_bg.png" alt="form_bg"></div>
+                                    <div class="button">
+                                            <div class="form__group">
+                                                <div class="form__slider"><img src="img/icon_slider.svg" alt="icon_slider"></div>
+                                                <p class="form__alarm">Вы сможете отредактировать данную информацию позднее в своём личном кабинете</p>
+                                            </div>
+                                            <div class="form__button form__button--away">
+                                                    <button type="button" class="btn btn-next button__further">Далее</button>
+                                            </div>
+                                            </div>
+                                    </div>
+                                  </div>
+
+                                </div>
+
+                                <div class="registration-page">
+                                    <div class="form-top">
+                                        <div class="main-right__content">
+                                            <h3 class="main-right__title">Вход на сайт</h3>
+                                        </div>
+                                    </div>
+                                    <div class="form-bottom">
+                                            <div>
+                                                <p class="form__contact"><label for="address_fact">Телефон</label></p>
+                                                <input type="text" id="phone_org" name="phone_org" placeholder="+7 (999) 999-99-99">
+                                                <span class="input-error__message">Вы не заполнили обязательное поле</span>
+                                            </div>
+                                            <div>
+
+                                            </div>
+                                            <div>
+                                                <p class="form__contact"><label for="password">Пароль</label></p>
+                                                <input type="password" id="password" name="password" placeholder="Введите пароль">
+                                                <span class="input-error__message">Вы не заполнили обязательное поле</span>
+                                            </div>
+                                            <div>
+                                                <div class="hide-phone">
+                                                    <a href="#" id="recover_acc" data-way="/forget" class="hide-phone__link forgot__info">+ забыл пароль</a>
+                                                </div>
+                                            </div>
+                                                <div class="button">
+                                                        <div class="form__button form__button-login">
+                                                                <button type="button" class="btn button__away--login">Войти</button>
+                                                        </div>
+                                                </div>
+                                            </div>
+                                </div>
+
+                            </div>
+                </div>
+
+                </div>
+            </div>
+
+
+
+
+</main>
+
+{% endblock %}
+
+
+{% block javascripts %}
+<script src="/js/registration-min.js"></script>
+<script src="/js/login-min.js"></script>
+<script src="/js/validate-min.js" charset="utf-8"></script>
+{% endblock %}

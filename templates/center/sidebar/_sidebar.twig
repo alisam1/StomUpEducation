@@ -1,0 +1,104 @@
+ <div class="main__left main__left-main main__left-cabinet">
+<div class="main-center-sidebar">
+
+                <div class="main-center-sidebar__laptop main-center-sidebar__laptop--cabinet">
+
+                <input type="checkbox" id="nav-toggle" hidden>
+            <div class="template-center-organization-img">
+                             <img src="/img/chats_icon.png">
+            </div>
+            <div class="main-center-sidebar__item">
+                       <a href="/cabinet">
+                        <img src="/img/sidebar_icon_1.svg">
+                       </a>
+            </div>
+            <div class="main-center-sidebar__item">
+                      <a href="/cabinet/profile">
+                        <img src="/img/sidebar_icon_12.svg">
+                       </a>
+            </div>
+            <div class="main-center-sidebar__item">
+                     <a href="/cabinet/site">
+                        <img src="/img/sidebar_icon_3.svg">
+                       </a>
+            </div>
+            <div class="main-center-sidebar__item">
+                <a href="/cabinet/site/banners">
+                    <img src="/img/sidebar_icon_9.svg">
+                </a>
+            </div>
+            <div class="main-center-sidebar__item">
+                  <a href="/cabinet/lectors">
+                     <img src="/img/sidebar_icon_4.svg">
+                  </a>
+            </div>
+            <div class="main-center-sidebar__item">
+                  <a href="/cabinet/events">
+                    <img src="/img/sidebar_icon_5.svg">
+                  </a>
+            </div>
+             <div class="main-center-sidebar__item">
+                  <a href="/cabinet/broadcast">
+                    <img src="/img/sidebar_icon_18.svg">
+                  </a>
+            </div>
+            <div class="main-center-sidebar__item">
+                  <a href="/logout">
+                  <img src="/img/sidebar_icon_8.svg">
+                 </a>
+            </div>
+
+               <nav class="nav">
+
+              <label for="nav-toggle" class="nav-toggle" onclick></label>
+
+                  <ul class="nav-cabinet">
+                  <li class = "nav-name">Меню</li>
+
+                     <li class="template-center-organization-name">Питер Экспо</li>
+                      <li><a href="//cabinet">Главная</a></li>
+                      <li class="sidebar_profile"><a href="/cabinet/profile">Профиль</a></li>
+                      <li><a href="/cabinet/site">Сайт</a></li>
+                      <li><a href="/cabinet/site/banners">Баннеры</a></li>
+                      <li class="sidebar_lectors"><a href="/cabinet/lectors">Лекторы</a><span class="lector_counter"></span></li>
+                      <li class="sidebar_events"><a href="/cabinet/events">Мероприятия</a><span class="event_counte"></span></li>
+                      <li class="sidebar_events"><a style="cursor:pointer;" class="inprogressnow">Вебинары</a></li>
+                      {#<li class="template-center-item template-center-item--mail"><a href="/messages">Сообщения</a><span>5</span> #}
+                      {#<li class="template-center-item template-center-item--advertising"><a href="#">Реклама</a></li> #}
+                      <li><a href="/logout">Выход</a></li>
+                  </ul>
+              </nav>
+
+                </div>
+
+
+                <div class = "main-center-sidebar__desktop">
+                <div class="template-center-menu">
+                 <p class="template-center-item template-center-item--menu">Меню</p>
+                    <div class="template-center-organization">
+                        <div class="template-center-organization-img">
+                             <img src="{{user_data.photo_link}}">
+                        </div>
+                        <div class="template-center-organization-info">
+                            <p class="template-center-organization-name">{{user_data.full_name}}</p>
+                            <p class="template-center-organization-type">ЛЕКЦИОННЫЙ ЦЕНТР</p>
+                        </div>
+                    </div>
+                    <ul class="template-center-list">
+                        <li class="template-center-item template-center-item--main"><a href="/cabinet">Главная</a></li>
+                        <li class="template-center-item template-center-item--profile"><a href="/cabinet/profile">Профиль</a></li>
+                        <li class="template-center-item template-center-item--site"><a href="/cabinet/site">Сайт</a></li>
+                        <li class="template-center-item template-center-item--banners"><a href="/cabinet/site/banners">Баннеры</a></li>
+                        <li class="template-center-item template-center-item--lecture"><a href="/cabinet/lectors">Лекторы</a><span class="lector_counter"></span></li>
+                        <li class="template-center-item template-center-item--event"><a href="/cabinet/events">Мероприятия</a><span class="event_counte"></span></li>
+                        <li class="template-center-item template-center-item--broadcast"><a style="cursor:pointer;" class="inprogressnow">Вебинары</a></li>
+                        <li class="template-center-item template-center-item--away"><a href="/">На платформу</a></li>
+                        {#<li class="template-center-item template-center-item--mail"><a href="/messages">Сообщения</a><span>5</span> #}
+                        {#<li class="template-center-item template-center-item--advertising"><a href="#">Реклама</a></li> #}
+                        <li class="sidebar_content-reg template-center-item template-center-item--exit"><a href="/logout">Выход</a></li>
+                    </ul>
+                </div>
+                </div>
+
+            </div>
+            </div>

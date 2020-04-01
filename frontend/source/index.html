@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, user-scalable=no, initial-scale=1" name="viewport">
+    <title>StomMarket</title>
+    <link href="css/style.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <header class="main-header">
+    
+        <div class="main-header__content">
+
+            <div class="main-header__left">
+                <div class="main-header__logo">
+                    <img src="img/main_logo.svg" alt="Logo">
+                </div>
+            </div>
+
+            <div class="main-header__right">
+        
+        <div class="main-header__search main-header__search--desktop">
+            <form>
+                <input type="text" placeholder="Введите фамилию, или направление">
+                <button type="submit"></button>
+            </form>
+        </div>
+
+        <div class="main-header__mobile">
+
+            <div class="main-header__search main-header__search--mobile">
+                <button class="search-mobile" type="submit"></button>
+            </div>
+            
+            <div class="main-header__login">
+            
+                <div class="login">
+                    <a href="#">
+                        <span>Аккаунт</span>
+                    </a>
+                </div>
+            
+            </div>
+
+        </div>
+
+        </div>
+
+        </div>
+
+
+    </header>
+
+
+    <main class="main">
+
+
+        <div class="main-left">
+
+            <div class="main-left__content">
+            <h3 class="main-left__title">Добро пожаловать</h3>
+            <div class="main-left__description">Заполните пару простых шагов, чтобы начать работу с сервисом</div>
+            </div>
+            <div class="main-left__img"><img src="img/form_bg.png" alt="form_bg"></div>
+    
+        </div>
+
+
+        <div class="main-right">
+
+                <div class="flat-design-form">
+
+                        <div id="Ed" class="city">
+
+                                <div class="registration-form">
+
+                                    <div class="registration-page registration-page--mobile">
+                                        <div class="registration-form__content">
+                                            <div class="main-left__content">
+                                                <h3 class="main-left__title">Добро пожаловать</h3>
+                                                <div class="main-left__description">Заполните пару простых шагов, чтобы начать работу с сервисом</div>
+                                            </div>
+                                            <div class="main-left__img"><img src="img/form_bg.png" alt="form_bg"></div>
+                                        </div>
+                                        <div class="button">
+                                                <div class="form__group">
+                                                    <div class="form__slider"><img src="img/icon_slider.svg" alt="icon_slider"></div>
+                                                    <p class="form__alarm">Вы сможете отредактировать данную информацию позднее в своём личном кабинете</p>
+                                                </div>
+                                                <div class="form__button form__button--away">
+                                                        <button type="button" class="btn btn-next button__further">Далее</button>
+                                                </div>
+                                        </div>
+                                </div>
+                            
+                                    <div class="registration-page">
+                                        <div class="form-top">
+                                            <div class="main-right__content main-right__content--personal">
+                                                <h3 class="main-right__title">Личные данные</h3>
+                                                <p class="main-right__page">Шаг 1/3</p>
+                                            </div>
+                                        </div>
+                                        <div class="form-bottom">
+                                                <div class="tabs">
+                                                        <button class="tabs__item tabs__item--ed active" onclick="openTab('Ed')"><a href="#login" id="login-tab" name="login-tab"><span id="login_icon"></span>Обучающий центр</a></button>
+                                                        <button class="tabs__item tabs__item--people" onclick="openTab('People')"><a href="#register" id="register-tab" name="register-tab"><span id="signup_icon"></span>Слушатель</a></button>
+                                                </div>
+                                                    <p class="form__contact"><label for="address_fact">Телефон</label></p>
+                                                    <input type = "text" id="phone_org" name="phone_org" placeholder="+7 (911) 725-35-11"/>
+                                                    <span class="input-error__message">Вы не заполнили обязательное поле</span>
+                                                    
+                                                    <div class="hide-phone">
+                                                        <a href="#" class="hide-phone__link">+ добавить ещё один номер</a>
+                                                        <div class="hide-form__input">
+                                                            <input type = "text" id="phone_hide" name="phone_hide" placeholder="+7 (911) 725-35-11" />
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="button">
+                                                            <div class="form__group">
+                                                                <div class="form__slider"><img src="img/icon_slider.svg" alt="icon_slider"></div>
+                                                                <p class="form__alarm">Вы сможете отредактировать данную информацию позднее в своём личном кабинете</p>
+                                                            </div>
+                                                            <div class="form__button form__button--away">
+                                                                    <input type="button" id = "submit" class="btn btn-next button__further" disabled>Далее</button>
+                                                            </div>
+                                                    </div>
+                                                </div>
+                                    </div>
+                                    
+                                    <div class="registration-page">
+                                        <div class="form-top">
+                                            <div class="main-right__content">
+                                                <h3 class="main-right__title">Юридическая информация</h3>
+                                                <p class="main-right__page">Шаг 2/3</p>
+                                            </div>
+                                        </div>
+                                        <div class="form-bottom">
+                                            <div class="main-right__form">
+                                    
+                                                <p class="form__contact"><label for="name_org">Название организации</label></p>
+                                                <input type = "text" id="name_org" name="name_org" placeholder="Волгоград Экспо" onkeyup='checkParams()'/>
+                                                <span class="input-error__message">Вы не заполнили обязательное поле</span>
+                                                
+                                                <p class="form__contact"><label for="email_org">Электронная почта</label></p>
+                                                <input type = "text" id="email_org" name="email_org" placeholder="example@gmail.com" onkeyup='checkParams()'/>
+                                                <span class="input-error__message">Вы не заполнили обязательное поле</span>
+
+                                                <div class="inn-group">
+                                                    <div class="inn-group__input">
+                                                        <p class="form__contact"><label for="inn_org">ИНН</label></p>
+                                                        <input type = "text" id="inn_org" name="inn_org" placeholder="8472876345" onkeyup='checkParams()'/>
+                                                    </div>
+                                                    <div class="inn-group__input">
+                                                        <p class="form__contact"><label for="kpp_org">КПП</label></p>
+                                                        <input type = "text" id="kpp_org" name="kpp_org" placeholder="8472876345" onkeyup='checkParams()'/>
+                                                    </div>
+                                                    <div class="inn-group__input">
+                                                        <p class="form__contact"><label for="ur_org">Юридическое название</label></p>
+                                                        <input type = "text" id="ur_org" name="ur_org" placeholder="ООО 'Стоммарект'" onkeyup='checkParams()'/>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="button">
+                                                    <div class="form__group">
+                                                        <div class="form__slider"><img src="img/icon_slider.svg" alt="icon_slider"></div>
+                                                        <p class="form__alarm">Вы сможете отредактировать данную информацию позднее в своём личном кабинете</p>
+                                                    </div>
+                                                    <div class="form__button">
+                                                            <button type="button" class="btn btn-previous button__away">Назад</button>
+                                                            <button type="button" class="btn btn-next button__further">Далее</button>
+                                                    </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="registration-page">
+                                        <div class="form-top">
+                                            <div class="main-right__content">
+                                                <h3 class="main-right__title">Местоположение</h3>
+                                                <p class="main-right__page">Шаг 3/3</p>
+                                            </div>
+                                        </div>
+                                        <div class="form-bottom">
+                                            <div class="main-right__form">
+                                                    <p class="form__contact"><label for="address">Юридический адрес</label></p>
+                                                    <input type = "text" class="form__valid" id="address" name="address_ur" placeholder="Москва" onkeyup='checkParams()'/>
+                                                    <span class="input-error__message">Вы не заполнили обязательное поле</span>
+                                                    
+                                                    <p class="form__contact"><label for="address_fact">Фактический адрес</label></p>
+                                                    <input type = "text" id="address_fact" name="address_fact" placeholder="Санкт-Петербург" onkeyup='checkParams()'/>
+                                                    <span class="input-error__message">Вы не заполнили обязательное поле</span>
+                                            </div>
+
+                                            <div class="button">
+                                                    <div class="form__group">
+                                                        <div class="form__slider"><img src="img/icon_slider.svg" alt="icon_slider"></div>
+                                                        <p class="form__alarm">Вы сможете отредактировать данную информацию позднее в своём личном кабинете</p>
+                                                    </div>
+                                                    <div class="form__button">
+                                                            <button type="button" class="btn btn-previous button__away">Назад</button>
+                                                            <button type="submit" class="btn button__registr">Регистрация</button>
+                                                    </div>
+                                                </div>
+                                        </div>
+                                    </div>
+                        
+                                </div>
+                    </div>
+
+                        <div id="People" class="city" style="display:none">
+
+                    <div class="registration-form">
+                
+                        <div class="registration-page">
+                            <div class="form-top">
+                                 <div class="main-right__content main-right__content--personal">
+                                    <h3 class="main-right__title">Личные данные</h3>
+                                    <p class="main-right__page">Шаг 1/2</p>
+                                </div>
+                            </div>
+                            <div class="form-bottom">
+                                    <div class="tabs">
+                                            <button class="tabs__item tabs__item--ed" onclick="openTab('Ed')"><a href="#login" id="login-tab" name="login-tab"><span id="login_icon"></span>Обучающий центр</a></button>
+                                            <button class="tabs__item tabs__item--people active" onclick="openTab('People')"><a href="#register" id="register-tab" name="register-tab"><span id="signup_icon"></span>Слушатель</a></button>
+                                    </div>
+                                <p class="form__contact"><label for="address_fact">Телефон</label></p>
+                                    <input type = "text" id="phone_people" name="phone_people" placeholder="+7 (911) 725-35-11" onkeyup='checkParams()'/>
+                                    <span class="input-error__message">Вы не заполнили обязательное поле</span>
+                                        <div class="login__help">Войти с помощью: <a href="#">Стоммарект</a></div>
+                                        <div class="button">
+                                            <div class="form__group">
+                                                <div class="form__slider"><img src="img/icon_slider.svg" alt="icon_slider"></div>
+                                                <p class="form__alarm">Вы сможете отредактировать данную информацию позднее в своём личном кабинете</p>
+                                            </div>
+                                            <div class="form__button form__button--away">
+                                                    <button type="button" class="btn btn-next button__further">Далее</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                        
+                        
+                        <div class="registration-page">
+                            <div class="form-top">
+                                    <div class="main-right__content main-right__content--photo">
+                                        <h3 class="main-right__title">Основная информация</h3>
+                                        <p class="main-right__page">Шаг 2/2</p>
+                                    </div>
+                            </div>
+                            <div class="form-bottom">
+                                <div class="main-right__form">
+
+                                        <div class="form__photo">
+                                            <div class="form__img">
+                                                <label class="label">
+                                                    <span class="title">Добавить файл</span>
+                                                    <input type="file">
+                                                </label>
+                                            </div>
+                                            <div class="form__desc">
+                                                <p class="form__text">Вы можете загрузить фото в формате .jpg, .png</p>
+                                                <p class="form__text">Допустимый объём файла 5 мб</p>
+                                            </div>
+                                        </div>
+                
+                                        <p class="form__contact"><label for="fio">ФИО</label></p>
+                                        <input type = "text" id="fio" name="fio" placeholder="Иванов Иван Иванович" onkeyup='checkParams()'/>
+                                        <span class="input-error__message">Вы не заполнили обязательное поле</span>
+                                        
+                                        <p class="form__contact"><label for="position">Должность</label></p>
+                                        <input type = "text" id="position" name="position" placeholder="Стоматолог" onkeyup='checkParams()'/>
+                                        <span class="input-error__message">Вы не заполнили обязательное поле</span>
+
+                                        <p class="form__contact"><label for="address_work">Город</label></p>
+                                        <input type = "text" id="address_work" name="address_work" placeholder="Санкт-Петербург" onkeyup='checkParams()'/>
+                                        <span class="input-error__message">Вы не заполнили обязательное поле</span>
+                                </div>
+
+                                <div class="button">
+                                    <div class="form__group">
+                                        <div class="form__slider"><img src="img/icon_slider.svg" alt="icon_slider"></div>
+                                        <p class="form__alarm">Вы сможете отредактировать данную информацию позднее в своём личном кабинете</p>
+                                    </div>
+                                    <div class="form__button">
+                                            <button type="button" class="btn btn-previous button__away">Назад</button>
+                                            <button type="submit" class="button__registr">Регистрация</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+            
+                    </div>
+
+                </div>
+                        
+                        
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <footer class="main-footer">
+
+
+        <div class="main-footer__content">
+        <div class="main-footer__left left">
+            <div class="main-footer__top">
+                <div class="main-footer__menu">
+                    <ul class="main-footer__list">
+                        <li class="main-footer__item"><a href="#">Обучающие центры</a></li>
+                        <li class="main-footer__item"><a href="#">О проекте</a></li>
+                        <li class="main-footer__item"><a href="#">Реклама</a></li>
+                        <li class="main-footer__item"><a href="#">Контакты  </a></li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <div class="main-footer__bottom">
+                <div class="main-footer__copy">© стомпортал 2019 / все права защищены</div>
+                <div class="main-footer__link"><a href="#">Политика конфиденциальности</a></div>
+            </div>
+
+        </div>
+
+
+        <div class="main-footer__right right">
+            <div class="main-footer__social">
+                <div class="main-footer__inst"><img src="img/inst_icon.svg" alt="inst_icon"></div>
+                <div class="main-footer__vk"><img src="img/vk_icon.svg" alt="vk_icon"></div>
+            </div>
+            <div class="main-footer__phone">
+                <div class="main-footer__call"><a href="tel:+78124261939">8 812 426-19-39</a></div>
+                <div class="main-footer__mail"><a href="mailto:stomportal@gmail.com">stomportal@gmail.com</a></div>
+            </div>
+        </div>
+
+        </div>
+
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <script src="js/maskedinput.js"></script>
+    <script src="js/validate.js"></script>
+    <script src="js/main.js"></script>
+
+</body>
+
+</html>

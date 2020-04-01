@@ -1,0 +1,460 @@
+{% extends 'base.center.twig' %}
+
+{% block title %}Редактировать сайт {% endblock %}
+
+
+{% block body %}
+
+<main class="main-center">
+
+{# <div class="main-center__mobile">
+                <div class="main-center__mobile">
+                        <div class="main-center__content">
+
+                        {{ include('center/sidebar/_m.sidebar.twig') }}
+
+                            <div class="main-center__right">
+
+                            </div>
+                </div>
+
+        </div>
+        </div> #}
+
+        <div class="main-center__desktop main-center__desktop--site">
+
+        {{ include('center/sidebar/_sidebar.twig') }}
+
+            <div class="main-center__right">
+            <div class="container">
+                <div class="web__area">
+                    <div class="web__left">
+
+                    {# form #}
+
+                    <form action="/catch/catch_site_edit" method="post" enctype="multipart/form-data" id="edit_site_form">
+
+                        <div class="web--center__content">
+                        <h1 class="web__title">Сайт</h1>
+                        <div class="web__name">
+                            <label for="web-name">Имя сайта</label>
+                            <div class="web__name-input">
+                                <input name="site_url" required style="display:none" id="web-name" type="text" value="{{site_data.site_url}}" placeholder="example">
+                                <span class="web__medical">{{site_data.site_url}}.stomup.ru</span>
+                            </div>
+                        </div>
+
+                        <div class="web__create-header">
+                                <div class="web__create-logo">
+                                        <label class="label" style="background-image:url('{{site_data.site_main_logo}}');">
+                                            <input type="file" name="site_main_logo" id="create-logo">
+                                            <img id="about-sitelogo" src="/img/11.png" alt="image">
+                                        </label>
+                                </div>
+
+                                <div class="web__create-info">
+                                    <div class="web__create-phone">
+                                        <input type="text" required name="site_phone" id="create-phone" value="{{site_data.site_phone}}" placeholder="+7 (9__) ___-__-__">
+                                    </div>
+                                    <div class="web__create-mail">
+                                            <input type="text" required name="site_email" id="create-mail" value="{{site_data.site_email}}" placeholder="example@gmail.com">
+                                    </div>
+                                </div>
+
+                        </div>
+
+                        <div class="web__create-content">
+                            <div class="web__create-menu">
+
+                                <h3 class="web__create-menu__title">Меню</h3>
+                                    <ul class="web__create-menu__list">
+                                        <li class="web__create-menu__item">Главная</li>
+                                        <li class="web__create-menu__item">О нас</li>
+                                        <li class="web__create-menu__item">Лекторы</li>
+                                        <li class="web__create-menu__item">Отзывы</li>
+                                        <li class="web__create-menu__item">Мероприятия</li>
+                                        <li class="web__create-menu__item">Календарь</li>
+                                    </ul>
+
+                            </div>
+                            <div class="web__create-main">
+
+                                <div class="web__create-banner">
+                                        <div class="web__create-banner-input">
+                                                <img id="move_to_banners" src = "/img/banner_add.png" alt = "banner_add">
+                                        </div>
+                                </div>
+
+                                <!-- Add events -->
+                                <div class="web__create__events">
+                                    <h3 class="web__create__events-title">Ближайшие мероприятия</h3>
+
+                                    <div class="web__create__events-main">
+
+                                            <div class="web__calendar">
+                                            {# <img src="/img/web_calendar.png" alt="web_calendar"> #}
+                                            {# календарь #}
+                                           <p id="date_calendar"></p>
+                                           <input type="hidden" id="events_data" value="{{my_events | json_encode()}}">
+                                           {# календарь #}
+                                            </div>
+
+
+                                            {% if my_events|length > 0 %}
+                                            {% set event = my_events[0] %}
+                                                {% set dateStart = event.event_start_time|date('d.m.Y') %}
+                                                {% set dateEnd = event.event_end_time|date('d.m.Y') %}
+                                                {% set timeStart = event.event_start_time|date('H:i') %}
+                                                {% set timeEnd = event.event_end_time|date('H:i') %}
+                                              {# блок эвентов #}
+                                              <div class="web__block_events">
+                                                  <div class="lectures-group__block block">
+                                                  <a class="ahref__noslyle" href="/cabinet/events/{{ event.id }}">
+                                                          <div class="block__top" style="background-image:url({{ event.event_main_img }});">
+                                                              <div class="block__when">
+                                                              <div class="block__data">
+                                                              {% if dateStart == dateEnd %}
+                                                                {{ dateStart }}
+                                                              {% else %}
+                                                                {{dateStart}}-{{dateEnd}}
+                                                              {% endif %}
+                                                              </div>
+                                                              <div class="block__time">{{timeStart}} - {{timeEnd}}</div>
+                                                              </div>
+                                                              <div class="block__address">{{event.event_city}}, {{event.event_address}}</div>
+                                                          </div>
+                                                          </a>
+                                                          <div class="block__bottom">
+                                                          <a class="ahref__noslyle" href="/cabinet/events/{{ event.id }}">
+                                                              <div class="block__high">
+                                                                  <div class="block__topic block__topic--card"><span class="block__dot block__dot--paradont" style="background:{{event.color}}"></span>{{ event.way_name }}</div>
+                                                                  <div class="block__type">{{event.type_name}}</div>
+                                                              </div>
+                                                              <div class="block__center">
+                                                               <div class="block__title">{{event.event_name|str30()|beautifultext()}}
+                                                                    <span class="block__tooltip">{{event.event_name}}</span>
+                                                                </div>
+                                                                  <div class="block__price">
+                                                                  {% if event.is_free == 1 %}
+                                                                    {{ event.price }} ₽
+                                                                  {% else %}
+                                                                  Бесплатно
+                                                                  {% endif %}
+                                                                  </div>
+                                                              </div>
+                                                              </a>
+                                                              <div class="block__about">
+                                                                  <div class="block__doctor">
+                                                                      <div class="block__photo"><img src="{{event.photo}}" alt="block__photo"></div>
+                                                                      <div class="block__fio">
+                                                                          <div class="block__name">{{event.full_name|short_name()}}</div>
+                                                                          <div class="block__work">{{event.worker_position|onlyone}}</div>
+                                                                      </div>
+                                                                  </div>
+                                                                  <div class="block__add">
+                                                                  {% if event.rule_point > 0 %}
+                                                                      <div class="block__star">{{event.rule_point}}</div>
+                                                                  {% endif %}
+                                                                  {% if event.rule_sertificate is not null %}
+                                                                      <div class="block__sert">Сертификат</div>
+                                                                  {% endif %}
+                                                                      <div class="block__more">еще</div>
+                                                                  </div>
+                                                              </div>
+                                                          </div>
+
+                                                      </div>
+                                                      </div>
+                                                      {# конец блока эвентов #}
+                                                    {% endif %}
+                                    <div class="web__events-new">
+                                    <!-- Add new events -->
+
+                                                <div class="web__events-add">
+
+                                                    <a href="#add-events" class="popup-modal"><div class="wev__events-new"><img src="/img/web_add_event.png" alt=""></div></a>
+
+                                                </div>
+
+                                        <!-- End add new events -->
+                                    </div>
+                                    </div>
+                                </div>
+                                <!-- End add events -->
+
+                                 <!-- Add lectures -->
+
+                                <div class="web__create__lectures">
+                                    <h3 class="web__create__lectures-title">Наши лекторы</h3>
+
+                                    <div class="web__create__lectures-main">
+
+                                    {% for lector in lectors_list %}
+
+                                    <div class="web__create__lectures-block">
+                                        <div class="web__create__lectures-img"><img src="{{lector.photo}}" alt=""></div>
+                                        <p class="web__create__lectures-fio">{{lector.full_name|short_name()}}</p>
+                                        <p class="web__create__lectures-work">{{lector.worker_position}}</p>
+
+                                        <p class="web__create__lectures-number">{{lector.events|length}} лекций</p>
+                                    </div>
+
+                                    {% endfor %}
+
+
+
+                                            <div class="web__create__lectures-block web__create__lectures-block-modal">
+                                            {# добавление лектора #}
+                                                    <a href="#add-modal" class="popup-modal"><img src="/img/web_new_doctor.png" alt=""></a>
+
+                                            </div>
+
+
+                                    </div>
+
+
+                                </div>
+
+                                <!-- End add lectures -->
+
+                                  <!-- Add reviews -->
+
+                                  <div class="web__create__reviews">
+
+                                        <h3 class="web__create__reviews-title">Отзывы о нас</h3>
+
+                                        <div class="web__create__reviews-main">
+
+                                        {% if site_last_review|length > 0 %}
+
+                                        <div class="web__create__reviews-block">
+                                                <div class="web__create__reviews-fio">
+                                                    <p class="web__create__reviews-name">{{site_last_review[0].reviewer_name}}</p>
+                                                    <p class="web__create__reviews-work">{{site_last_review[0].reviewer_worker_position}}</p>
+                                                </div>
+                                                <div class="web__create__reviews-text"><p>{{site_last_review[0].reviewer_text|str225}}</p></div>
+                                                <div class = "reviews_buttons">
+                                                <a href="#add-reviews{{site_last_review[0].id}}" class="popup-modal web__create__reviews-link">Весь отзыв</a>
+                                                  <div id="add-reviews{{site_last_review[0].id}}" class="form-reviews form-web white-popup-block mfp-hide">
+                                                  <p><a class="popup-modal-dismiss" href="#"><img src = "/img/rev_close.png"></a></p>
+                                                      <div class = "popup-reviews">
+                                                          <div class = "popup-reviews__top">
+                                                              <p class = "popup-reviews__name">{{site_last_review[0].reviewer_name}}</p>
+                                                              <p class = "popup-reviews__work">{{site_last_review[0].reviewer_worker_position}}</p>
+                                                          </div>
+                                                           <div class = "popup-reviews__bottom">
+                                                            {{site_last_review[0].reviewer_text}}
+                                                          </div>
+                                                      </div>
+                                                  </div>
+                                                  </div>
+                                        </div>
+
+                                          {% endif %}
+
+                                                <div class="web__create__reviews-block web__create__reviews-block--modal">
+                                                        <a href="#modal_new_review" class="popup-modal"></a>
+                                                        {# Модалька создания нового отзыва - стоит убрать ее отсюда #}
+                                                        {{ include('popups/new_review.popup.twig') }}
+                                                        {# Модалька создания нового отзыва - стоит убрать ее отсюда #}
+
+
+                                                </div>
+
+                                        </div>
+
+
+                                  </div>
+
+                                <!-- End add reviews -->
+
+                                <!-- Add address -->
+
+                                <div class="web__create__address">
+
+                                        <h3 class="web__create__address-title">Наши контакты</h3>
+
+                                        <div class="web__create__address-main">
+
+                                        {# карта #}
+
+                                        <div id="map" style="width:100%; height:370px"></div>
+                                        {% include 'map.twig' with { 'map_id': 'map', 'cord':site_data.site_map } %}
+
+                                        {# конецКарты #}
+
+                                            <div class="web__create__address-block">
+                                                    <h3 class="web__create__address-block-title"><input name="site_name" type="text" value="{{site_data.site_info_name}}" placeholder="Обучающий центр"></h3>
+                                                     <div class="web__create__address-block-time">
+                                                        <div class="web__create__address-block-metro">
+                                                            <input name="site_station" required type="text" value="{{site_data.site_info_station}}" placeholder="м. Владимирская">
+                                                        </div>
+                                                        <div class="web__create__address-block-hours">
+                                                            <input id="site_worktime_from" required name="site_worktime_from" type="text" value="{{work_time[0]}}" placeholder="{{work_time[0]}}"> - <input id="site_worktime_to" required name="site_worktime_to" type="text" value="{{work_time[1]}}" placeholder="{{work_time[1]}}"></div>
+                                                    </div>
+
+                                                    <div class="web__create__address-block-place">
+                                                        <div class="web__create__address-block-city"><input name="site_city" required value="{{site_data.site_info_city}}" type="text" placeholder="Санкт-Петербург,"></div>
+                                                        <div class="web__create__address-block-address"><input name="site_addr" required value="{{site_data.site_info_street}}" type="text" placeholder="ул. Владимирский пр., 10"></div>
+                                                    </div>
+
+                                                    <div class="web__create__address-block-info">
+                                                        <div class="web__create__address-block-phone">{{site_data.site_phone}}</div>
+                                                        <div class="web__create__address-block-mail">{{site_data.site_email}}</div>
+                                                    </div>
+                                            </div>
+
+
+
+
+
+
+                                            {# <div class="web__create__address-pin">
+
+                                                <img src="/img/web_fb_pin.svg" alt="web_fb_pin">
+
+                                            </div> #}
+
+                                        </div>
+
+                                </div>
+                                 <!-- End add address -->
+
+                                 <!-- Add About center -->
+
+                                 <div class="web__create__about">
+                                        <h3 class="web__create__about-title">О нашем центре</h3>
+
+                                        <div class="web__create__about-main">
+
+                                            <div class="web__create__about-content">
+                                                <div class="web__create__about-text">
+                                                    <textarea name="about_textarea" required value="{{site_data.site_info_about}}" id="reviews-texrarea" cols="30" rows="10" placeholder="Введите описание">{{site_data.site_info_about}}</textarea>
+                                                </div>
+                                                <div class="web__create__about-img">
+                                                        <label class="label" style="background-image:url({{site_data.site_info_logo}});">
+                                                            <input type="file" name="about-photo" id="create-about">
+                                                            {# <img id="about-banner" src="#" alt="image"> #}
+                                                        </label>
+                                                </div>
+                                            </div>
+
+                                            {# <div class="web__create__about-content">
+                                                <button class="web__create__about-button">Сохранить</button>
+                                            </div> #}
+                                        </div>
+                                </div>
+                                <!-- End About center -->
+                                </div>
+                            </div>
+
+                       <div class="web__create-footer">
+
+                            <div class="web__create-footer-about">
+
+                                <div class="web__create-footer-title">
+                                    <label for="web_title">Title</label>
+                                    <input value="{{site_data.site_meta_title}}" required name="site_seo_title" type="text" id="web_title" placeholder="Сайт медицинского лекционного центра MedEducation - лекции, мастерклассы, конференции">
+                                </div>
+                                <div class="web__create-footer-description">
+                                    <label for="web_description">Description</label>
+                                    <textarea value="{{site_data.site_meta_description}}" name="site_seo_description" id="web_description" placeholder="Добро пожаловать на сайт медицинского лекционного центра MedEducation - здесь вы можете записаться на практические курсы, семинары и мастерклассы">{{site_data.site_meta_description}}</textarea>
+                                </div>
+
+                                <div class="web__create-footer-metrika">
+                                    <div class="web__create-footer-yandex">
+                                        <label for="web_metrika">Яндекс.Метрика</label>
+                                        <textarea value="{{site_data.site_analitics_ya}}" name="site_seo_ya" id="metrika-yandex">{{site_data.site_analitics_ya}}</textarea>
+                                    </div>
+                                    <div class="web__create-footer-google">
+                                        <label for="web_metrika">Google Analytics</label>
+                                        <textarea value="{{site_data.site_analitics_ga}}" name="site_seo_ga" id="metrika-google">{{site_data.site_analitics_ga}}</textarea>
+                                    </div>
+                                </div>
+
+                            </div>
+
+
+                    </div>
+
+                    <div class="web__buttons">
+                        <button class="web__buttons-preview">Предпросмотр</button>
+                        <button type="submit" class="web__buttons-save">Сохранить</button>
+                    </div>
+
+                    </div>
+                    </form>
+
+                    {# formEnd #}
+
+            </div>
+
+            <div class="web-right">
+                <div class="web-right__one">
+                    <p class="web-number">1</p>
+                </div>
+                <div class="web-right__two">
+                    <p class="web-number web-number--two">2</p>
+                </div>
+                <div class="web-right__three">
+                    <p class="web-number web-number--three">3</p>
+                </div>
+                <div class="web-right__four">
+                    <p class="web-number web-number--four">4</p>
+                </div>
+                <div class="web-right__five">
+                    <p class="web-number">5</p>
+                </div>
+                <div class="web-right__six">
+                    <p class="web-number">6</p>
+                </div>
+                <div class="web-right__seven">
+                    <p class="web-number">7</p>
+                </div>
+                <div class="web-right__eight">
+                    <p class="web-number">8</p>
+                </div>
+                <div class="web-right__nine">
+                    <p class="web-number">9</p>
+                </div>
+            </div>
+
+        </div>
+        </div>
+
+    </div>
+
+    </div>
+
+</main>
+
+{% endblock %}
+
+
+{% block javascripts %}
+
+<script src="/js/cabinet-min.js"></script>
+<script src="/js/validate-min.js" charset="utf-8"></script>
+<script src="/js/cabinet_events_filter-min.js" charset="utf-8"></script>
+{# INPUT_RANGE #}
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="/js/events-min.js" charset="utf-8"></script>
+<script src="/js/input_range-min.js" charset="utf-8"></script>
+{# popups #}
+<script src="/js/magnific-min.js" charset="utf-8"></script>
+<script src="/js/steps-min.js" charset="utf-8"></script>
+<script src="/js/sendservice-min.js" charset="utf-8"></script>
+<script src="/js/popups-min.js" charset="utf-8"></script>
+
+ <script src="/js/lectors-min.js" charset="utf-8"></script>
+
+ {# site #}
+ <script src="/js/web_load.js" charset="utf-8"></script>
+ <script src="/js/web_load-min.js" charset="utf-8"></script>
+
+ {# календарь #}
+ <script src="/js/calendar_logic-min.js" charset="utf-8"></script>
+ <script src="/js/calendar-min.js" charset="utf-8"></script>
+
+{% endblock %}

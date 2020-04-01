@@ -1,0 +1,78 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Комментарии {% endblock %}
+
+
+{% block body %}
+
+<main class="main-center">
+
+
+                  <div class="main-center__desktop">
+                    {{ include('center/sidebar/_sidebar.twig') }}
+
+                        <div class="main-center__content">
+
+                            <div class="main-center__right">
+                            <div class="container">
+
+
+<div class="main-reviews">
+    <div class="main-reviews__top">
+        <h1 class="main-reviews__title">Отзывы о нас</h1>
+        <a href="#modal_new_review" class="popup-modal"><button class="main-reviews__button">Оставить отзыв</button></a>
+
+            {{ include('popups/new_review.popup.twig') }}
+
+    </div>
+
+    <div class="main-reviews__bottom">
+        <div class="main-reviews__all">
+
+        {# блок рендера отзыва #}
+        {% for review in review_data %}
+
+            <div class="web__create__reviews-block">
+                    <div class="web__create__reviews-fio">
+                        <p class="web__create__reviews-name">{{review.reviewer_name}}</p>
+                        <p class="web__create__reviews-work">{{review.reviewer_worker_position}}</p>
+                    </div>
+                    <div class="web__create__reviews-text">{{review.reviewer_text|str225}}</div>
+                    <div class = "reviews_buttons">
+                    <a href="#add-reviews{{review.id}}" class="popup-modal web__create__reviews-link">Весь отзыв</a>
+                      <div id="add-reviews{{review.id}}" class="form-reviews form-web white-popup-block mfp-hide">
+                      <p><a class="popup-modal-dismiss" href="#"><img src = "/img/rev_close.png"></a></p>
+                          <div class = "popup-reviews">
+                              <div class = "popup-reviews__top">
+                                  <p class = "popup-reviews__name">{{review.reviewer_name}}</p>
+                                  <p class = "popup-reviews__work">{{review.reviewer_worker_position}}</p>
+                              </div>
+                               <div class = "popup-reviews__bottom">
+                                {{review.reviewer_text}}
+                              </div>
+                          </div>
+                      </div>
+                      <input type="hidden" class="this_comment_id" value="{{review.id}}">
+                      <button class="reviews__delete">Удалить</button>
+                      </div>
+            </div>
+                    {% endfor %}
+            {# блок рендера отзыва #}
+
+
+
+        </div>
+    </div>
+</div>
+
+                            </div>
+
+                            </div>
+
+                </div>
+</div>
+
+</main>
+
+
+{% endblock %}

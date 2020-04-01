@@ -1,0 +1,1 @@
+$(function(){$(".main-select__button").click(function(){return $(".main-select-bottom").slideToggle(300,function(){$(this).is(":hidden")?$(".main-select__button").html("Показать все фильтры"):$(".main-select__button").html("Скрыть фильтры")}),!1})}),$(function(){$(".block__events").click(function(t){return t.preventDefault(),$(this).toggleClass("active"),!1})});

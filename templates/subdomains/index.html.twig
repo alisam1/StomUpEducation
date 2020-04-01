@@ -1,0 +1,950 @@
+{% extends 'subdomain.base.twig' %}
+
+{% block title %}{{site_data.site_meta_title}}{% endblock %}
+{% block description %}{{site_data.site_meta_description}}{% endblock %}
+
+{% block body %}
+<main class="template-center">
+
+            <header class="template-header">
+
+
+                    <div class="template-header__main">
+                    <div class="template-center-header-back">
+                    <div class="container-subdomain">
+                      <div class = "template-header__block-hidden">
+                        <div class="template-header__left">
+                            <div class="template-header__title"><a href="https://stomup.ru/"><img src="/img/back_site.svg" alt=""></a></div>
+                        </div>
+                        </div>
+                    </div>
+                    </div>
+                    </div>
+                      <div class="template-center-header">
+                      <div class="template-center-header-back">
+                      <div class="template-center-mobile">
+                          <div class="main-header__mobile">
+
+            <div class = "main-header__mobile-info">
+           <div class = "main-header__mobile-menu">
+               <div class = "mobile-menu">
+                   <nav role="navigation">
+                    <div id="menuToggle">
+                    <input type="checkbox" />
+                         <span></span>
+                         <span></span>
+                         <p class="menu">Меню</p>
+                    <ul id="menu" class="main-mobile-menu">
+                        <li class="template-center-item template-center-item--main"><a href="#2">Главная</a></li>
+                        <li class="template-center-item template-center-item--event"><a href="#3">Мероприятия</a></li>
+                        <li class="template-center-item template-center-item--lecture"><a href="#4">Лекторы</a></li>
+                        <li class="template-center-item template-center-item--reviews"><a href="#5">Отзывы</a></li>
+                        <li class="template-center-item template-center-item--contacts"><a href="#6">Контакты</a></li>
+                        <li class="template-center-item template-center-item--about"><a href="#7">О центре</a></li>
+                    </ul>
+                </div>
+          </nav>
+                </div>
+               </div>
+
+           <div class = "main-header__mobile-logo">
+               <a href="/"><img src="{{site_data.site_main_logo}}" alt=""></a>
+           </div>
+           </div>
+
+            <div class = "main-header__mobile-info">
+
+              <div class="main-header__search main-header__search--mobile">
+               <button class="search-mobile" id="open"><img src="/img/search_mobile_1.svg" alt="Search_mobile"></button>
+                <div id="form">
+                <form action="#" method="post">
+                    <input type="text" value="" placeholder="Введите фамилию, или направление" />
+                </form>
+                </div>
+               </div>
+               <div class="main-header__login--mobile">
+               <a href="/"><img src="/img/mobile_login.svg" alt="Mobile_login"></a>
+               </div>
+
+           </div>
+           </div>
+                      </div>
+                      <div class="template-center-desktop">
+                        <div class="container-subdomain">
+                        <div class="template-center-content">
+                        <div class="template-center-header__left">
+                            <div class="template-center-header__logo"><a href="/"><img src="{{site_data.site_main_logo}}" alt=""></a></div>
+                            <div class="template-center-header__menu">
+                                <nav>
+                                   <ul class="nav-site">
+                                      <li><a href="#2">Главная</a>
+                                      <li><a href="#3">Мероприятия</a>
+                                      <li><a href="#4">Лекторы</a>
+                                      <li><a href="#5">Отзывы</a>
+                                      <li><a href="#6">Контакты</a>
+                                      <li><a href="#7">О центре</a>
+                                  </ul>
+                                </nav>
+
+                            </div>
+                        </div>
+                        <div class="template-center-header__right">
+                            <div class="main-header__search main-header__search--mobile">
+                                <div id="form_desktop">
+                                  <form action="#" method="post">
+                                    <input type="text" value="" placeholder="Введите фамилию, или направление" />
+                                  </form>
+                              </div>
+                              </div>
+                             <div class="main-header__login--mobile">
+                              <a href="/"><img src="/img/mobile_login.svg" alt="Mobile_login"></a>
+                              </div>
+                        </div>
+                        </div>
+                        </div>
+                      </div>
+                  </div>
+        </div>
+
+                </header>
+
+ <div class="template-center-main">
+        <div class="main__left main__left-main">
+          <div class="main-center-sidebar">
+                <div class="main-center-sidebar main-center-sidebar--subdomain">
+
+          <div class="main-center-sidebar__laptop main-center-sidebar__laptop-sub">
+          <a class="trigger" href="#"><img src="/img/menu_icon_1.svg"></a>
+          <div class="main-center-sidebar__item">
+                       <a href="/">
+                        <img src="/img/sidebar_icon_13.svg">
+                       </a>
+                    </div>
+                     <div class="main-center-sidebar__item">
+                     <a href="#3">
+                        <img src="/img/sidebar_icon_5.svg">
+                       </a>
+                    </div>
+                     <div class="main-center-sidebar__item">
+                    <a href="#4">
+                        <img src="/img/sidebar_icon_4.svg">
+                       </a>
+                    </div>
+                     <div class="main-center-sidebar__item">
+                      <a href="#5">
+                        <img src="/img/sidebar_icon_10.svg">
+                       </a>
+                    </div>
+                     <div class="main-center-sidebar__item">
+                    <a href="#6">
+                        <img src="/img/sidebar_icon_11.svg">
+                       </a>
+                    </div>
+                    <div class="main-center-sidebar__item">
+                      <a href="#7">
+                        <img src="/img/sidebar_icon_12.svg">
+                       </a>
+                    </div>
+
+              <div class="panel">
+               <ul class="nav-site">
+                      <li><a href="#1">Меню</a>
+                      <li><a href="#2">Главная</a>
+                      <li><a href="#3">Мероприятия</a>
+                      <li><a href="#4">Лекторы</a>
+                      <li><a href="#5">Отзывы</a>
+                      <li><a href="#6">Контакты</a>
+                      <li><a href="#7">О центре</a>
+                  </ul>
+              </div>
+                </div>
+
+
+                <div class = "main-center-sidebar__desktop">
+                <div class="template-center-menu">
+                 <p class="template-center-item template-center-item--menu">Меню</p>
+                    <ul class="template-center-list">
+                        <li class="template-center-item template-center-item--main"><a href="/">Главная</a></li>
+                        <li class="template-center-item template-center-item--event"><a href="#3">Мероприятия</a></li>
+                        <li class="template-center-item template-center-item--lecture"><a href="#4">Лекторы</a></li>
+                        <li class="template-center-item template-center-item--reviews"><a href="#5">Отзывы</a></li>
+                        <li class="template-center-item template-center-item--contacts"><a href="#6">Контакты</a></li>
+                        <li class="template-center-item template-center-item--about"><a href="#7">О центре</a></li>
+                    </ul>
+                </div>
+                </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="main__right template-center-about">
+              <div class="container-subdomain_main">
+            {% if site_banners|length > 0 %}
+            <div id = "2" class="main-banner__img main-banner__big main-banner__big--template">
+            {# тут баннеры #}
+               <div class="template-center-info template-center-info--sub">
+                 <div class = "template-center-banner__all template-center-banner__all--sub single-item">
+
+
+                        {# баннер #}
+                        {# баннер #}
+                      {% for banner in site_banners %}
+                      {% if banner.text_h is not null %}
+          <div>
+              <div class="template-center-banner" style="background-image:url({{banner.img}})">
+                  <div class="template-center-banner__content">
+                  <h3 class="template-center-name">{{banner.text_h}}</h3>
+                  <p class="template-center-desc">{{banner.description}}</p>
+                  {% if banner.btn_text != '' %}
+                  <a href="{{banner.link}}">
+                  <button class="template-center-button">{{banner.btn_text}}</button>
+                  </a>
+                {% endif %}
+                  </div>
+              </div>
+          </div>
+        {% endif %}
+
+          {% endfor %}
+
+                  </div>
+           </div>
+             {# тут баннеры #}
+
+            </div>
+             {% endif %}
+
+                <div class="template-center-events">
+                        <div class="events__type">
+
+                        {% for event_way in all_event_way %}
+                        <div class="block__events" data-way_id="{{event_way.id}}"><span class="block__dot" style="background-color:{{event_way.color}}"></span>{{event_way.way_name}}</div>
+                        {% endfor %}
+
+                        </div>
+
+
+
+                        <div class="events__main">
+                            <div class="events__left">
+                                <div class="events__choise">
+                                    <div class="events__calendar">
+
+                                    {# календарь #}
+                                   <p id="date_calendar"></p>
+                                   <input type="hidden" id="events_data" value="{{my_events | json_encode()}}">
+                                   <input type="hidden" id="events_filter_date" value="">
+                                   {# календарь #}
+
+                                    </div>
+                                    <div class="events__tablet events__tablet--template">
+                                    <div class="events__event">
+                                        <div class="checkselect">
+                                        {% for event_type in all_event_type %}
+                                            <label><input type="checkbox"  class = "checkselect_event"  name="event_types[]" value="{{event_type.id}}"> {{event_type.type_name}}</label>
+                                        {% endfor %}
+                                        <input type="hidden" name="events_hidden" value="" id="events_hidden_val" />
+                                            </div>
+                                        </div>
+                                        <div class="events__lector">
+                                                <div class="checkselect checkselect_lectors">
+                                                {% for lector in all_lectors %}
+                                                    <label><input type="checkbox" class = "checkselect_lectors" name="lectors[]" value="{{lector.id}}"> {{lector.full_name}}</label>
+                                                {% endfor %}
+                                                <input type="hidden" name="lectors_hidden_cabinet" value="" id="lectors_hidden_val" />
+                                                    </div>
+                                                </div>
+
+                                                <div id = "range" class="events__range">
+                                                <label for="amount">Стоимость</label>
+
+                                                  <div id="slider-range"></div>
+
+                                                  <p class="events__polz">
+                                                        <input type="text" id="min" readonly/>
+                                                        <input type="text" id="max" readonly/>
+                                                    </p>
+                                                </div>
+
+                                        <div class="events__agree">
+                                            <input id = "checkbox__agree" type="checkbox">
+                                            <label for="checkbox__agree">Только бесплатные</label>
+                                        </div>
+
+                                        <div class="events__buttons">
+                                               <button class="events__clear">Очистить</button>
+                                               <button class="events__apply">Применить</button>
+                                        </div>
+                                      </div>
+
+                                </div>
+                            </div>
+                            <div class="events__right events__right-template">
+
+
+                                <div class="events__right-template-calendar">
+                                <h3 class="events__right-template-title">Календарь событий</h3>
+                                {# большой календарь #}
+                                <div id='calendar'></div>
+                                {# большой календарь #}
+                                </div>
+                            </div>
+                </div>
+
+                                    {% if my_events_limit|length > 0 %}
+
+                <div id="3" class="events__popular events__popular--template">
+                        <h3 class="events__popular-title">Ближайшие мероприятия</h3>
+                        <div class="events__popular-slider">
+                                <div class="lectures-group__main responsive">
+
+                                {% for event in my_events_limit %}
+                                {% set dateStart = event.event_start_time|date('d.m.Y') %}
+                                {% set dateEnd = event.event_end_time|date('d.m.Y') %}
+                                {% set timeStart = event.event_start_time|date('H:i') %}
+                                {% set timeEnd = event.event_end_time|date('H:i') %}
+                              {# блок эвентов #}
+                                  <div class="lectures-group__block block">
+                                  <a class="ahref__noslyle" href="https://stomup.ru/events/{{ event.id }}">
+                                          <div class="block__top" style="background-image:url({{ event.event_main_img }});">
+                                              <div class="block__when">
+                                              <div class="block__data">
+                                              {% if dateStart == dateEnd %}
+                                                {{ dateStart }}
+                                              {% else %}
+                                                {{dateStart}}-{{dateEnd}}
+                                              {% endif %}
+                                              </div>
+                                              <div class="block__time">{{timeStart}} - {{timeEnd}}</div>
+                                              </div>
+                                              <div class="block__address">{{event.event_city}}, {{event.event_address}}</div>
+                                          </div>
+                                          </a>
+                                          <div class="block__bottom">
+                                          <a class="ahref__noslyle" href="https://stomup.ru/events/{{ event.id }}">
+                                              <div class="block__high">
+                                                  <div class="block__topic block__topic--card"><span class="block__dot block__dot--paradont" style="background:{{event.color}}"></span>{{ event.way_name }}</div>
+                                                  <div class="block__type">{{event.type_name}}</div>
+                                              </div>
+                                              <div class="block__center">
+                                                  <div class="block__title">{{event.event_name|str30()}}
+                                                  <span class="block__tooltip">{{event.event_name}}</span>
+                                                  </div>
+
+                                                  <div class="block__price">
+                                                  {% if event.is_free == 1 %}
+                                                    {{ event.price }} ₽
+                                                  {% else %}
+                                                  Бесплатно
+                                                  {% endif %}
+                                                  </div>
+                                              </div>
+                                              </a>
+                                              <div class="block__about">
+                                                  <div class="block__doctor">
+                                                      <div class="block__photo"><img src="{{event.photo}}" alt="block__photo"></div>
+                                                      <div class="block__fio">
+                                                          <div class="block__name">{{event.full_name|short_name()}}</div>
+                                                          <div class="block__work">{{event.worker_position|onlyone}}</div>
+                                                      </div>
+                                                  </div>
+                                                  <div class="block__add">
+                                                  {% if event.rule_point > 0 %}
+                                                      <div class="block__star">{{event.rule_point}}</div>
+                                                  {% endif %}
+                                                  {% if event.rule_sertificate is not null %}
+                                                      <div class="block__sert">Сертификат</div>
+                                                  {% endif %}
+                                                      <div class="block__more">еще</div>
+                                                  </div>
+                                              </div>
+                                          </div>
+
+                                      </div>
+                                      {% endfor %}
+                                  {# eventBlock #}
+
+                                        </div>
+                        </div>
+                    </div>
+
+
+                    <div class="events__popular events__popular--template">
+                            <h3 class="events__popular-title events__popular-title--events">Популярные мероприятия</h3>
+                            <div class="events__popular-slider">
+                                    <div class="lectures-group__main responsive">
+
+                                    {% for event in my_events_limit %}
+                                    {% set dateStart = event.event_start_time|date('d.m.Y') %}
+                                    {% set dateEnd = event.event_end_time|date('d.m.Y') %}
+                                    {% set timeStart = event.event_start_time|date('H:i') %}
+                                    {% set timeEnd = event.event_end_time|date('H:i') %}
+                                  {# блок эвентов #}
+                                      <div class="lectures-group__block block">
+                                      <a class="ahref__noslyle" href="https://stomup.ru/cabinet/events/{{ event.id }}">
+                                              <div class="block__top" style="background-image:url({{ event.event_main_img }});">
+                                                  <div class="block__when">
+                                                  <div class="block__data">
+                                                  {% if dateStart == dateEnd %}
+                                                    {{ dateStart }}
+                                                  {% else %}
+                                                    {{dateStart}}-{{dateEnd}}
+                                                  {% endif %}
+                                                  </div>
+                                                  <div class="block__time">{{timeStart}} - {{timeEnd}}</div>
+                                                  </div>
+                                                  <div class="block__address">{{event.event_city}}, {{event.event_address}}</div>
+                                              </div>
+                                              </a>
+                                              <div class="block__bottom">
+                                              <a class="ahref__noslyle" href="https://stomup.ru/cabinet/events/{{ event.id }}">
+                                                  <div class="block__high">
+                                                      <div class="block__topic block__topic--card"><span class="block__dot block__dot--paradont" style="background:{{event.color}}"></span>{{ event.way_name }}</div>
+                                                      <div class="block__type">{{event.type_name}}</div>
+                                                  </div>
+                                                  <div class="block__center">
+                                                      <div class="block__title">{{event.event_name|str30()}}
+                                                       <span class="block__tooltip">{{event.event_name}}</span>
+                                                      </div>
+                                                      <div class="block__price">
+                                                      {% if event.is_free == 1 %}
+                                                        {{ event.price }} ₽
+                                                      {% else %}
+                                                      Бесплатно
+                                                      {% endif %}
+                                                      </div>
+                                                  </div>
+                                                  </a>
+                                                  <div class="block__about">
+                                                      <div class="block__doctor">
+                                                          <div class="block__photo"><img src="{{event.photo}}" alt="block__photo"></div>
+                                                          <div class="block__fio">
+                                                              <div class="block__name">{{event.full_name|short_name()}}</div>
+                                                              <div class="block__work">{{event.worker_position|onlyone}}</div>
+                                                          </div>
+                                                      </div>
+                                                      <div class="block__add">
+                                                      {% if event.rule_point > 0 %}
+                                                          <div class="block__star">{{event.rule_point}}</div>
+                                                      {% endif %}
+                                                      {% if event.rule_sertificate is not null %}
+                                                          <div class="block__sert">Сертификат</div>
+                                                      {% endif %}
+                                                          <div class="block__more">еще</div>
+                                                      </div>
+                                                  </div>
+                                              </div>
+
+                                          </div>
+                                          {% endfor %}
+                                      {# eventBlock #}
+
+
+                                            </div>
+                            </div>
+                        </div>
+
+                        <div class="template-center__button">
+
+                          <button class="template-center-events__button"><a href="/events">все мероприятия</a></button>
+
+                        </div>
+
+                      {% endif %}
+
+
+                        </div>
+
+                        {% if lectors_list|length > 0 %}
+                        </div>
+
+                        <div id="4" class="template-center-lectures">
+                        <div class="container-subdomain_main">
+                            <h3 class="template-center-lectures__title template-center-lectures__title--lecture">Наши лекторы</h3>
+
+                            <div class="template-center-lectures__main">
+
+                            <div class="template-center-lectures__mobile">
+
+                            {% for lector in lectors_list %}
+
+                            <div class="template-center-lectures__mobile__block">
+
+                            <a href="https://stomup.ru/lectors/{{lector.id}}">
+
+                                    <div class="template-center-lectures__mobile__img">
+                                        <img src="{{lector.photo}}" alt="">
+                                    </div>
+                                    <div class="template-center-lectures__mobile__info">
+                                            <div class="template-center-lectures__mobile__name">{{lector.full_name|short_name()}}</div>
+                                            <div class="template-center-lectures__mobile__work">{{lector.worker_position|onlyone}}</div>
+                                            <div class="template-center-lectures__mobile__lect">{{lector.events|length}} лекций</div>
+                                    </div>
+                                    </a>
+                            </div>
+
+                            {% endfor %}
+
+
+
+                            </div>
+
+
+                            <div class="events__popular-slider templates__popular-slider">
+                                    <div class="lectures-group__main template-lectures-slider responsive">
+
+                                    {% for lector in lectors_list %}
+
+                                    <div class="web__create__lectures-block">
+                                    <a href="https://stomup.ru/lectors/{{lector.id}}">
+                                        <div class="web__create__lectures-img"><img src="{{lector.photo}}" alt=""></div>
+                                        <p class="web__create__lectures-fio">{{lector.full_name|short_name()}}</p>
+                                        <p class="web__create__lectures-work">{{lector.worker_position|onlyone}}</p>
+
+                                        <p class="web__create__lectures-number">{{lector.events|length}} лекций</p>
+                                        </a>
+                                    </div>
+
+                                    {% endfor %}
+
+
+
+                            </div>
+                        </div>
+                        </div>
+                         <div class="template-center__button template-center__button--lectors">
+
+                          <button class="template-center-events__button template-center-events__button--lectors"><a href="/lectors">все лекторы</a></button>
+
+                        </div>
+                      </div>
+
+            </div>
+
+          {% endif %}
+
+          <div class="container-subdomain_main">
+            {% if site_reviews|length > 0 %}
+            <div id="5" class="template-center-reviews">
+                    <h3 class="template-center-lectures__title">Отзывы о нас</h3>
+
+                    <div class="template-center-lectures__main">
+
+                            <div class="events__popular-slider template-reviews-slider">
+                                    <div class="lectures-group__main responsive">
+
+
+                                      {% for site_review in site_reviews %}
+
+
+                                      <div class="web__create__reviews-block">
+                                              <div class="web__create__reviews-fio">
+                                                  <p class="web__create__reviews-name">{{site_review.reviewer_name}}</p>
+                                                  <p class="web__create__reviews-work">{{site_review.reviewer_worker_position}}</p>
+                                              </div>
+                                              <div class="web__create__reviews-text">{{site_review.reviewer_text|str225}}</div>
+                                              <div class = "reviews_buttons">
+                                              <a href="#add-reviews{{site_review.id}}" class="popup-modal web__create__reviews-link">Весь отзыв</a>
+                                                <div id="add-reviews{{site_review.id}}" class="form-reviews form-web white-popup-block mfp-hide">
+                                                <p><a class="popup-modal-dismiss" href="#"><img src = "/img/rev_close.png"></a></p>
+                                                    <div class = "popup-reviews">
+                                                        <div class = "popup-reviews__top">
+                                                            <p class = "popup-reviews__name">{{site_review.reviewer_name}}</p>
+                                                            <p class = "popup-reviews__work">{{site_review.reviewer_worker_position}}</p>
+                                                        </div>
+                                                         <div class = "popup-reviews__bottom">
+                                                          {{site_review.reviewer_text}}
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                </div>
+                                      </div>
+
+                                      {% endfor %}
+
+
+                            </div>
+                        </div>
+
+                </div>
+
+    </div>
+    {% endif %}
+
+    <div class="template-center-contacts">
+    <div id="6" class="web__create__address">
+
+            <h3 class="template-center-lectures__title">Наши контакты</h3>
+
+            <div class="web__create__address-main">
+
+            {# карта #}
+
+            <div id="map" style="width:100%; height:370px"></div>
+            {% include 'map.twig' with { 'map_id': 'map', 'cord':site_data.site_map } %}
+
+            {# конецКарты #}
+
+                <div class="web__create__address-block">
+                        <h3 class="web__create__address-block-title">{{site_data.site_info_name}}</h3>
+                        <div class="web__create__address-block-time">
+                            <div class="web__create__address-block-metro">
+                                {{site_data.site_info_station}}
+                            </div>
+                            <div class="web__create__address-block-hours">
+                                {{work_time[0]}} - {{work_time[1]}}</div>
+                        </div>
+
+                        <div class="web__create__address-block-place">
+                            <div class="web__create__address-block-city">{{site_data.site_info_city}}</div>
+                            <div class="web__create__address-block-address">{{site_data.site_info_street}}</div>
+                        </div>
+
+                        <div class="web__create__address-block-info">
+                            <div class="web__create__address-block-phone">{{site_data.site_phone}}</div>
+                            <div class="web__create__address-block-mail">{{site_data.site_email}}</div>
+                        </div>
+                </div>
+
+                {# <div class="web__create__address-pin">
+
+                    <img src="/img/web_fb_pin.svg" alt="web_fb_pin">
+
+                </div> #}
+
+            </div>
+
+    </div>
+
+</div>
+
+<div id="7" class="template-center-center">
+    <div class="template-center-center__left">
+        <h3 class="template-center-center__title">О нашем центре</h3>
+     <div class="template-center-center__mobile">
+        <div class="template-center-center__mobile-main">
+            <p class="template-center-center__desc">{{site_data.site_info_about}}</p>
+            {# <p class="template-center-center__desc">Был на мероприятии для врачей-стоматологов,  в т.ч. амбулаторного звена, для руководителей стоматологических подразделений, студентов старших курсов стоматологических...</p> #}
+            <button class="template-center-center__button">Подробнее</button>
+        </div>
+            <div class="template-center-center__right">
+                <div class="template-center-center__img">
+                    <img src="{{site_data.site_info_logo}}" alt="template-center">
+                </div>
+            </div>
+    </div>
+
+    </div>
+    </div>
+    </div>
+        </div>
+        </div>
+
+          <div class="template-footer">
+          <div class="container-subdomain_main">
+             <div class="template-footer__content">
+                <div class="template-footer__left">
+                    <div class="template-footer__left-menu">
+                        <ul class="template-footer__left-list">
+                            <li class="template-footer__left-item"><a href="/">Главная</a></li>
+                            <li class="template-footer__left-item"><a href="#7">о нас</a></li>
+                            <li class="template-footer__left-item"><a href="#4">лекторы</a></li>
+                            <li class="template-footer__left-item"><a href="#5">отзывы</a></li>
+                            <li class="template-footer__left-item"><a href="#3">мероприятия</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="template-footer__right">
+                    <div class="template-footer__right-phone"><a href="">{{site_data.site_phone}}</a></div>
+                    <div class="template-footer__right-mail"><a href="">{{site_data.site_email}} </a></div>
+                </div>
+          </div>
+        </div>
+
+
+    </main>
+
+
+                <link href='/js/fullcalendar/core/main.css' rel='stylesheet' />
+                <link href='/js/fullcalendar/daygrid/main.css' rel='stylesheet' />
+                <link href='/js/fullcalendar/timegrid/main.css' rel='stylesheet' />
+                <link href='/js/fullcalendar/list/main.css' rel='stylesheet' />
+                <script src='/js/fullcalendar/core/main.js'></script>
+                <script src='/js/fullcalendar/interaction/main.js'></script>
+                <script src='/js/fullcalendar/daygrid/main.js'></script>
+                <script src='/js/fullcalendar/timegrid/main.js'></script>
+                <script src='/js/fullcalendar/list/main.js'></script>
+                <script>
+
+                  document.addEventListener('DOMContentLoaded', function() {
+                    var calendarEl = document.getElementById('calendar');
+
+                    var calendar = new FullCalendar.Calendar(calendarEl, {
+                      locale: 'ru',
+                      firstDay: 1,
+                      plugins: [ 'interaction', 'dayGrid', 'timeGrid', 'list' ],
+                      header: {
+                        // left: 'prev,next today',
+                        left: '',
+                        center: 'today,dayGridMonth,dayGridWeek',
+                        right: 'prev,next'
+                        // right: ''
+                      },
+                      monthNames: ['Январь','Февраль','Март','Апрель','Май','οюнь','οюль','Август','Сентябрь','Октябрь','Ноябрь','Декабрь'],
+                                monthNamesShort: ['Янв.','Фев.','Март','Апр.','Май','Июнь','Июль','Авг.','Сент.','Окт.','Ноя.','Дек.'],
+                                buttonText: {
+                                    prev: "<<",
+                                    next: ">>",
+                                    prevYear: "<<",
+                                    nextYear: ">>",
+                                    today: "Сегодня",
+                                    month: "Месяц",
+                                    week: "Неделя",
+                                    day: "День"
+                                },
+                                eventLimitText:"мероприятий",
+                      defaultDate: '{{"now"|date("Y-m-d")}}',
+                      displayEventTime:false,
+
+                      //Срабатывает при наведении мышки
+                      eventMouseEnter: function(info) {
+
+
+
+
+
+                        //Данные для записи
+                        // получаем класс с которым работаем
+                        var virtualEvent = $('.virtual-event'+info.event._def.extendedProps.eventId+'');
+
+                        var eventName = info.event._def.extendedProps.eventName;
+                        var eventWayName = info.event._def.extendedProps.eventWayName;
+                        var eventTypeName = info.event._def.extendedProps.eventTypeName;
+                        var eventPrice = info.event._def.extendedProps.eventPrice;
+                        var eventPoints = info.event._def.extendedProps.eventPoints;
+                        var eventSert = info.event._def.extendedProps.eventSert;
+                        var eventCity = info.event._def.extendedProps.eventCity;
+                        var eventAddr = info.event._def.extendedProps.eventAddr;
+                        var eventStartTime = info.event._def.extendedProps.eventStartTime;
+                        var eventEndTime = info.event._def.extendedProps.eventEndTime;
+                        var eventLectorName = info.event._def.extendedProps.eventLectorName;
+                        var eventLectorWorkerPosition = info.event._def.extendedProps.eventLectorWorkerPosition;
+                        var eventRealDateStart = info.event._def.extendedProps.eventRealDateStart;
+                        var eventRealTimeStart = info.event._def.extendedProps.eventRealTimeStart;
+                        var eventRealDateEnd = info.event._def.extendedProps.eventRealDateEnd;
+                        var eventRealTimeEnd = info.event._def.extendedProps.eventRealTimeEnd;
+                        var eventLectorPhoto = info.event._def.extendedProps.eventLectorPhoto;
+
+
+
+
+
+                        //Если это выходные то рендерим налево
+                        if(info.el.fcSeg.firstCol == 4 || info.el.fcSeg.firstCol == 5 || info.el.fcSeg.firstCol == 6) {
+
+                             virtualEvent.append(`
+                                <div class="fire_pops fire_pops--weekend">
+
+                                    <div class = "fire_pops__title">
+                                        <span>${eventName}</span>
+                                    </div>
+                                    <div class = "fire_pops__line">
+                                        <span>${eventTypeName}</span>
+                                    </div>
+
+                                    <div class = "fire_pops__bottom">
+                                        <div class="fire_pops__lector">
+                                            <span>
+                                                <img src="${eventLectorPhoto}">${eventLectorName}
+                                            </span>
+                                        </div>
+                                        <div class = "fire_pops__time">
+                                            <span>${eventRealTimeStart}</span>
+                                            -
+                                            <span>${eventRealTimeEnd}</span>
+                                        </div>
+                                        <div class = "fire_pops__date">
+                                            <span>${eventRealDateStart}</span>
+                                            -
+                                            <span>${eventRealDateEnd}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            `);
+
+                        } else {
+                          //Создаем Popup - внимание он может быть только строкой, без переносов - ограничение JS
+                          /*virtualEvent.append('<div class="fire_pops"><div class = "fire_pops__title"><span>'+eventName+'</span></div> <div class = "fire_pops__line"><span>'+eventTypeName+' </span></div><div class = "fire_pops__bottom"><div class="fire_pops__lector"><span><img src="'+eventLectorPhoto+'">'+eventLectorName+'</span></div><div class = "fire_pops__time"> <span>'+eventRealTimeStart+'</span>-<span>'+eventRealTimeEnd+'</span></div><div class = "fire_pops__date"><span>'+eventRealDateStart+'</span>-<span>'+eventRealDateEnd+'</span></div></div></div>');*/
+
+                            virtualEvent.append(`
+                                <div class="fire_pops">
+
+                                    <div class = "fire_pops__title">
+                                        <span>${eventName}</span>
+                                    </div>
+                                    <div class = "fire_pops__line">
+                                        <span>${eventTypeName}</span>
+                                    </div>
+
+                                    <div class = "fire_pops__bottom">
+                                        <div class="fire_pops__lector">
+                                            <span>
+                                                <img src="${eventLectorPhoto}">${eventLectorName}
+                                            </span>
+                                        </div>
+                                        <div class = "fire_pops__time">
+                                            <span>${eventRealTimeStart}</span>
+                                            -
+                                            <span>${eventRealTimeEnd}</span>
+                                        </div>
+                                        <div class = "fire_pops__date">
+                                            <span>${eventRealDateStart}</span>
+                                            -
+                                            <span>${eventRealDateEnd}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            `);
+                        }
+
+
+                },
+                //Срабатывает при отведении мышки
+                eventMouseLeave: function(info, jsEvent) {
+
+                  var virtualEvent = $('.virtual-event'+info.event._def.extendedProps.eventId+'');
+                  $('.virtual-event'+info.event._def.extendedProps.eventId+' .fire_pops').remove();
+                },
+
+                      navLinks: true, // can click day/week names to navigate views
+                      businessHours: false, // display business hours
+                      editable: false,
+                      eventLimit: true, // allow "more" link when too many events
+                      events: [
+
+                        {% for event in my_events %}
+                        {% set arrDateStart = event.event_start_time|split_date_and_time %}
+                        {% set arrDateEnd = event.event_end_time|split_date_and_time %}
+                        {
+                          className: "virtual-event"+{{event.id}}+" wehasevent",
+                          title: '{{event.event_name}}',
+                          start: '{{event.event_start_time|totimejs}}',
+                          end: '{{event.event_end_time|totimejs}}',
+                          color: '{{event.color}}',
+                          url:'http://stomup.ru/events/{{event.id}}',
+                          eventId: '{{event.id}}',
+                          eventName: '{{event.event_name}}',
+                          eventWayName: '{{event.way_name}}',
+                          eventTypeName: '{{event.type_name}}',
+                          eventPrice: '{{event.price}}',
+                          eventPoints: '{{event.rule_point}}',
+                          eventSert: '{{event.rule_sertificate}}',
+                          eventCity: '{{event.event_city}}',
+                          eventAddr: '{{event.event_address}}',
+                          eventStartTime: '{{event.event_start_time}}',
+                          eventEndTime: '{{event.event_end_time}}',
+                          eventLectorName: '{{event.full_name|short_name}}',
+                          eventLectorWorkerPosition: '{{event.worker_position}}',
+                          eventLectorPhoto: '{{event.photo}}',
+                          eventRealDateStart: '{{ arrDateStart[0] }}',
+                          eventRealTimeStart: '{{ arrDateStart[1]|delete_seconds_from_time }}',
+                          eventRealDateEnd: '{{ arrDateEnd[0] }}',
+                          eventRealTimeEnd: '{{ arrDateEnd[1]|delete_seconds_from_time }}',
+
+                        },
+                        {% endfor %}
+
+                      ],
+                      eventRender: function(info) {
+
+                        //Тут у нас рендер events, с доступами к вложенным данным, через него нарисуем цветовую схему дням с ивентами
+                        var xevStart = info.event._def.extendedProps.eventStartTime;
+                        var xevEnd = info.event._def.extendedProps.eventEndTime;
+
+                        xevStart = xevStart.substring(0, xevStart.length - 9);
+                        xevEnd = xevEnd.substring(0, xevEnd.length - 9);
+
+                        if(xevStart != xevEnd){
+
+                      $('.fc-bg .fc-day').each( function(index){
+
+                        var catchAttrDate = $(this).attr('data-date');
+
+
+                        if( new Date( xevStart ) <=  new Date(catchAttrDate) && new Date( xevEnd ) >= new Date(catchAttrDate) ) {
+                          $(this).addClass('this_is_event_background');
+                        }
+
+                          });
+
+                        } else {
+                          $('.fc-bg .fc-day').each( function(index){
+                            if(xevStart == $(this).attr('data-date')){
+                              $(this).addClass('this_is_event_background');
+                            }
+                          });
+                        }
+
+                        //
+                        // //Проходимся по понедельникам и если в понедельник заканчивается то применяем правило
+                        $('.fc-content-skeleton .fc-mon').each( function(index) {
+                        //
+                          if( xevEnd == $(this).attr('data-date') ){
+                            $(this).addClass('i_need_to_polaris');
+                          }
+                        //
+                        });
+
+                  }
+
+
+                    });
+
+                    calendar.render();
+                  });
+
+
+                $(function () {
+                   var date_start = $(".date_start");
+                   $(this).split("-").reverse().join("-");
+                   console.log(date_start);
+                });
+
+                  $(function () {
+                    var date_end = $(".date_end");
+                    $(this).split("-").reverse().join("-");
+                    console.log(date_end);
+                });
+
+                  $(document).ready(function(){
+
+                    $('.i_need_to_polaris').each( function(index) {
+                      $(this).parent().parent().parent().find('.its_dottes_long').addClass('its_dottes');
+                      $(this).parent().parent().parent().find('.am_long_event_text').removeClass('am_long_event_text');
+                    });
+
+                  });
+
+
+                </script>
+                <style>
+
+                  body {
+                    margin: 40px 10px;
+                    padding: 0;
+                    font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
+                    font-size: 14px;
+                  }
+
+                  #calendar {
+                    max-width: auto;
+                    margin: 0 auto;
+                  }
+
+                </style>
+
+                {{site_data.site_analitics_ya|raw}}
+                {{site_data.site_analitics_ga|raw}}
+
+{% endblock %}

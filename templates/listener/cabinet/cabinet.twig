@@ -1,0 +1,18 @@
+{% extends 'base.listener.twig' %}
+
+{% block title %}Личный кабинет {{ full_name }} {% endblock %}
+
+
+{% block body %}
+
+
+    <main class="main-center">
+            {% if mobileDetect == true %}
+            {{ include('listener/cabinet/cabinet.mobile.twig') }}
+            {% else %}
+            {{ include('listener/cabinet/cabinet.desktop.twig') }}
+            {% endif %}
+
+    </main>
+
+{% endblock %}

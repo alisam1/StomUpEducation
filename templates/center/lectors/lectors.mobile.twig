@@ -1,0 +1,244 @@
+{# mobile #}
+
+  <div class="main-center__mobile">
+      <div class="main-center__content">
+
+          {{ include('center/sidebar/_m.sidebar.twig') }}
+
+          <div class="main-center__right">
+          <div class="container">
+
+              <div class="content">
+
+                  <div class="top-content">
+
+                      <h3 class="top-content__title">Лекторы</h3>
+
+                  <div class="bottom-content content">
+
+                          <div class="accordion js-accordion">
+
+                          {% for lector in lectors_list %}
+                          {# contentBlock #}
+                              <div class="accordion__item js-accordion-item">
+                                  <div class="accordion-header accordion-header__lectures js-accordion-header">
+                                      <div class="accordeon-left">
+                                          <div class="events__photo"><img src="{{lector.photo}}" alt="ev_photo"></div>
+                                      </div>
+                                      <div class="accordeon-center">
+                                              <div class="events__fio">{{lector.full_name}}</div>
+                                              <div class="events__work">{{lector.worker_position|split(',')|last}}</div>
+                                      </div>
+                                      <div class="accordeon-right">
+                                              <a href="#form-modal" class="popup-modal"><img src="/img/edit_icon.svg" alt=""></a>
+                                          <div id="form-modal" class="form-events white-popup-block mfp-hide">
+                                              <p>
+                                                  <a class="popup-modal-dismiss" href="#"><img src="/img/close_modal.svg" alt="close_modal"></a>
+                                              </p>
+                                              <div class="events__card">
+                                                  <h3 class="events-form__title">Редактировать</h3>
+                                                  <div class="events-form__form">
+                                                      <form   action="/catch/catch_lector_edit" method="post" enctype="multipart/form-data" id="edit_lectors">
+                                                          <div class="events-form__top">
+                                                              <div class="events-form__top-right">
+                                                                  <div class="events-form__top-photo">
+                                                                      <label class="label">
+                                                                          <input type="file">
+                                                                      </label>
+                                                                  </div>
+                                                              </div>
+                                                              <div class="events-form__top-left">
+                                                                  <div class="events-form__top--fio">
+                                                                      <div class="events-form__edit">
+                                                                          <label for="form__top--name">ФИО</label>
+                                                                          <input type="text" id="form__top--name" name="form__top--name"
+                                                                              placeholder="Бадалян Кристина Юрьевна" value="{{lector.full_name}}">
+                                                                      </div>
+                                                                      <div class="events-form__edit">
+                                                                          <dl class="dropdown">
+
+                                                                              <dt>
+                                                                                  <div class="form__work">
+                                                                                      <a href="#">
+                                                                                          <span class="form__top__work">Должность</span>
+                                                                                          <span class="hida">{{lector.worker_position|split(',')|last}}</span>
+                                                                                          <p class="multiSel"></p>
+                                                                                      </a>
+                                                                                  </div>
+                                                                              </dt>
+
+                                                                              <dd>
+                                                                                  <div class="mutliSelect">
+                                                                                      <ul>
+                                                                                          <div class="form__top__search">
+                                                                                              <input type="search" id="site-search" name="q"
+                                                                                                  aria-label="Поиск по должности">
+
+                                                                                              <button></button>
+                                                                                          </div>
+                                                                                          <div class="form__top__checkbox">
+                                                                                              <li>
+                                                                                                  <input type="checkbox"
+                                                                                                      value="Стоматолог-терапевт" />Стоматолог-терапевт</li>
+                                                                                              <li>
+                                                                                                  <input type="checkbox"
+                                                                                                      value="Стоматолог-ортодонт" />Стоматолог-ортодонт</li>
+                                                                                              <li>
+                                                                                                  <input type="checkbox"
+                                                                                                      value="Стоматолог-ортопед" />Стоматолог-ортопед</li>
+                                                                                              <li>
+                                                                                                  <input type="checkbox"
+                                                                                                      value="Стоматолог-хирург" />Стоматолог-хирург</li>
+                                                                                              <li>
+                                                                                                  <input type="checkbox"
+                                                                                                      value="Стоматолог-терапевт" />Стоматолог-терапевт</li>
+                                                                                              <li>
+                                                                                                  <input type="checkbox"
+                                                                                                      value="Стоматолог-ортодонт" />Стоматолог-ортодонт</li>
+                                                                                              <li>
+                                                                                                  <input type="checkbox"
+                                                                                                      value="Стоматолог-ортопед" />Стоматолог-ортопед</li>
+                                                                                              <li>
+                                                                                                  <input type="checkbox"
+                                                                                                      value="Стоматолог-хирург" />Стоматолог-хирург</li>
+                                                                                          </div>
+                                                                                      </ul>
+                                                                                  </div>
+                                                                              </dd>
+                                                                          </dl>
+                                                                      </div>
+                                                                  </div>
+                                                              </div>
+                                                          </div>
+                                                          <div class="events-form__bottom">
+                                                              <div class="events-form__edit">
+                                                                  <label for="form__top--phone">Телефон</label>
+                                                                  <input type="text" id="form__top--phone" name="form__top--phone"
+                                                                      placeholder="+7 (921) 375-75-75" value="{{lector.phone}}">
+                                                              </div>
+                                                              <div class="events-form__edit">
+                                                                  <label for="form__top--mail">Электронная почта</label>
+                                                                  <input type="text" id="form__top--mail" name="form__top--mail"
+                                                                      placeholder="education@volgaex.ru" value="{{lector.email}}">
+                                                              </div>
+                                                          </div>
+                                                          <div class="events-form__button">
+                                                              <input type="submit" value="Сохранить">
+                                                          </div>
+                                                      </form>
+
+                                                  </div>
+                                              </div>
+                                          </div>
+                                  </div>
+                                  </div>
+                                  <div class="accordion-body js-accordion-body">
+                                      <div class="accordion-body__contents">
+                                      <h3 class="lectures-group__title">У этого лектора {{ lector.events|length }} мероприятий:</h3>
+                                      <div class="lectures-slider">
+                                          <div class="lectures-slider__main multiple-items">
+
+                                          {# eventBlock #}
+
+                                          {% for event in lector.events %}
+                                          {% set dateStart = event.event_start_time|date('d.m.Y') %}
+                                          {% set dateEnd = event.event_end_time|date('d.m.Y') %}
+                                          {% set timeStart = event.event_start_time|date('H:i') %}
+                                          {% set timeEnd = event.event_end_time|date('H:i') %}
+                                          {% set eventTypeData = event_type[event.event_type - 1] %}
+                                          {% set jsonDecodeEventWay = event.event_way|split('"')[1] %}
+                                          {% set eventWayData = event_way[jsonDecodeEventWay - 1] %}
+                                          {% set jsonDecodeLectorEvents = event.lector_id|split('"')[1] %}
+
+                                          {% set lectorData = [] %}
+                                          {% for lectorD in lectors_list %}
+
+                                              {% if lectorD.id == jsonDecodeLectorEvents %}
+                                                {% set lectorData = lectorD %}
+                                              {% endif %}
+
+                                          {% endfor %}
+
+
+                                          <div class="lectures-group__block block">
+                                              <div class="block__top" style="background-image:url({{ event.event_main_img }});">
+                                                  <div class="block__when">
+                                                  <div class="block__data">
+                                                  {% if dateStart == dateEnd %}
+                                                    {{ dateStart }}
+                                                  {% else %}
+                                                    {{dateStart}}-{{dateEnd}}
+                                                  {% endif %}
+                                                  </div>
+                                                  <div class="block__time">{{timeStart}} - {{timeEnd}}</div>
+                                                  </div>
+                                                  <div class="block__address">{{event.event_city}}, {{event.event_address}}</div>
+                                              </div>
+                                              <div class="block__bottom">
+                                                  <div class="block__high">
+                                                      <div class="block__topic block__topic--card"><span class="block__dot block__dot--paradont" style="background:{{eventWayData.color}}"></span>{{eventWayData.way_name}}</div>
+                                                      <div class="block__type">{{eventTypeData.type_name}}</div>
+                                                  </div>
+                                                  <div class="block__center">
+                                                      <div class="block__title">{{event.event_name|str30()}}</div>
+                                                      <div class="block__price">
+                                                      {% if event.is_free == 1 %}
+                                                        {{ event.price }} ₽
+                                                      {% else %}
+                                                      Бесплатно
+                                                      {% endif %}
+                                                      </div>
+                                                  </div>
+                                                  <div class="block__about">
+                                                      <div class="block__doctor">
+                                                          <div class="block__photo"><img src="{{lectorData.photo}}" alt="block__photo"></div>
+                                                          <div class="block__fio">
+                                                              <div class="block__name">{{lectorData.full_name}}</div>
+                                                              <div class="block__work">{{lectorData.worker_position}}г</div>
+                                                          </div>
+                                                      </div>
+                                                      <div class="block__add">
+                                                      {% if event.rule_point > 0 %}
+                                                          <div class="block__star">{{event.rule_point}}</div>
+                                                      {% endif %}
+                                                      {% if event.rule_sertificate is not null %}
+                                                          <div class="block__sert">Сертификат</div>
+                                                      {% endif %}
+                                                          <div class="block__more">еще</div>
+                                                      </div>
+                                                  </div>
+                                              </div>
+
+                                          </div>
+
+                                              {% endfor %}
+
+
+                                          </div>
+                                      </div>
+
+
+                                      </div>
+                                      </div>
+                                  </div>
+                                {% endfor %}
+                                  {# contentEnd #}
+
+
+                                                  <div class="events__add">
+
+                                                          <a href="#add-modal" class="popup-modal"><button>Добавить</button></a>
+                                                          {% include 'popups/lectors.popup.twig' %}
+
+                                                  </div>
+                          </div>
+
+                  </div>
+
+              </div>
+            </div>
+          </div>
+      </div>
+
+  </div>
+  </div>

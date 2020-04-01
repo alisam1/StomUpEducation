@@ -1,0 +1,319 @@
+{# mobile #}
+<div class="main-center__mobile">
+        <div class="main-center__content">
+
+          {{ include('admin/sidebar/_m.sidebar.twig') }}
+
+                <div class="main-center__right">
+                <div class="container">
+
+                    <div class="content">
+
+                    <div class="top-content">
+
+                            <h3 class="top-content__title">Главная</h3>
+                                <div class="top-content__group groups-container">
+                                    <button id = "events" class="top-content__button group opened a">Мероприятие</button>
+                                    <button id = "banners" class="top-content__button group b">Баннеры</button>
+                                    <button id= "app" class="top-content__button group c">Заявки</button>
+                                </div>
+
+
+
+                    </div>
+
+                    <div class="bottom-content content">
+
+                        <div class="bottom-events container opened a">
+                                <div class="left__block">
+                                    <p class="left__text">Добавить новое мероприятие</p>
+                                </div>
+                        </div>
+
+                        <div class="bottom-banners container b">
+                                <div class="right__block">
+                                    <p class="right__text">Для того, чтобы воспользоваться данным функционалом, создайте свой сайт</p>
+                                    <button class="right__button"><span>создать сайт</span></button>
+                                 </div>
+                                 <div class="right__block--hide">
+                                        <div class="banner-block">
+                                            <div class="banner-block__img"><img src="img/banner_1.png" alt="banner_1"></div>
+                                            <div class="banner-block__name">banner_2.jpg</div>
+                                            <div class="banner-block__change"></div>
+                                            <div class="banner-block__delete"><a href="#test-modal" class="popup-modal"><img src="../img/delete_icon.svg" alt=""></a></div>
+                                            <div id="test-modal" class="delete-confirm white-popup-block mfp-hide">
+                                                    <p><a class="popup-modal-dismiss" href="#"><img src="/img/close_modal.svg" alt="close_modal"></a></p>
+                                                    <h3 class="delete-confirm__title">Подтвердите действие</h3>
+                                                    <p class="delete-confirm__desc">Вы уверены, что хотите удалить данный баннер?</p>
+                                                    <div class="delete-confirm__group">
+                                                        <button class="delete-confirm__button">Нет</button>
+                                                        <button class="delete-confirm__button">Да</button>
+                                                    </div>
+                                                </div>
+                                        </div>
+                                        <div class="banner-block">
+                                            <div class="banner-block__img"><img src="img/banner_2.png" alt="banner_2"></div>
+                                            <div class="banner-block__name">banner_2.jpg</div>
+                                            <div class="banner-block__change"></div>
+                                            <div class="banner-block__delete"><a href="#test-modal" class="popup-modal"><img src="../img/delete_icon.svg" alt=""></a></div>
+                                            <div id="test-modal" class="delete-confirm white-popup-block mfp-hide">
+                                                    <p><a class="popup-modal-dismiss" href="#"><img src="/img/close_modal.svg" alt="close_modal"></a></p>
+                                                    <h3 class="delete-confirm__title">Подтвердите действие</h3>
+                                                    <p class="delete-confirm__desc">Вы уверены, что хотите удалить данный баннер?</p>
+                                                    <div class="delete-confirm__group">
+                                                        <button class="delete-confirm__button">Нет</button>
+                                                        <button class="delete-confirm__button">Да</button>
+                                                    </div>
+                                            </div>
+                                        </div>
+                                            <div class="banner-block">
+                                                <div class="banner-block__create">
+                                                <div class="banner-block__img"><img src="img/banner_3.png" alt="banner_3"></div>
+                                                <div class="banner-block__name">Новый баннер</div>
+                                                <button class="banner-block__button"><span>Добавить</span></button>
+                                                </div>
+                                            </div>
+                                        </div>
+                        </div>
+
+                        <div class="bottom-app container c">
+                                <div class="accordion js-accordion">
+                                        <div class="accordion__item js-accordion-item">
+                                          <div class="accordion-header js-accordion-header">
+                                                <div class="accordeon-top">
+                                                    <div class="accordeon-top__date">12.10.19-13.10.19</div>
+                                                    <div class="accordeon-top__name">Бадалян К.Ю.</div>
+                                                </div>
+                                                <div class="accordeon-bottom">
+                                                        <div class="accordeon-bottom__name"><span><img src="img/red_icon.svg" alt="red_icon"></span>Семинар «Подробный ортопедический...</div>
+                                                </div>
+                                            </div>
+                                        <div class="accordion-body js-accordion-body">
+                                          <div class="accordion-body__contents">
+                                            <div class="accordeon-topic">
+                                              <div class="accordeon-top__left">
+                                                <div class="events__status"><span class="events__red"><img src="img/red_icon.svg" alt="red_icon"></span>Не оплачен</div>
+                                              </div>
+                                              <div class="accordeon-top__right">
+                                                <div class="events__photo"><img src="img/ev_photo.png" alt="ev_photo"></div>
+                                                <div class="events__fio">Бадалян К.Ю.</div>
+                                              </div>
+
+                                            </div>
+                                            <div class="accordeon-bottom">
+                                              <div class="accordeon-bottom__left">
+                                                <div class="events__name">Кристина</div>
+                                                <div class="events__phone"><a href="">+7 (921) 375-75-75</a></div>
+                                                <div class="events__city">Санкт-Петербург</div>
+                                              </div>
+                                              <div class="accordeon-bottom__right">
+                                                <div class="events__mail"><a href="">education@volgaex.ru</a></div>
+                                              </div>
+                                            </div>
+
+                                          </div>
+                                          </div>
+                                        </div>
+                                      <div class="accordion__item js-accordion-item">
+                                        <div class="accordion-header js-accordion-header">
+                                          <div class="accordeon-top">
+                                            <div class="accordeon-top__date">12.10.19-13.10.19</div>
+                                            <div class="accordeon-top__name">Бадалян К.Ю.</div>
+                                          </div>
+                                          <div class="accordeon-bottom">
+                                            <div class="accordeon-bottom__name"><span><img src="img/red_icon.svg" alt="red_icon"></span>Семинар «Подробный
+                                              ортопедический...</div>
+                                          </div>
+                                        </div>
+                                        <div class="accordion-body js-accordion-body">
+                                          <div class="accordion-body__contents">
+                                            <div class="accordeon-topic">
+                                              <div class="accordeon-top__left">
+                                                <div class="events__status"><span class="events__red"><img src="img/red_icon.svg" alt="red_icon"></span>Не
+                                                  оплачен</div>
+                                              </div>
+                                              <div class="accordeon-top__right">
+                                                <div class="events__photo"><img src="img/ev_photo.png" alt="ev_photo"></div>
+                                                <div class="events__fio">Бадалян К.Ю.</div>
+                                              </div>
+
+                                            </div>
+                                            <div class="accordeon-bottom">
+                                              <div class="accordeon-bottom__left">
+                                                <div class="events__name">Кристина</div>
+                                                <div class="events__phone"><a href="">+7 (921) 375-75-75</a></div>
+                                                <div class="events__city">Санкт-Петербург</div>
+                                              </div>
+                                              <div class="accordeon-bottom__right">
+                                                <div class="events__mail"><a href="">education@volgaex.ru</a></div>
+                                              </div>
+                                            </div>
+
+                                          </div>
+                                        </div>
+                                      </div>
+                                          <div class="accordion__item js-accordion-item">
+                                            <div class="accordion-header js-accordion-header">
+                                              <div class="accordeon-top">
+                                                <div class="accordeon-top__date">12.10.19-13.10.19</div>
+                                                <div class="accordeon-top__name">Бадалян К.Ю.</div>
+                                              </div>
+                                              <div class="accordeon-bottom">
+                                                <div class="accordeon-bottom__name"><span><img src="img/red_icon.svg" alt="red_icon"></span>Семинар «Подробный
+                                                  ортопедический...</div>
+                                              </div>
+                                            </div>
+                                            <div class="accordion-body js-accordion-body">
+                                              <div class="accordion-body__contents">
+                                                <div class="accordeon-topic">
+                                                  <div class="accordeon-top__left">
+                                                    <div class="events__status"><span class="events__red"><img src="img/red_icon.svg" alt="red_icon"></span>Не
+                                                      оплачен</div>
+                                                  </div>
+                                                  <div class="accordeon-top__right">
+                                                    <div class="events__photo"><img src="img/ev_photo.png" alt="ev_photo"></div>
+                                                    <div class="events__fio">Бадалян К.Ю.</div>
+                                                  </div>
+
+                                                </div>
+                                                <div class="accordeon-bottom">
+                                                  <div class="accordeon-bottom__left">
+                                                    <div class="events__name">Кристина</div>
+                                                    <div class="events__phone"><a href="">+7 (921) 375-75-75</a></div>
+                                                    <div class="events__city">Санкт-Петербург</div>
+                                                  </div>
+                                                  <div class="accordeon-bottom__right">
+                                                    <div class="events__mail"><a href="">education@volgaex.ru</a></div>
+                                                  </div>
+                                                </div>
+
+                                              </div>
+                                            </div>
+                                          </div>
+                                            <div class="accordion__item js-accordion-item">
+                                              <div class="accordion-header js-accordion-header">
+                                                <div class="accordeon-top">
+                                                  <div class="accordeon-top__date">12.10.19-13.10.19</div>
+                                                  <div class="accordeon-top__name">Бадалян К.Ю.</div>
+                                                </div>
+                                                <div class="accordeon-bottom">
+                                                  <div class="accordeon-bottom__name"><span><img src="img/red_icon.svg" alt="red_icon"></span>Семинар «Подробный
+                                                    ортопедический...</div>
+                                                </div>
+                                              </div>
+                                              <div class="accordion-body js-accordion-body">
+                                                <div class="accordion-body__contents">
+                                                  <div class="accordeon-topic">
+                                                    <div class="accordeon-top__left">
+                                                      <div class="events__status"><span class="events__red"><img src="img/red_icon.svg" alt="red_icon"></span>Не
+                                                        оплачен</div>
+                                                    </div>
+                                                    <div class="accordeon-top__right">
+                                                      <div class="events__photo"><img src="img/ev_photo.png" alt="ev_photo"></div>
+                                                      <div class="events__fio">Бадалян К.Ю.</div>
+                                                    </div>
+
+                                                  </div>
+                                                  <div class="accordeon-bottom">
+                                                    <div class="accordeon-bottom__left">
+                                                      <div class="events__name">Кристина</div>
+                                                      <div class="events__phone"><a href="">+7 (921) 375-75-75</a></div>
+                                                      <div class="events__city">Санкт-Петербург</div>
+                                                    </div>
+                                                    <div class="accordeon-bottom__right">
+                                                      <div class="events__mail"><a href="">education@volgaex.ru</a></div>
+                                                    </div>
+                                                  </div>
+
+                                                </div>
+                                              </div>
+                                            </div>
+                                          <div class="accordion__item js-accordion-item">
+                                            <div class="accordion-header js-accordion-header">
+                                              <div class="accordeon-top">
+                                                <div class="accordeon-top__date">12.10.19-13.10.19</div>
+                                                <div class="accordeon-top__name">Бадалян К.Ю.</div>
+                                              </div>
+                                              <div class="accordeon-bottom">
+                                                <div class="accordeon-bottom__name"><span><img src="img/red_icon.svg" alt="red_icon"></span>Семинар «Подробный
+                                                  ортопедический...</div>
+                                              </div>
+                                            </div>
+                                            <div class="accordion-body js-accordion-body">
+                                              <div class="accordion-body__contents">
+                                                <div class="accordeon-topic">
+                                                  <div class="accordeon-top__left">
+                                                    <div class="events__status"><span class="events__red"><img src="img/red_icon.svg" alt="red_icon"></span>Не
+                                                      оплачен</div>
+                                                  </div>
+                                                  <div class="accordeon-top__right">
+                                                    <div class="events__photo"><img src="img/ev_photo.png" alt="ev_photo"></div>
+                                                    <div class="events__fio">Бадалян К.Ю.</div>
+                                                  </div>
+
+                                                </div>
+                                                <div class="accordeon-bottom">
+                                                  <div class="accordeon-bottom__left">
+                                                    <div class="events__name">Кристина</div>
+                                                    <div class="events__phone"><a href="">+7 (921) 375-75-75</a></div>
+                                                    <div class="events__city">Санкт-Петербург</div>
+                                                  </div>
+                                                  <div class="accordeon-bottom__right">
+                                                    <div class="events__mail"><a href="">education@volgaex.ru</a></div>
+                                                  </div>
+                                                </div>
+
+                                              </div>
+                                            </div>
+                                          </div>
+                                            <div class="accordion__item js-accordion-item">
+                                              <div class="accordion-header js-accordion-header">
+                                                <div class="accordeon-top">
+                                                  <div class="accordeon-top__date">12.10.19-13.10.19</div>
+                                                  <div class="accordeon-top__name">Бадалян К.Ю.</div>
+                                                </div>
+                                                <div class="accordeon-bottom">
+                                                  <div class="accordeon-bottom__name"><span><img src="img/red_icon.svg" alt="red_icon"></span>Семинар «Подробный
+                                                    ортопедический...</div>
+                                                </div>
+                                              </div>
+                                              <div class="accordion-body js-accordion-body">
+                                                <div class="accordion-body__contents">
+                                                  <div class="accordeon-topic">
+                                                    <div class="accordeon-top__left">
+                                                      <div class="events__status"><span class="events__red"><img src="img/red_icon.svg" alt="red_icon"></span>Не
+                                                        оплачен</div>
+                                                    </div>
+                                                    <div class="accordeon-top__right">
+                                                      <div class="events__photo"><img src="img/ev_photo.png" alt="ev_photo"></div>
+                                                      <div class="events__fio">Бадалян К.Ю.</div>
+                                                    </div>
+
+                                                  </div>
+                                                  <div class="accordeon-bottom">
+                                                    <div class="accordeon-bottom__left">
+                                                      <div class="events__name">Кристина</div>
+                                                      <div class="events__phone"><a href="">+7 (921) 375-75-75</a></div>
+                                                      <div class="events__city">Санкт-Петербург</div>
+                                                    </div>
+                                                    <div class="accordeon-bottom__right">
+                                                      <div class="events__mail"><a href="">education@volgaex.ru</a></div>
+                                                    </div>
+                                                  </div>
+
+                                                </div>
+                                              </div>
+                                            </div>
+                                      </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                </div>
+            </div>
+            </div>
+
+</div>

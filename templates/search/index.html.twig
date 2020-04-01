@@ -1,0 +1,144 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Поиск {% endblock %}
+
+
+{% block body %}
+
+
+    <main class="main-center">
+
+{# DESKTOP #}
+<div class="main-center__desktop">
+
+<div class="main-center__content">
+
+{{ include('main/sidebar/_sidebar.twig') }}
+
+<div class="main-center__right">
+<div class="container">
+
+<div class="main-search">
+    <h3 class="main-search__title">Поиск</h3>
+
+    <div class="main-search__input">
+        <input type="search" placeholder="Поиск по сайту">
+    </div>
+
+    <div class="main-search__results">
+        <h3 class="main-search__results-title">По вашему запросу найдено:</h3>
+
+            <div class="accordion">
+                <div class="trigger">
+                    <input type="checkbox" id="checkbox-1" name="checkbox-1" />
+                    <label for="checkbox-1" class="checkbox">
+                        Мероприятия ({{event_data|length}})  <i></i>
+                    </label>
+                    <div class="content">
+                        <div class="content-events">
+
+                        {# блок events #}
+                        {% for event in event_data %}
+
+                        {% set dateStart = event.event_start_time|split_date_and_time() %}
+                        {% set dateEnd = event.event_end_time|split_date_and_time() %}
+
+                            <div class="lectures-group__block block">
+                                    <div class="block__top" style="background-image: url({{ event.event_main_img }});">
+                                        <div class="block__when">
+                                        <div class="block__data">{{dateStart[0]}} - {{dateEnd[0]}}</div>
+                                        <div class="block__time">{{dateStart[1]|delete_seconds_from_time()}} - {{dateEnd[1]|delete_seconds_from_time()}}</div>
+                                        </div>
+                                        <div class="block__address">{{event.event_city}}, {{event.event_address}}</div>
+                                    </div>
+                                    <div class="block__bottom">
+                                        <div class="block__high">
+                                            <div class="block__topic"><span class="block__dot block__dot--paradont" style="background:{{event.color}}"></span>{{event.way_name}}</div>
+                                            <div class="block__type">{{event.type_name}}</div>
+                                        </div>
+                                        <div class="block__center">
+                                            <div class="block__title">{{event.event_name|str30()|beautifultext()}}
+                                                <span class="block__tooltip">{{event.event_name}}</span>
+                                            </div>
+                                            <div class="block__price">
+                                            {% if event.is_free == 1 %}
+                                              {{ event.price }} ₽
+                                            {% else %}
+                                            Бесплатно
+                                            {% endif %}
+                                            </div>
+                                        </div>
+                                        <div class="block__about">
+                                            <div class="block__doctor">
+                                                <div class="block__photo"><img src="{{event.photo}}" alt="block__photo"></div>
+                                                <div class="block__fio">
+                                                    <div class="block__name">{{event.full_name|short_name()}}</div>
+                                                    <div class="block__work">{{event.worker_position}}</div>
+                                                </div>
+                                            </div>
+                                            <div class="block__add">
+                                            {% if event.rule_point > 0 %}
+                                                <div class="block__star">{{event.rule_point}}</div>
+                                            {% endif %}
+                                            {% if event.rule_sertificate is not null %}
+                                                <div class="block__sert">Сертификат</div>
+                                            {% endif %}
+                                                <div class="block__more">еще</div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                {% endfor %}
+
+
+                                        </div>
+                    </div>
+                </div>
+
+                <div class="trigger">
+                    <input type="checkbox" id="checkbox-2" name="checkbox-2" />
+                    <label for="checkbox-2" class="checkbox">
+                        Лекторы ({{lectors_data|length}}) <i></i>
+                    </label>
+                    <div class="content">
+                        <div class="main-search__lectors">
+
+                        {# найденные лекторы #}
+
+                        {% for lector in lectors_data %}
+                        <div class="filterDiv-card">
+                                <div class="filterDiv-photo">
+                                    <img src="{{lector.photo}}">
+                                </div>
+                                <div class="filterDiv-info">
+                                    <p class="filterDiv-fio">{{lector.full_name}}</p>
+                                    <p class="filterDiv-work">{{lector.worker_position}}</p>
+                                    {# <p class="filterDiv-lectures">10 лекций</p> #}
+                                </div>
+                            </div>
+                        {% endfor %}
+
+
+
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+    </main>
+
+{% endblock %}

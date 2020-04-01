@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello BroadcastController!{% endblock %}
+
+{% block body %}
+
+<style media="screen">
+video {
+width: 40%;
+border-radius:15px;
+margin: 5px 10px;
+}
+</style>
+
+<script src="/modules/js/RTCmulticonnections.js"></script>
+<script src="/modules/js/socket.io.js"></script>
+
+<script type="text/javascript">
+var connection = new RTCMultiConnection();
+
+// this line is VERY_important
+connection.socketURL = 'https://rtcmulticonnection.herokuapp.com:443/';
+
+// all below lines are optional; however recommended.
+
+connection.direction = 'one-to-many';
+
+connection.session = {
+  audio: true,
+  video: true
+};
+
+connection.sdpConstraints.mandatory = {
+  OfferToReceiveAudio: true,
+  OfferToReceiveVideo: true
+};
+
+connection.onstream = function(event) {
+  document.body.appendChild( event.mediaElement );
+};
+
+
+
+var predefinedRoomId = prompt('Please enter room-id', 'xyzxyzxyz');
+
+console.log(connection.checkPresence);
+
+connection.openOrJoin(predefinedRoomId);
+</script>
+
+{% endblock %}

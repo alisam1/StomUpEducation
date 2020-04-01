@@ -1,0 +1,1554 @@
+{# DESKTOP #}
+
+<div class="main-center__desktop">
+
+
+
+{{ include('main/sidebar/_sidebar.twig') }}
+
+
+
+    <div class="main__right">
+    <div class="main-lector-all">
+ <div class="lectures-page-top">
+ <div class="container">
+  <div class = "project_breadcrumbs">
+            <ul class = "project_breadcrumbs-list">
+                <li><a href="/">Главная</a></li>
+
+                <li>/</li>
+                
+                <li><a href="">Лекторы</a></li>
+            </ul>
+       </div>
+
+                                <h1 class="lectures-page-top__title">Наши лекторы</h1>
+                                <div class="lectures-page-top__choise">
+                                        <div class="template-center-lectures__inputs">
+                                                <div class="template-center-lectures__choise">
+                                                        <select name = "lectures__choise">
+                                                                <option value = "" selected>Выберите направление обучения</option>
+                                                                <option value = "">Стоматолог-терапевт</option>
+                                                                <option value = "">Детский стоматолог</option>
+                                                                <option value = "">Стоматолог-пародонтолог</option>
+                                                                <option value = "">Стоматолог-хирург</option>
+                                                                <option value = "" >Стоматолог-ортонтолог</option>
+                                                        </select>
+                                                </div>
+                                                <div class="template-center-lectures__search">
+                                                    <input type="search" placeholder="Введите имя или фамилию лектора">
+                                                </div>
+                                            </div>
+                                </div>
+                                <div id="myBtnContainer" class="lectures-page-top__alphabet">
+                                        <button class="btn active" onclick="filterSelection('all')">Все лекторы</button>
+                                        {% if legal_lectors['А']|length > 0 %}
+                                        <button class="btn" onclick="filterSelection('rus-a')"> А</button>
+                                        {% endif %}
+                                        {% if legal_lectors['Б']|length > 0 %}
+                                        <button class="btn" onclick="filterSelection('rus-b')"> Б</button>
+                                        {% endif %}
+                                        {% if legal_lectors['В']|length > 0 %}
+                                        <button class="btn" onclick="filterSelection('rus-v')"> В</button>
+                                        {% endif %}
+                                        {% if legal_lectors['Г']|length > 0 %}
+                                        <button class="btn" onclick="filterSelection('rus-g')"> Г</button>
+                                        {% endif %}
+                                        {% if legal_lectors['Д']|length > 0 %}
+                                        <button class="btn" onclick="filterSelection('rus-d')"> Д</button>
+                                        {% endif %}
+                                        {% if legal_lectors['Е']|length > 0 %}
+                                        <button class="btn" onclick="filterSelection('rus-e')">Е</button>
+                                        {% endif %}
+                                        {% if legal_lectors['Ж']|length > 0 %}
+                                        <button class="btn" onclick="filterSelection('rus-j')"> Ж</button>
+                                        {% endif %}
+                                        {% if legal_lectors['З']|length > 0 %}
+                                        <button class="btn" onclick="filterSelection('rus-z')"> З</button>
+                                        {% endif %}
+                                        {% if legal_lectors['И']|length > 0 %}
+                                        <button class="btn" onclick="filterSelection('rus-i')"> И</button>
+                                        {% endif %}
+                                        {% if legal_lectors['К']|length > 0 %}
+                                        <button class="btn" onclick="filterSelection('rus-k')">К</button>
+                                        {% endif %}
+                                        {% if legal_lectors['Л']|length > 0 %}
+                                        <button class="btn" onclick="filterSelection('rus-l')"> Л</button>
+                                        {% endif %}
+                                        {% if legal_lectors['М']|length > 0 %}
+                                        <button class="btn" onclick="filterSelection('rus-m')"> М</button>
+                                        {% endif %}
+                                        {% if legal_lectors['Н']|length > 0 %}
+                                        <button class="btn" onclick="filterSelection('rus-n')">Н</button>
+                                        {% endif %}
+                                        {% if legal_lectors['О']|length > 0 %}
+                                        <button class="btn" onclick="filterSelection('rus-o')">О</button>
+                                        {% endif %}
+                                        {% if legal_lectors['П']|length > 0 %}
+                                        <button class="btn" onclick="filterSelection('rus-p')"> П</button>
+                                        {% endif %}
+                                        {% if legal_lectors['Р']|length > 0 %}
+                                        <button class="btn" onclick="filterSelection('rus-r')"> Р</button>
+                                        {% endif %}
+                                        {% if legal_lectors['С']|length > 0 %}
+                                        <button class="btn" onclick="filterSelection('rus-c')">С</button>
+                                        {% endif %}
+                                        {% if legal_lectors['Т']|length > 0 %}
+                                        <button class="btn" onclick="filterSelection('rus-t')">Т</button>
+                                        {% endif %}
+                                        {% if legal_lectors['У']|length > 0 %}
+                                        <button class="btn" onclick="filterSelection('rus-u')"> У</button>
+                                        {% endif %}
+                                        {% if legal_lectors['Ф']|length > 0 %}
+                                        <button class="btn" onclick="filterSelection('rus-f')"> Ф</button>
+                                        {% endif %}
+                                        {% if legal_lectors['Х']|length > 0 %}
+                                        <button class="btn" onclick="filterSelection('rus-h')">Х</button>
+                                        {% endif %}
+                                        {% if legal_lectors['Ч']|length > 0 %}
+                                        <button class="btn" onclick="filterSelection('rus-1')">Ч</button>
+                                        {% endif %}
+                                        {% if legal_lectors['Ш']|length > 0 %}
+                                        <button class="btn" onclick="filterSelection('rus-2')"> Ш</button>
+                                        {% endif %}
+                                        {% if legal_lectors['Э']|length > 0 %}
+                                        <button class="btn" onclick="filterSelection('rus-3')"> Э</button>
+                                        {% endif %}
+                                        {% if legal_lectors['Ю']|length > 0 %}
+                                        <button class="btn" onclick="filterSelection('rus-4')">Ю</button>
+                                        {% endif %}
+                                        {% if legal_lectors['Я']|length > 0 %}
+                                        <button class="btn" onclick="filterSelection('rus-5')">Я</button>
+                                        {% endif %}
+
+
+                                        <div class="lectures-page-top__lat">
+                                          {% if legal_lectors['A']|length > 0 %}
+                                            <button class="btn" onclick="filterSelection('lat-a')">A</button>
+                                            {% endif %}
+                                          {% if legal_lectors['B']|length > 0 %}
+                                            <button class="btn" onclick="filterSelection('lat-b')">B</button>
+                                            {% endif %}
+                                          {% if legal_lectors['C']|length > 0 %}
+                                            <button class="btn" onclick="filterSelection('lat-c')">C</button>
+                                            {% endif %}
+                                          {% if legal_lectors['D']|length > 0 %}
+                                            <button class="btn" onclick="filterSelection('lat-d')">D</button>
+                                            {% endif %}
+                                          {% if legal_lectors['E']|length > 0 %}
+                                            <button class="btn" onclick="filterSelection('lat-e')">E</button>
+                                            {% endif %}
+                                          {% if legal_lectors['F']|length > 0 %}
+                                            <button class="btn" onclick="filterSelection('lat-f')">F</button>
+                                            {% endif %}
+                                          {% if legal_lectors['G']|length > 0 %}
+                                            <button class="btn" onclick="filterSelection('lat-g')">G</button>
+                                            {% endif %}
+                                          {% if legal_lectors['H']|length > 0 %}
+                                            <button class="btn" onclick="filterSelection('lat-h')">H</button>
+                                            {% endif %}
+                                          {% if legal_lectors['I']|length > 0 %}
+                                            <button class="btn" onclick="filterSelection('lat-i')">I</button>
+                                            {% endif %}
+                                          {% if legal_lectors['J']|length > 0 %}
+                                            <button class="btn" onclick="filterSelection('lat-j')">J</button>
+                                            {% endif %}
+                                          {% if legal_lectors['K']|length > 0 %}
+                                            <button class="btn" onclick="filterSelection('lat-k')">K</button>
+                                            {% endif %}
+                                          {% if legal_lectors['L']|length > 0 %}
+                                            <button class="btn" onclick="filterSelection('lat-l')">L</button>
+                                            {% endif %}
+                                          {% if legal_lectors['M']|length > 0 %}
+                                            <button class="btn" onclick="filterSelection('lat-m')">M</button>
+                                            {% endif %}
+                                          {% if legal_lectors['N']|length > 0 %}
+                                            <button class="btn" onclick="filterSelection('lat-n')">N</button>
+                                            {% endif %}
+                                          {% if legal_lectors['O']|length > 0 %}
+                                            <button class="btn" onclick="filterSelection('lat-o')">O</button>
+                                            {% endif %}
+                                          {% if legal_lectors['P']|length > 0 %}
+                                            <button class="btn" onclick="filterSelection('lat-p')">P</button>
+                                            {% endif %}
+                                          {% if legal_lectors['Q']|length > 0 %}
+                                            <button class="btn" onclick="filterSelection('lat-q')">Q</button>
+                                            {% endif %}
+                                          {% if legal_lectors['R']|length > 0 %}
+                                            <button class="btn" onclick="filterSelection('lat-r')">R</button>
+                                            {% endif %}
+                                          {% if legal_lectors['S']|length > 0 %}
+                                            <button class="btn" onclick="filterSelection('lat-s')">S</button>
+                                            {% endif %}
+                                          {% if legal_lectors['T']|length > 0 %}
+                                            <button class="btn" onclick="filterSelection('lat-t')">T</button>
+                                            {% endif %}
+                                          {% if legal_lectors['U']|length > 0 %}
+                                            <button class="btn" onclick="filterSelection('lat-u')">U</button>
+                                            {% endif %}
+                                          {% if legal_lectors['V']|length > 0 %}
+                                            <button class="btn" onclick="filterSelection('lat-v')">V</button>
+                                            {% endif %}
+                                          {% if legal_lectors['W']|length > 0 %}
+                                            <button class="btn" onclick="filterSelection('lat-w')">W</button>
+                                            {% endif %}
+                                          {% if legal_lectors['X']|length > 0 %}
+                                            <button class="btn" onclick="filterSelection('lat-x')">X</button>
+                                            {% endif %}
+                                          {% if legal_lectors['Y']|length > 0 %}
+                                            <button class="btn" onclick="filterSelection('lat-y')">Y</button>
+                                            {% endif %}
+                                          {% if legal_lectors['Z']|length > 0 %}
+                                            <button class="btn" onclick="filterSelection('lat-z')">Z</button>
+                                            {% endif %}
+
+                                        </div>
+                                </div>
+                        </div>
+                        <div class="lectures-page-bottom">
+                                <div class="container">
+
+                                  {% if legal_lectors['А']|length > 0 %}
+                                        <div class="filterDiv rus-a"><span>Aa</span>
+                                            <div class="filterDiv-all">
+                                              {% for lector in legal_lectors['А'] %}
+                                                <div class="filterDiv-card">
+                                                <a href="/lectors/{{lector.id}}">
+                                                    <div class="filterDiv-photo">
+                                                        <img src="{{lector.photo}}">
+                                                    </div>
+                                                    <div class="filterDiv-info">
+                                                        <p class="filterDiv-fio">{{lector.full_name}}</p>
+                                                        <p class="filterDiv-work">{{lector.worker_position}}</p>
+                                                        <p class="filterDiv-lectures">{{lector.events_count}} лекций</p>
+                                                    </div>
+                                                    </a>
+                                                </div>
+                                              {% endfor %}
+
+
+
+                                            </div>
+                                        </div>
+                                        {% endif %}
+
+                                        {% if legal_lectors['Б']|length > 0 %}
+                                        <div class="filterDiv rus-b"><span>Бб</span>
+                                                <div class="filterDiv-all">
+                                                  {% for lector in legal_lectors['Б'] %}
+                                                    <div class="filterDiv-card">
+                                                    <a href="/lectors/{{lector.id}}">
+                                                        <div class="filterDiv-photo">
+                                                            <img src="{{lector.photo}}">
+                                                        </div>
+                                                        <div class="filterDiv-info">
+                                                            <p class="filterDiv-fio">{{lector.full_name}}</p>
+                                                            <p class="filterDiv-work">{{lector.worker_position}}</p>
+                                                            <p class="filterDiv-lectures">{{lector.events_count}} лекций</p>
+                                                        </div>
+                                                        </a>
+                                                    </div>
+                                                  {% endfor %}
+
+                                                    </div>
+                                        </div>
+                                        {% endif %}
+
+                                      {% if legal_lectors['В']|length > 0 %}
+                                        <div class="filterDiv rus-v"><span>Вв</span>
+                                                <div class="filterDiv-all">
+
+
+                                                  {% for lector in legal_lectors['В'] %}
+                                                    <div class="filterDiv-card">
+                                                    <a href="/lectors/{{lector.id}}">
+                                                        <div class="filterDiv-photo">
+                                                            <img src="{{lector.photo}}">
+                                                        </div>
+                                                        <div class="filterDiv-info">
+                                                            <p class="filterDiv-fio">{{lector.full_name}}</p>
+                                                            <p class="filterDiv-work">{{lector.worker_position}}</p>
+                                                            <p class="filterDiv-lectures">{{lector.events_count}} лекций</p>
+                                                        </div>
+                                                        </a>
+                                                    </div>
+                                                  {% endfor %}
+                                                    </div>
+                                        </div>
+                                        {% endif %}
+
+
+                                        {% if legal_lectors['Г']|length > 0 %}
+                                        <div class="filterDiv rus-g"><span>Гг</span>
+                                                <div class="filterDiv-all">
+                                                  {% for lector in legal_lectors['Г'] %}
+                                                    <div class="filterDiv-card">
+                                                    <a href="/lectors/{{lector.id}}">
+                                                        <div class="filterDiv-photo">
+                                                            <img src="{{lector.photo}}">
+                                                        </div>
+                                                        <div class="filterDiv-info">
+                                                            <p class="filterDiv-fio">{{lector.full_name}}</p>
+                                                            <p class="filterDiv-work">{{lector.worker_position}}</p>
+                                                            <p class="filterDiv-lectures">{{lector.events_count}} лекций</p>
+                                                        </div>
+                                                        </a>
+                                                    </div>
+                                                  {% endfor %}
+
+                                                    </div>
+                                        </div>
+                                        {% endif %}
+
+                                        {% if legal_lectors['Д']|length > 0 %}
+                                        <div class="filterDiv rus-d"><span>Дд</span>
+                                        <div class="filterDiv-all">
+                                          {% for lector in legal_lectors['Д'] %}
+                                            <div class="filterDiv-card">
+                                            <a href="/lectors/{{lector.id}}">
+                                                <div class="filterDiv-photo">
+                                                    <img src="{{lector.photo}}">
+                                                </div>
+                                                <div class="filterDiv-info">
+                                                    <p class="filterDiv-fio">{{lector.full_name}}</p>
+                                                    <p class="filterDiv-work">{{lector.worker_position}}</p>
+                                                    <p class="filterDiv-lectures">{{lector.events_count}} лекций</p>
+                                                </div>
+                                                </a>
+                                            </div>
+                                          {% endfor %}
+
+                                            </div>
+                                        </div>
+                                        {% endif %}
+
+
+                                        {% if legal_lectors['Е']|length > 0 %}
+                                        <div class="filterDiv rus-e"><span>Ее</span>
+
+                                        <div class="filterDiv-all">
+                                          {% for lector in legal_lectors['Е'] %}
+                                            <div class="filterDiv-card">
+                                            <a href="/lectors/{{lector.id}}">
+                                                <div class="filterDiv-photo">
+                                                    <img src="{{lector.photo}}">
+                                                </div>
+                                                <div class="filterDiv-info">
+                                                    <p class="filterDiv-fio">{{lector.full_name}}</p>
+                                                    <p class="filterDiv-work">{{lector.worker_position}}</p>
+                                                    <p class="filterDiv-lectures">{{lector.events_count}} лекций</p>
+                                                </div>
+                                                </a>
+                                            </div>
+                                          {% endfor %}
+
+                                            </div>
+
+                                        </div>
+                                        {% endif %}
+
+
+                                        {% if legal_lectors['Ж']|length > 0 %}
+                                        <div class="filterDiv rus-j"><span>Жж</span>
+
+                                        <div class="filterDiv-all">
+                                          {% for lector in legal_lectors['Ж'] %}
+                                            <div class="filterDiv-card">
+                                            <a href="/lectors/{{lector.id}}">
+                                                <div class="filterDiv-photo">
+                                                    <img src="{{lector.photo}}">
+                                                </div>
+                                                <div class="filterDiv-info">
+                                                    <p class="filterDiv-fio">{{lector.full_name}}</p>
+                                                    <p class="filterDiv-work">{{lector.worker_position}}</p>
+                                                    <p class="filterDiv-lectures">{{lector.events_count}} лекций</p>
+                                                </div>
+                                                </a>
+                                            </div>
+                                          {% endfor %}
+
+                                            </div>
+
+                                        </div>
+                                        {% endif %}
+
+                                        {% if legal_lectors['З']|length > 0 %}
+                                        <div class="filterDiv rus-z"><span>Зз</span>
+                                        <div class="filterDiv-all">
+                                          {% for lector in legal_lectors['З'] %}
+                                            <div class="filterDiv-card">
+                                            <a href="/lectors/{{lector.id}}">
+                                                <div class="filterDiv-photo">
+                                                    <img src="{{lector.photo}}">
+                                                </div>
+                                                <div class="filterDiv-info">
+                                                    <p class="filterDiv-fio">{{lector.full_name}}</p>
+                                                    <p class="filterDiv-work">{{lector.worker_position}}</p>
+                                                    <p class="filterDiv-lectures">{{lector.events_count}} лекций</p>
+                                                </div>
+                                                </a>
+                                            </div>
+                                          {% endfor %}
+
+                                            </div>
+
+                                        </div>
+                                        {% endif %}
+
+                                        {% if legal_lectors['И']|length > 0 %}
+                                        <div class="filterDiv rus-i"><span>Ии</span>
+
+                                        <div class="filterDiv-all">
+
+                                          {% for lector in legal_lectors['И'] %}
+                                            <div class="filterDiv-card">
+                                            <a href="/lectors/{{lector.id}}">
+                                                <div class="filterDiv-photo">
+                                                    <img src="{{lector.photo}}">
+                                                </div>
+                                                <div class="filterDiv-info">
+                                                    <p class="filterDiv-fio">{{lector.full_name}}</p>
+                                                    <p class="filterDiv-work">{{lector.worker_position}}</p>
+                                                    <p class="filterDiv-lectures">{{lector.events_count}} лекций</p>
+                                                </div>
+                                                </a>
+                                            </div>
+                                          {% endfor %}
+
+
+                                            </div>
+
+                                        </div>
+                                        {% endif %}
+
+
+                                        {% if legal_lectors['К']|length > 0 %}
+                                        <div class="filterDiv rus-k"><span>Кк</span>
+
+                                        <div class="filterDiv-all">
+
+                                          {% for lector in legal_lectors['К'] %}
+                                            <div class="filterDiv-card">
+                                            <a href="/lectors/{{lector.id}}">
+                                                <div class="filterDiv-photo">
+                                                    <img src="{{lector.photo}}">
+                                                </div>
+                                                <div class="filterDiv-info">
+                                                    <p class="filterDiv-fio">{{lector.full_name}}</p>
+                                                    <p class="filterDiv-work">{{lector.worker_position}}</p>
+                                                    <p class="filterDiv-lectures">{{lector.events_count}} лекций</p>
+                                                </div>
+                                                </a>
+                                            </div>
+                                          {% endfor %}
+
+                                            </div>
+
+                                        </div>
+                                        {% endif %}
+
+                                        {% if legal_lectors['Л']|length > 0 %}
+                                        <div class="filterDiv rus-l"><span>Лл</span>
+
+                                        <div class="filterDiv-all">
+                                          {% for lector in legal_lectors['Л'] %}
+                                            <div class="filterDiv-card">
+                                            <a href="/lectors/{{lector.id}}">
+                                                <div class="filterDiv-photo">
+                                                    <img src="{{lector.photo}}">
+                                                </div>
+                                                <div class="filterDiv-info">
+                                                    <p class="filterDiv-fio">{{lector.full_name}}</p>
+                                                    <p class="filterDiv-work">{{lector.worker_position}}</p>
+                                                    <p class="filterDiv-lectures">{{lector.events_count}} лекций</p>
+                                                </div>
+                                                </a>
+                                            </div>
+                                          {% endfor %}
+                                            </div>
+
+                                        </div>
+                                        {% endif %}
+
+                                        {% if legal_lectors['М']|length > 0 %}
+                                        <div class="filterDiv rus-m"><span>Мм</span>
+
+                                        <div class="filterDiv-all">
+                                          {% for lector in legal_lectors['М'] %}
+                                            <div class="filterDiv-card">
+                                            <a href="/lectors/{{lector.id}}">
+                                                <div class="filterDiv-photo">
+                                                    <img src="{{lector.photo}}">
+                                                </div>
+                                                <div class="filterDiv-info">
+                                                    <p class="filterDiv-fio">{{lector.full_name}}</p>
+                                                    <p class="filterDiv-work">{{lector.worker_position}}</p>
+                                                    <p class="filterDiv-lectures">{{lector.events_count}} лекций</p>
+                                                </div>
+                                                </a>
+                                            </div>
+                                          {% endfor %}
+
+                                            </div>
+
+                                        </div>
+                                        {% endif %}
+
+                                        {% if legal_lectors['Н']|length > 0 %}
+                                        <div class="filterDiv rus-n"><span>Нн</span>
+
+                                        <div class="filterDiv-all">
+                                          {% for lector in legal_lectors['Н'] %}
+                                            <div class="filterDiv-card">
+                                            <a href="/lectors/{{lector.id}}">
+                                                <div class="filterDiv-photo">
+                                                    <img src="{{lector.photo}}">
+                                                </div>
+                                                <div class="filterDiv-info">
+                                                    <p class="filterDiv-fio">{{lector.full_name}}</p>
+                                                    <p class="filterDiv-work">{{lector.worker_position}}</p>
+                                                    <p class="filterDiv-lectures">{{lector.events_count}} лекций</p>
+                                                </div>
+                                                </a>
+                                            </div>
+                                          {% endfor %}
+
+                                            </div>
+
+                                        </div>
+                                        {% endif %}
+
+                                        {% if legal_lectors['О']|length > 0 %}
+                                        <div class="filterDiv rus-o"><span>Оо</span>
+
+                                        <div class="filterDiv-all">
+                                          {% for lector in legal_lectors['О'] %}
+                                            <div class="filterDiv-card">
+                                            <a href="/lectors/{{lector.id}}">
+                                                <div class="filterDiv-photo">
+                                                    <img src="{{lector.photo}}">
+                                                </div>
+                                                <div class="filterDiv-info">
+                                                    <p class="filterDiv-fio">{{lector.full_name}}</p>
+                                                    <p class="filterDiv-work">{{lector.worker_position}}</p>
+                                                    <p class="filterDiv-lectures">{{lector.events_count}} лекций</p>
+                                                </div>
+                                                </a>
+                                            </div>
+                                          {% endfor %}
+
+                                            </div>
+
+                                        </div>
+                                        {% endif %}
+
+                                        {% if legal_lectors['П']|length > 0 %}
+                                        <div class="filterDiv rus-p"><span>Пп</span>
+
+                                        <div class="filterDiv-all">
+
+                                          {% for lector in legal_lectors['П'] %}
+                                            <div class="filterDiv-card">
+                                            <a href="/lectors/{{lector.id}}">
+                                                <div class="filterDiv-photo">
+                                                    <img src="{{lector.photo}}">
+                                                </div>
+                                                <div class="filterDiv-info">
+                                                    <p class="filterDiv-fio">{{lector.full_name}}</p>
+                                                    <p class="filterDiv-work">{{lector.worker_position}}</p>
+                                                    <p class="filterDiv-lectures">{{lector.events_count}} лекций</p>
+                                                </div>
+                                                </a>
+                                            </div>
+                                          {% endfor %}
+
+                                            </div>
+
+                                        </div>
+                                        {% endif %}
+
+                                        {% if legal_lectors['Р']|length > 0 %}
+                                        <div class="filterDiv rus-r"><span>Рр</span>
+
+                                        <div class="filterDiv-all">
+                                          {% for lector in legal_lectors['Р'] %}
+                                            <div class="filterDiv-card">
+                                            <a href="/lectors/{{lector.id}}">
+                                                <div class="filterDiv-photo">
+                                                    <img src="{{lector.photo}}">
+                                                </div>
+                                                <div class="filterDiv-info">
+                                                    <p class="filterDiv-fio">{{lector.full_name}}</p>
+                                                    <p class="filterDiv-work">{{lector.worker_position}}</p>
+                                                    <p class="filterDiv-lectures">{{lector.events_count}} лекций</p>
+                                                </div>
+                                                </a>
+                                            </div>
+                                          {% endfor %}
+
+                                            </div>
+
+                                        </div>
+                                        {% endif %}
+
+
+                                        {% if legal_lectors['С']|length > 0 %}
+                                        <div class="filterDiv rus-c"><span>Сс</span>
+
+                                        <div class="filterDiv-all">
+
+                                          {% for lector in legal_lectors['С'] %}
+                                            <div class="filterDiv-card">
+                                            <a href="/lectors/{{lector.id}}">
+                                                <div class="filterDiv-photo">
+                                                    <img src="{{lector.photo}}">
+                                                </div>
+                                                <div class="filterDiv-info">
+                                                    <p class="filterDiv-fio">{{lector.full_name}}</p>
+                                                    <p class="filterDiv-work">{{lector.worker_position}}</p>
+                                                    <p class="filterDiv-lectures">{{lector.events_count}} лекций</p>
+                                                </div>
+                                                </a>
+                                            </div>
+                                          {% endfor %}
+
+                                            </div>
+
+                                        </div>
+                                        {% endif %}
+
+
+
+                                        {% if legal_lectors['Т']|length > 0 %}
+                                        <div class="filterDiv rus-t"><span>Тт</span>
+
+                                        <div class="filterDiv-all">
+                                          {% for lector in legal_lectors['Т'] %}
+                                            <div class="filterDiv-card">
+                                            <a href="/lectors/{{lector.id}}">
+                                                <div class="filterDiv-photo">
+                                                    <img src="{{lector.photo}}">
+                                                </div>
+                                                <div class="filterDiv-info">
+                                                    <p class="filterDiv-fio">{{lector.full_name}}</p>
+                                                    <p class="filterDiv-work">{{lector.worker_position}}</p>
+                                                    <p class="filterDiv-lectures">{{lector.events_count}} лекций</p>
+                                                </div>
+                                                </a>
+                                            </div>
+                                          {% endfor %}
+
+
+                                            </div>
+
+                                        </div>
+                                        {% endif %}
+
+
+                                        {% if legal_lectors['У']|length > 0 %}
+                                        <div class="filterDiv rus-u"><span>Уу</span>
+
+                                        <div class="filterDiv-all">
+
+                                          {% for lector in legal_lectors['У'] %}
+                                            <div class="filterDiv-card">
+                                            <a href="/lectors/{{lector.id}}">
+                                                <div class="filterDiv-photo">
+                                                    <img src="{{lector.photo}}">
+                                                </div>
+                                                <div class="filterDiv-info">
+                                                    <p class="filterDiv-fio">{{lector.full_name}}</p>
+                                                    <p class="filterDiv-work">{{lector.worker_position}}</p>
+                                                    <p class="filterDiv-lectures">{{lector.events_count}} лекций</p>
+                                                </div>
+                                                </a>
+                                            </div>
+                                          {% endfor %}
+
+                                            </div>
+
+                                        </div>
+                                        {% endif %}
+
+
+                                        {% if legal_lectors['Ф']|length > 0 %}
+                                        <div class="filterDiv rus-f"><span>Фф</span>
+
+                                        <div class="filterDiv-all">
+
+                                          {% for lector in legal_lectors['Ф'] %}
+                                            <div class="filterDiv-card">
+                                            <a href="/lectors/{{lector.id}}">
+                                                <div class="filterDiv-photo">
+                                                    <img src="{{lector.photo}}">
+                                                </div>
+                                                <div class="filterDiv-info">
+                                                    <p class="filterDiv-fio">{{lector.full_name}}</p>
+                                                    <p class="filterDiv-work">{{lector.worker_position}}</p>
+                                                    <p class="filterDiv-lectures">{{lector.events_count}} лекций</p>
+                                                </div>
+                                                </a>
+                                            </div>
+                                          {% endfor %}
+                                            </div>
+
+                                        </div>
+                                        {% endif %}
+
+
+                                        {% if legal_lectors['Х']|length > 0 %}
+                                        <div class="filterDiv rus-h"><span>Хх</span>
+
+                                        <div class="filterDiv-all">
+                                          {% for lector in legal_lectors['Х'] %}
+                                            <div class="filterDiv-card">
+                                            <a href="/lectors/{{lector.id}}">
+                                                <div class="filterDiv-photo">
+                                                    <img src="{{lector.photo}}">
+                                                </div>
+                                                <div class="filterDiv-info">
+                                                    <p class="filterDiv-fio">{{lector.full_name}}</p>
+                                                    <p class="filterDiv-work">{{lector.worker_position}}</p>
+                                                    <p class="filterDiv-lectures">{{lector.events_count}} лекций</p>
+                                                </div>
+                                                </a>
+                                            </div>
+                                          {% endfor %}
+
+                                            </div>
+
+                                        </div>
+                                        {% endif %}
+
+
+                                        {% if legal_lectors['Ч']|length > 0 %}
+                                        <div class="filterDiv rus-1"><span>Чч</span>
+
+                                        <div class="filterDiv-all">
+
+                                          {% for lector in legal_lectors['Ч'] %}
+                                            <div class="filterDiv-card">
+                                            <a href="/lectors/{{lector.id}}">
+                                                <div class="filterDiv-photo">
+                                                    <img src="{{lector.photo}}">
+                                                </div>
+                                                <div class="filterDiv-info">
+                                                    <p class="filterDiv-fio">{{lector.full_name}}</p>
+                                                    <p class="filterDiv-work">{{lector.worker_position}}</p>
+                                                    <p class="filterDiv-lectures">{{lector.events_count}} лекций</p>
+                                                </div>
+                                                </a>
+                                            </div>
+                                          {% endfor %}
+
+
+                                            </div>
+
+                                        </div>
+                                        {% endif %}
+
+                                        {% if legal_lectors['Ш']|length > 0 %}
+                                        <div class="filterDiv rus-2"><span>Шш</span>
+
+                                        <div class="filterDiv-all">
+
+                                          {% for lector in legal_lectors['Ш'] %}
+                                            <div class="filterDiv-card">
+                                            <a href="/lectors/{{lector.id}}">
+                                                <div class="filterDiv-photo">
+                                                    <img src="{{lector.photo}}">
+                                                </div>
+                                                <div class="filterDiv-info">
+                                                    <p class="filterDiv-fio">{{lector.full_name}}</p>
+                                                    <p class="filterDiv-work">{{lector.worker_position}}</p>
+                                                    <p class="filterDiv-lectures">{{lector.events_count}} лекций</p>
+                                                </div>
+                                                </a>
+                                            </div>
+                                          {% endfor %}
+
+
+                                            </div>
+
+                                        </div>
+                                        {% endif %}
+
+                                        {% if legal_lectors['Э']|length > 0 %}
+                                        <div class="filterDiv rus-3"><span>Ээ</span>
+
+                                        <div class="filterDiv-all">
+
+                                          {% for lector in legal_lectors['Э'] %}
+                                            <div class="filterDiv-card">
+                                            <a href="/lectors/{{lector.id}}">
+                                                <div class="filterDiv-photo">
+                                                    <img src="{{lector.photo}}">
+                                                </div>
+                                                <div class="filterDiv-info">
+                                                    <p class="filterDiv-fio">{{lector.full_name}}</p>
+                                                    <p class="filterDiv-work">{{lector.worker_position}}</p>
+                                                    <p class="filterDiv-lectures">{{lector.events_count}} лекций</p>
+                                                </div>
+                                                </a>
+                                            </div>
+                                          {% endfor %}
+
+
+                                            </div>
+
+                                        </div>
+                                        {% endif %}
+
+                                        {% if legal_lectors['Ю']|length > 0 %}
+                                        <div class="filterDiv rus-4"><span>Юю</span>
+
+                                        <div class="filterDiv-all">
+
+                                          {% for lector in legal_lectors['Ю'] %}
+                                            <div class="filterDiv-card">
+                                            <a href="/lectors/{{lector.id}}">
+                                                <div class="filterDiv-photo">
+                                                    <img src="{{lector.photo}}">
+                                                </div>
+                                                <div class="filterDiv-info">
+                                                    <p class="filterDiv-fio">{{lector.full_name}}</p>
+                                                    <p class="filterDiv-work">{{lector.worker_position}}</p>
+                                                    <p class="filterDiv-lectures">{{lector.events_count}} лекций</p>
+                                                </div>
+                                                </a>
+                                            </div>
+                                          {% endfor %}
+
+
+                                            </div>
+
+                                        </div>
+                                        {% endif %}
+
+
+                                        {% if legal_lectors['Я']|length > 0 %}
+                                        <div class="filterDiv rus-5"><span>Яя</span>
+
+                                        <div class="filterDiv-all">
+
+                                          {% for lector in legal_lectors['Я'] %}
+                                            <div class="filterDiv-card">
+                                            <a href="/lectors/{{lector.id}}">
+                                                <div class="filterDiv-photo">
+                                                    <img src="{{lector.photo}}">
+                                                </div>
+                                                <div class="filterDiv-info">
+                                                    <p class="filterDiv-fio">{{lector.full_name}}</p>
+                                                    <p class="filterDiv-work">{{lector.worker_position}}</p>
+                                                    <p class="filterDiv-lectures">{{lector.events_count}} лекций</p>
+                                                </div>
+                                                </a>
+                                            </div>
+                                          {% endfor %}
+
+
+                                            </div>
+
+                                        </div>
+                                        {% endif %}
+
+
+                                        {% if legal_lectors['A']|length > 0 %}
+                                        <div class="filterDiv lat-a"><span>Aa</span>
+
+                                        <div class="filterDiv-all">
+
+                                          {% for lector in legal_lectors['A'] %}
+                                            <div class="filterDiv-card">
+                                            <a href="/lectors/{{lector.id}}">
+                                                <div class="filterDiv-photo">
+                                                    <img src="{{lector.photo}}">
+                                                </div>
+                                                <div class="filterDiv-info">
+                                                    <p class="filterDiv-fio">{{lector.full_name}}</p>
+                                                    <p class="filterDiv-work">{{lector.worker_position}}</p>
+                                                    <p class="filterDiv-lectures">{{lector.events_count}} лекций</p>
+                                                </div>
+                                                </a>
+                                            </div>
+                                          {% endfor %}
+
+
+                                            </div>
+
+                                        </div>
+                                        {% endif %}
+
+                                        {% if legal_lectors['B']|length > 0 %}
+                                        <div class="filterDiv lat-b"><span>Bb</span>
+
+                                        <div class="filterDiv-all">
+
+                                          {% for lector in legal_lectors['B'] %}
+                                            <div class="filterDiv-card">
+                                            <a href="/lectors/{{lector.id}}">
+                                                <div class="filterDiv-photo">
+                                                    <img src="{{lector.photo}}">
+                                                </div>
+                                                <div class="filterDiv-info">
+                                                    <p class="filterDiv-fio">{{lector.full_name}}</p>
+                                                    <p class="filterDiv-work">{{lector.worker_position}}</p>
+                                                    <p class="filterDiv-lectures">{{lector.events_count}} лекций</p>
+                                                </div>
+                                                </a>
+                                            </div>
+                                          {% endfor %}
+
+
+                                            </div>
+
+                                        </div>
+                                        {% endif %}
+
+
+                                        {% if legal_lectors['C']|length > 0 %}
+                                        <div class="filterDiv lat-c"><span>Cc</span>
+
+                                        <div class="filterDiv-all">
+
+                                          {% for lector in legal_lectors['C'] %}
+                                            <div class="filterDiv-card">
+                                            <a href="/lectors/{{lector.id}}">
+                                                <div class="filterDiv-photo">
+                                                    <img src="{{lector.photo}}">
+                                                </div>
+                                                <div class="filterDiv-info">
+                                                    <p class="filterDiv-fio">{{lector.full_name}}</p>
+                                                    <p class="filterDiv-work">{{lector.worker_position}}</p>
+                                                    <p class="filterDiv-lectures">{{lector.events_count}} лекций</p>
+                                                </div>
+                                                </a>
+                                            </div>
+                                          {% endfor %}
+
+
+                                            </div>
+
+                                        </div>
+                                        {% endif %}
+
+                                        {% if legal_lectors['D']|length > 0 %}
+                                        <div class="filterDiv lat-d">Dd
+
+                                        <div class="filterDiv-all">
+
+                                          {% for lector in legal_lectors['D'] %}
+                                            <div class="filterDiv-card">
+                                            <a href="/lectors/{{lector.id}}">
+                                                <div class="filterDiv-photo">
+                                                    <img src="{{lector.photo}}">
+                                                </div>
+                                                <div class="filterDiv-info">
+                                                    <p class="filterDiv-fio">{{lector.full_name}}</p>
+                                                    <p class="filterDiv-work">{{lector.worker_position}}</p>
+                                                    <p class="filterDiv-lectures">{{lector.events_count}} лекций</p>
+                                                </div>
+                                                </a>
+                                            </div>
+                                          {% endfor %}
+
+
+                                            </div>
+
+                                        </div>
+                                        {% endif %}
+
+
+                                        {% if legal_lectors['E']|length > 0 %}
+                                        <div class="filterDiv lat-e"><span>Ee</span>
+
+                                        <div class="filterDiv-all">
+
+                                          {% for lector in legal_lectors['E'] %}
+                                            <div class="filterDiv-card">
+                                            <a href="/lectors/{{lector.id}}">
+                                                <div class="filterDiv-photo">
+                                                    <img src="{{lector.photo}}">
+                                                </div>
+                                                <div class="filterDiv-info">
+                                                    <p class="filterDiv-fio">{{lector.full_name}}</p>
+                                                    <p class="filterDiv-work">{{lector.worker_position}}</p>
+                                                    <p class="filterDiv-lectures">{{lector.events_count}} лекций</p>
+                                                </div>
+                                                </a>
+                                            </div>
+                                          {% endfor %}
+
+
+                                            </div>
+
+                                        </div>
+                                        {% endif %}
+
+
+                                        {% if legal_lectors['F']|length > 0 %}
+                                        <div class="filterDiv lat-f">Ff
+
+                                        <div class="filterDiv-all">
+                                          {% for lector in legal_lectors['F'] %}
+                                            <div class="filterDiv-card">
+                                            <a href="/lectors/{{lector.id}}">
+                                                <div class="filterDiv-photo">
+                                                    <img src="{{lector.photo}}">
+                                                </div>
+                                                <div class="filterDiv-info">
+                                                    <p class="filterDiv-fio">{{lector.full_name}}</p>
+                                                    <p class="filterDiv-work">{{lector.worker_position}}</p>
+                                                    <p class="filterDiv-lectures">{{lector.events_count}} лекций</p>
+                                                </div>
+                                                </a>
+                                            </div>
+                                          {% endfor %}
+
+
+                                            </div>
+
+                                        </div>
+                                        {% endif %}
+
+                                        {% if legal_lectors['G']|length > 0 %}
+                                        <div class="filterDiv lat-g"><span>Gg</span>
+
+                                        <div class="filterDiv-all">
+
+                                          {% for lector in legal_lectors['G'] %}
+                                            <div class="filterDiv-card">
+                                            <a href="/lectors/{{lector.id}}">
+                                                <div class="filterDiv-photo">
+                                                    <img src="{{lector.photo}}">
+                                                </div>
+                                                <div class="filterDiv-info">
+                                                    <p class="filterDiv-fio">{{lector.full_name}}</p>
+                                                    <p class="filterDiv-work">{{lector.worker_position}}</p>
+                                                    <p class="filterDiv-lectures">{{lector.events_count}} лекций</p>
+                                                </div>
+                                                </a>
+                                            </div>
+                                          {% endfor %}
+
+
+                                            </div>
+
+                                        </div>
+                                        {% endif %}
+
+
+                                        {% if legal_lectors['H']|length > 0 %}
+                                        <div class="filterDiv lat-h">Hh
+
+                                        <div class="filterDiv-all">
+
+                                          {% for lector in legal_lectors['H'] %}
+                                            <div class="filterDiv-card">
+                                            <a href="/lectors/{{lector.id}}">
+                                                <div class="filterDiv-photo">
+                                                    <img src="{{lector.photo}}">
+                                                </div>
+                                                <div class="filterDiv-info">
+                                                    <p class="filterDiv-fio">{{lector.full_name}}</p>
+                                                    <p class="filterDiv-work">{{lector.worker_position}}</p>
+                                                    <p class="filterDiv-lectures">{{lector.events_count}} лекций</p>
+                                                </div>
+                                                </a>
+                                            </div>
+                                          {% endfor %}
+
+
+                                            </div>
+
+                                        </div>
+                                        {% endif %}
+
+
+                                        {% if legal_lectors['I']|length > 0 %}
+                                        <div class="filterDiv lat-i"><span>Ii</span>
+
+                                        <div class="filterDiv-all">
+
+                                          {% for lector in legal_lectors['I'] %}
+                                            <div class="filterDiv-card">
+                                            <a href="/lectors/{{lector.id}}">
+                                                <div class="filterDiv-photo">
+                                                    <img src="{{lector.photo}}">
+                                                </div>
+                                                <div class="filterDiv-info">
+                                                    <p class="filterDiv-fio">{{lector.full_name}}</p>
+                                                    <p class="filterDiv-work">{{lector.worker_position}}</p>
+                                                    <p class="filterDiv-lectures">{{lector.events_count}} лекций</p>
+                                                </div>
+                                                </a>
+                                            </div>
+                                          {% endfor %}
+
+
+                                            </div>
+
+                                        </div>
+                                        {% endif %}
+
+                                        {% if legal_lectors['J']|length > 0 %}
+                                        <div class="filterDiv lat-j"><span>Jj</span>
+
+                                        <div class="filterDiv-all">
+
+                                          {% for lector in legal_lectors['J'] %}
+                                            <div class="filterDiv-card">
+                                            <a href="/lectors/{{lector.id}}">
+                                                <div class="filterDiv-photo">
+                                                    <img src="{{lector.photo}}">
+                                                </div>
+                                                <div class="filterDiv-info">
+                                                    <p class="filterDiv-fio">{{lector.full_name}}</p>
+                                                    <p class="filterDiv-work">{{lector.worker_position}}</p>
+                                                    <p class="filterDiv-lectures">{{lector.events_count}} лекций</p>
+                                                </div>
+                                                </a>
+                                            </div>
+                                          {% endfor %}
+
+
+                                            </div>
+
+                                        </div>
+                                        {% endif %}
+
+                                        {% if legal_lectors['K']|length > 0 %}
+                                        <div class="filterDiv  lat-k"><span>Kk</span>
+
+                                        <div class="filterDiv-all">
+
+                                          {% for lector in legal_lectors['K'] %}
+                                            <div class="filterDiv-card">
+                                            <a href="/lectors/{{lector.id}}">
+                                                <div class="filterDiv-photo">
+                                                    <img src="{{lector.photo}}">
+                                                </div>
+                                                <div class="filterDiv-info">
+                                                    <p class="filterDiv-fio">{{lector.full_name}}</p>
+                                                    <p class="filterDiv-work">{{lector.worker_position}}</p>
+                                                    <p class="filterDiv-lectures">{{lector.events_count}} лекций</p>
+                                                </div>
+                                                </a>
+                                            </div>
+                                          {% endfor %}
+
+                                            </div>
+
+                                        </div>
+                                        {% endif %}
+
+
+                                        {% if legal_lectors['L']|length > 0 %}
+                                        <div class="filterDiv  lat-l"><span>Ll</span>
+
+                                        <div class="filterDiv-all">
+
+                                          {% for lector in legal_lectors['L'] %}
+                                            <div class="filterDiv-card">
+                                            <a href="/lectors/{{lector.id}}">
+                                                <div class="filterDiv-photo">
+                                                    <img src="{{lector.photo}}">
+                                                </div>
+                                                <div class="filterDiv-info">
+                                                    <p class="filterDiv-fio">{{lector.full_name}}</p>
+                                                    <p class="filterDiv-work">{{lector.worker_position}}</p>
+                                                    <p class="filterDiv-lectures">{{lector.events_count}} лекций</p>
+                                                </div>
+                                                </a>
+                                            </div>
+                                          {% endfor %}
+
+                                            </div>
+
+                                        </div>
+                                        {% endif %}
+
+
+                                        {% if legal_lectors['M']|length > 0 %}
+                                        <div class="filterDiv  lat-m"><span>Mm</span>
+
+                                        <div class="filterDiv-all">
+
+                                          {% for lector in legal_lectors['M'] %}
+                                            <div class="filterDiv-card">
+                                            <a href="/lectors/{{lector.id}}">
+                                                <div class="filterDiv-photo">
+                                                    <img src="{{lector.photo}}">
+                                                </div>
+                                                <div class="filterDiv-info">
+                                                    <p class="filterDiv-fio">{{lector.full_name}}</p>
+                                                    <p class="filterDiv-work">{{lector.worker_position}}</p>
+                                                    <p class="filterDiv-lectures">{{lector.events_count}} лекций</p>
+                                                </div>
+                                                </a>
+                                            </div>
+                                          {% endfor %}
+
+
+                                            </div>
+
+                                        </div>
+                                        {% endif %}
+
+
+                                        {% if legal_lectors['N']|length > 0 %}
+                                        <div class="filterDiv lat-n"><span>Nn</span>
+
+                                        <div class="filterDiv-all">
+
+                                          {% for lector in legal_lectors['N'] %}
+                                            <div class="filterDiv-card">
+                                            <a href="/lectors/{{lector.id}}">
+                                                <div class="filterDiv-photo">
+                                                    <img src="{{lector.photo}}">
+                                                </div>
+                                                <div class="filterDiv-info">
+                                                    <p class="filterDiv-fio">{{lector.full_name}}</p>
+                                                    <p class="filterDiv-work">{{lector.worker_position}}</p>
+                                                    <p class="filterDiv-lectures">{{lector.events_count}} лекций</p>
+                                                </div>
+                                                </a>
+                                            </div>
+                                          {% endfor %}
+
+
+                                            </div>
+
+                                        </div>
+                                        {% endif %}
+
+
+                                        {% if legal_lectors['O']|length > 0 %}
+                                        <div class="filterDiv lat-o')"><span>Oo</span>
+
+                                        <div class="filterDiv-all">
+
+                                          {% for lector in legal_lectors['O'] %}
+                                            <div class="filterDiv-card">
+                                            <a href="/lectors/{{lector.id}}">
+                                                <div class="filterDiv-photo">
+                                                    <img src="{{lector.photo}}">
+                                                </div>
+                                                <div class="filterDiv-info">
+                                                    <p class="filterDiv-fio">{{lector.full_name}}</p>
+                                                    <p class="filterDiv-work">{{lector.worker_position}}</p>
+                                                    <p class="filterDiv-lectures">{{lector.events_count}} лекций</p>
+                                                </div>
+                                                </a>
+                                            </div>
+                                          {% endfor %}
+
+
+                                            </div>
+
+                                        </div>
+                                        {% endif %}
+
+                                        {% if legal_lectors['P']|length > 0 %}
+                                        <div class="filterDiv  lat-p">Pp
+
+                                        <div class="filterDiv-all">
+
+                                          {% for lector in legal_lectors['P'] %}
+                                            <div class="filterDiv-card">
+                                            <a href="/lectors/{{lector.id}}">
+                                                <div class="filterDiv-photo">
+                                                    <img src="{{lector.photo}}">
+                                                </div>
+                                                <div class="filterDiv-info">
+                                                    <p class="filterDiv-fio">{{lector.full_name}}</p>
+                                                    <p class="filterDiv-work">{{lector.worker_position}}</p>
+                                                    <p class="filterDiv-lectures">{{lector.events_count}} лекций</p>
+                                                </div>
+                                                </a>
+                                            </div>
+                                          {% endfor %}
+
+
+                                            </div>
+
+                                        </div>
+                                        {% endif %}
+
+
+                                        {% if legal_lectors['Q']|length > 0 %}
+                                        <div class="filterDiv  lat-q"><span>Qq</span>
+
+                                        <div class="filterDiv-all">
+
+                                          {% for lector in legal_lectors['Q'] %}
+                                            <div class="filterDiv-card">
+                                            <a href="/lectors/{{lector.id}}">
+                                                <div class="filterDiv-photo">
+                                                    <img src="{{lector.photo}}">
+                                                </div>
+                                                <div class="filterDiv-info">
+                                                    <p class="filterDiv-fio">{{lector.full_name}}</p>
+                                                    <p class="filterDiv-work">{{lector.worker_position}}</p>
+                                                    <p class="filterDiv-lectures">{{lector.events_count}} лекций</p>
+                                                </div>
+                                                </a>
+                                            </div>
+                                          {% endfor %}
+
+                                            </div>
+
+                                        </div>
+                                        {% endif %}
+
+                                        {% if legal_lectors['R']|length > 0 %}
+                                        <div class="filterDiv  lat-r"><span>Rr</span>
+
+                                        <div class="filterDiv-all">
+
+                                          {% for lector in legal_lectors['R'] %}
+                                            <div class="filterDiv-card">
+                                            <a href="/lectors/{{lector.id}}">
+                                                <div class="filterDiv-photo">
+                                                    <img src="{{lector.photo}}">
+                                                </div>
+                                                <div class="filterDiv-info">
+                                                    <p class="filterDiv-fio">{{lector.full_name}}</p>
+                                                    <p class="filterDiv-work">{{lector.worker_position}}</p>
+                                                    <p class="filterDiv-lectures">{{lector.events_count}} лекций</p>
+                                                </div>
+                                                </a>
+                                            </div>
+                                          {% endfor %}
+
+                                            </div>
+
+                                        </div>
+                                        {% endif %}
+
+                                        {% if legal_lectors['S']|length > 0 %}
+                                        <div class="filterDiv  lat-s"><span>Ss</span>
+
+                                        <div class="filterDiv-all">
+
+                                          {% for lector in legal_lectors['S'] %}
+                                            <div class="filterDiv-card">
+                                            <a href="/lectors/{{lector.id}}">
+                                                <div class="filterDiv-photo">
+                                                    <img src="{{lector.photo}}">
+                                                </div>
+                                                <div class="filterDiv-info">
+                                                    <p class="filterDiv-fio">{{lector.full_name}}</p>
+                                                    <p class="filterDiv-work">{{lector.worker_position}}</p>
+                                                    <p class="filterDiv-lectures">{{lector.events_count}} лекций</p>
+                                                </div>
+                                                </a>
+                                            </div>
+                                          {% endfor %}
+
+
+                                            </div>
+
+                                        </div>
+                                        {% endif %}
+
+
+                                        {% if legal_lectors['T']|length > 0 %}
+                                        <div class="filterDiv  lat-t"><span>Tt</span>
+
+                                        <div class="filterDiv-all">
+
+                                          {% for lector in legal_lectors['T'] %}
+                                            <div class="filterDiv-card">
+                                            <a href="/lectors/{{lector.id}}">
+                                                <div class="filterDiv-photo">
+                                                    <img src="{{lector.photo}}">
+                                                </div>
+                                                <div class="filterDiv-info">
+                                                    <p class="filterDiv-fio">{{lector.full_name}}</p>
+                                                    <p class="filterDiv-work">{{lector.worker_position}}</p>
+                                                    <p class="filterDiv-lectures">{{lector.events_count}} лекций</p>
+                                                </div>
+                                                </a>
+                                            </div>
+                                          {% endfor %}
+
+                                            </div>
+
+                                        </div>
+                                        {% endif %}
+
+
+                                        {% if legal_lectors['U']|length > 0 %}
+                                        <div class="filterDiv  lat-u"><span>Uu</span>
+
+                                        <div class="filterDiv-all">
+
+                                          {% for lector in legal_lectors['U'] %}
+                                            <div class="filterDiv-card">
+                                            <a href="/lectors/{{lector.id}}">
+                                                <div class="filterDiv-photo">
+                                                    <img src="{{lector.photo}}">
+                                                </div>
+                                                <div class="filterDiv-info">
+                                                    <p class="filterDiv-fio">{{lector.full_name}}</p>
+                                                    <p class="filterDiv-work">{{lector.worker_position}}</p>
+                                                    <p class="filterDiv-lectures">{{lector.events_count}} лекций</p>
+                                                </div>
+                                                </a>
+                                            </div>
+                                          {% endfor %}
+
+
+                                            </div>
+
+                                        </div>
+
+                                        {% endif %}
+
+
+
+
+                                        {% if legal_lectors['V']|length > 0 %}
+                                        <div class="filterDiv  lat-v">Vv
+
+                                        <div class="filterDiv-all">
+                                          {% for lector in legal_lectors['V'] %}
+                                            <div class="filterDiv-card">
+                                            <a href="/lectors/{{lector.id}}">
+                                                <div class="filterDiv-photo">
+                                                    <img src="{{lector.photo}}">
+                                                </div>
+                                                <div class="filterDiv-info">
+                                                    <p class="filterDiv-fio">{{lector.full_name}}</p>
+                                                    <p class="filterDiv-work">{{lector.worker_position}}</p>
+                                                    <p class="filterDiv-lectures">{{lector.events_count}} лекций</p>
+                                                </div>
+                                                </a>
+                                            </div>
+                                          {% endfor %}
+
+                                            </div>
+
+                                        </div>
+                                      {% endif %}
+
+
+
+                                      {% if legal_lectors['W']|length > 0 %}
+                                        <div class="filterDiv lat-w">Ww
+
+                                        <div class="filterDiv-all">
+                                          {% for lector in legal_lectors['W'] %}
+                                            <div class="filterDiv-card">
+                                            <a href="/lectors/{{lector.id}}">
+                                                <div class="filterDiv-photo">
+                                                    <img src="{{lector.photo}}">
+                                                </div>
+                                                <div class="filterDiv-info">
+                                                    <p class="filterDiv-fio">{{lector.full_name}}</p>
+                                                    <p class="filterDiv-work">{{lector.worker_position}}</p>
+                                                    <p class="filterDiv-lectures">{{lector.events_count}} лекций</p>
+                                                </div>
+                                                </a>
+                                            </div>
+                                          {% endfor %}
+
+                                            </div>
+
+                                        </div>
+                                      {% endif %}
+
+
+
+                                      {% if legal_lectors['X']|length > 0 %}
+                                        <div class="filterDiv lat-x"><span>Xx</span>
+
+                                        <div class="filterDiv-all">
+                                          {% for lector in legal_lectors['X'] %}
+                                            <div class="filterDiv-card">
+                                            <a href="/lectors/{{lector.id}}">
+                                                <div class="filterDiv-photo">
+                                                    <img src="{{lector.photo}}">
+                                                </div>
+                                                <div class="filterDiv-info">
+                                                    <p class="filterDiv-fio">{{lector.full_name}}</p>
+                                                    <p class="filterDiv-work">{{lector.worker_position}}</p>
+                                                    <p class="filterDiv-lectures">{{lector.events_count}} лекций</p>
+                                                </div>
+                                                </a>
+                                            </div>
+                                          {% endfor %}
+
+                                            </div>
+
+                                        </div>
+                                      {% endif %}
+
+
+
+                                      {% if legal_lectors['Y']|length > 0 %}
+                                        <div class="filterDiv lat-y">Yy
+
+                                        <div class="filterDiv-all">
+                                          {% for lector in legal_lectors['Y'] %}
+                                            <div class="filterDiv-card">
+                                            <a href="/lectors/{{lector.id}}">
+                                                <div class="filterDiv-photo">
+                                                    <img src="{{lector.photo}}">
+                                                </div>
+                                                <div class="filterDiv-info">
+                                                    <p class="filterDiv-fio">{{lector.full_name}}</p>
+                                                    <p class="filterDiv-work">{{lector.worker_position}}</p>
+                                                    <p class="filterDiv-lectures">{{lector.events_count}} лекций</p>
+                                                </div>
+                                                </a>
+                                            </div>
+                                          {% endfor %}
+
+                                            </div>
+
+                                        </div>
+                                      {% endif %}
+
+
+
+                                      {% if legal_lectors['Z']|length > 0 %}
+                                        <div class="filterDiv lat-z"><span>Zz</span>
+
+                                        <div class="filterDiv-all">
+                                          {% for lector in legal_lectors['Z'] %}
+                                            <div class="filterDiv-card">
+                                            <a href="/lectors/{{lector.id}}">
+                                                <div class="filterDiv-photo">
+                                                    <img src="{{lector.photo}}">
+                                                </div>
+                                                <div class="filterDiv-info">
+                                                    <p class="filterDiv-fio">{{lector.full_name}}</p>
+                                                    <p class="filterDiv-work">{{lector.worker_position}}</p>
+                                                    <p class="filterDiv-lectures">{{lector.events_count}} лекций</p>
+                                                </div>
+                                                </a>
+                                            </div>
+                                          {% endfor %}
+
+                                            </div>
+
+                                        </div>
+                                      {% endif %}
+
+
+
+                                        </div>
+
+                                      </div>
+                        </div>
+
+
+
+    </div>
+    </div>
+
+    </div>
+   </div>
+</div>

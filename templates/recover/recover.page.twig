@@ -1,0 +1,90 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Востановление пароля{% endblock %}
+
+{% block body %}
+<main class="main">
+
+  <input type="hidden" id="whats_choose" name="" value="1">
+
+    <div class="main-left">
+
+        <div class="main-left__content">
+        <h3 class="main-left__title">Добро пожаловать</h3>
+        <div class="main-left__description">Заполните пару простых шагов, чтобы начать работу с сервисом</div>
+        </div>
+        <div class="main-left__img"><img src="/img/form_bg.png" alt="form_bg"></div>
+
+    </div>
+
+
+    <div class="main-right main-right-recover">
+
+            <div class="flat-design-form">
+
+                            <div class="registration-form registration-login">
+
+                                <div class="registration-page registration-page--mobile">
+                                    <div class="registration-form__content">
+                                      <div class="registration-form__content-mobile">
+                                        <div class="main-left__content">
+                                            <h3 class="main-left__title">Добро пожаловать</h3>
+                                            <div class="main-left__description">Заполните пару простых шагов, чтобы начать работу с сервисом</div>
+                                        </div>
+                                        <div class="main-left__img"><img src="/img/form_bg.png" alt="form_bg"></div>
+                                    <div class="button">
+                                            <div class="form__group">
+                                                <div class="form__slider"><img src="/img/icon_slider.svg" alt="icon_slider"></div>
+                                                <p class="form__alarm">Вы сможете отредактировать данную информацию позднее в своём личном кабинете</p>
+                                            </div>
+                                            <div class="form__button form__button--away">
+                                                    <button type="button" class="btn btn-next button__further">Далее</button>
+                                            </div>
+                                            </div>
+                                    </div>
+                                  </div>
+
+                                </div>
+
+                                <div class="registration-page">
+                                    <div class="form-top">
+                                        <div class="main-right__content">
+                                            <h3 class="main-right__title">Восстановление пароля</h3>
+                                             <p class="main-right__desc">На этой странице вы можете задать новый пароль.</p>
+                                             <p class="main-right__desc">Старый пароль будет сброшен</p>
+
+                                        </div>
+                                    </div>
+                                    <div class="form-bottom">
+                                           <div>
+                                                <p class="form__contact"><label for="password">Новый пароль</label></p>
+                                                <input type="password" id="pass_first" name="password" placeholder="Задайте новый пароль">
+                                                <span class="input-error__message">Вы не заполнили обязательное поле</span>
+                                            </div>
+                                            <div>
+                                                <p class="form__contact"><label for="password">Повторите пароль</label></p>
+                                                <input type="password" id="pass_second" name="password" placeholder="Повторите новый пароль">
+                                                <span class="input-error__message">Вы не заполнили обязательное поле</span>
+                                            </div>
+                                            <input type="hidden" id="key" value="{{key}}">
+                                                <div class="button">
+                                                        <div class="form__button form__button-login">
+                                                                <button type="button" id="upd_btn" class="btn button__away--login">Изменить пароль</button>
+                                                        </div>
+                                                </div>
+                                            </div>
+                                </div>
+
+                            </div>
+                </div>
+
+                </div>
+            </div>
+
+
+
+
+</main>
+
+
+{% endblock %}

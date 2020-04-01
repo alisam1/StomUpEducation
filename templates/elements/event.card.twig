@@ -1,0 +1,63 @@
+{% set dateStart = event.event_start_time|date('d.m.Y') %}
+{% set dateEnd = event.event_end_time|date('d.m.Y') %}
+{% set timeStart = event.event_start_time|date('H:i') %}
+{% set timeEnd = event.event_end_time|date('H:i') %}
+
+<div class="lectures-group__block block">
+<a class="ahref__noslyle" href="https://stomup.ru/events/{{ event.id }}">
+
+        <div class="block__top"  style="background-image:url({{ event.event_main_img|minimg() }});">
+              <div class="block__when">
+              <div class="block__data">
+              {% if dateStart == dateEnd %}
+                {{ dateStart }}
+              {% else %}
+                {{dateStart}}-{{dateEnd}}
+              {% endif %}
+              </div>
+              <div class="block__time">{{timeStart}} - {{timeEnd}}</div>
+              </div>
+              <div class="block__address">{{event.event_city}}, {{event.event_address}}</div>
+        </div>
+        </a>
+
+        <div class="block__bottom">
+        <a class="ahref__noslyle" href="https://stomup.ru/events/{{ event.id }}">
+            <div class="block__high">
+                <div class="block__topic"><span class="block__dot block__dot--paradont" style="background:{{event.color}}"></span>{{ event.way_name }}</div>
+                <div class="block__type">{{event.type_name}}</div>
+            </div>
+            <div class="block__center">
+                <div class="block__title">{{event.event_name|str30()|beautifultext()}}
+                    <span class="block__tooltip">{{event.event_name}}</span>
+                </div>
+            </div>
+                <div class="block__price">
+                {% if event.is_free == 1 %}
+                  {{ event.price }} ₽
+                {% else %}
+                Бесплатно
+                {% endif %}
+                </div>
+            </a>
+            <div class="block__about">
+                <div class="block__doctor">
+                    <div class="block__photo"><img src="{{event.photo}}" alt="block__photo"></div>
+                    <div class="block__fio">
+                        <div class="block__name">{{event.full_name|short_name()}}</div>
+                        <div class="block__work">{{event.worker_position|onlyone}}</div>
+                    </div>
+                </div>
+                <div class="block__add">
+                {% if event.rule_point > 0 %}
+                    <div class="block__star">{{event.rule_point}}</div>
+                {% endif %}
+                {% if event.rule_sertificate is not null %}
+                    <div class="block__sert">Сертификат</div>
+                {% endif %}
+                    <div class="block__more"><a class="ahref__noslyle" href="https://stomup.ru/events/{{ event.id }}">еще</a></div>
+                </div>
+        </div>
+    </div>
+
+    </div>

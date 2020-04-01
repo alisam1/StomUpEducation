@@ -1,0 +1,95 @@
+<header class="main-header">
+
+    <div class="main-header__desktop">
+
+           <div class="main-header__content">
+           <div class="main-header__menu">
+                   <div class = "main-header__mobile-menu">
+                    <div class = "mobile-menu">
+                        <nav role="navigation">
+                            <div id="menuToggle">
+                            <input type="checkbox" />
+                                <span></span>
+                                <span></span>
+                                <p class="menu">Меню</p>
+                            <ul id="menu" class="main-mobile-menu">
+                                <li class="template-center-item template-center-item--main"> <a href="/cabinet/">Главная</a> </li>
+                                <li class="template-center-item template-center-item--profile"> <a href="/cabinet/profile">Профиль</a> </li>
+                                <li class="template-center-item template-center-item--event"> <a href="/cabinet/events">Мероприятия</a> </li>
+                                {# <li class="template-center-item">Каталог</li> #}
+                                <li class="template-center-item template-center-item--away"> <a href="/">На платформу</a> </li>
+                                <li class="template-center-item template-center-item--exit"> <a href="/logout">Выход</a></li>
+                                {# <li class="template-center-item">Литература</li> #}
+                            </ul>
+                            </div>
+                         </nav>
+                    </div>
+                </div>
+               </div>
+               <div class="main-header__logo">
+                    <a href="/">
+                        <img src="/img/logo_new.svg" alt="Logo">
+                   </a>
+               </div>
+
+
+           <div class="main-header__search main-header__search--desktop">
+           {% if 'cabinet' in app.request.uri %}
+               <form action="/cabinet/search" method="GET">
+                   <input type="text" name="q" placeholder="Введите фамилию, или направление">
+                   <button type="submit"></button>
+               </form>
+
+          {% else %}
+            <form action="/search" method="GET">
+                <input type="text" name="q" placeholder="Введите фамилию, или направление">
+                <button type="submit"></button>
+            </form>
+
+          {% endif %}
+           </div>
+       </div>
+    </div>
+
+   {# {% if mobileDetect == true %} #}
+           <div class="main-header__mobile">
+
+           <div class = "main-header__mobile-menu">
+               <div class = "mobile-menu">
+                   <nav role="navigation">
+                    <div id="menuToggle">
+                    <input type="checkbox" />
+                            <span></span>
+                            <span></span>
+                            <p class="menu">Меню</p>
+                         <ul id="menu" class="main-mobile-menu">
+                          <div class = "sidebar__item-top">
+                            <h3 class="sidebar__title sidebar__title-lk">Личный кабинет</h3>
+                            <li class="template-center-item template-center-item--exit"><a href="/logout">Выход</a></li>
+                    </div>
+                      <li class="template-center-item template-center-item--main"><a href="/cabinet">Главная</a></li>
+                        <li class="template-center-item template-center-item--profile"><a href="/cabinet/profile">Профиль</a></li>
+                        <li class="template-center-item template-center-item--event"><a href="/cabinet/events">Мероприятия</a></li>
+                    </ul>
+                </div>
+          </nav>
+                </div>
+               </div>
+
+           <div class = "main-header__mobile-logo">
+               <img src="/img/mobile_logo.svg" alt="Logo_mobile">
+           </div>
+
+               <div class="main-header__search main-header__search--mobile">
+               <button class="search-mobile" id="open"><img src="/img/search_mobile_1.svg" alt="Search_mobile"></button>
+                <div id="form">
+                <form action="#" method="post">
+                    <input type="text" value="" placeholder="Введите фамилию, или направление" />
+                </form>
+                </div>
+               </div>
+
+           </div>
+   {# {% endif %} #}
+
+       </header>

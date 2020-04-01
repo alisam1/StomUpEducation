@@ -1,0 +1,109 @@
+{# DESKTOP #}
+ <div class="main-center__desktop">
+
+
+     <div class="main-center__content">
+
+       {{ include('user/_sidebar.cabinet.html.twig') }}
+
+        <div class="main-center__right main-center__chats">
+            <div class="chats__area">
+            <div class="tabs-messenger">
+                <div class="chats__about">
+                <h3 class="chats__title">Сообщения</h3>
+                <div class="chats__search">
+                    <input type="search" id="site-search" name="q" aria-label="Поиск по сообщениям">
+                    <button></button>
+                </div>
+                </div>
+
+                {# tabAREA #}
+                {% for userlist in message_list %}
+
+                <input id="tab{{userlist.from_user_id}}" type="radio" name="tabs">
+                  <label for="tab{{userlist.from_user_id}}">
+                      <div id="person-{{userlist.from_user_id}}" class="chats__person">
+                          <div class="chats__photo"><img src="/img/chats_1.png" alt="chats_1"></div>
+                          <div class="chats__body">
+                              <div class="chats__name">{{userlist.full_name}}</div>
+                              <div class="chats__text"></div>
+                          </div>
+                          <div class="chats__info">
+                              <div class="chats__time">5 мин.</div>
+                              <div class="chats__number">4</div>
+                          </div>
+                      </div>
+                      </label>
+
+                {# msgBOX #}
+
+                {# testZone #}
+                <section class="chats__desktop" id="content-{{userlist.from_user_id}}">
+                        <div id = "chats__area" class="chats__area">
+                                <div class="chats__block">
+                                        <div class="chats__data"><span>1 сентября</span></div>
+
+                                        <div class="chats__dialog">
+                                            <div class="chats__answer">
+                                                <div class="chats__content">
+                                                {% for messages in message_arr[userlist.from_user_id] %}
+                                                 {% if messages.from_user_id != my_id %}
+                                                <div class="chats__words">
+                                                        <div class="chats__text-desc">
+                                                                <span class="chats__text-body">{{messages.message}}</span>
+                                                                <span class="chats__text-time">{{messages.datetime|date('H:i')}}</span>
+                                                            </div>
+                                                </div>
+                                                  {% else %}
+                                                    <div class="chats__words chats__words--blue">
+                                                            <div class="chats__text-desc chats__text-desc--blue">
+                                                                    <span class="chats__text-body">{{messages.message}} <span>
+                                                                    <span class="chats__text-time">{{messages.datetime|date('H:i')}}</span>
+                                                            </div>
+                                                    </div>
+                                                  {% endif %}
+                                                {% endfor %}
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            <div class="chats__window">
+                                <div class="chats__add">
+                                    <button class="add__button">+</button>
+                                    <div class="add__hide">
+                                        <div class="add__content">
+                                            <div class="add__photo">
+                                                <label class="label">
+                                                    <input type="file">
+                                                    <span class="title">Фото</span>
+                                                </label>
+                                            </div>
+                                            <div class="add__file">
+                                                <label class="label">
+                                                    <input type="file">
+                                                    <span class="title">Файл</span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="chats__write">
+                                    <textarea id="chats__message" type="text" placeholder="Ваше сообщение"></textarea>
+                                </div>
+                                <button class="chats__button">
+                                        <input type="submit">
+                                </button>
+                            </div>
+                </section>
+                {# testZone #}
+
+                {% endfor %}
+                {# tabAREA #}
+
+            </div>
+            </div>
+            </div>
+</div>
+</div>

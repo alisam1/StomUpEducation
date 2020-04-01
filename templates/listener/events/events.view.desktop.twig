@@ -1,0 +1,375 @@
+{# DESKTOP #}
+
+<div class="main-center__desktop">
+
+
+{{ include('listener/sidebar/_sidebar.twig') }}
+
+ <div class="main-center__right">
+    <div class="container">
+
+{% set dateStart = event.event_start_time|date('d.m.Y') %}
+{% set dateEnd = event.event_end_time|date('d.m.Y') %}
+{% set timeStart = event.event_start_time|date('H:i') %}
+{% set timeEnd = event.event_end_time|date('H:i') %}
+
+
+            <div class="events">
+                <div class="events__content">
+                    <div class="events__about">
+                        <div class="events__top" style="background-image: url({{event.event_main_img}});">
+                            <div class="events__top-right">
+                                <div class="events__top-topic">
+                                        <div class="block__topic"><span class="block__dot block__dot--paradont"></span>Пародонтология</div>
+                                        <div class="block__type">Семинар</div>
+                                </div>
+                                <div class="events__top-area">
+                                        <div class="events__top-data">
+                                        {% if dateStart == dateEnd %}
+                                          {{ dateStart }}
+                                        {% else %}
+                                          {{dateStart}}-{{dateEnd}}
+                                        {% endif %}
+                                        </div>
+                                        <div class="events__top-time">{{timeStart}} - {{timeEnd}}</div>
+                                        <div class="events__top-address">{{event.event_city}}, {{event.event_address}}</div>
+                                </div>
+                                <h3 class="events__top-title">{{event.event_name}}</h3>
+                            </div>
+                            <div class="events__top-left">
+                                    <div class="events__top-img"><img src="{{userData.photo_link}}" alt="block_1"></div>
+                                    <div class="events__top-name">{{user_data.full_name}} <span>организатор курса</span></div>
+                            </div>
+                        </div>
+
+                        <div class="events__bottom">
+                        <div class = "events__bottom-top-content">
+                                <div class="events__bottom-right">
+
+                                    <h3 class="events__bottom-title">Описание и программа курса</h3>
+                                    <p class="events__bottom-description"> {{event.event_description}}  </p>
+
+                                <div class="events__bottom-gallery">
+                                        <div class="popup-gallery">
+                                        {% for event_photo in event_photos %}
+                                            <a href="{{event_photo}}"><img src="{{event_photo}}" alt="{{event_photo}}"></a>
+                                        {% endfor %}
+
+                                        </div>
+                                </div>
+
+                                <div class="events__bottom-accordeon">
+                                    <div class="tab tab-teor">
+                                        <input id="tab-one" type="checkbox" name="tabs">
+                                        <label for="tab-one">Теоретический модуль <span>10 часов</span></label>
+                                        <div class="tab-content">
+                                            <div class="events__bottom-content">
+                                                <ul class="events__bottom-list">
+                                                    <li class="events__bottom-item">Основная цель профессии.  Должностные обязанности гигиениста-стоматологического.</li>
+                                                    <li class="events__bottom-item">Особенности построения взаимоотношений с пациентом. Стоматологическая подготовка пациента к приёму. Тактика работы с разным психотипом. “Стоматологическая дружба” гигиенист-пациент — залог здоровой улыбки.</li>
+                                                    <li class="events__bottom-item">Составление плана лечения. Компьютерная томография. Осмотр внешний и внутренний. Оформление документации.</li>
+                                                    <li class="events__bottom-item">Комплексный подход к лечению пародонтита. Протокол ведения пациента при пародонтите. Профилактическая работа гигиениста после основного лечения пациента в клинике.</li>
+                                                    <li class="events__bottom-item">Работа в команде. Особенности гигиенического приёма при терапевтическом, ортопедическом, хирургическом, ортодонтическом лечении.</li>
+                                                    <li class="events__bottom-item">Особенности гигиенического ухода у беременных женщин и в лактационный период. Антенатальная профилактика.</li>
+                                                    <li class="events__bottom-item">Некариозные поражения эмали. Дифференциальная диагностика с кариесом.</li>
+                                                    <li class="events__bottom-item">Заболевание слизистой оболочки полости рта и языка. Галитоз. Глоссалгия.</li>
+                                                    <li class="events__bottom-item">Изменение в полости рта при системных заболеваниях. Взаимодействие соматических и стоматологических заболеваний. Особенности патологических процессов в разных возрастных группах.</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                      </div>
+                                      <div class="tab tab-pract">
+                                        <input id="tab-two" type="checkbox" name="tabs">
+                                        <label for="tab-two">Практический модуль <span>7 часов</span></label>
+                                        <div class="tab-content">
+                                          <div class="events__bottom-content">
+                                                <ul class="events__bottom-list">
+                                                    <li class="events__bottom-item">Основная цель профессии.  Должностные обязанности гигиениста-стоматологического.</li>
+                                                    <li class="events__bottom-item">Особенности построения взаимоотношений с пациентом. Стоматологическая подготовка пациента к приёму. Тактика работы с разным психотипом. “Стоматологическая дружба” гигиенист-пациент — залог здоровой улыбки.</li>
+                                                    <li class="events__bottom-item">Составление плана лечения. Компьютерная томография. Осмотр внешний и внутренний. Оформление документации.</li>
+                                                    <li class="events__bottom-item">Комплексный подход к лечению пародонтита. Протокол ведения пациента при пародонтите. Профилактическая работа гигиениста после основного лечения пациента в клинике.</li>
+                                                    <li class="events__bottom-item">Работа в команде. Особенности гигиенического приёма при терапевтическом, ортопедическом, хирургическом, ортодонтическом лечении.</li>
+                                                    <li class="events__bottom-item">Особенности гигиенического ухода у беременных женщин и в лактационный период. Антенатальная профилактика.</li>
+                                                    <li class="events__bottom-item">Некариозные поражения эмали. Дифференциальная диагностика с кариесом.</li>
+                                                    <li class="events__bottom-item">Заболевание слизистой оболочки полости рта и языка. Галитоз. Глоссалгия.</li>
+                                                    <li class="events__bottom-item">Изменение в полости рта при системных заболеваниях. Взаимодействие соматических и стоматологических заболеваний. Особенности патологических процессов в разных возрастных группах.</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                      </div>
+                                </div>
+                                </div>
+
+                                <div class="events__bottom-left">
+
+                                        <h3 class="events__bottom-title">Стоимость</h3>
+                                        <div class="events__bottom-card">
+                                                <div class="events__bottom-card-content">
+                                                  {% if event.rule_point > 0 %}
+                                                    <div class="events__bottom-card-block">
+                                                        <div class="events__bottom-card-img"><img src="/img/block_1.svg" alt="block_1"></div>
+                                                        <div class="events__bottom-card-desc">Кол-во баллов <span>{{event.rule_point}} баллов</span></div>
+                                                    </div>
+                                                  {% endif %}
+                                                    {% if event.rule_sertificate is not null %}
+                                                    <div class="events__bottom-card-block">
+                                                        <div class="events__bottom-card-img"><img src="/img/block_2.svg" alt="block_2"></div>
+                                                        <div class="events__bottom-card-desc">Сертификат об окончании</div>
+                                                    </div>
+                                                    {% endif %}
+                                                    <div class="events__bottom-card-block">
+                                                        <div class="events__bottom-card-img"><img src="{{lector_data.photo}}" alt="block_3"></div>
+                                                        <div class="events__bottom-card-desc">{{lector_data.full_name}} <span class="events__bottom-card-work">{{lector_data.worker_position}}</span></div>
+                                                    </div>
+                                                    <div class="events__bottom-card-cost">
+                                                        <div class="events__bottom-card-course">Стоимость курса:</div>
+                                                        <div class="events__bottom-card-number">
+                                                        {% if event.is_free == 0 %}
+                                                        Бесплатно
+                                                        {% else %}
+                                                        {{event.price}} ₽
+                                                        {% endif %}
+                                                        </div>
+
+                                                    </div>
+                                                    <a class="popup-modal popup-modal-top" href="#add-modal"><button>Записаться</button></a>
+                                                    <div id="add-modal" class="form-events white-popup-block">
+
+                                                    </div>
+                                                </div>
+                                                </div>
+                                        </div>
+                                        </div>
+
+                                    </div>
+                            </div>
+
+                        </div>
+
+                    <div class="events__popular">
+                            <h3 class="events__popular-title">Ближайшие мероприятия</h3>
+
+                            <div class="events__popular-slider">
+                                    <div class="lectures-group__main multiple-items">
+
+
+                                     {# event #}
+
+                                     {% for my_event in my_events %}
+                                     {% set dateStart = my_event.event_start_time|date('d.m.Y') %}
+                                     {% set dateEnd = my_event.event_end_time|date('d.m.Y') %}
+                                     {% set timeStart = my_event.event_start_time|date('H:i') %}
+                                     {% set timeEnd = my_event.event_end_time|date('H:i') %}
+
+
+                                            <div class="lectures-group__block block">
+                                                <div class="block__top" style="background-image:url({{ my_event.event_main_img }});">
+                                                    <div class="block__when">
+                                                    <div class="block__data">
+                                                    {% if dateStart == dateEnd %}
+                                                      {{ dateStart }}
+                                                    {% else %}
+                                                      {{dateStart}}-{{dateEnd}}
+                                                    {% endif %}
+                                                    </div>
+                                                    <div class="block__time">{{timeStart}} - {{timeEnd}}</div>
+                                                    </div>
+                                                    <div class="block__address">{{my_event.event_city}}, {{my_event.event_address}}</div>
+                                                </div>
+                                                <div class="block__bottom">
+                                                    <div class="block__high">
+                                                        <div class="block__topic block__topic--card"><span class="block__dot block__dot--paradont" style="background:{{my_event.color}}"></span>{{my_event.way_name}}</div>
+                                                        <div class="block__type">{{my_event.type_name}}</div>
+                                                    </div>
+                                                    <div class="block__center">
+                                                        <div class="block__title">{{event.event_name|str30()|beautifultext()}}
+                                                            <span class="block__tooltip">{{event.event_name}}</span>
+                                                        </div>
+                                                        <div class="block__price">
+                                                        {% if my_event.is_free == 1 %}
+                                                          {{ my_event.price }} ₽
+                                                        {% else %}
+                                                        Бесплатно
+                                                        {% endif %}
+                                                        </div>
+                                                    </div>
+                                                    <div class="block__about">
+                                                        <div class="block__doctor">
+                                                            <div class="block__photo"><img src="{{my_event.photo}}" alt="block__photo"></div>
+                                                            <div class="block__fio">
+                                                                <div class="block__name">{{my_event.full_name}}</div>
+                                                                <div class="block__work">{{my_event.worker_position}}</div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="block__add">
+                                                        {% if my_event.rule_point > 0 %}
+                                                            <div class="block__star">{{my_event.rule_point}}</div>
+                                                        {% endif %}
+                                                        {% if my_event.rule_sertificate is not null %}
+                                                            <div class="block__sert">Сертификат</div>
+                                                        {% endif %}
+                                                            <div class="block__more">еще</div>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            {% endfor %}
+                                            {# event #}
+
+
+                                            </div>
+                            </div>
+
+                        </div>
+{#  Отключено на время запуска слушателей
+                        <div class="events__popular">
+                                <h3 class="events__popular-title">Популярные мероприятия</h3>
+                                <div class="events__popular-slider">
+                                        <div class="lectures-group__main multiple-items">
+                                                <div class="lectures-group__block block">
+                                                    <div class="block__top">
+                                                        <div class="block__when">
+                                                        <div class="block__data">30.08.2019</div>
+                                                        <div class="block__time">09:00 - 19:00</div>
+                                                        </div>
+                                                        <div class="block__address">г. Москва, ул. Усачева 62</div>
+                                                    </div>
+                                                    <div class="block__bottom">
+                                                        <div class="block__high">
+                                                            <div class="block__topic"><span class="block__dot block__dot--paradont"></span>Пародонтология</div>
+                                                            <div class="block__type">Семинар</div>
+                                                        </div>
+                                                        <div class="block__center">
+                                                            <div class="block__title">Пластическая пародонтологическая хирургия</div>
+                                                            <div class="block__price">25 000 ₽</div>
+                                                        </div>
+                                                        <div class="block__about">
+                                                            <div class="block__doctor">
+                                                                <div class="block__photo"><img src="img/block_photo.png" alt="block__photo"></div>
+                                                                <div class="block__fio">
+                                                                    <div class="block__name">Бадалян К. Ю.</div>
+                                                                    <div class="block__work">Стоматолог-пародонтолог</div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="block__add">
+                                                                <div class="block__star">10</div>
+                                                                <div class="block__sert">Сертификат</div>
+                                                                <div class="block__more">еще</div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                                <div class="lectures-group__block block">
+                                                    <div class="block__top block__top--second">
+                                                        <div class="block__when">
+                                                            <div class="block__data">30.08.2019</div>
+                                                            <div class="block__time">09:00 - 19:00</div>
+                                                        </div>
+                                                        <div class="block__address">г. Москва, ул. Усачева 62</div>
+                                                    </div>
+                                                    <div class="block__bottom">
+                                                        <div class="block__high">
+                                                            <div class="block__topic"><span class="block__dot block__dot--endo"></span>Эндодонтия</div>
+                                                            <div class="block__type">Практика</div>
+                                                        </div>
+                                                        <div class="block__center">
+                                                            <div class="block__title">Пластическая пародонтологическая хирургия</div>
+                                                            <div class="block__price">25 000 ₽</div>
+                                                        </div>
+                                                        <div class="block__about">
+                                                            <div class="block__doctor">
+                                                                <div class="block__photo"><img src="img/block_photo.png" alt="block__photo"></div>
+                                                                <div class="block__fio">
+                                                                    <div class="block__name">Бадалян К. Ю.</div>
+                                                                    <div class="block__work">Стоматолог-пародонтолог</div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="block__add">
+                                                                <div class="block__star">10</div>
+                                                                <div class="block__sert">Сертификат</div>
+                                                                <div class="block__more">еще</div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                                <div class="lectures-group__block block">
+                                                    <div class="block__top block__top--three">
+                                                        <div class="block__when">
+                                                            <div class="block__data">30.08.2019</div>
+                                                            <div class="block__time">09:00 - 19:00</div>
+                                                        </div>
+                                                        <div class="block__address">г. Москва, ул. Усачева 62</div>
+                                                    </div>
+                                                    <div class="block__bottom">
+                                                        <div class="block__high">
+                                                            <div class="block__topic"><span class="block__dot block__dot--terapia"></span>Терапия</div>
+                                                            <div class="block__type">Семинар</div>
+                                                        </div>
+                                                        <div class="block__center">
+                                                            <div class="block__title">Пластическая пародонтологическая хирургия</div>
+                                                            <div class="block__price">25 000 ₽</div>
+                                                        </div>
+                                                        <div class="block__about">
+                                                            <div class="block__doctor">
+                                                                <div class="block__photo"><img src="img/block_photo.png" alt="block__photo"></div>
+                                                                <div class="block__fio">
+                                                                    <div class="block__name">Бадалян К. Ю.</div>
+                                                                    <div class="block__work">Стоматолог-пародонтолог</div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="block__add">
+                                                                <div class="block__star">10</div>
+                                                                <div class="block__sert">Сертификат</div>
+                                                                <div class="block__more">еще</div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                                <div class="lectures-group__block block">
+                                                    <div class="block__top">
+                                                        <div class="block__when">
+                                                            <div class="block__data">30.08.2019</div>
+                                                            <div class="block__time">09:00 - 19:00</div>
+                                                        </div>
+                                                        <div class="block__address">г. Москва, ул. Усачева 62</div>
+                                                    </div>
+                                                    <div class="block__bottom">
+                                                        <div class="block__high">
+                                                            <div class="block__topic"><span class="block__dot block__dot--paradont"></span>Пародонтология</div>
+                                                            <div class="block__type">Семинар</div>
+                                                        </div>
+                                                        <div class="block__center">
+                                                            <div class="block__title">Пластическая пародонтологическая хирургия</div>
+                                                            <div class="block__price">25 000 ₽</div>
+                                                        </div>
+                                                        <div class="block__about">
+                                                            <div class="block__doctor">
+                                                                <div class="block__photo"><img src="img/block_photo.png" alt="block__photo"></div>
+                                                                <div class="block__fio">
+                                                                    <div class="block__name">Бадалян К. Ю.</div>
+                                                                    <div class="block__work">Стоматолог-пародонтолог</div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="block__add">
+                                                                <div class="block__star">10</div>
+                                                                <div class="block__sert">Сертификат</div>
+                                                                <div class="block__more">еще</div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                </div>
+                                </div>
+                            </div> #}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+</div>

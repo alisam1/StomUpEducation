@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Лекционные центры для стоматологов{% endblock %}
+{% block description %}Полный список стоматологических лекционных центов на учебной платформе StomUP. Образоательные программы для врачей-стоматологов с различными лекциями.{% endblock %}
+
+
+{% block body %}
+
+<main class="main-center">
+        {% if mobileDetect == true %}
+        {# {{ include('main/centers.mobile.twig') }} #}
+        {{ include('main/centers.desktop.twig') }}
+
+        {% else %}
+        {{ include('main/centers.desktop.twig') }}
+        {% endif %}
+
+</main>
+
+{% endblock %}
+
+
+{% block javascripts %}
+
+{# main_page #}
+<script src="/js/readmore-min.js" charset="utf-8"></script>
+<script src="/js/main_page-min.js" charset="utf-8"></script>
+ <script src="/js/main_map-min.js" charset="utf-8"></script>
+
+
+{% endblock %}

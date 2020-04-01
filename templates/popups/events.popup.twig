@@ -1,0 +1,361 @@
+{# разрешаем подобный попап только для лекционных центров #}
+{% if user_type == 1 %}
+
+<div class="web__events-add">
+                                    {# <a href="#add-events" class="popup-modal"><div class = "wev__events-new">Добавить новое мероприятие</button></a> #}
+                                    <div id="add-events" class="form-events form-events-wizard form-web white-popup-block mfp-hide">
+                                        <p><a class="popup-modal-dismiss" href="#"><img src="/img/close_modal.svg" alt="close_modal"></a></p>
+                                        <div class="events__wizard">
+                                            <div class="wizard-form">
+                                                <div class="wizard-header">
+                                                    <h3 class="events__wizard-title">Новое мероприятие</h3>
+                                                </div>
+                                                <form action="/catch/catch_events" method="post" enctype="multipart/form-data" id="events_mega_modal" class="form-register">
+                                                    <div id="form-total">
+                                                        <!-- SECTION 1 -->
+                                                        <h2>Информация</h2>
+                                                        <section>
+                                                            <div class="events__inner">
+                                                                <div class="events-row">
+                                                                    <div class="events__form-name">
+                                                                        <label for="first-name">Название мероприятия</label>
+                                                                        <input type="text" class="form-control required" id="first-name" name="events_name" placeholder="Волгоград Экспо">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="events-row events-row--type">
+                                                                    <div class="events__form-type">
+
+                                                                            <div class="formRow labelBox col3 dropDownMobile" id="workType">
+
+                                                                                <span class="form__top__work">Вид мероприятия</span>
+                                                                                <br>
+
+                                                                                    <input class="workButton" type="text" name="tags" id="workTypeTags" placeholder="Лекция"/><a class="type_toggle" href="#"><img src="/img/select_blue.svg" alt="select_blue"></a>
+
+                                                                                    <div class="workTypeLabel">
+
+                                                                                        <div class="workTypeSelect">
+
+                                                                                        {% for event_type in all_event_type %}
+                                                                                        <label><input class="workTypeCheck" type="checkbox" name="type" value="{{event_type.id}}"><span class="textBox">{{event_type.type_name}}</span></label>
+                                                                                        {% endfor %}
+
+                                                                                        </div>
+
+                                                                                    </div>
+                                                                            </div>
+
+
+                                                                    </div>
+
+                                                                    <div class="events__form-line">
+
+
+                                                                            <div class="formRow labelBox col3 dropDownMobile" id="workLine">
+
+                                                                                    <span class="form__top__work">Направление</span>
+                                                                                    <br>
+
+                                                                                    <input type="text" name="ways" id="workLineTags" placeholder="Менеджмент"/><a class="line_toggle" href="#"><img src="/img/select_blue.svg" alt="select_blue"></a>
+
+                                                                                        <div class="workLineLabel">
+
+                                                                                            <div class="workLineSelect">
+                                                                                            {% for event_way in all_event_way %}
+                                                                                            <label><input type="checkbox" class = "checkbox_line" name="line" value="{{event_way.id}}">{{event_way.way_name}}</label>
+                                                                                            {% endfor %}
+
+                                                                                            </div>
+
+                                                                                        </div>
+                                                                                        <input type="hidden" name="my_hidden" value="" id="my_hidden_val" />
+                                                                            </div>
+
+                                                                    </div>
+                                                                </div>
+                                                                <div class="events-row events-row--place">
+                                                                    <div class="events__form-city">
+                                                                        <label for="city">Город</label>
+                                                                        <input type="text" class="form-control" id="city" name="events_city" placeholder="Санкт-Петербург">
+                                                                    </div>
+                                                                    <div class="events__form-address">
+                                                                        <label for="address">Адрес</label>
+                                                                        <input type="text" class="form-control" id="address" name="events_address" placeholder="Проспект Обуховской Обороны, д. 76">
+                                                                    </div>
+                                                                </div>
+
+                                                            </div>
+                                                        </section>
+                                                        <!-- SECTION 2 -->
+                                                        <h2>Время и дата</h2>
+                                                        <section>
+                                                            <div class="events__inner events__inner--time">
+
+                                                                <div class="events__form-calendar">
+
+                                                                {# календарь #}
+                                                               <p id="ev_date_calendar"></p>
+                                                               <input type="hidden" id="events_data" value="{{my_events | json_encode()}}">
+                                                               <script type="text/javascript">
+                                                               $('#ev_date_calendar').DatePicker({
+                                                               flat: true,
+                                                               date: [realdate,realdate],
+                                                               current: realdate,
+                                                               calendars: 1,
+                                                               mode: 'range',
+                                                               starts: 1,
+                                                               locale: {
+                                                               days: ['Воскресенье', 'Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота'],
+                                                               daysShort: ['Вс', 'Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб'],
+                                                               daysMin: ['Вс', 'Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб'],
+                                                               months: ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'],
+                                                               monthsShort: ['Янв', 'Фев', 'Мар', 'Апр', 'Май', 'Июн', 'Июл', 'Авг', 'Сен', 'Окт', 'Ноя', 'Дек']
+                                                               }
+                                                               });
+
+                                                               function transform_date( date ){
+                                                                 var arr_date = date.split('-');
+                                                                  var norm_date = arr_date[2]+'.'+arr_date[1]+'.'+arr_date[0];
+                                                                  return norm_date;
+                                                               }
+
+                                                               $('#ev_date_calendar').on('mouseleave', function(){
+                                                                 var dataCalx = $('#ev_date_calendar').DatePickerGetDate('d-m-Y');
+                                                                  // transform_date(dataCalx[0]);
+                                                                  $('#data-start').val(transform_date(dataCalx[0]));
+                                                                  $('#data-finish').val(transform_date(dataCalx[1]));
+
+                                                               });
+                                                               </script>
+                                                               {# календарь #}
+
+                                                                </div>
+
+                                                                <div class="events__form-calendar-choise">
+                                                                    <h3 class="events__form-calendar-title">Выберите дату в календаре или в поле ниже</h3>
+                                                                    <div class="events__form-calendar-content">
+                                                                    <div class="events__form-calendar-form">
+                                                                        <div class="events__form-start">
+                                                                            <label for="data-start">Дата начала</label>
+                                                                            <input type="text" class="form-control" id="data-start" name="data_start" placeholder="ДД.ММ.ГГГГ">
+                                                                        </div>
+                                                                        <div class="events__form-finish">
+                                                                            <label for="data-finish">Дата окончания</label>
+                                                                            <input type="text" class="form-control" id="data-finish" name="data_finish"
+                                                                                placeholder="ДД.ММ.ГГГГ">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="events__form-calendar-form">
+                                                                        <div class="events__form-start">
+                                                                            <label for="time-start">Время начала</label>
+                                                                            <input type="text" class="form-control" id="time-start" name="time_start" placeholder="00:00">
+                                                                        </div>
+                                                                        <div class="events__form-finish">
+                                                                            <label for="time-finish">Время окончания</label>
+                                                                            <input type="text" class="form-control" id="time-finish" name="time_finish"
+                                                                                placeholder="00:00">
+                                                                        </div>
+                                                                    </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </section>
+                                                        <!-- SECTION 3 -->
+                                                        <h2>Лекторы</h2>
+                                                        <section>
+                                                            {#Подключение методов для отображения окна добавления лектора#}
+                                                            <script src="/js/ILYA_ADDTIONAL_METHODS-min.js"></script>
+
+                                                            {#переименовано с класса inners#}
+                                                            <div class="ilya_createEvent_lectorsList">
+                                                            {# лекторы #}
+                                                            {% set block_i = 0 %}
+                                                            {% for lector in lectors_list %}
+
+
+
+                                                          <div class="events__block {% if block_i == 0 %}events__block--first{% endif %}">
+                                                                    <input name="lectors" type="checkbox" value="{{lector.id}}">
+                                                                    <div class="events__photo"><img src="{{lector.photo}}" alt="ev_photo"></div>
+                                                                    <div class="events__block-mobile">
+                                                                        <div class="events__fio">{{lector.full_name}}</div>
+                                                                        <div class="events__work">{{lector.worker_position}}</div>
+                                                                    </div>
+                                                                    <div class="events__lectures">10</div>
+                                                                    <div class="events__phone"><a href="">{{ lector.phone }}</a></div>
+                                                                    <div class="events__mail"><a href="">{{ lector.email }}</a></div>
+                                                                </div>
+                                                                {% set block_i = block_i + 1 %}
+                                                              {% endfor %}
+                                                                {# лекторы #}
+
+
+                                                                 <input type="hidden" name="my_hidden_lectors" value="" id="my_hidden_lectors" />
+
+                                                                <div class="events__lectures-button ilya_buttonAddLector">
+                                                                    <div class="events__add">
+
+                                                                        {#<a href="/cabinet/lectors" target="_blank">Добавить нового</a>#}
+                                                                        {#<a href="#add-modal" class="popup-modal">Добавить</a>#}
+
+                                                                        <p>Добавить</p>
+
+                                                                    </div>
+                                                                </div>
+
+
+                                                            </div>
+
+                                                            {# Окно создания лектора#}
+                                                            <div class="ilya_createEvent_createLector">
+                                                                    <div class="top">
+                                                                        <div class="left">
+                                                                            <img src="/img/lectorPhoto_stub.svg" alt="photo" />
+                                                                        </div>
+
+                                                                        <div class="right">
+                                                                            <div class="top">
+                                                                                <div class="block">
+                                                                                    <p class="inputName">ФИО</p>
+                                                                                    <input type="input" name="lastName" placeholder="Фамилия" spellcheck="false" />
+                                                                                </div>
+                                                                                <div class="block">
+                                                                                    <p class="inputName">&nbsp;</p>
+                                                                                    <input type="input" name="firstName" placeholder="Имя" spellcheck="false" />
+                                                                                </div>
+                                                                                <div class="block">
+                                                                                    <p class="inputName">&nbsp;</p>
+                                                                                    <input type="input" name="middleName" placeholder="Отчество" spellcheck="false" />
+                                                                                </div>
+                                                                            </div>
+
+                                                                            <div class="bottom">
+                                                                                <p class="inputName">Должность</p>
+                                                                                <input type="input" name="position" placeholder="Стоматолог терапевт" spellcheck="false" />
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div class="bottom">
+                                                                        <div class="block">
+                                                                            <p class="inputName">Телефон</p>
+                                                                            <input type="input" name="phoneNumber" placeholder="Номер" spellcheck="false" />
+                                                                        </div>
+
+                                                                        <div class="block">
+                                                                            <p class="inputName">Электронная почта</p>
+                                                                            <input type="input" name="email" placeholder="email" spellcheck="false" />
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div class="events__lectures-button ilya_buttonAddNewLector">
+                                                                        <div class="events__add">
+
+                                                                            <p>Сохранить</p>
+
+                                                                        </div>
+                                                                    </div>
+                                                            </div>
+                                                            {# Конец блока создания лекторов#}
+
+
+
+                                                        </section>
+                                                        <!-- SECTION 4 -->
+                                                        <h2>Описание</h2>
+                                                        <section>
+                                                            <div class="inner events__inner--about">
+                                                                <div class="events__form-photo">
+                                                                    <h3 class="events__form-photo-title">Фото курса</h3>
+                                                                    <div class="events__form-photo-main">
+
+                                                                        <!-- Upload image gallery -->
+
+                                                                         <div id="uploadImages">
+
+                                                                                   <input type="file" name="form-photo[]" multiple id="form-photo">
+
+                                                                                    <input type="hidden" name="azaza" value="zazaza">
+
+                                                                                    <ul id="uploadImagesList">
+                                                                                        <li class="item template">
+                                                                                            <span class="img-wrap">
+                                                                                                <img src="image.jpg" alt="">
+                                                                                            </span>
+                                                                                            <span class="delete-link" title="Удалить">Удалить</span>
+                                                                                        </li>
+                                                                                    </ul>
+
+                                                                                    <div class="clear"></div>
+
+                                                                                </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="events__form-info">
+                                                                    <h3 class="events__form-info-title">Описание программы</h3>
+                                                                    <div class="events__form-info-textarea">
+                                                                    <script src="/js/ckeditor/ckeditor.js" charset="utf-8"></script>
+                                                                    <script type="text/javascript">
+                                                                       // var editor1 = CKEDITOR.replace('editor1',{height: 270});
+                                                                       // $('#editor11').ckeditor();
+                                                                    </script>
+                                                                       <textarea name="form-textarea" id="editor1" cols="30" rows="10" placeholder="Программа курса"></textarea>
+
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </section>
+                                                        <!-- SECTION 5 -->
+                                                        <h2>Дополнительно</h2>
+                                                        <section>
+                                                        <div class="inner events__inner--add">
+                                                            <div class="events__form-course">
+                                                                <h3 class="events__form-photo-title">Стоимость курса</h3>
+                                                                <div class="events__form-payed">
+                                                                    <div class="center">
+                                                                        <label for="course-pay">Стоимость</label>
+                                                                    </div>
+                                                                    <input type="text" name="cource-price" placeholder="10 000"><span>₽</span>
+                                                                </div>
+                                                                <div class="events__form-payed events__form-payed--action">
+                                                                    <div class="center">
+                                                                        <label for="course-free">Акция</label>
+                                                                        <input id="course-free" name="cource-free" type="checkbox">
+                                                                    </div>
+                                                                    <input type="text" name="cource-free-percent" placeholder="25"><span>%</span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="events__form-info">
+                                                                <h3 class="events__form-info-title">Дополнительные услуги</h3>
+                                                                <div class="events__form-info-checkbox">
+                                                                    <div class="points">
+                                                                     <div class = "points-check">
+                                                                        <input type="checkbox" id="points-checkbox" name="cource-points" class="points-checkbox">
+                                                                        <label for="points-checkbox">Количество баллов</label>
+                                                                    </div>
+                                                                        <input type="text" name="cource-points-val" placeholder="300 бонусов">
+                                                                    </div>
+                                                                    <div class="sert">
+                                                                            <input type="checkbox" id="sert-checkbox" name="cource-is-sert" class="sert-checkbox">
+                                                                            <label for="sert-checkbox">Сертификат/диплом</label>
+                                                                        </div>
+                                                                </div>
+                                                                <h3 class="events__form-info-title">Обложка</h3>
+                                                                <div class="events__form-info-cover">
+                                                                    <label class="label">
+                                                                        <input type="file" name="cover-photo" id="cover-photo">
+                                                                        <img id="about-cover" src="/img/11.png" alt="image">
+                                                                    </label>
+                                                                </div>
+
+                                                                <input class="finish_button" type="submit" name="" value="Готово">
+                                                            </div>
+                                                        </div>
+                                                        </section>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+{% endif %}

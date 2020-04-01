@@ -1,0 +1,438 @@
+{% extends 'base.center.twig' %}
+
+{% block title %}Создать личный сайт {% endblock %}
+
+
+{% block body %}
+
+<main class="main-center">
+
+{# <div class="main-center__mobile">
+                <div class="main-center__mobile">
+                        <div class="main-center__content">
+
+                        {{ include('center/sidebar/_m.sidebar.twig') }}
+
+                            <div class="main-center__right">
+
+                            </div>
+                </div>
+
+        </div>
+        </div> #}
+
+        <div class="main-center__desktop main-center__desktop--site">
+
+        {{ include('center/sidebar/_sidebar.twig') }}
+
+            <div class="main-center__right">
+            <div class="container">
+                <div class="web__area">
+                    <div class="web__left">
+
+                    {# form #}
+
+                    <form action="/catch/catch_new_site" method="post" enctype="multipart/form-data" id="new_site_form">
+
+                        <div class="web--center__content">
+                        <h1 class="web__title">Сайт</h1>
+                        <div class="item">
+  <div class="image">
+    <div>
+      <div id="item_one" class="number">1</div>
+      <span>
+      Имя сайта
+      </span>
+    </div>
+  </div>
+  <div class="details">
+    <div class="item_hover">
+      <label for="web-name">Имя сайта</label>
+      <div class="web__name-input">
+        <input name="site_url" required id="web-name" type="text" placeholder="example"><span class="web__medical">.stomup.ru</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="item">
+<div class="image">
+  <div>
+    <div class="number">2</div>
+    <span>
+    Шапка
+    </span>
+  </div>
+</div>
+<div class="details">
+  <div>
+  <div class="web__create-header">
+        <div class="web__create-logo">
+            <label class="label">
+              <input type="file" name="site_main_logo" id="create-logo">
+              <img id="about-sitelogo" src="/img/11.png" alt="image">
+            </label>
+      </div>
+
+      <div class="web__create-info">
+          <div class="web__create-phone">
+            <input type="text" required name="site_phone" id="create-phone" placeholder="+7 (9__) ___-__-__">
+          </div>
+          <div class="web__create-mail">
+            <input type="text" required name="site_email" id="create-mail" placeholder="example@gmail.com">
+          </div>
+      </div>
+  </div>
+  </div>
+</div>
+</div>
+
+<div class="item">
+<div class="image">
+  <div>
+    <div class="number">3</div>
+    <span>
+    Баннеры
+    </span>
+  </div>
+</div>
+<div class="details">
+  <div>
+    <div class="web__create-banner">
+          <div class="web__create-banner-input">
+                <img src = "/img/create_banner.png" alt = "create_banner">
+          </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<div class="item">
+<div class="image">
+  <div>
+    <div class="number">4</div>
+    <span>
+    Мероприятия
+    </span>
+  </div>
+</div>
+  <div class="details">
+    <div>
+    <div class="web__create__events">
+      {# блок эвентов #}
+      {% if my_events|length > 0 %}
+      {% set event = my_events[0] %}
+                                              <div class="web__block__events">
+                                                  <div class="lectures-group__block block">
+                                                  <a class="ahref__noslyle" href="/cabinet/events/{{ event.id }}">
+                                                          <div class="block__top" style="background-image:url({{ event.event_main_img }});">
+                                                              <div class="block__when">
+                                                              <div class="block__data">
+                                                              {% if dateStart == dateEnd %}
+                                                                {{ dateStart }}
+                                                              {% else %}
+                                                                {{dateStart}}-{{dateEnd}}
+                                                              {% endif %}
+                                                              </div>
+                                                              <div class="block__time">{{timeStart}} - {{timeEnd}}</div>
+                                                              </div>
+                                                              <div class="block__address">{{event.event_city}}, {{event.event_address}}</div>
+                                                          </div>
+                                                          </a>
+                                                          <div class="block__bottom">
+                                                          <a class="ahref__noslyle" href="/cabinet/events/{{ event.id }}">
+                                                              <div class="block__high">
+                                                                  <div class="block__topic block__topic--card"><span class="block__dot block__dot--paradont" style="background:{{event.color}}"></span>{{ event.way_name }}</div>
+                                                                  <div class="block__type">{{event.type_name}}</div>
+                                                              </div>
+                                                              <div class="block__center">
+                                                                  <div class="block__title">{{event.event_name|str30()|beautifultext()}}</div>
+                                                                  <span class="block__tooltip">{{event.event_name}}</span>
+                                                                  <div class="block__price">
+                                                                  {% if event.is_free == 1 %}
+                                                                    {{ event.price }} ₽
+                                                                  {% else %}
+                                                                  Бесплатно
+                                                                  {% endif %}
+                                                                  </div>
+                                                              </div>
+                                                              </a>
+                                                              <div class="block__about">
+                                                                  <div class="block__doctor">
+                                                                      <div class="block__photo"><img src="{{event.photo}}" alt="block__photo"></div>
+                                                                      <div class="block__fio">
+                                                                          <div class="block__name">{{event.full_name|short_name()}}</div>
+                                                                          <div class="block__work">{{event.worker_position|onlyone}}</div>
+                                                                      </div>
+                                                                  </div>
+                                                                  <div class="block__add">
+                                                                  {% if event.rule_point > 0 %}
+                                                                      <div class="block__star">{{event.rule_point}}</div>
+                                                                  {% endif %}
+                                                                  {% if event.rule_sertificate is not null %}
+                                                                      <div class="block__sert">Сертификат</div>
+                                                                  {% endif %}
+                                                                      <div class="block__more">еще</div>
+                                                                  </div>
+                                                              </div>
+                                                          </div>
+                                                        </div>
+                                                      </div>
+                                                      {# конец блока эвентов #}
+                                                    {% endif %}
+      <div class="web__events-new">
+                                        <!-- Add new events -->
+          <div class="web__events-add">
+                  <a href="#add-events" class="popup-modal"><div class="wev__events-new"><img src="/img/new_event_mobile.png" alt=""></div></a>
+          </div>
+                                            <!-- End add new events -->
+      </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div class="item">
+<div class="image">
+  <div>
+    <div class="number">5</div>
+    <span>
+    Лекторы
+    </span>
+  </div>
+</div>
+<div class="details">
+  <div>
+    <div class="web__create__lectures-main">
+
+
+          {% for lector in lectors_list %}
+
+          <div class="web__create__lectures-block">
+                <div class="web__create__lectures-img"><img src="{{lector.photo}}" alt=""></div>
+                      <p class="web__create__lectures-fio">{{lector.full_name|short_name()}}</p>
+                      <p class="web__create__lectures-work">{{lector.worker_position}}</p>
+
+                      <p class="web__create__lectures-number">{{lector.events|length}} лекций</p>
+                </div>
+
+        {% endfor %}
+
+                <div class="web__create__lectures-block web__create__lectures-block-modal">
+                    {# добавление лектора #}
+                    <a href="#add-modal" class="popup-modal"><img src="/img/web_new_doctor.png" alt=""></a>
+                </div>
+
+
+    </div>
+  </div>
+</div>
+</div>
+
+<div class="item">
+<div class="image">
+  <div>
+    <div class="number">6</div>
+    <span>
+    Отзывы
+    </span>
+  </div>
+</div>
+<div class="details">
+  <div>
+    <div class="web__create__reviews-main">
+
+        <div class="web__create__reviews-block">
+
+            <div class="web__create__reviews-fio">
+                <p class="web__create__reviews-name">Бадалян Кристина Юрьевна</p>
+                <p class="web__create__reviews-work">Стоматолог-терапевт</p>
+            </div>
+            <div class="web__create__reviews-text">
+              <p>Была на мероприятии для врачей-стоматологов, в т.ч. амбулаторного звена, для руководителей стоматологических подразделений, студентов старших курсов стоматологических факультетов, сотрудников органов управления здравоохранением...</p>
+            </div>
+                <a href="#" class="web__create__reviews-link">Весь отзыв</a>
+        </div>
+        <div class="web__create__reviews-block web__create__reviews-block--modal">
+              <a href="#modal_new_review" class="popup-modal"></a>
+                                                        {# Модалька создания нового отзыва - стоит убрать ее отсюда #}
+                                                        {{ include('popups/new_review.popup.twig') }}
+                                                        {# Модалька создания нового отзыва - стоит убрать ее отсюда #}
+        </div>
+
+    </div>
+  </div>
+</div>
+</div>
+
+<div class="item">
+<div class="image">
+  <div>
+    <div class="number">7</div>
+    <span>
+    Контакты
+    </span>
+  </div>
+</div>
+<div class="details">
+  <div>
+    <div class="web__create__address-main">
+
+
+
+                                            <div class="web__create__address-block">
+                                                    <h3 class="web__create__address-block-title"><input required name="site_name" type="text" placeholder="Обучающий центр"></h3>
+                                                     <div class="web__create__address-block-time">
+                                                        <div class="web__create__address-block-metro">
+                                                            <input required name="site_station" type="text" placeholder="м. Владимирская">
+                                                        </div>
+                                                        <div class="web__create__address-block-hours">
+                                                            <input required name="site_worktime_from" id="site_worktime_from" type="text" placeholder="09:00"> - <input required name="site_worktime_to" id="site_worktime_to" type="text" placeholder="19:00"></div>
+                                                    </div>
+
+                                                    <div class="web__create__address-block-place">
+                                                        <div class="web__create__address-block-city"><input required name="site_city" type="text" placeholder="Санкт-Петербург,"></div>
+                                                        <div class="web__create__address-block-address"><input required name="site_addr" type="text" placeholder="ул. Владимирский пр., 10"></div>
+                                                    </div>
+
+                                                   <div class="web__create__address-block-info">
+                                                        <div class="web__create__address-block-phone"><input type="phone" placeholder="8-800-555-34-52"></div>
+                                                        <div class="web__create__address-block-mail"><input type="email" placeholder="education@volga.com"></div>
+                                                    </div>
+                                            </div>
+
+                                            <div class="web__create__address-pin">
+
+                                                <img src="/img/web_fb_pin.svg" alt="web_fb_pin">
+
+                                            </div>
+
+                                        </div>
+  </div>
+</div>
+</div>
+
+<div class="item">
+<div class="image">
+  <div>
+    <div class="number">8</div>
+    <span>
+    Описание
+    </span>
+  </div>
+</div>
+<div class="details">
+  <div>
+    <div class="web__create__about-main">
+
+                                           <div class="web__create__about-content">
+                                               <div class="web__create__about-text">
+                                                   <textarea required name="about_textarea" id="reviews-texrarea" cols="30" rows="10" placeholder="Введите описание"></textarea>
+                                               </div>
+                                               <div class="web__create__about-img">
+                                                       <label class="label">
+                                                           <input type="file" name="about-photo" id="create-about">
+                                                           <img id="about-banner" src="/img/11.png" alt="image">
+                                                       </label>
+                                               </div>
+                                           </div>
+
+                                           {# <div class="web__create__about-content">
+                                               <button class="web__create__about-button">Сохранить</button>
+                                           </div> #}
+                                       </div>
+                               </div>
+                               <!-- End About center -->
+                               </div>
+  </div>
+</div>
+
+<div class="item">
+<div class="image">
+  <div>
+    <div class="number">9</div>
+    <span>
+    Подвал
+    </span>
+  </div>
+</div>
+<div class="details">
+  <div>
+     <div class="web__create-footer">
+
+                            <div class="web__create-footer-about">
+
+                                <div class="web__create-footer-title">
+                                    <label for="web_title">Title</label>
+                                    <input required name="site_seo_title" type="text" id="web_title" placeholder="Сайт медицинского лекционного центра MedEducation - лекции, мастерклассы, конференции">
+                                </div>
+                                <div class="web__create-footer-description">
+                                    <label for="web_description">Description</label>
+                                    <textarea name="site_seo_description" id="web_description" placeholder="Добро пожаловать на сайт медицинского лекционного центра MedEducation - здесь вы можете записаться на практические курсы, семинары и мастерклассы"></textarea>
+                                </div>
+
+                                <div class="web__create-footer-metrika">
+                                    <div class="web__create-footer-yandex">
+                                        <label for="web_metrika">Яндекс.Метрика</label>
+                                        <textarea name="site_seo_ya" id="metrika-yandex"></textarea>
+                                    </div>
+                                    <div class="web__create-footer-google">
+                                        <label for="web_metrika">Google Analytics</label>
+                                        <textarea name="site_seo_ga" id="metrika-google"></textarea>
+                                    </div>
+                                </div>
+
+                            </div>
+
+
+                    </div>
+
+                    <div class="web__buttons">
+                        <button class="web__buttons-preview">Предпросмотр</button>
+                        <button type="submit" class="web__buttons-save">Опубликовать</button>
+                    </div>
+
+                    </div>
+                    </div>
+                    </form>
+
+                    {# formEnd #}
+
+            </div>
+        </div>
+
+    </div></div>
+
+</main>
+
+{% endblock %}
+
+
+{% block javascripts %}
+
+<script src="/js/cabinet-min.js"></script>
+<script src="/js/validate-min.js" charset="utf-8"></script>
+<script src="/js/cabinet_events_filter-min.js" charset="utf-8"></script>
+{# INPUT_RANGE #}
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="/js/events-min.js" charset="utf-8"></script>
+<script src="/js/input_range-min.js" charset="utf-8"></script>
+{# popups #}
+<script src="/js/magnific-min.js" charset="utf-8"></script>
+<script src="/js/steps-min.js" charset="utf-8"></script>
+<script src="/js/sendservice-min.js" charset="utf-8"></script>
+<script src="/js/popups-min.js" charset="utf-8"></script>
+
+ <script src="/js/lectors-min.js" charset="utf-8"></script>
+
+ {# site #}
+ <script src="/js/web_load.js" charset="utf-8"></script>
+ <script src="/js/web_load-min.js" charset="utf-8"></script>
+
+ {# календарь #}
+ <script src="/js/calendar_logic-min.js" charset="utf-8"></script>
+ <script src="/js/calendar-min.js" charset="utf-8"></script>
+
+{% endblock %}

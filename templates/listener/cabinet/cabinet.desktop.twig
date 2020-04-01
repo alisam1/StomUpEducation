@@ -1,0 +1,216 @@
+{# DESKTOP #}
+<div class="main-center__desktop">
+
+<div class="main-center__content">
+
+      {{ include('listener/sidebar/_sidebar.twig') }}
+
+      <div class="main-center__right">
+      <div class="container">
+              <h3 class="personal_cabinet__title personal_cabinet__title-main">Данные лектора</h3>
+              <div class="personal_cabinet__top">
+              {# блок личных данных слушателя #}
+                  <div class="personal_cabinet__person">
+                      <div class="personal_cabinet__card">
+                          <div class="personal_cabinet__img"><img src="{{photo}}" alt=""></div>
+                          <div class="personal_cabinet__info">
+                              <p class="personal_cabinet__fio">{{full_name}}</p>
+                              <p class="personal_cabinet__work">{{worker_position}}</p>
+                              <p class="personal_cabinet__city">{{worker_city}}</p>
+                              <p class="personal_cabinet__phone"><a href="">{{phone}}</a></p>
+                          </div>
+                      </div>
+                  </div>
+                  {# блок личных данных слушателя #}
+
+
+                  <div class="personal_cabinet__progress">
+                      <div class="personal_cabinet__points">
+                          <div class="personal_cabinet__points--progress">
+                              <div class="pie-wrapper progress-60">
+                                  <span class="label">10</span>
+                                  <div class="pie">
+                                    <div class="left-side half-circle"></div>
+                                    <div class="right-side half-circle"></div>
+                                  </div>
+                                </div>
+                          </div>
+                          <div class="personal_cabinet__points--info">
+                              <p class="personal_cabinet__points--lead">Кол-во баллов</p>
+                              <p class="personal_cabinet__points--number">10 баллов</p>
+                          </div>
+                      </div>
+                      {% set countCurs = my_events|length %}
+                      <div class="personal_cabinet__events">
+                          <div class="personal_cabinet__events--progress">
+                              <div class="pie-wrapper progress-75">
+                                  <span class="label">{{countCurs}}</span>
+                                  <div class="pie">
+                                    <div class="left-side half-circle"></div>
+                                    <div class="right-side half-circle"></div>
+                                  </div>
+                                </div>
+                          </div>
+                              <div class="personal_cabinet__events--info">
+                                  <p class="personal_cabinet__events--lead">Мероприятия</p>
+                                <p class="personal_cabinet__events--number">{{countCurs}} {% if countCurs == 1 %}курс{% elseif countCurs < 5 %}курса{% else %}курсов{% endif %} </p>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+
+                  <div class="personal_cabinet__banner">
+                      <img src="/img/pc_banner.svg" alt="pc_banner">
+                  </div>
+
+                  <div class="personal_cabinet__center">
+                      <h3 class="personal_cabinet__title personal_cabinet__title--events">Мероприятия</h3>
+
+                       <div class="personal_cabinet__slider">
+
+                                <div class="lectures-slider__main multiple-items">
+
+
+                                {% for event in my_events %}
+                                  {% set dateStart = event.event_start_time|date('d.m.Y') %}
+                                  {% set dateEnd = event.event_end_time|date('d.m.Y') %}
+                                  {% set timeStart = event.event_start_time|date('H:i') %}
+                                  {% set timeEnd = event.event_end_time|date('H:i') %}
+                                    <div class="lectures-group__block block">
+                                    <a class="ahref__noslyle" href="/events/{{ event.id }}">
+                                        <div class="block__top" style="background-image:url({{ event.event_main_img }});">
+                                            <div class="block__when">
+                                            <div class="block__data">
+                                            {% if dateStart == dateEnd %}
+                                              {{ dateStart }}
+                                            {% else %}
+                                              {{dateStart}}-{{dateEnd}}
+                                            {% endif %}
+                                            </div>
+                                            <div class="block__time">{{timeStart}} - {{timeEnd}}</div>
+                                            </div>
+                                            <div class="block__address">{{event.event_city}}, {{event.event_address}}</div>
+                                        </div>
+                                        </a>
+                                        <div class="block__bottom">
+                                        <a class="ahref__noslyle" href="/events/{{ event.id }}">
+                                            <div class="block__high">
+                                                <div class="block__topic"><span class="block__dot block__dot--paradont" style="background:{{event.color}}"></span>{{event.way_name}}</div>
+                                                <div class="block__type">{{event.type_name}}</div>
+                                            </div>
+                                            <div class="block__center">
+                                                <div class="block__title">{{event.event_name|str30()|beautifultext()}}
+                                                    <span class="block__tooltip">{{event.event_name}}</span>
+                                                </div>
+                                                <div class="block__price">
+                                                {% if event.is_free == 1 %}
+                                                  {{ event.price }} ₽
+                                                {% else %}
+                                                Бесплатно
+                                                {% endif %}
+                                                </div>
+                                            </div>
+                                            </a>
+                                            <div class="block__about">
+                                                <div class="block__doctor">
+                                                    <div class="block__photo"><img src="{{event.photo}}" alt="block__photo"></div>
+                                                    <div class="block__fio">
+                                                        <div class="block__name">{{event.full_name}}</div>
+                                                        <div class="block__work">{{event.worker_position}}</div>
+                                                    </div>
+                                                </div>
+                                                <div class="block__add">
+                                                {% if event.rule_point > 0 %}
+                                                    <div class="block__star">{{event.rule_point}}</div>
+                                                {% endif %}
+                                                {% if event.rule_sertificate is not null %}
+                                                    <div class="block__sert">Сертификат</div>
+                                                {% endif %}
+                                                    <div class="block__more">еще</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                  {% endfor %}
+
+
+
+                </div>
+                      <div class="events">
+
+                      {% for event in user_events %}
+                      {% set event_start = event.event_start_time|split_date_and_time %}
+                      {% set event_end = event.event_end_time|split_date_and_time %}
+                      {# evElement #}
+                          <div class="events__block events__block--first">
+                              <div class="events__photo"><img src="{{event.photo}}" alt="ev_photo"></div>
+                              <h3 class="events__lead">{{event.event_name}}<span>{{event_start[0]}}-{{event_end[0]}}</span></h3>
+                              <div class="events__status">
+                              {% if event.price == 0 or event.pay_status == 1 %}
+                              <span class="events__green"><img src="/img/green_icon.svg" alt="green_icon"></span>Оплачен</div>
+                              {% else %}
+                              <span class="events__red"><img src="/img/red_icon.svg" alt="red_icon"></span>Не оплачен</div>
+                            {% endif %}
+
+                              <div class="events__start">{{event.event_start_time|downcounter}}</div>
+                              <div class="events__download"><a class = "download__link" href="">Скачать билет</a></div>
+                              <div class="events__more">
+                                      <a class="support" tabindex="1">
+                                              <span class="tip-click">?</span>
+                                              <span class="tip">
+                                                  <p>Дополнительно</p>
+                                                  <p>Отправить счет</p>
+                                              </span>
+                                      </a>
+                              </div>
+                          </div>
+                          {# evElement #}
+                        {% endfor %}
+
+                          {# <div class="events__block">
+                              <div class="events__photo"><img src="img/ev_photo.png" alt="ev_photo"></div>
+                              <h3 class="events__lead">Семинар «Подробный ортопедический...<span>12.10.19-13.10.19</span></h3>
+                              <div class="events__status"><span class="events__red"><img src="img/red_icon.svg" alt="red_icon"></span>Не оплачен</div>
+                              <div class="events__start">10 д : 08 ч : 10 м : 02 с</div>
+                              <div class="events__download"><a class = "download__link" href="">Скачать билет</a></div>
+                              <div class="events__more">
+                                      <a class="support" tabindex="1">
+                                              <span class="tip-click">?</span>
+                                              <span class="tip">
+                                                  <p>Дополнительно</p>
+                                                  <p>Отправить счет</p>
+                                              </span>
+                                      </a>
+                              </div>
+                          </div>
+                          <div class="events__block">
+                              <div class="events__photo"><img src="img/ev_photo.png" alt="ev_photo"></div>
+                              <h3 class="events__lead">Семинар «Подробный ортопедический...<span>12.10.19-13.10.19</span></h3>
+                              <div class="events__status"><span class="events__green"><img src="img/green_icon.svg" alt="green_icon"></span>Оплачен</div>
+                              <div class="events__start">10 д : 08 ч : 10 м : 02 с</div>
+                              <div class="events__download"><a class = "download__link" href="">Скачать билет</a></div>
+                              <div class="events__more">
+                                      <a class="support" tabindex="1">
+                                              <span class="tip-click">?</span>
+                                              <span class="tip">
+                                                  <p>Дополнительно</p>
+                                                  <p>Отправить счет</p>
+                                              </span>
+                                      </a>
+                              </div>
+                          </div> #}
+
+                        </div>
+                  </div>
+
+
+
+                  <div class="personal_cabinet__bottom">
+
+                  </div>
+
+              </div>
+      </div>
+      </div>
+
+  </div>

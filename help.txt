@@ -1,0 +1,7 @@
+#DOWNLOAD
+git pull origin
+
+#LOAD
+git add .
+
+git push

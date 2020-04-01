@@ -1,0 +1,17 @@
+{% extends 'base.listener.twig' %}
+
+{% block title %}Список мероприятий  {% endblock %}
+
+
+{% block body %}
+
+<main class="main-center">
+{% if mobileDetect == true %}
+{{ include('listener/events/events.mobile.twig') }}
+{% else %}
+{{ include('listener/events/events.desktop.twig') }}
+{% endif %}
+
+ </main>
+
+{% endblock %}

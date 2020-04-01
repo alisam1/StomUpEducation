@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Направления{% endblock %}
+
+{% block body %}
+
+<main class="main-center">
+        {% if mobileDetect == true %}
+        {{ include('main/ways.mobile.twig') }}
+        {% else %}
+        {{ include('main/ways.desktop.twig') }}
+        {% endif %}
+
+</main>
+
+{% endblock %}
+
+{% block javascripts %}
+
+<script src="/js/wayscounter.js" charset="utf-8"></script>
+
+{% endblock %}

@@ -1,0 +1,66 @@
+{# DESKTOP #}
+<div class="main-center__desktop">
+
+<div class="main-center__content">
+
+{{ include('center/sidebar/_sidebar.twig') }}
+
+<div class="main-center__right">
+<div class="container">
+
+<div class="profile__content">
+    <h3 class="profile__title">Профиль</h3>
+    <div class="form-profile">
+        <form id="change_profile_form">
+            <div class="form-profile__about">
+            <div class="form-profile__input form-profile__input--img">
+                    <div class="form__img">
+                            <label class="label" style="background-image:url({{user_data.photo_link}})">
+                                <input id = "profile-photo" name="profile_photo" type="file">
+                                <img id="profile-img" src="/img/11.png" alt="image">
+                            </label>
+                    </div>
+            </div>
+            <div class="form-profile__input form-profile__input--name">
+                <label for="profile_name">Название организации</label>
+                <input id = "profile_name" name="profile_name" required value="{{user_data.full_name}}" type="text" placeholder="Волгоград Экспо">
+            </div>
+            </div>
+            <div class="form-profile__input">
+                <label for="profile_phone">Телефон</label>
+                <input id = "profile_phone" name="profile_phone" required value="{{user_data.phone}}" type="text" placeholder="+7 (921) 375-75-75">
+            </div>
+            <div class="form-profile__input">
+                <label for="profile_mail">Электронная почта</label>
+                <input id ="profile_mail" name="profile_mail" required value="{{user_data.email}}" type="text" placeholder="education@volgaex.ru">
+            </div>
+            <div class="form-profile__group">
+                <div class="form-profile__input">
+                    <label for="profile_inn">ИНН</label>
+                    <input id="profile_inn" name="profile_inn" required value="{{user_data.inn}}" type="text" placeholder="8472876345">
+                </div>
+                <div class="form-profile__input">
+                        <label for="profile_kpp">КПП</label>
+                        <input id="profile_kpp" name="profile_kpp" required value="{{user_data.kpp}}" type="text" placeholder="8472876345">
+                </div>
+            </div>
+            <div class="form-profile__input">
+                <label for="profile_ur">Юридичекое название</label>
+                <input id="profile_ur" name="profile_ur" type="text" required value="{{user_data.jur_name}}" placeholder="ООО Стоммаркет">
+            </div>
+            <div class="form-profile__input">
+                    <label for="profile_urad">Юридический адрес</label>
+                    <input id="profile_urad" name="profile_urad" type="text" required value="{{userJurAddr[0]}}" placeholder="445006, г. Волгоград, пр. имени В.И. Ленина, 65а">
+            </div>
+            <div class="form-profile__input">
+                <label for="profile_factad">Фактический адрес</label>
+                <input id="profile_factad" name="profile_factad" required value="{{userFizAddr[0]}}" type="text" placeholder="445216, г. Волгоград, ул. Ленина, 65а">
+            </div>
+            <div class="form-profile__button">
+                    <input id="send_ajax" type="submit" value="Сохранить">
+            </div>
+        </form>
+    </div>
+    </div>
+</div>
+</div>

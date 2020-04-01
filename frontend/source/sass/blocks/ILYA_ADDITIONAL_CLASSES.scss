@@ -1,0 +1,214 @@
+/*Ограничение скролл контейнера лекторов в модальном окне создания ивентов, шаг 3*/
+.ilya_createEvent_lectorsList{
+    height: 333px;
+    overflow-y: auto;
+    margin-bottom: 20px;
+}
+
+/*Корректировка позиционирования кнопки добавить лектора в модальном окне создания ивентов, шаг 3*/
+.ilya_buttonAddLector, .ilya_buttonAddNewLector {
+    bottom: 20px;
+    left: 9.47%;
+}
+
+/*меняю стиль текста и стиль при наведении*/
+/*Кнопка добавить лектора в модальном окне создания ивентов, шаг 3*/
+.ilya_buttonAddLector, .ilya_buttonAddNewLector {
+    font-family: 'Montserrat', serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 11px;
+    text-transform: uppercase;
+    color: #2C78F6;
+}
+
+.ilya_buttonAddLector:hover, .ilya_buttonAddNewLector:hover {
+    cursor: pointer;
+    background-color: #2C78F6;
+    color: #FFFFFF;
+}
+
+/*стилизация блока добавления лекторов*/
+
+.ilya_createEvent_createLector {
+    margin-top: 90px;
+    height: 224px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Montserrat', serif;
+    margin-bottom: 60px;
+    
+    .top {
+        width: 100%;
+        height: 136px;
+        display: flex;
+        flex-direction: row;
+        
+        .left {
+            height: 100%;
+            width: 19.6%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            
+            img {
+                height: 100%;
+                width: 100%;
+                object-fit: cover;
+            }
+            
+            img:hover {
+                cursor: pointer;
+            }
+        }
+        
+        .right {
+            height: 100%;
+            width: 72.6%;
+            display: flex;
+            flex-direction: column;
+            margin-left: 7.8%;
+            
+            .top {
+                height: 100%;
+                width: 100%;
+                display: flex;
+                flex-direction: row;
+                
+                .block {
+                    width: 32%;
+                    height: 56px;
+                    margin-right: 2%;
+                    border-bottom: 1px solid #61656B;
+                    
+                    .inputName {
+                        font-size: 10px;
+                        line-height: 22px;
+                        color: #61656B;
+                        font-weight: 500;
+                    }
+
+                    input {
+                        height: 22px;
+                        width: 100%;
+                        border: 0;
+                        outline: 0;
+                        background-color: transparent;
+
+                        color: #000;
+                        font-size: 16px;
+                        font-weight: normal;
+                        margin-top: 6px;
+                    }
+
+                    input::placeholder {
+                        font-size: 14px;
+                        font-weight: 500;
+                        color: #C4C4C4;
+                    }
+                }
+            }
+            
+            .top .block:last-child {
+                margin-right: 0;
+            }
+            
+            .bottom {
+                height: 56px;
+                width: 100%;
+                /*margin-top: 22px;*/
+                margin-top: 0px;
+                display: flex;
+                flex-direction: column;
+                border-bottom: 1px solid #61656B;
+                
+                .inputName {
+                    font-size: 10px;
+                    line-height: 22px;
+                    color: #61656B;
+                    font-weight: 500;
+                }
+
+                input {
+                    height: 22px;
+                    width: 100%;
+                    border: 0;
+                    outline: 0;
+                    background-color: transparent;
+
+                    color: #000;
+                    font-size: 16px;
+                    font-weight: normal;
+                    margin-bottom: 6px;
+                }
+
+                input::placeholder {
+                    font-size: 14px;
+                    font-weight: 500;
+                    color: #C4C4C4;
+                }
+            }
+        }
+    }
+    
+    .bottom {
+        width: 100%;
+        height: 56px;
+        margin-top: 31px;
+        display: flex;
+        flex-direction: row;
+        
+        .block {
+            height: 100%;
+            width: 46.75%;
+            display: flex;
+            flex-direction: column;
+            border-bottom: 1px solid #61656B;
+        }
+        
+        .block {
+            .inputName {
+                font-size: 10px;
+                line-height: 22px;
+                color: #61656B;
+                font-weight: 500;
+            }
+            
+            input {
+                height: 22px;
+                width: 100%;
+                margin-top: 6px;
+                border: 0;
+                outline: 0;
+                background-color: transparent;
+                
+                color: #000;
+                font-size: 16px;
+                font-weight: normal;
+            }
+            
+            input::placeholder {
+                font-size: 14px;
+                font-weight: 500;
+                color: #C4C4C4;
+            }
+        }
+    }
+    
+    .bottom .block:first-child {
+        margin-right: 6.5%;
+    }
+}
+
+/*конец блока добавления лекторов*/
+
+
+
+
+
+
+
+
+

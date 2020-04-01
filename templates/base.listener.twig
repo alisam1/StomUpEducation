@@ -1,0 +1,106 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, user-scalable=no, initial-scale=1" name="viewport">
+      <title>{% block title %}Welcome!{% endblock %}</title>
+         <link href="/css/main.css?ver=1.1" rel="stylesheet">
+    <link href="/css/style.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+     <link rel="shortcut icon" href="/img/favicon_3.ico" type="image/x-icon">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="/test/test.css" rel="stylesheet">
+  <meta name="yandex-verification" content="f0d9b1057160a586" />
+
+            {% block stylesheets %}{% endblock %}
+            {% set is_login = app.session.get('f22') %}
+
+</head>
+
+<body>
+
+  {% if app.request.pathinfo != '/messages' %}
+  {{ include('header.listener.twig') }}
+  {% endif %}
+
+
+        {% block body %}{% endblock %}
+        {% block javascripts %}{% endblock %}
+
+  {# Если мы в сообщениях - то выключаем футер #}
+  {% if app.request.pathinfo != '/messages' %}
+  {{ include('footer.html.twig') }}
+  {% endif %}
+
+
+        {# hiddenBlock #}
+        <input type="hidden" id="realDate" name="" value="{{ "now"|date("Y-m-d") }}">
+        {# modules #}
+        <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <script src="/js/sweetalert-min.js" charset="utf-8"></script>
+        <script src="/js/inputmask.plugin-min.js" charset="utf-8"></script>
+        <script src="/js/allmask-min.js" charset="utf-8"></script>
+        {# all #}
+
+        {# порционное подключение #}
+        {% if app.request.pathinfo == '/cabinet/events' %}
+        <script src="/js/cabinet_events_filter-min.js" charset="utf-8"></script>
+        {% endif %}
+
+        {% if app.request.pathinfo == '/login' %}
+        <script src="/js/login-min.js"></script>
+        {% endif %}
+
+        {% if app.request.pathinfo == '/registration' %}
+        <script src="/js/registration-min.js"></script>
+        {% endif %}
+        {# порционное подключение #}
+
+
+        <script src="/js/cabinet-min.js"></script>
+
+        <script src="/js/magnific-min.js" charset="utf-8"></script>
+        <script src="/js/chats-min.js" charset="utf-8"></script>
+       {# добавлен 12.11.2019 #}
+        <script src="/js/events-min.js" charset="utf-8"></script>
+        <script src="/js/input_range-min.js" charset="utf-8"></script>
+        <script src="/js/validate-min.js" charset="utf-8"></script>
+        <script src="/js/popups-min.js" charset="utf-8"></script>
+
+        {# календарь #}
+        <script src="/js/calendar_logic-min.js" charset="utf-8"></script>
+        <script src="/js/calendar-min.js" charset="utf-8"></script>
+        {# sliders #}
+        <script src="/js/slick-min.js"></script>
+        <script src="/js/sliders-min.js" charset="utf-8"></script>
+        <script src="/js/lectors-min.js" charset="utf-8"></script>
+        {# popups #}
+         <script src="/js/steps-min.js" charset="utf-8"></script>
+         <script src="/js/sendservice-min.js" charset="utf-8"></script>
+
+         {# web #}
+         <script src="/js/web_load-min.js" charset="utf-8"></script>
+
+          {# sidebar_laptop #}
+         <script src="/js/sidebar_laptop-min.js" charset="utf-8"></script>
+
+         {# sidebar_mobile #}
+         <script src="/js/sidebar_mobile-min.js" charset="utf-8"></script>
+
+         {# banners #}
+         <script src="/js/banners-min.js" charset="utf-8"></script>
+
+        <script src="/test/test.js" charset="utf-8"></script>
+
+
+
+
+
+</body>
+
+</html>

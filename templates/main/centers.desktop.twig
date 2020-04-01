@@ -1,0 +1,87 @@
+{# DESKTOP #}
+
+<div class="main-center__desktop">
+
+
+
+{{ include('main/sidebar/_sidebar.twig') }}
+
+
+
+    <div class="main__right">
+     <section class="main-map">
+     <div class="container">
+     <div class = "project_breadcrumbs">
+            <ul class = "project_breadcrumbs-list">
+                <li><a href="/">Главная</a></li>
+                <li>/</li>
+                <li><a href="">Лекционные центры</a></li>
+            </ul>
+       </div>
+            <div class="main-map__content">
+                 <div class="main-map__content-top">
+                    <div class="main-map__content-top__left">
+                        <div class="main-map__content-top__city">
+                         <label>Город</label>
+                         <select>
+                            <option>Санкт-Петербург</option>
+                            <option>Москва</option>
+                            <option>Новосибирск</option>
+                            <option>Екатеринбург</option>
+                            <option>Киров</option>
+                            <option>Ярославль</option>
+                         </select>
+                        </div>
+                        <div class="main-map__content-top__line">
+                         <label>Направление</label>
+                         <select>
+                            <option>Хирургия</option>
+                            <option>Пародонтология</option>
+                            <option>Ортодонтия</option>
+                            <option>Терапия</option>
+                            <option>Детская стоматология</option>
+                            <option>Ортодонтия</option>
+                         </select>
+                        </div>
+                    </div>
+                    <div class="main-map__content-top__right">
+                       <input type="search" placeholder="Введите адрес или название центра">
+                    </div>
+                </div>
+                <div class="main-map__content-bottom">
+                    <div class="main-map__content-bottom__left">
+                      {# карточка центра #}
+                      {% set mapItter = 0 %}
+                      {% for center in centers_data %}
+
+                    <div class="main-map__content-bottom__card {% if mapItter == 0 %}active{% endif %}" data-cord="{{center.site_map}}">
+                                   <h3 class="main-map__content-bottom__card-title">{{center.site_info_name}}</h3>
+                                   <div class="main-map__content-bottom__card-info">
+                                        <p class="main-map__content-bottom__card-place">{{center.site_info_station}}</p>
+                                        <p class="main-map__content-bottom__card-time">{{center.site_info_worktime}}</p>
+                                   </div>
+                                   <div class="main-map__content-bottom__card-about">
+                                        <p class="main-map__content-bottom__card-number">{{center.actual_events}} мероприятий</p>
+                                        <a href="https://{{center.site_url}}.stomup.ru">Подробнее</a>
+                                   </div>
+                            </div>
+                          {% set mapItter = mapItter + 1 %}
+                        {% endfor %}
+                        {# карточка центра #}
+
+
+                    </div>
+                    {% if centers_data|length > 0 %}
+                    <div class="main-map__content-bottom__right">
+                            <div class="main-map__content-bottom__map">
+                            <div id="map" style="width:100%; height:500px"></div>
+                            {% include 'map.twig' with { 'map_id': 'map', 'cord':centers_data[0].site_map } %}
+                            </div>
+                    </div>
+                  {% endif %}
+                </div>
+            </div>
+         </section>
+
+</div>
+    </div>

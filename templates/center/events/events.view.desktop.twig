@@ -1,0 +1,185 @@
+{# DESKTOP #}
+
+<div class="main-center__desktop main-center__desktop--view">
+
+
+{{ include('center/sidebar/_sidebar.twig') }}
+
+ <div class="main-center__right">
+ <div class = "container">
+{% set dateStart = event.event_start_time|date('d.m.Y') %}
+{% set dateEnd = event.event_end_time|date('d.m.Y') %}
+{% set timeStart = event.event_start_time|date('H:i') %}
+{% set timeEnd = event.event_end_time|date('H:i') %}
+
+            <div id="events_edit"  class="events">
+                <div class="events__content">
+                    <div class="events__about">
+                    <form id="edit_event_form" action="/cathch/test" method="post">
+
+                        <div class="events__top" style="background-image: url({{event.event_main_img}});">
+
+                            <div class="events__top-right">
+                                <div class="events__top-topic">
+                                        <div class="block__topic">
+                                        {# <span class="block__dot block__dot--paradont"></span>Пародонтология #}
+                                        <label for="way_name">Направление:</label>
+                                        <select class="" name="way_name">
+                                        {% for way in event_way %}
+                                      <option {% if way.id == event.event_way|json_decode()[0] %}selected{% endif %} value="{{way.id}}">{{way.way_name}}</option>
+                                          {% endfor %}
+                                        </select>
+                                        </div>
+                                        <div class="block__type">
+                                        <label for="type_name">Тип:</label>
+                                        <select class="" name="type_name">
+                                        {% for type in event_type %}
+                                      <option {% if type.id == event.event_type %}selected{% endif %} value="{{type.id}}">{{type.type_name}}</option>
+                                        {% endfor %}
+                                        </select>
+                                        {# Семинар #}
+                                        </div>
+                                </div>
+                                <div class="events__top-area">
+                                        <div class="events__top-data">
+                                        <div class="events_edit-slot">
+                                          <label>Дата начала:</label><input type="text" name="date_start" class="thisisdatemask" value="{{dateStart}}">
+                                        </div>
+                                         
+                                         <div class="events_edit-slot">
+                                          <label>Дата конца:</label><input type="text" name="date_end" class="thisisdatemask" value="{{dateEnd}}">
+                                         </div>
+                                        {# {% if dateStart == dateEnd %}
+                                          {{ dateStart }}
+                                        {% else %}
+                                          {{dateStart}}-{{dateEnd}}
+                                        {% endif %} #}
+                                        </div>
+                                        <div class="events__top-time">
+
+                                        <div class="events_edit-slot">
+                                          <label>Время начала:</label><input type="text" name="time_start" class="thisistimemask" value="{{timeStart}}">
+                                        </div>
+                                        
+                                         <div class="events_edit-slot">
+                                            <label>Время конца:</label><input type="text" name="time_end" class="thisistimemask" value="{{timeEnd}}">
+                                         </div>
+                                        {# {{timeStart}} - {{timeEnd}} #}
+                                        </div>
+                                        <div class="events__top-address">
+
+                                        <div class="events_edit-slot">
+                                          <label>Город:</label><input type="text" name="city" placeholder="Город" value="{{event.event_city}}">
+                                        </div>
+                                        
+                                      
+                                         <div class="events_edit-slot">
+                                            <label>Адрес:</label><input type="text" name="address" placeholder="Адрес" value="{{event.event_address}}">
+                                          </div>
+                                        {# {{event.event_city}}, {{event.event_address}} #}
+                                        </div>
+                                </div>
+                                <h3 class="events__top-title">
+                                <div class="events_edit-slot">
+                                  <label>Название мероприятия:</label><input type="text" name="nameing" value="{{event.event_name}}">
+                                 </div>
+                                </h3>
+                            </div>
+
+                            <div class="events__top-left">
+                                    <div class="events__top-img"><img src="{{user_data.photo_link}}" alt="block_1"></div>
+                                    <div class="events__top-name">{{user_data.full_name}} <span>организатор курса</span></div>
+                            </div>
+                        </div>
+                        <label class="edit_background" for="background">Загрузка основного background: </label>
+                        <br>
+                        <input class="edit_background" type="file" name="background" value="">
+
+                        <div class="events__bottom">
+                        <div class = "events__bottom-top-content">
+                                <div class="events__bottom-righ" id="article">
+
+                                    <h3 class="events__bottom-title">Описание и программа курса</h3>
+                                    <p class="events__bottom-description">
+
+                                    <script src="/js/ckeditor/ckeditor.js" charset="utf-8"></script>
+
+
+                                    <textarea name="event_description" id="editor1" rows="8" cols="80" value="{{event.event_description|raw()}}">{{event.event_description|raw()}}</textarea>
+
+                                    <script type="text/javascript">
+                                      var editor1 = CKEDITOR.replace('editor1',{height: 270});
+                                    </script>
+
+                                      </p>
+
+                                <div class="events__bottom-gallery">
+                                        <div class="popup-gallery">
+                                        {% if event_photos[0] != '/img/nophoto.jpg' %}
+                                        {% for event_photo in event_photos %}
+                                            <a href="{{event_photo}}"><img src="{{event_photo}}" alt="{{event_photo}}"></a>
+                                        {% endfor %}
+                                      {% endif %}
+                                        </div>
+                                </div>
+
+                                </div>
+
+                                <input type="hidden" name="event_id" value="{{event.id}}">
+
+                                <div class="events__bottom-left">
+
+                                        <h3 class="events__bottom-title">Стоимость</h3>
+                                        <div class="events__bottom-card" id="aside1">
+                                                <div class="events__bottom-card-content">
+
+                                                    <div class="events__bottom-card-block">
+                                                        <div class="events__bottom-card-img"><img src="/img/block_1.svg" alt="block_1"></div>
+                                                        <div class="events__bottom-card-desc">Кол-во баллов <input type="text" name="points" placeholder="200" value="{{event.rule_point}}"><span> баллов</span></div>
+                                                    </div>
+
+
+                                                    <div class="events__bottom-card-block">
+                                                        <div class="events__bottom-card-img"><img src="/img/block_2.svg" alt="block_2"></div>
+                                                        <div class="events__bottom-card-desc events__bottom-card-end">Сертификат об окончании <input type="checkbox" name="sert"></div>
+
+                                                    </div>
+
+                                                    <div class="events__bottom-card-block events__bottom-card-block--lectors">
+                                                    <label for="chooseyour_lector">Выберите лектора</label>
+                                                    <select class="" name="chooseyour_lector">
+                                                    {% for lector in get_user_lectors %}
+                                                  <option {% if event.lector_id|json_decode()[0] == lector.id %}selected{% endif %} value="{{lector.id}}">{{lector.full_name}}</option>
+                                                    {% endfor %}
+                                                    </select>
+
+                                                        {# <div class="events__bottom-card-img"><img src="{{lector_data.photo}}" alt="block_3"></div>
+                                                        <div class="events__bottom-card-desc">{{lector_data.full_name}} <span class="events__bottom-card-work">{{lector_data.worker_position}}</span></div> #}
+                                                    </div>
+                                                    <div class="events__bottom-card-cost">
+                                                        <div class="events__bottom-card-course">Стоимость курса:</div>
+                                                        <div class="events__bottom-card-number">
+                                                        <input type="number" name="pricer" value="{{event.price}}">₽
+                                                        {# {% if event.is_free == 0 %}
+                                                        Бесплатно
+                                                        {% else %}
+                                                        {{event.price}} ₽
+                                                        {% endif %} #}
+                                                        </div>
+
+                                                    </div>
+                                                    <button type="submit" class="events__bottom-card-button">Сохранить</button>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    </div>
+                                  </form>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            </div>

@@ -1,0 +1,153 @@
+{# mobile #}
+
+  <div class="main-center__mobile">
+      <div class="main-center__content main-center__content--lector-view">
+
+            <div class="main__right main__right--lector_view">
+
+     <div class="container">
+
+    <div class="main-lector-all">
+
+    <section class = "main-lector-top">
+            <div class="main-lector-top__link"><a href="/lectors">ко всем лекторам</a></div>
+            <h1 class="main-lector-top__title">Лекторы обучающих центров</h1>
+            <div class="main-lector-top__links">
+            <div class="main-lector-top__link main-lector-top__link--last"><a href="">предыдущий</a></div>
+            <div class="main-lector-top__link main-lector-top__link--next"><a href="">следующий</a></div>
+            </div>
+    </section>
+
+    </div>
+
+
+   <div class="main-lector-all main-lector-all--white">
+    <section class = "main-lector-center">
+        <div class="main-lector-center__top">
+            <div class="main-lector-center__top-left">
+                   <img src="{{lector_data.photo}}" alt="">
+            </div>
+            <div class="main-lector-center__top-right">
+                 <h3 class="main-lector-center__top-right-title">{{lector_data.full_name}}</h3>
+                 <p class="main-lector-center__top-right-work">{{lector_data.worker_position}}</p>
+                 <div class="lector_about">
+                   {{lector_data.about|raw}}
+                 </div>
+                 {# <p class="main-lector-center__top-right-study">Образование: СПбГПМА</p>
+                 <p class="main-lector-center__top-right-stage">Стаж работы: 15 лет</p>
+                 <p class="main-lector-center__top-right-position">Ведущий гигиенист–специалист Клиники «Мегастом-АДИ»</p> #}
+            </div>
+        </div>
+        {# <div class="main-lector-center__bottom">
+                <p class="main-lector-center__bottom-name">Образование:</p>
+                <p class="main-lector-center__bottom-prof">1997 г. - Окончила СПбГМУ имени академика И.П. Павлова, по специальности - врач-стоматолог.</p>
+                <p class="main-lector-center__bottom-prof">1997-1998 г. - Интернатура, по специальности «хирургическая стоматология». Кафедра хирургической стоматологии. СПБГМУ им. ак. И.П. Павлова.</p>
+                <p class="main-lector-center__bottom-prof">1998-2000 г. - Клиническая ординатура, по специальности «Челюстно-лицевая хирургия». Кафедра хирургической стоматологии. СПБГМУ им. ак. И.П. Павлова.</p>
+                <p class="main-lector-center__bottom-prof">2003 г. - Повышение квалификации на цикле: «Хирургическая стоматология и неотложная челюстно-лицевая хирургия».СПб ГМУ им. ак. И.П.Павлова.</p>
+                <p class="main-lector-center__bottom-prof">2005г.- Повышение квалификации на цикле: «Терапевтическая стоматология». Факультет послевузовского и дополнительного образования. ВМА им. С.М. Кирова. СПб.</p>
+                 <p class="main-lector-center__bottom-name">Повышение квалификации:</p>
+                <p class="main-lector-center__bottom-prof">2002 г. - IX Международный симпозиум Линков-Брюкель, на тему «Клиническая имплантология и стоматология». Чикагский центр. Москва.</p>
+                <p class="main-lector-center__bottom-prof">2004 г. - Обучение по программе «Базовый курс по имплантологии». Чикагский Центр Современной Стоматологии. Москва.</p>
+                <p class="main-lector-center__bottom-prof">2006 г. - Посещение семинара на тему: «Актуальные гемоконтактные вирусные инфекции. Профилактика гемоконтактных вирусных инфекций». Северо- Западный Межрегиональный научно-практический центр инфекционной патологии, эпидемиологии и гигиены. СПб.</p>
+                <p class="main-lector-center__bottom-prof">2007 г. - Участник практического семинара на тему: "Микропротезирование. Виниры, вкладки, коронки.". Куратор Поляков К..Компания «IVOCLAR VIVADENT»(Германия). СПб.</p>
+                <p class="main-lector-center__bottom-prof">2007 г. - Участие вконференцияNobelBiocareWorldTour в области эстетической стоматологии. Москва.</p>
+                <p class="main-lector-center__bottom-prof">2008 г. - Обучение по программе: "Организация лечебной работы в стоматологической клинике». Учебный центр "Амрита". СПб.</p>
+                <p class="main-lector-center__bottom-prof">2009 г. - Практический семинар по теме: « Хирургия по шаблонам NobelGuide». Учебный центр «NobelBiocare». СПб.</p>
+                <p class="main-lector-center__bottom-prof">2011 г. - Обучение по курсу: "Эстетика мягких тканей и оптимальные результаты при дентальной имплантации: 10 факторов успеха". Учебный центр «NobelBiocare». СПб.
+                2012 г. - Участник международного конгресса «NobelBiocareSymposium 2012». Украина.г. Одесса.</p>
+                <p class="main-lector-center__bottom-prof">2012 г. - Участник мастер-класса "Клиническое обоснование и практическое применение системы "VECTOR". Компания Апекс. СПб.</p>
+                <p class="main-lector-center__bottom-prof">2013 г. - Обучение на семинаре: "Создание оптимальных костных условий для дентальной имплантации". УКЦ СПИК-Вероника. СПб.</p>
+                <p class="main-lector-center__bottom-prof">2013 г. - Обучение на последипломном цикле тематического усовершенствования "ПСТ-Актуальные вопросы хирургической стоматологии". Государственное бюджетное образовательное учреждение высшего профессионального образования "Первый Санкт-Петербургский государственный медицинский университетимени академика И.П. Павлова" Министерства здравоохранения Российской Федерации.</p>
+        </div> #}
+    </section>
+
+    </div>
+
+
+     <div class="main-lector-all">
+
+  {% if lector_events|length > 0 %}
+    <section class="main-lector-bottom">
+    <h3 class="main-lector-bottom-title">У этого лектора {{lector_events|length}} мероприятий:</h3>
+    <div class="lectures-slider__main responsive">
+      {# el #}
+
+      {% for event in lector_events %}
+      {% set dateStart = event.event_start_time|date('d.m.Y') %}
+      {% set dateEnd = event.event_end_time|date('d.m.Y') %}
+      {% set timeStart = event.event_start_time|date('H:i') %}
+      {% set timeEnd = event.event_end_time|date('H:i') %}
+
+      <div class="lectures-group__block block">
+      <a class="ahref__noslyle" href="/events/{{ event.id }}">
+
+              <div class="block__top">
+                    <div class="block__when">
+                    <div class="block__data">
+                    {% if dateStart == dateEnd %}
+                      {{ dateStart }}
+                    {% else %}
+                      {{dateStart}}-{{dateEnd}}
+                    {% endif %}
+                    </div>
+                    <div class="block__time">{{timeStart}} - {{timeEnd}}</div>
+                    </div>
+                    <div class="block__address">{{event.event_city}}, {{event.event_address}}</div>
+              </div>
+              </a>
+
+              <div class="block__bottom">
+              <a class="ahref__noslyle" href="/events/{{ event.id }}">
+                  <div class="block__high">
+                      <div class="block__topic"><span class="block__dot block__dot--paradont" style="background:{{event.color}}"></span>{{ event.way_name }}</div>
+                      <div class="block__type">{{event.type_name}}</div>
+                  </div>
+                  <div class="block__center">
+                      <div class="block__title">{{event.event_name|str30()|beautifultext()}}</div>
+                      <div class="block__price">
+                      {% if event.is_free == 1 %}
+                        {{ event.price }} ₽
+                      {% else %}
+                      Бесплатно
+                      {% endif %}
+                      </div>
+                  </div>
+                  </a>
+                  <div class="block__about">
+                      <div class="block__doctor">
+                          <div class="block__photo"><img src="{{event.photo}}" alt="block__photo"></div>
+                          <div class="block__fio">
+                              <div class="block__name">{{event.full_name|short_name()}}</div>
+                              <div class="block__work">{{event.worker_position|onlyone()}}</div>
+                          </div>
+                      </div>
+                      <div class="block__add">
+                      {% if event.rule_point > 0 %}
+                          <div class="block__star">{{event.rule_point}}</div>
+                      {% endif %}
+                      {% if event.rule_sertificate is not null %}
+                          <div class="block__sert">Сертификат</div>
+                      {% endif %}
+                          <div class="block__more">еще</div>
+                      </div>
+                  </div>
+              </div>
+
+          </div>
+
+                      {% endfor %}
+
+                                  {# el #}
+
+
+
+                                        </div>
+    </section>
+  {% endif %}
+
+    </div>
+    </div>
+   </div>
+
+</div>
+</div>

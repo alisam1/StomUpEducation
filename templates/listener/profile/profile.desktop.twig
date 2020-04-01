@@ -1,0 +1,53 @@
+{# DESKTOP #}
+<div class="main-center__desktop">
+
+<div class="main-center__content">
+
+{{ include('listener/sidebar/_sidebar.twig') }}
+
+<div class="main-center__right">
+<div class="container">
+
+<div class="profile__content">
+    <h3 class="profile__title">Профиль</h3>
+    <div class="form-profile">
+        <form id="change_profile_form">
+            <div class="form-profile__about">
+            <div class="form-profile__input form-profile__input--img">
+                    <div class="form__img">
+                            <label class="label" style="background-image:url({{userData.photo_link}})">
+                                        <input id = "listener-photo" name="profile_photo" type="file">
+                                        <img id="listener-img" src="#" alt="image">
+                            </label>
+                    </div>
+            </div>
+            <div class="form-profile__input form-profile__input--name">
+                <label for="profile_name">ФИО</label>
+                <input id = "profile_name" name="profile_name" required value="{{userData.full_name}}" type="text" placeholder="Волгоград Экспо">
+            </div>
+            </div>
+            <div class="form-profile__input">
+                <label for="profile_phone">Телефон</label>
+                <input id = "profile_phone" name="profile_phone" required value="{{userData.phone}}" type="text" placeholder="+7 (921) 375-75-75">
+            </div>
+            <div class="form-profile__input">
+                <label for="profile_mail">Электронная почта</label>
+                <input id ="profile_mail" name="profile_mail" value="{{userData.email}}" type="text" placeholder="education@volgaex.ru">
+            </div>
+            <div class="form-profile__input">
+                <label for="worker_position">Должность</label>
+                <input id = "worker_position" name="worker_position" required value="{{userData.worker_position}}" type="text" placeholder="Стоматолог">
+            </div>
+            <div class="form-profile__input">
+                <label for="worker_city">Город</label>
+                <input id = "worker_city" name="worker_city" required value="{{userData.worker_city}}" type="text" placeholder="Санкт-Петербург">
+            </div>
+
+            <div class="form-profile__button">
+                    <input id="send_ajax" type="submit" value="Сохранить">
+            </div>
+        </form>
+    </div>
+</div>
+</div>
+</div>

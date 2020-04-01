@@ -1,0 +1,1 @@
+$(".hint_lector_name").change(function(){alert("test")}),$(document).ready(function(){$.post("/hint/count_data",function(t){$(".lector_counter").text(t.lectors_count),$(".event_counte").text(t.events_count)})});

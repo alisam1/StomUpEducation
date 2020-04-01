@@ -1,0 +1,21 @@
+{# templates/bundles/TwigBundle/Exception/error404.html.twig #}
+{% extends 'subdomain.base.twig' %}
+
+
+{% block body %}
+<main class="main-center">
+
+    <div class = "main_404">
+            <div class = "main_404__img"><img src = "/img/404_img.png"></div>
+            <div class = "main_404__block">
+                <h3 class="main_404__title">Страница не найдена</h3>
+                <p class="main_404__info">Страница запрошенного вами центра ещё не создана. Вы можете зарегистрировать данный лекционный центр или перейти на главную страницу портала</p>
+                <div class="main_404__buttons">
+                    <button class="main_404__center">Создать центр</button>
+                    <button class="main_404__cross">Перейти на главную</button>
+                </div>
+            </div>
+    </div>
+
+</main>
+{% endblock %}

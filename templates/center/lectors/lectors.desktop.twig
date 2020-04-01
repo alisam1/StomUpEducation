@@ -1,0 +1,271 @@
+{# desktop #}
+
+  <div class="main-center__desktop">
+
+      <div class="main-center__content">
+
+        {{ include('center/sidebar/_sidebar.twig') }}
+
+        <div class="main-center__right main-center__right--lectors">
+        <div class="container">
+
+            <div class="content">
+
+                <div class="bottom-content">
+
+                    <div class="bottom-content__center">
+
+                    {# кнопка #}
+                    <div class="bottom-content__info">
+                        <a href="#add-modal" class="popup-modal popup-modal-top "><button>Добавить</button></a>
+                          <h3 class="bottom-content__title bottom-content__title--lectures">Лекторы</h3>
+                    </div>
+                    {# кнопка #}
+
+                        <div class="events">
+                            <div class="accordion js-accordion">
+
+                        {% set itteration = 0 %}
+                        {% for lector in lectors_list %}
+                        {% set itteration = itteration + 1 %}
+                        {# вывести счетчик цикла, убрать элемент --first #}
+
+
+
+                            {# contentBlock #}
+                        <div class="accordeon__content">
+                            <div class="accordion__item js-accordion-item">
+
+                                <div class="accordion-header js-accordion-header">
+                              <div class="events__block {% if itteration == 1 %}events__block--first{% endif %}">
+                                        <div class="events__photo"><img src="{{lector.photo}}" alt="ev_photo"></div>
+                                        <div class="events__fio">{{lector.full_name}}</div>
+                                        <div class="events__work">{{lector.worker_position|split(',')|last}}</div>
+                                        <div class="events__lectures">{{ lector.events|length }}</div>
+                                        <div class="events__phone"><a href="">{{lector.phone}}</a></div>
+                                        <div class="events__mail"><a href="">{{lector.email}}</a></div>
+                                    </div>
+                            </div>
+
+                                <div class="accordion-body js-accordion-body">
+                                    <div class="accordion-body__contents">
+                                        <h3 class="lectures-group__title">У этого лектора {{ lector.events|length }} мероприятий:</h3>
+                                        <div class="lectures-slider__main lectures-slider__main--accordeon responsive">
+                                          {# eventBlock #}
+
+                                          {% for event in lector.events %}
+                                          {% set dateStart = event.event_start_time|date('d.m.Y') %}
+                                          {% set dateEnd = event.event_end_time|date('d.m.Y') %}
+                                          {% set timeStart = event.event_start_time|date('H:i') %}
+                                          {% set timeEnd = event.event_end_time|date('H:i') %}
+                                          {% set eventTypeData = event_type[event.event_type - 1] %}
+                                          {% set jsonDecodeEventWay = event.event_way|split('"')[1] %}
+                                          {% set eventWayData = event_way[jsonDecodeEventWay - 1] %}
+                                          {% set jsonDecodeLectorEvents = event.lector_id|split('"')[1] %}
+
+                                          {% set lectorData = [] %}
+                                          {% for lectorD in lectors_list %}
+
+                                              {% if lectorD.id == jsonDecodeLectorEvents %}
+                                                {% set lectorData = lectorD %}
+                                              {% endif %}
+
+                                          {% endfor %}
+
+                                            <div class="lectures-group__block block">
+                                                <div class="block__top" style="background-image:url({{ event.event_main_img }});">
+                                                    <div class="block__when">
+                                                    <div class="block__data">
+                                                    {% if dateStart == dateEnd %}
+                                                      {{ dateStart }}
+                                                    {% else %}
+                                                      {{dateStart}}-{{dateEnd}}
+                                                    {% endif %}
+                                                    </div>
+                                                    <div class="block__time">{{timeStart}} - {{timeEnd}}</div>
+                                                    </div>
+                                                    <div class="block__address">{{event.event_city}}, {{event.event_address}}</div>
+                                                </div>
+                                                <div class="block__bottom">
+                                                    <div class="block__high">
+                                                        <div class="block__topic block__topic--card"><span class="block__dot block__dot--paradont" style="background:{{eventWayData.color}}"></span>{{eventWayData.way_name}}</div>
+                                                        <div class="block__type">{{eventTypeData.type_name}}</div>
+                                                    </div>
+                                                    <div class="block__center">
+                                                        <div class="block__title">{{event.event_name|str30()|beautifultext()}}
+                                                            <span class="block__tooltip">{{event.event_name}}</span>
+                                                        </div>
+                                                        <div class="block__price">
+                                                        {% if event.is_free == 1 %}
+                                                          {{ event.price }} ₽
+                                                        {% else %}
+                                                        Бесплатно
+                                                        {% endif %}
+                                                        </div>
+                                                    </div>
+                                                    <div class="block__about">
+                                                        <div class="block__doctor">
+                                                            <div class="block__photo"><img src="{{lectorData.photo}}" alt="block__photo"></div>
+                                                            <div class="block__fio">
+                                                                <div class="block__name">{{lectorData.full_name}}</div>
+                                                                <div class="block__work">{{lectorData.worker_position}}г</div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="block__add">
+                                                        {% if event.rule_point > 0 %}
+                                                            <div class="block__star">{{event.rule_point}}</div>
+                                                        {% endif %}
+                                                        {% if event.rule_sertificate is not null %}
+                                                            <div class="block__sert">Сертификат</div>
+                                                        {% endif %}
+                                                            <div class="block__more">еще</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                                {% endfor %}
+                                            {# eventBlock #}
+
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="events__more">
+                                <div>
+                                   <a href="#" class="spoiler_links"></a>
+                                    <div class="spoiler_body">
+                                            <p class="lectures__change">
+                                                <a href="#form-modal{{lector.id}}" class="popup-modal">Изменить</a>
+                                            </p>
+                                            <div id="form-modal{{lector.id}}" class="form-events white-popup-block mfp-hide">
+                                                <p>
+                                                    <a class="popup-modal-dismiss" href="#"><img src="/img/close_modal.svg" alt="close_modal"></a>
+                                                </p>
+                                                <div class="events__card">
+                                                    <h3 class="events-form__title">Редактировать</h3>
+                                                    <div class="events-form__form">
+                                                    {# FORM #}
+                                                        <form  action="/catch/catch_lector_edit" method="post" enctype="multipart/form-data" id="edit_lectors" class="edit_lectors_cool">
+                                                        <input type="hidden" name="lector_ids" value="{{lector.id}}">
+                                                            <div class="events-form__top">
+                                                                <div class="events-form__top-right">
+                                                                    <div class="events-form__top-photo events-form__top-photo--edit">
+                                                                        <label class="label" style="background-image:url({{lector.photo}})" >
+                                                                            <label class="label">
+                                                                                <input name="new_lector_photo" id="new_edit_photo" type="file">
+                                                                                <img id="edit-lector" src="/img/11.png" alt="image" onerror="imgError();">
+                                                                            </label>
+                                                                        </label>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="events-form__top-left">
+                                                                    <div class="events-form__top--fio">
+                                                                        <div class="events-form__edit">
+                                                                            <label for="form__top--name">ФИО</label>
+                                                                            <input type="text" id="form__top--name" name="full_name"
+                                                                                placeholder="Бадалян Кристина Юрьевна" value="{{lector.full_name}}">
+                                                                        </div>
+
+                                                                        <div class="events-form__edit">
+                                                                                  <dl class="dropdown"><dt>
+                                                                                      <div class="form__work">
+                                                                                          <a href="#">
+                                                                                            <span class="form__top__work">Должность</span>
+                                                                                              <input type="text" name="worker_position" class="text-input" value="{{lector.worker_position}}" placeholder="Врач-стоматолог">
+                                                                                            </a>
+                                                                                                    </div>
+                                                                                                  </dt>
+                                                                                                    <dd>
+                                                                                               <div class="mutliSelect">
+                                                                                                    <ul>
+                                                                                                      <div class="form__top__search">
+                                                                                                        <input type="search" id="site-search-{{lector.id}}" name="q" aria-label="Поиск по должности">
+                                                                                                        <button></button>
+                                                                                                      </div>
+                                                                                                          <div class="multiSelect__area">
+                                                                                                          <div>
+                                                                                                                <label>
+                                                                                                                  <input type="checkbox" class="my-checkbox" value="Стоматолог-терапевт">Стоматолог-терапевт</label>
+                                                                                                          </div>
+                                                                                                          <div>
+                                                                                                            <label>
+                                                                                                              <input type="checkbox" class="my-checkbox" value="Стоматолог-ортодонт">Стоматолог-ортодонт
+                                                                                                            </label>
+                                                                                                          </div>
+                                                                                                            <div>
+                                                                                                              <label>
+                                                                                                                <input type="checkbox" class="my-checkbox" value="Стоматолог-ортопед">Стоматолог-ортопед</label>
+                                                                                                            </div>
+                                                                                                            <div>
+                                                                                                              <label>
+                                                                                                                <input type="checkbox" class="my-checkbox" value="Стоматолог-хирург">Стоматолог-хирург</label>
+                                                                                                            </div>
+                                                                                                              <div>
+                                                                                                                <label>
+                                                                                                                  <input type="checkbox" class="my-checkbox" value="Детский врач">Детский врач</label>
+                                                                                                                </div>
+                                                                                                            </div>
+                                                                                                              </ul>
+                                                                                                              </div>
+                                                                                                            </dd>
+                                                                                                          </dl>
+                                                                                                      </div>
+
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="events-form__bottom">
+                                                                <div class="events-form__edit">
+                                                                    <label for="form__top--phone">Телефон</label>
+                                                                    <input type="text" class="form__top--phone"  name="lector_phone"
+                                                                        placeholder="+7 (921) 375-75-75" value="{{lector.phone}}">
+                                                                </div>
+                                                                <div class="events-form__edit">
+                                                                    <label for="form__top--mail">Электронная почта</label>
+                                                                    <input type="text" class="form__top--mail"  name="lector_email"
+                                                                        placeholder="education@volgaex.ru" value="{{lector.email}}">
+                                                                </div>
+                                                            </div>
+
+                                                            {# Из какого центра #}
+                                                            <input type="hidden" name="in_center" value="{{my_id}}">
+
+                                                            <div class="events-form__textarea">
+                                                                <textarea name="events-lector__textarea" id="events-lector__textarea" cols="30" rows="7" placeholder="О лекторе"></textarea>
+                                                            </div>
+
+                                                            <div class="events-form__button">
+                                                                <input type="submit" value="Сохранить">
+                                                            </div>
+                                                        </form>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <p class="lectures__change">Удалить</p>
+                                    </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+
+                    </div>
+
+                    <div class="events__add">
+
+                            <a href="#add-modal" class="popup-modal"><button>Добавить</button></a>
+                            {% include 'popups/lectors.popup.twig' %}
+
+                    </div>
+                    </div>
+                </div>
+
+            </div>
+            </div>
+        </div>
+    </div>
+
+  </div>
+  </div>

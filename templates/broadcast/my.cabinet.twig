@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello BroadcastController!{% endblock %}
+
+{% block body %}
+{# DESKTOP #}
+
+{{ include('center/sidebar/_sidebar.twig') }}
+
+
+{# Инструкция в public/vue/readme.txt #}
+<div class="main-center__desktop">
+    
+    <div class="main-center__content brodcast_content">
+        <div id="broadcast">
+            
+        <script type=text/javascript src='/vue/webinars_dist/static/js/manifest.2ae2e69a05c33dfc65f8.js'></script>
+        <script type=text/javascript src='/vue/webinars_dist/static/js/vendor.cdb26e97f6d2d5fbada9.js'></script>
+        <script type=text/javascript src='/vue/webinars_dist/static/js/app.d1ac378f6923faeeda98.js'></script>
+
+        </div>
+    </div>
+</div>
+
+{% endblock %}

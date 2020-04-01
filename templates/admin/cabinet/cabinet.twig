@@ -1,0 +1,18 @@
+{% extends 'base.listener.twig' %}
+
+{% block title %}АдминПанель {% endblock %}
+
+
+{% block body %}
+
+
+    <main class="main-center">
+            {% if mobileDetect == true %}
+            {{ include('admin/cabinet/cabinet.mobile.twig') }}
+            {% else %}
+            {{ include('admin/cabinet/cabinet.desktop.twig') }}
+            {% endif %}
+
+    </main>
+
+{% endblock %}

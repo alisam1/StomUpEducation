@@ -1,0 +1,666 @@
+{# DESKTOP #}
+
+<div class="main-center__desktop">
+
+
+
+{{ include('main/sidebar/_sidebar.twig') }}
+
+
+
+    <div class="main__right">
+
+    <div class="container">
+        <section class="main-banner">
+           <div class="main-banner__img main-banner__big">
+            {# тут баннеры #}
+               <div class="template-center-info">
+
+                 <div class = "template-center-banner__all single-item">
+
+
+                        {# баннер #}
+                        <div>
+                            <div class="template-center-banner" style="background-image:url('/img/audit_2.jpg')">
+                                <div class="template-center-banner__content">
+                                <h3 class="template-center-name">Стоматологическая выставка (г.Санкт-Петербург)</h3>
+                                <p class="template-center-desc">С 13 по 15 февраля в ЛенЭКСПО</p>
+                                <a href="#">
+                                <button class="template-center-button">Купить билет!</button>
+                                </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="template-center-banner" style="background-image:url('/img/audit_2.jpg')">
+                                <div class="template-center-banner__content">
+                                <h3 class="template-center-name">Стоматологическая выставка (г.Москва)</h3>
+                                <p class="template-center-desc">С 1 по 3 марта в Манеже</p>
+                                <a href="#">
+                                <button class="template-center-button">Купить билет!</button>
+                                </a>
+                                </div>
+                            </div>
+                        </div>
+
+                  </div>
+           </div>
+             {# тут баннеры #}
+
+        </div>
+            <div class="main-banner__img main-banner__small">
+               <div class="main-banner__small-logo">
+                    <img src="/img/small_banner_logo.svg" alt="">
+               </div>
+               <a href="#"><button class="main-banner__small-button">Подробнее о проекте</button></a>
+            </div>
+    </section>
+
+ <section class="main-select">
+ <div class="main-select-main">
+            <div class="main-select__left">
+            <input type="hidden" id="is_calendar_touch" value="0">
+            {# календарь #}
+            <p id="date_calendar"></p>
+            <input type="hidden" id="events_data" value="{{my_events | json_encode()}}">
+            <input type="hidden" id="events_filter_date" value="">
+            {# календарь #}
+            </div>
+            <div class="main-select__right">
+                <h3 class="main-select__title">Фильтры</h3>
+
+
+                <div class="events__type">
+                {# направление мероприятия #}
+                {% for event_way in all_event_way %}
+                <div class="block__events" data-way_id="{{event_way.id}}"><span class="block__dot" style="background-color:{{event_way.color}}"></span>{{event_way.way_name}}</div>
+                {% endfor %}
+
+
+                <a href="#" class="main-select__button">Показать все фильтры</a>
+
+                </div>
+
+                <div class="main-select__mobile">
+
+                <div class="main-select__choise">
+
+                    <div class="main-select__type">
+
+                     <div class="formRow labelBox col3 dropDownMobile" id="workLine">
+
+                        <span class="form__top__work">Направление</span>
+
+                                <input type="text" name="ways" id="workLineTags" placeholder="Менеджмент"/><a class="line_toggle"></a>
+
+                                    <div class="workLineLabel">
+
+                                            <div class="workLineSelect">
+
+                                            {% for event_type in all_event_type %}
+                                                <label><input type="checkbox"  class = "checkselect_event"  name="event_types[]" value="{{event_type.id}}"> {{event_type.type_name}}</label>
+                                            {% endfor %}
+
+
+                                            </div>
+
+                                    </div>
+                                    <input type="hidden" name="my_hidden_way" value="" id="my_hidden_way" />
+                        </div>
+
+                    </div>
+                    <div class="main-select__city">
+
+                    <div class="formRow labelBox col3 dropDownMobile" id="workCity">
+
+                         <label>Город</label>
+
+                            <input type="text" name="city_tags" id="workCityTags" placeholder = "Санкт-Петербург"><a class="line_toggle_city"></a>
+
+                        <div class="mainSelectCity">
+
+                          <div class="mainCity">
+                          {% for city in city_data %}
+                            <label><input class = "checkselect_city" type="checkbox" name="city" value="{{city.event_city}}"><span class="textBox">{{city.event_city}}</span></label>
+                          {% endfor %}
+                         </div>
+
+                        </div>
+                         <input type="hidden" name="my_hidden_city" value="" id="my_hidden_city" />
+                    </div>
+
+                    </div>
+
+                    <div class="main-select__lector">
+
+                    <div class="formRow labelBox col3 dropDownMobile" id="workLector">
+
+                         <label>Лектор</label>
+                            <input type="text" name="lector_tags" id="workLectorTags" placeholder = "Выберите из списка"><a class="line_toggle_lector"></a>
+
+
+                        <div class="mainSelectLector">
+
+                         <div class="mainLector">
+                         {% for lector in all_lectors %}
+                            <label><input type="checkbox" class = "checkselect_lectors" name="lectors[]" value="{{lector.id}}"><span class="textBox">{{lector.full_name}}</span></label>
+                         {% endfor %}
+                        </div>
+
+                        </div>
+                         <input type="hidden" name="my_hidden_lectors" value="" id="my_hidden_lectors" />
+                    </div>
+
+                    </div>
+
+                </div>
+
+                <div class="main_slider">
+
+                <div class="main_range">
+
+                <div id="slider-range"></div>
+
+                                          <p class="events__polz">
+                                                <input type="text" id="min" readonly/>
+                                                <input type="text" id="max" readonly/>
+                                            </p>
+                </div>
+                                <div class="events__agree">
+                                    <input id = "checkbox__agree" type="checkbox">
+                                    <label for="checkbox__agree">Только бесплатные</label>
+                                </div>
+                                <div class="events__agree-button"><a class="main-slider__button events__apply">Применить</a></div>
+            </div>
+            </div>
+            </div>
+            </div>
+           <div class="main-select-bottom">
+
+           <div class="main-select-bottom-first">
+
+               <div class="main-select__choise">
+
+                   <div class="main-select__type">
+
+                    <div class="formRow labelBox col3 dropDownMobile" id="workLine">
+
+                       <span class="form__top__work">Направление</span>
+
+                               <input type="text" name="ways" id="workLineTags" placeholder="Менеджмент"/><a class="line_toggle" href="#"></a>
+
+                                   <div class="workLineLabel">
+
+                                           <div class="workLineSelect">
+
+                                           {% for event_type in all_event_type %}
+                                               <label><input type="checkbox"  class = "checkselect_event"  name="event_types[]" value="{{event_type.id}}"> {{event_type.type_name}}</label>
+                                           {% endfor %}
+
+
+                                           </div>
+
+                                   </div>
+                                   <input type="hidden" name="my_hidden_way" value="" id="my_hidden_way" />
+                       </div>
+
+                   </div>
+                   <div class="main-select__city">
+
+                   <div class="formRow labelBox col3 dropDownMobile" id="workCity">
+
+                        <label>Город</label>
+
+                       <div class="content_city">
+                           <input type="text" name="city_tags" id="workCityTags" placeholder = "Санкт-Петербург">
+                           <a class="line_toggle_city" href="#"></a>
+                       </div>
+
+                       <div class="mainSelectCity">
+
+                         <div class="mainCity">
+                         {% for city in city_data %}
+                           <label><input class = "checkselect_city" type="checkbox" name="city" value="{{city.event_city}}"><span class="textBox">{{city.event_city}}</span></label>
+                         {% endfor %}
+                        </div>
+
+                       </div>
+                        <input type="hidden" name="my_hidden_city" value="" id="my_hidden_city" />
+                   </div>
+
+                   </div>
+                   </div>
+                   </div>
+
+                    <div class="main-select-bottom-second">
+
+                   <div class="main-select__lector">
+
+                   <div class="formRow labelBox col3 dropDownMobile" id="workLector">
+
+                        <label>Лектор</label>
+                       <div class="content_lector">
+                           <input type="text" name="lector_tags" id="workLectorTags" placeholder = "Выберите из списка">
+                            <a class="line_toggle_lector" href="#"></a>
+                       </div>
+
+
+                       <div class="mainSelectLector">
+
+                        <div class="mainLector">
+                        {% for lector in all_lectors %}
+<label><input type="checkbox" class = "checkselect_lectors" name="lectors[]" value="{{lector.id}}"><span class="textBox">{{lector.full_name}}</span></label>
+                        {% endfor %}
+                       </div>
+
+                       </div>
+                        <input type="hidden" name="my_hidden_lectors" value="" id="my_hidden_lectors" />
+                   </div>
+
+                   </div>
+
+                   <div class="main_slider">
+
+                   <div class="main_range">
+
+                   <div id="slider-range__bottom"></div>
+
+                                             <p class="events__polz__bottom">
+                                                   <input type="text" id="min__bottom" readonly/>
+                                                   <input type="text" id="max__bottom" readonly/>
+                                               </p>
+                   </div>
+                   </div>
+
+               </div>
+
+                <div class="main-select-bottom-third">
+                               <div class="events__agree">
+                                   <input id = "checkbox__agree" type="checkbox">
+                                   <label for="checkbox__agree">Только бесплатные</label>
+                               </div>
+                               <div class="events__agree-button"><a class="main-slider__button events__apply">Применить</a></div>
+           </div>
+           </div>
+
+        <div class="main-mobile__modals">
+                 <a class="popup-modal popup-modal-top" href="#add-modal"><button>Показать все фильтры</button></a>
+
+                 <div id="add-modal" class="form-events mfp-hide white-popup-block">
+                                                        <p><a class="popup-modal-dismiss" href="#"><img src="/img/close_modal.svg" alt="close_modal"></a></p>
+                                                       <div class="events__card events__card-modal">
+                                                        <h3 class="main-modals__title">Фильтры</h3>
+
+                                                        <div class="main-select__choise">
+
+                                                                    <div class="main-select__type">
+
+                                                                    <div class="formRow labelBox col3 dropDownMobile" id="workLine">
+
+                                                                        <span class="form__top__work">Направление</span>
+
+                                                                                <input type="text" name="ways" id="workLineTags" placeholder="Менеджмент"/><a class="line_toggle" href="#"></a>
+
+                                                                                    <div class="workLineLabel">
+
+                                                                                            <div class="workLineSelect">
+
+                                                                                            {% for event_type in all_event_type %}
+                                                                                                <label><input type="checkbox"  class = "checkselect_event"  name="event_types[]" value="{{event_type.id}}"> {{event_type.type_name}}</label>
+                                                                                            {% endfor %}
+
+
+                                                                                            </div>
+
+                                                                                    </div>
+                                                                                    <input type="hidden" name="my_hidden_way" value="" id="my_hidden_way" />
+                                                                        </div>
+
+                                                                    </div>
+                                                                    <div class="main-select__city">
+
+                                                                    <div class="formRow labelBox col3 dropDownMobile" id="workCity">
+
+                                                                        <label>Город</label>
+
+                                                                        <div class="content_city">
+                                                                            <input type="text" name="city_tags" id="workCityTags" placeholder = "Санкт-Петербург">
+                                                                            <a class="line_toggle_city" href="#"></a>
+                                                                        </div>
+
+                                                                        <div class="mainSelectCity">
+
+                                                                        <div class="mainCity">
+                                                                        {% for city in city_data %}
+                                                                            <label><input class = "checkselect_city" type="checkbox" name="city" value="{{city.event_city}}"><span class="textBox">{{city.event_city}}</span></label>
+                                                                        {% endfor %}
+                                                                        </div>
+
+                                                                        </div>
+                                                                        <input type="hidden" name="my_hidden_city" value="" id="my_hidden_city" />
+                                                                    </div>
+
+                                                                    </div>
+
+                                                                    <div class="main-select__lector">
+
+                                                                    <div class="formRow labelBox col3 dropDownMobile" id="workLector">
+
+                                                                        <label>Лектор</label>
+                                                                        <div class="content_lector">
+                                                                            <input type="text" name="lector_tags" id="workLectorTags" placeholder = "Выберите из списка">
+                                                                            <a class="line_toggle_lector" href="#"></a>
+                                                                        </div>
+
+
+                                                                        <div class="mainSelectLector">
+
+                                                                        <div class="mainLector">
+                                                                        {% for lector in all_lectors %}
+                                                                            <label><input type="checkbox" class = "checkselect_lectors" name="lectors[]" value="{{lector.id}}"><span class="textBox">{{lector.full_name}}</span></label>
+                                                                        {% endfor %}
+                                                                        </div>
+
+                                                                        </div>
+                                                                        <input type="hidden" name="my_hidden_lectors" value="" id="my_hidden_lectors" />
+                                                                    </div>
+
+                                                                    </div>
+
+                                                                </div>
+
+                                                                <div class="main_slider">
+
+                                                                <div class="main_range">
+
+                                                                <div id="slider-range__modal"></div>
+
+                                                                                        <p class="events__polz">
+                                                                                                <input type="text" id="min__modal" readonly/>
+                                                                                                <input type="text" id="max__modal" readonly/>
+                                                                                            </p>
+                                                                </div>
+                                                                                <div class="events__agree">
+                                                                                    <input id = "checkbox__agree" type="checkbox">
+                                                                                    <label for="checkbox__agree">Только бесплатные</label>
+                                                                                </div>
+                                                                                <div class="events__agree-button"><a class="main-slider__button events__apply">Применить</a></div>
+                                                            </div>
+                                                            </div>
+
+                                                    </div>
+                                                    </div>
+</section>
+
+
+        <section class="main-events">
+
+
+            <div class="events__group">
+
+             <div class="events__group--all">
+
+            {# event #}
+            {% for event in my_events %}
+
+            {{ include('elements/event.card.twig', {event:event}) }}
+
+            {% endfor %}
+                {# event #}
+
+
+                </div>
+                </div>
+
+                <a href="/events" class="main-literature__button" id="events-hidden__button">Все мероприятия</a>
+
+
+        </section>
+
+        {# Конгрессы #}
+        {# <section class="main-congress">
+        <h3 class="main-congress__title">Конгрессы</h3>
+         <div class="lectures-group__main responsive">
+                                            <div class="main-congress__card">
+
+                                            <div class="main-congress__card-content">
+                                                   <div class="main-congress__card--left">
+                                                        <img src="/img/main_kong_1.png" alt="">
+                                                    </div>
+                                                <div class="main-congress__card--right">
+                                                    <h3 class="main-congress__card--title">Глобальный конгресс (4 дня)</h3>
+                                                    <p class="main-congress__card--data">14.05–17.05.2020</p>
+                                                    <p class="main-congress__card--place">Марракеш </p>
+                                                    <p class="main-congress__card--desc">Глобальный стоматологический конгресс пройдет в середие...</p>
+                                                    <p class="main-congress__card--link"><a href="">Подробнее</a></p>
+                                                </div>
+                                            </div>
+                                                </div>
+
+                                                <div class="main-congress__card">
+                                                <div class="main-congress__card-content">
+                                                 <div class="main-congress__card--left">
+                                                     <img src="/img/main_kong_2.png" alt="">
+                                                </div>
+                                                <div class="main-congress__card--right">
+                                                    <h3 class="main-congress__card--title">Конгресс ортодонтии (3 дня)</h3>
+                                                    <p class="main-congress__card--data">13.09–15.09.2019 </p>
+                                                    <p class="main-congress__card--place">Париж</p>
+                                                    <p class="main-congress__card--desc">Глобальный стоматологический конгресс пройдет в середие....</p>
+                                                    <p class="main-congress__card--link"><a href="">Подробно</a></p>
+                                                </div>
+                                                </div>
+                                                    </div>
+
+                                                    <div class="main-congress__card">
+                                                    <div class="main-congress__card-content">
+                                                        <div class="main-congress__card--left">
+                                                            <img src="/img/main_kong_1.png" alt="">
+                                                        </div>
+                                                        <div class="main-congress__card--right">
+                                                            <h3 class="main-congress__card--title">Глобальный конгресс (4 дня)</h3>
+                                                            <p class="main-congress__card--data">14.05–17.05.2020</p>
+                                                            <p class="main-congress__card--place">Марракеш </p>
+                                                            <p class="main-congress__card--desc">Глобальный стоматологический конгресс пройдет в середие...</p>
+                                                            <p class="main-congress__card--link"><a href="">Подробнее</a></p>
+                                                        </div>
+                                                        </div>
+
+                                                        </div>
+
+                                                        <div class="main-congress__card">
+                                                        <div class="main-congress__card-content">
+                                                             <div class="main-congress__card--left">
+                                                                <img src="/img/main_kong_2.png" alt="">
+                                                            </div>
+                                                            <div class="main-congress__card--right">
+                                                                <h3 class="main-congress__card--title">Конгресс ортодонтии (3 дня)</h3>
+                                                                <p class="main-congress__card--data">13.09–15.09.2019 </p>
+                                                                <p class="main-congress__card--place">Париж</p>
+                                                                <p class="main-congress__card--desc">Глобальный стоматологический конгресс пройдет в середие....</p>
+                                                                <p class="main-congress__card--link"><a href="">Подробно</a></p>
+                                                            </div>
+
+                                                        </div>
+                                                        </div>
+
+                                                        <div class="main-congress__card">
+                                                        <div class="main-congress__card-content">
+                                                            <div class="main-congress__card--left">
+                                                               <img src="/img/main_kong_1.png" alt="">
+                                                            </div>
+                                                            <div class="main-congress__card--right">
+                                                                <h3 class="main-congress__card--title">Глобальный конгресс (4 дня)</h3>
+                                                                <p class="main-congress__card--data">14.05–17.05.2020</p>
+                                                                <p class="main-congress__card--place">Марракеш </p>
+                                                                <p class="main-congress__card--desc">Глобальный стоматологический конгресс пройдет в середие...</p>
+                                                                <p class="main-congress__card--link"><a href="">Подробнее</a></p>
+                                                        </div>
+                                                        </div>
+                                                        </div>
+                            </div>
+        </section> #}
+
+        <section class="main-leccenter">
+         <h3 class="main-leccenter__title">Лекционные центры</h3>
+
+         <div class="main-leccenter__content responsive">
+         {% for center in centers_data %}
+
+            <div class="main-leccenter__logo"><a href="https://{{center.site_url}}.stomup.ru"><img src="{{center.site_main_logo}}" alt=""></a></div>
+
+          {% endfor %}
+         </div>
+        </section>
+
+        </div>
+
+        {% if centers_data|length > 0 %}
+         <section class="main-map">
+          <div class="container">
+            <div class="main-map__content">
+                 <div class="main-map__content-top">
+                    <div class="main-map__content-top__left">
+                        <div class="main-map__content-top__city">
+                         <label>Город</label>
+                         <select id="e1">
+                            <option>Санкт-Петербург</option>
+                            <option>Москва</option>
+                            <option>Новосибирск</option>
+                            <option>Екатеринбург</option>
+                            <option>Киров</option>
+                            <option>Ярославль</option>
+                         </select>
+                        </div>
+                        <div class="main-map__content-top__line">
+                         <label>Направление</label>
+                         <select>
+                            <option>Хирургия</option>
+                            <option>Пародонтология</option>
+                            <option>Ортодонтия</option>
+                            <option>Терапия</option>
+                            <option>Детская стоматология</option>
+                            <option>Ортодонтия</option>
+                         </select>
+                        </div>
+                    </div>
+                    <div class="main-map__content-top__right">
+                       <input type="search" placeholder="Введите адрес или название центра">
+                    </div>
+                </div>
+
+
+                <div class="main-map__content-bottom">
+                    <div class="main-map__content-bottom__left">
+                      {# карточка центра #}
+                      {% set mapItter = 0 %}
+                      {% for center in centers_data %}
+
+                    <div class="main-map__content-bottom__card {% if mapItter == 0 %}active{% endif %}" data-cord="{{center.site_map}}">
+                                   <h3 class="main-map__content-bottom__card-title">{{center.site_info_name}}</h3>
+                                   <div class="main-map__content-bottom__card-info">
+                                        <p class="main-map__content-bottom__card-place">{{center.site_info_station}}</p>
+                                        <p class="main-map__content-bottom__card-time">{{center.site_info_worktime}}</p>
+                                   </div>
+                                   <div class="main-map__content-bottom__card-about">
+                                        <p class="main-map__content-bottom__card-number">{{center.actual_events}} мероприятий</p>
+                                        <a href="https://{{center.site_url}}.stomup.ru">Подробнее</a>
+                                   </div>
+                            </div>
+                          {% set mapItter = mapItter + 1 %}
+                        {% endfor %}
+                        {# карточка центра #}
+
+
+                    </div>
+
+                    <div class="main-map__content-bottom__right">
+                            <div class="main-map__content-bottom__map">
+                            <div id="map" style="width:100%; height:500px"></div>
+                            {% include 'map.twig' with { 'map_id': 'map', 'cord':centers_data[0].site_map } %}
+                            </div>
+
+
+                    </div>
+                </div>
+            </div>
+            </div>
+         </section>
+              {% endif %}
+
+
+         {# Учебная литература #}
+         {# <section class="main-literature">
+          <h3 class="main-leccenter__title">Учебная литература</h3>
+          <div class="main-map__content-top main-map__content-top--literature">
+                    <div class="main-map__content-top__left">
+                        <div class="main-map__content-top__type">
+                         <select>
+                            <option>Санкт-Петербург</option>
+                            <option>Москва</option>
+                            <option>Новосибирск</option>
+                            <option>Екатеринбург</option>
+                            <option>Киров</option>
+                            <option>Ярославль</option>
+                         </select>
+                        </div>
+                    </div>
+                    <div class="main-map__content-top__right main-map__content-top__right--literature">
+                       <input type="search" placeholder="Введите адрес или название центра">
+                    </div>
+                </div>
+
+            <div class="main-map__content-bottom">
+                <div class="main-literature__content">
+                    <div class="main-literature__card">
+                        <h3 class="main-literature__card-title">Петрикас Арнольд Жанович</h3>
+                        <p class="main-literature__card-name"><span>Пульпэктомия.</span>Альфа-Пресс. 340 с.</p>
+                        <p class="main-literature__card-price">3 000 ₽</p>
+                    </div>
+                    <div class="main-literature__card">
+                        <h3 class="main-literature__card-title">Петрикас Арнольд Жанович</h3>
+                        <p class="main-literature__card-name"><span>Пульпэктомия.</span>Альфа-Пресс. 340 с.</p>
+                        <p class="main-literature__card-price">3 000 ₽</p>
+                    </div>
+                    <div class="main-literature__card">
+                        <h3 class="main-literature__card-title">Петрикас Арнольд Жанович</h3>
+                        <p class="main-literature__card-name"><span>Пульпэктомия.</span>Альфа-Пресс. 340 с.</p>
+                        <p class="main-literature__card-price">3 000 ₽</p>
+                    </div>
+                    <div class="main-literature__card">
+                        <h3 class="main-literature__card-title">Петрикас Арнольд Жанович</h3>
+                        <p class="main-literature__card-name"><span>Пульпэктомия.</span>Альфа-Пресс. 340 с.</p>
+                        <p class="main-literature__card-price">3 000 ₽</p>
+                    </div>
+                    <div class="main-literature__card">
+                        <h3 class="main-literature__card-title">Петрикас Арнольд Жанович</h3>
+                        <p class="main-literature__card-name"><span>Пульпэктомия.</span>Альфа-Пресс. 340 с.</p>
+                        <p class="main-literature__card-price">3 000 ₽</p>
+                    </div>
+                    <div class="main-literature__card">
+                        <h3 class="main-literature__card-title">Петрикас Арнольд Жанович</h3>
+                        <p class="main-literature__card-name"><span>Пульпэктомия.</span>Альфа-Пресс. 340 с.</p>
+                        <p class="main-literature__card-price">3 000 ₽</p>
+                    </div>
+                 </div>
+
+            </div>
+            <button class="main-literature__button">Вся литература</button>
+         </section> #}
+          <div class="container">
+
+         <section class="main-about">
+             <div class="main-about__img">
+                <img src = "/img/main_pic_img.png">
+             </div>
+             <div class="main-about__info">
+                <h3 class="main-about__title">«StomUp»</h3>
+                <p class="main-about__desc">StomUP - это современный, развивающийся портал для стоматологов и стоматологических интернет магазинов. Здесь можно записаться на курсы по повышению квалификации, получив возможность пройти обучение у самых опытных зубных  лекторов России.</p>
+                <p class ="main-about__desc">Для удобства использования, на нашей платформе реализована возможность регистрации лектора, лекционных центров, слушателей.  Все лекторы разбиты по различным направлениям, в том числе по терапии, ортодонтии, детской стоматологии.</p>
+                <p class ="main-about__desc">Лекционные центры, зарегистрировавшиеся на нашей платформе, могут иметь свой сайт с возможностью привязки всех своих лекторов к свой странице.</p>
+             </div>
+         </section>
+    </div>
+    </div>
+    </div>
+    </div>

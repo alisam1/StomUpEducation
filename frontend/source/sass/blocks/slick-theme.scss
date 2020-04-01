@@ -1,0 +1,445 @@
+@charset "UTF-8";
+
+// Default Variables
+
+// Slick icon entity codes outputs the following
+// "\2190" outputs ascii character "←"
+// "\2192" outputs ascii character "→"
+// "\2022" outputs ascii character "•"
+
+$slick-font-path: "./fonts/" !default;
+$slick-font-family: "slick" !default;
+$slick-loader-path: "./" !default;
+$slick-arrow-color: white !default;
+$slick-dot-color: black !default;
+$slick-dot-color-active: $slick-dot-color !default;
+$slick-prev-character: none;
+$slick-next-character: "\2192" !default;
+$slick-dot-character: "\2022" !default;
+$slick-dot-size: 6px !default;
+$slick-opacity-default: 0.75 !default;
+$slick-opacity-on-hover: 1 !default;
+$slick-opacity-not-active: 0.25 !default;
+
+@function slick-image-url($url) {
+    @if function-exists(image-url) {
+        @return image-url($url);
+    }
+    @else {
+        @return url($slick-loader-path + $url);
+    }
+}
+
+@function slick-font-url($url) {
+    @if function-exists(font-url) {
+        @return font-url($url);
+    }
+    @else {
+        @return url($slick-font-path + $url);
+    }
+}
+
+/* Slider */
+
+.slick-list {
+    .slick-loading & {
+        background: #fff center center no-repeat;
+    }
+}
+
+/* Icons */
+// @if $slick-font-family == "slick" {
+//     @font-face {
+//         font-family: "slick";
+//         src: slick-font-url("slick.eot");
+//         src: slick-font-url("slick.eot?#iefix") format("embedded-opentype"), slick-font-url("slick.woff") format("woff"), slick-font-url("slick.ttf") format("truetype"), slick-font-url("slick.svg#slick") format("svg");
+//         font-weight: normal;
+//         font-style: normal;
+//     }
+// }
+
+.slick-slide{
+    width: 244px;
+    margin-right: 10px;
+ }
+
+ .events__popular-slider .slick-slide{
+    width: 243px;
+    margin-right: 10px;
+ }
+
+
+
+
+ .lectures-slider__main .slick-slide{
+    width: 250px;
+    margin-right: 25px;
+ }
+
+
+ .slick-slide:nth-child(4)
+{
+    margin-right: 15px;
+}
+
+.lectures-slider__main .slick-initialized .slick-slide {
+    display: block;
+    margin-left: -1px;
+    margin-right: 25px;
+}
+
+.lectures-slider__main .slick-initialized .slick-slide:nth-child(4) {
+    margin-right: 15px;
+}
+
+ .lectures-slider__main .slick-list {
+    width: 70%;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+    display: block;
+    padding: 0;
+        padding-right: 0px;
+        padding-left: 0px;
+    padding-left: 0px;
+    padding-right: 5px;
+}
+
+/* Edit 14.11 */
+
+ .lectures-slider__main .slick-list {
+    width: 1400px;
+ }
+
+ .lectures-slider__main--accordeon
+ {
+    width: 1100px;
+ }
+
+  .lectures-slider__main .slick-slide:nth-child(4)
+{
+    margin-right: 25px;
+}
+/* Arrows */
+
+.slick-next
+{
+    background-image: url("../img/arrow_next.svg");
+}
+
+.slick-prev
+{
+    position: absolute;
+    display: block;
+    height: 42px;
+    width: 42px;
+    line-height: 0px;
+    font-size: 0px;
+    cursor: pointer;
+    background: inherit;
+    color: transparent;
+    top: 45%;
+    -webkit-transform: translate(0, -50%);
+    -ms-transform: translate(0, -50%);
+    transform: translate(0, -50%);
+    padding: 0;
+    border: none;
+    outline: none;
+    &:hover, &:focus {
+        outline: none;
+        background: inherit;
+        background-image: url("../img/ar_next_hover.svg");
+        transform: rotate(180deg);
+        color: transparent;
+        &:before {
+            opacity: $slick-opacity-on-hover;
+        }
+    }
+    &.slick-disabled:before {
+        opacity: $slick-opacity-not-active;
+    }
+    &:before {
+        // font-family: $slick-font-family;
+        font-size: 20px;
+        line-height: 1;
+        color: $slick-arrow-color;
+        opacity: $slick-opacity-default;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+}
+
+.slick-next {
+    position: absolute;
+    display: block;
+    height: 42px;
+    width: 42px;
+    line-height: 0px;
+    font-size: 0px;
+    cursor: pointer;
+    background: inherit;
+    color: transparent;
+    top: 50%;
+    -webkit-transform: translate(0, -50%);
+    -ms-transform: translate(0, -50%);
+    transform: translate(0, -50%);
+    padding: 0;
+    border: none;
+    outline: none;
+    &:hover, &:focus {
+        outline: none;
+        background: inherit;
+        background-image: url("../img/ar_next_hover.svg");
+        color: transparent;
+        &:before {
+            opacity: $slick-opacity-on-hover;
+        }
+    }
+    &.slick-disabled:before {
+        opacity: $slick-opacity-not-active;
+    }
+    &:before {
+        // font-family: $slick-font-family;
+        font-size: 20px;
+        line-height: 1;
+        color: $slick-arrow-color;
+        opacity: $slick-opacity-default;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+}
+
+.slick-prev {
+    background-image: url("../img/arrow_next.svg");
+    transform: rotate(180deg);
+    left: 10px;
+    [dir="rtl"] & {
+        left: auto;
+        right: 10px;
+    }
+}
+
+.slick-next {
+    background-image: url("../img/arrow_next.svg");
+    right: 25px;
+    [dir="rtl"] & {
+        left: 25px;
+        right: auto;
+    }
+}
+
+/* Dots */
+
+.slick-dotted.slick-slider {
+    margin-bottom: 30px;
+}
+
+.slick-dots {
+    position: absolute;
+    bottom: -25px;
+    list-style: none;
+    display: block;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    li {
+        position: relative;
+        display: inline-block;
+        height: 20px;
+        width: 20px;
+        margin: 0 5px;
+        padding: 0;
+        cursor: pointer;
+        button {
+            border: 0;
+            background: transparent;
+            display: block;
+            height: 20px;
+            width: 20px;
+            outline: none;
+            line-height: 0px;
+            font-size: 0px;
+            color: transparent;
+            padding: 5px;
+            cursor: pointer;
+            &:hover, &:focus {
+                outline: none;
+                &:before {
+                    opacity: $slick-opacity-on-hover;
+                }
+            }
+            &:before {
+                position: absolute;
+                top: 0;
+                left: 0;
+                content: $slick-dot-character;
+                width: 20px;
+                height: 20px;
+                // font-family: $slick-font-family;
+                font-size: 26px;
+                line-height: 20px;
+                text-align: center;
+                color: $slick-dot-color;
+                opacity: $slick-opacity-not-active;
+                -webkit-font-smoothing: antialiased;
+                -moz-osx-font-smoothing: grayscale;
+            }
+        }
+        &.slick-active button:before {
+            color: $slick-dot-color-active;
+            opacity: $slick-opacity-default;
+        }
+    }
+}
+
+.template-center-info .slick-slide
+{
+    //max-width: 1400px;
+}
+
+.template-center-info--sub .slick-slide
+{
+    width: 100%;
+}
+
+
+.events__popular-slider .slick-dots
+{
+    bottom: -25px;
+}
+
+.events .events__popular-slider .slick-dots
+{
+    bottom: 10px;
+}
+
+
+.events__popular-slider-view .slick-dots
+{
+    bottom: 15px;
+}
+
+@media screen and (min-width: 1280px) and (max-width: 1440px) {
+
+    .events__popular-slider .slick-slide{
+        width: 235px;
+        margin-right: 0;
+     }
+
+
+.events__popular-slider .slick-list {
+    width: 100%;
+}
+
+.template-center-events .events__popular-slider .slick-list {
+    width: 90%;
+    margin: 0 auto;
+}
+
+.template-center-events .events__popular-slider .slick-list
+{
+    width: 100%;
+    transform: none !important;
+}
+
+.template-center-events .events__popular-slider
+{
+    width: 100%;
+}
+
+.events__popular-slider .slick-slide
+{
+    margin-right: 0;
+}
+
+.lectures-slider__main .slick-list {
+    width: 810px;
+    max-width: 80%;
+}
+
+.events__popular-slider-view .slick-dots
+{
+    bottom: 0;
+}
+
+}
+@media screen and (min-width: 1280px) and (max-width: 1339px) {
+.events__popular-slider .slick-list {
+    width: 90%;
+}
+}
+  @media screen and (min-width: 768px) and (max-width: 1279px) {
+
+
+.slick-slide{
+    width: 265px;
+    margin-right: 10px;
+    box-shadow: none;
+ }
+
+
+ .lectures-slider__main .slick-slide{
+    width: 250px;
+    margin: 0 auto;
+    margin-right: 55px;
+ }
+
+
+ .lectures-slider__main .slick-initialized .slick-slide {
+    display: block;
+    margin-left: -1px;
+    margin-right: 55px;
+}
+
+ .lectures-slider__main .slick-list {
+
+    width: 290px;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+    display: block;
+    padding: 0;
+        padding-right: 0px;
+        padding-left: 0px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+  .lectures-slider__main .slick-slide:nth-child(4)
+{
+    margin-right: 55px;
+}
+  }
+
+    @media screen and (min-width: 320px) and (max-width: 767px) {
+
+        .lectures-slider__main .slick-slide {
+            width: 245px;
+            margin-right: 5px;
+}
+
+.main-lector-bottom .lectures-slider__main .slick-slide
+{
+    width: 250px;
+    margin-right: 25px;
+}
+
+.lectures-slider__main .slick-list {
+    width: 250px;
+    margin: 0 auto;
+}
+
+.lectures-group__main .slick-dots
+{
+    bottom: 0px;
+}
+
+.events__popular-slider-view .slick-dots
+{
+    bottom: 0;
+}
+
+
+
+    }

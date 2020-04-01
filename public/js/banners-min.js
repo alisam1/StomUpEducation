@@ -1,0 +1,1 @@
+$("#inputsForm input[type=checkbox]").change(function(){1==$(this).prop("checked")?$("#inputsForm input[type=text]").val("Записаться"):$("#inputsForm input[type=text]").val("")});

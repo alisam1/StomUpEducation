@@ -1,0 +1,392 @@
+{% extends 'base.center.twig' %}
+
+{% block title %}Личный сайт  {% endblock %}
+
+
+{% block body %}
+
+<main class="main-center">
+
+<div class="main-center__mobile">
+                <div class="main-center__mobile">
+                        <div class="main-center__content">
+
+                        {{ include('center/sidebar/_m.sidebar.twig') }}
+
+                            <div class="main-center__right">
+                            <div class="container">
+
+                            </div>
+                </div>
+
+        </div>
+        </div>
+
+        <div class="main-center__desktop">
+
+        {{ include('center/sidebar/_sidebar.twig') }}
+
+            <div class="main-center__right">
+                <div class="web__area">
+                    <div class="web__left">
+
+                    {# form #}
+
+                    <form action="/catch/catch_new_site" method="post" enctype="multipart/form-data" id="new_site_form">
+
+                        <div class="web--center__content">
+                        <h1 class="web__title">Сайт</h1>
+                        <div class="web__name">
+                            <label for="web-name">Имя сайта</label>
+                            <div class="web__name-input">
+                                <input id="web-name" type="text" placeholder="example"><span class="web__medical">.stomup.ru</span>
+                            </div>
+                        </div>
+
+                        <div class="web__create-header">
+                                <div class="web__create-logo">
+                                        <label class="label">
+                                            <input type="file" name="site-logo" id="create-logo">
+                                            <img id="about-sitelogo" src="#" alt="image">
+                                        </label>
+                                </div>
+
+                                <div class="web__create-info">
+                                    <div class="web__create-phone">
+                                        <input type="text" name="create-phone" id="create-phone" placeholder="+7 (9__) ___-__-__">
+                                    </div>
+                                    <div class="web__create-mail">
+                                            <input type="text" name="create-mail" id="create-mail" placeholder="example@gmail.com">
+                                    </div>
+                                </div>
+
+                        </div>
+
+                        <div class="web__create-content">
+                            <div class="web__create-menu">
+
+                                <h3 class="web__create-menu__title">Меню</h3>
+                                    <ul class="web__create-menu__list">
+                                        <li class="web__create-menu__item">Главная</li>
+                                        <li class="web__create-menu__item">О нас</li>
+                                        <li class="web__create-menu__item">Лекторы</li>
+                                        <li class="web__create-menu__item">Отзывы</li>
+                                        <li class="web__create-menu__item">Мероприятия</li>
+                                        <li class="web__create-menu__item">Календарь</li>
+                                    </ul>
+
+                            </div>
+                            <div class="web__create-main">
+
+                                <div class="web__create-banner">
+                                        <div class="web__create-banner-type">
+                                                <p class="web__create-banner-type__title">Вид</p>
+                                                <div class="web__create-banner-type__img"><img src="/img/web_type_1.svg" alt="web_1"></div>
+                                                <div class="web__create-banner-type__img"><img src="/img/web_type_2.svg" alt="web_2"></div>
+                                        </div>
+                                        <div class="web__create-banner-input">
+                                                <label class="label">
+                                                        <input type="file" name="create-banner" id="create-banner">
+                                                        <img id="web-banner" src="#" alt="image">
+                                                </label>
+                                        </div>
+                                </div>
+
+                                <!-- Add events -->
+                                <div class="web__create__events">
+                                    <h3 class="web__create__events-title">Ближашие мероприятия</h3>
+
+                                    <div class="web__create__events-main">
+                                            <div class="web__calendar"><img src="/img/web_calendar.png" alt="web_calendar"></div>
+                                                <div class="web__create__events-block block">
+                                                    <div class="block__top">
+                                                        <div class="block__when">
+                                                            <div class="block__data">30.08.2019</div>
+                                                            <div class="block__time">09:00 - 19:00</div>
+                                                        </div>
+                                                        <div id="block__edit" class="block__edit"><img src="/img/web_events_edit.svg" alt="events_edit"></div>
+                                                    </div>
+                                                    <div class="block__bottom">
+                                                        <div class="block__high">
+                                                            <div class="block__topic"><span class="block__dot block__dot--paradont"></span>Пародонтология</div>
+                                                            <div class="block__type">Семинар</div>
+                                                        </div>
+                                                        <div class="block__center">
+                                                            <div class="block__title">Пластическая пародонтологическая... </div>
+                                                            <div class="block__address">г. Москва, ул. Усачева 62</div>
+                                                            <div class="block__price">25 000 ₽</div>
+                                                        </div>
+                                                        <div class="block__add">
+                                                                <div class="block__star">10</div>
+                                                                <div class="block__sert">Сертификат</div>
+                                                                <div class="block__more">еще</div>
+                                                            </div>
+                                                        <div class="block__about">
+                                                            <div class="block__doctor">
+                                                                <div class="block__photo"><img src="img/block_photo.png" alt="block__photo"></div>
+                                                                <div class="block__fio">
+                                                                    <div class="block__name">Бадалян К. Ю.</div>
+                                                                    <div class="block__work">Стоматолог-пародонтолог</div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+
+                                    <!-- Add new events -->
+
+                                                <div class="web__events-add">
+
+                                                    <a href="#add-events" class="popup-modal"><div class="wev__events-new"><img src="/img/web_add_event.png" alt=""></div></a>
+
+                                                </div>
+
+                                        <!-- End add new events -->
+                                    </div>
+                                </div>
+                                <!-- End add events -->
+
+                                 <!-- Add lectures -->
+
+                                <div class="web__create__lectures">
+                                    <h3 class="web__create__lectures-title">Наши лекторы</h3>
+
+                                    <div class="web__create__lectures-main">
+                                            <div class="web__create__lectures-block">
+                                                <div class="web__create__lectures-img"><img src="/img/web_photo_1.png" alt=""></div>
+                                                <p class="web__create__lectures-fio">Бадалян <span>Кристина Юрьевна</span></p>
+                                                <p class="web__create__lectures-work">Стоматолог-терапевт</p>
+                                                <p class="web__create__lectures-number">10 лекций</p>
+                                            </div>
+                                            <div class="web__create__lectures-block">
+                                                <div class="web__create__lectures-img"><img src="/img/web_photo_2.png" alt=""></div>
+                                                <p class="web__create__lectures-fio">Черный <span>Дмитрий Александрович</span></p>
+                                                <p class="web__create__lectures-work">Стоматолог-терапевт</p>
+                                                <p class="web__create__lectures-number">0 лекций</p>
+                                            </div>
+                                            <div class="web__create__lectures-block">
+                                                <div class="web__create__lectures-img"><img src="/img/web_photo_3.png" alt=""></div>
+                                                <p class="web__create__lectures-fio">Наговицына <span>Александра Юрьевна</span></p>
+                                                <p class="web__create__lectures-work">Детский стоматолог</p>
+                                                <p class="web__create__lectures-number">2 лекции</p>
+                                            </div>
+                                            <div class="web__create__lectures-block web__create__lectures-block-modal">
+                                            {# добавление лектора #}
+                                                    <a href="#add-modal" class="popup-modal"><img src="/img/web_new_doctor.png" alt=""></a>
+
+                                            </div>
+
+
+                                    </div>
+
+
+                                </div>
+
+                                <!-- End add lectures -->
+
+                                  <!-- Add reviews -->
+
+                                  <div class="web__create__reviews">
+
+                                        <h3 class="web__create__reviews-title">Отзывы о нас</h3>
+
+                                        <div class="web__create__reviews-main">
+
+                                                <div class="web__create__reviews-block">
+
+                                                    <div class="web__create__reviews-fio">
+                                                        <p class="web__create__reviews-name">Бадалян Кристина Юрьевна</p>
+                                                        <p class="web__create__reviews-work">Стоматолог-терапевт</p>
+                                                    </div>
+                                                    <div class="web__create__reviews-text">
+                                                    Была на мероприятии для врачей-стоматологов, в т.ч. амбулаторного звена, для руководителей стоматологических подразделений, студентов старших курсов стоматологических факультетов, сотрудников органов управления здравоохранением...
+                                                    </div>
+                                                    <a href="#" class="web__create__reviews-link">Весь отзыв</a>
+
+                                                </div>
+                                                <div class="web__create__reviews-block web__create__reviews-block--modal">
+                                                        <a href="#add-modal-2" class="popup-modal"><img src="/img/web_new_review.png" alt=""></a>
+                                                        <div id="add-modal-2" class="form-events form-web white-popup-block mfp-hide">
+                                                            <p><a class="popup-modal-dismiss" href="#"><img src="/img/close_modal.svg" alt="close_modal"></a></p>
+                                                            <div class="events__card">
+                                                                <h3 class="events-form__title">Новый отзыв</h3>
+                                                                <div class="events-form__form">
+                                                                    <form>
+                                                                        <div class="events-form__top events-form__top-reviews">
+                                                                            <div class="events-form__reviews-name">
+                                                                                <label for="">ФИО</label>
+                                                                                <input type="text" placeholder="Введите фамилию, имя и отчество">
+                                                                            </div>
+                                                                            <div class="events-form__reviews-texrarea">
+                                                                                    <textarea name="reviews-texrarea" id="reviews-texrarea" cols="30" rows="10" placeholder="Введите отзыв"></textarea>
+                                                                                </div>
+                                                                        </div>
+
+                                                                        <div class="events-form__addlector">
+                                                                            <div class="events-form__span">Вы сможете отредактировать данную информацию позднее в своём личном кабинете</div>
+                                                                            <div class="events-form__button">
+                                                                                <input type="submit" value="Сохранить">
+                                                                            </div>
+                                                                        </div>
+                                                                    </form>
+
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                </div>
+
+                                        </div>
+
+
+                                  </div>
+
+                                <!-- End add reviews -->
+
+                                <!-- Add address -->
+
+                                <div class="web__create__address">
+
+                                        <h3 class="web__create__address-title">Наши контакты</h3>
+
+                                        <div class="web__create__address-main">
+
+                                            <div class="web__create__address-block">
+                                                    <h3 class="web__create__address-block-title">Обучающий центр</h3>
+                                                     <div class="web__create__address-block-time">
+                                                        <div class="web__create__address-block-metro">
+                                                            <input type="text" placeholder="м. Владимирская">
+                                                        </div>
+                                                        <div class="web__create__address-block-hours">
+                                                            <input type="text" placeholder="09:00"> - <input type="text" placeholder="19:00"></div>
+                                                    </div>
+
+                                                    <div class="web__create__address-block-place">
+                                                        <div class="web__create__address-block-city"><input type="text" placeholder="Санкт-Петербург,"></div>
+                                                        <div class="web__create__address-block-address"><input type="text" placeholder="ул. Владимирский пр., 10"></div>
+                                                    </div>
+
+                                                    <div class="web__create__address-block-info">
+                                                        <div class="web__create__address-block-phone"><input type="phone" placeholder="8-800-555-34-52"></div>
+                                                        <div class="web__create__address-block-mail"><input type="email" placeholder="education@volga.com"></div>
+                                                    </div>
+                                            </div>
+
+                                            <div class="web__create__address-pin">
+
+                                                <img src="/img/web_fb_pin.svg" alt="web_fb_pin">
+
+                                            </div>
+
+                                        </div>
+
+                                </div>
+                                 <!-- End add address -->
+
+                                 <!-- Add About center -->
+
+                                 <div class="web__create__about">
+                                        <h3 class="web__create__about-title">О нашем центре</h3>
+
+                                        <div class="web__create__about-main">
+
+                                            <div class="web__create__about-content">
+                                                <div class="web__create__about-text">
+                                                    <textarea name="about-texrarea" id="reviews-texrarea" cols="30" rows="10" placeholder="Введите описание"></textarea>
+                                                </div>
+                                                <div class="web__create__about-img">
+                                                        <label class="label">
+                                                            <input type="file" name="about-photo" id="create-about">
+                                                            <img id="about-banner" src="#" alt="image">
+                                                        </label>
+                                                </div>
+                                            </div>
+
+                                            <div class="web__create__about-content">
+                                                <button class="web__create__about-button">Сохранить</button>
+                                            </div>
+                                        </div>
+                                </div>
+                                <!-- End About center -->
+                                </div>
+                            </div>
+
+                       <div class="web__create-footer">
+
+                            <div class="web__create-footer-about">
+
+                                <div class="web__create-footer-title">
+                                    <label for="web_title">Title</label>
+                                    <input type="text" id = "web_title" placeholder="Сайт медицинского лекционного центра MedEducation - лекции, мастерклассы, конференции">
+                                </div>
+                                <div class="web__create-footer-description">
+                                    <label for="web_description">Description</label>
+                                    <textarea id = "web_description" placeholder="Добро пожаловать на сайт медицинского лекционного центра MedEducation - здесь вы можете записаться на практические курсы, семинары и мастерклассы"></textarea>
+                                </div>
+
+                                <div class="web__create-footer-metrika">
+                                    <div class="web__create-footer-yandex">
+                                        <label for="web_metrika">Яндекс.Метрика</label>
+                                        <textarea name="metrika-yandex" id="metrika-yandex"></textarea>
+                                    </div>
+                                    <div class="web__create-footer-google">
+                                        <label for="web_metrika">Google Analytics</label>
+                                        <textarea name="metrika-google" id="metrika-google"></textarea>
+                                    </div>
+                                </div>
+
+                            </div>
+
+
+                    </div>
+
+                    <div class="web__buttons">
+                        <button class="web__buttons-preview">Предпросмотр</button>
+                        <button type="submit" class="web__buttons-save">Опубликовать</button>
+                    </div>
+
+                    </div>
+                    </form>
+
+                    {# formEnd #}
+
+            </div>
+
+            <div class="web-right">
+                <div class="web-right__one">
+                    <p class="web-number">1</p>
+                </div>
+                <div class="web-right__two">
+                    <p class="web-number web-number--two">2</p>
+                </div>
+                <div class="web-right__three">
+                    <p class="web-number web-number--three">3</p>
+                </div>
+                <div class="web-right__four">
+                    <p class="web-number web-number--four">4</p>
+                </div>
+                <div class="web-right__five">
+                    <p class="web-number">5</p>
+                </div>
+                <div class="web-right__six">
+                    <p class="web-number">6</p>
+                </div>
+                <div class="web-right__seven">
+                    <p class="web-number">7</p>
+                </div>
+                <div class="web-right__eight">
+                    <p class="web-number">8</p>
+                </div>
+                <div class="web-right__nine">
+                    <p class="web-number">9</p>
+                </div>
+            </div>
+            </div>
+        </div>
+
+    </div></div>
+
+</main>
+
+{% endblock %}

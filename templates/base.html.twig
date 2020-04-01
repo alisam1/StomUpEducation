@@ -1,0 +1,81 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, user-scalable=no, initial-scale=1" name="viewport">
+  <title>{% block title %}StomUp{% endblock %}</title>
+  <meta name="description" content="{% block description %}{% endblock %}" />
+
+    <link rel="shortcut icon" href="/img/favicon_3.ico" type="image/x-icon">
+
+    {# <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css"> #}
+    {# <link rel="shortcut icon" href="/img/favicon_3.ico" type="image/x-icon"> #}
+        {# <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"> #}
+    {# <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"> #}
+    <link rel="stylesheet" href="/modules/css/font-awesome.min.css">
+   <link href="/css/main.css?ver=1.1" rel="stylesheet">
+  <meta name="yandex-verification" content="f0d9b1057160a586" />
+
+            {% block stylesheets %}{% endblock %}
+            {% set is_login = app.session.get('f22') %}
+
+</head>
+
+<body>
+
+  {% if app.request.pathinfo != '/messages' %}
+  {{ include('header.main.twig') }}
+  {% endif %}
+
+
+        {% block body %}{% endblock %}
+
+
+  {# Если мы в сообщениях - то выключаем футер #}
+  {% if app.request.pathinfo != '/messages' %}
+  {{ include('footer.html.twig') }}
+  {% endif %}
+
+
+ {# popup мироприятий - важно что бы в данные контроллеры передавался $lectors_list #}
+{% if app.request.pathinfo == '/cabinet' or app.request.pathinfo == '/cabinet/site' %}
+{{ include('popups/events.popup.twig') }}
+{{ include('popups/lectors.popup.twig') }}
+{% endif %}
+      {# STYLES #}
+      <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap" rel="stylesheet">
+      <link href="/css/style.css?ver=1.1" rel="stylesheet">
+      {# STYLESEND #}
+
+        {# hiddenBlock #}
+        <input type="hidden" id="realDate" name="" value="{{ "now"|date("Y-m-d") }}">
+        {# modules #}
+        {# <script src="https://code.jquery.com/jquery-3.4.1.js"></script> #}
+        <script src="/modules/js/jq341.min.js"></script>
+        <script src="/js/readmore.js" charset="utf-8"></script>
+        <script src="/js/sweetalert-min.js" charset="utf-8"></script>
+        <script src="/js/inputmask.plugin-min.js" charset="utf-8"></script>
+        <script src="/js/allmask-min.js" charset="utf-8"></script>
+        <script src="/js/select-min.js" charset="utf-8"></script>
+        {# sliders #}
+        <script src="/js/slick-min.js"></script>
+        <script src="/js/sliders-min.js" charset="utf-8"></script>
+        {# all #}
+
+        {% block javascripts %}{% endblock %}
+
+
+
+         {# web #}
+         <script src="/js/web_load-min.js" charset="utf-8"></script>
+
+         {# sidebar_mobile #}
+         <script src="/js/sidebar_mobile-min.js" charset="utf-8"></script>
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,234 @@
+{# DESKTOP #}
+
+<div class="main-center__desktop">
+
+<div class="main-center__content">
+
+    {{ include('listener/sidebar/_sidebar.twig') }}
+
+
+    <div class="main-center__right">
+        <div class="container">
+            <h3 class="personal_cabinet__title">Мероприятия</h3>
+
+            <div class="personal_cabinet__slider">
+
+            <div class="lectures-slider__main multiple-items">
+
+            {% for event in my_events %}
+              {% set dateStart = event.event_start_time|date('d.m.Y') %}
+              {% set dateEnd = event.event_end_time|date('d.m.Y') %}
+              {% set timeStart = event.event_start_time|date('H:i') %}
+              {% set timeEnd = event.event_end_time|date('H:i') %}
+                <div class="lectures-group__block block">
+                <a class="ahref__noslyle" href="/events/{{ event.id }}">
+                    <div class="block__top" style="background-image:url({{ event.event_main_img }});">
+                        <div class="block__when">
+                        <div class="block__data">
+                        {% if dateStart == dateEnd %}
+                          {{ dateStart }}
+                        {% else %}
+                          {{dateStart}}-{{dateEnd}}
+                        {% endif %}
+                        </div>
+                        <div class="block__time">{{timeStart}} - {{timeEnd}}</div>
+                        </div>
+                        <div class="block__address">{{event.event_city}}, {{event.event_address}}</div>
+                    </div>
+                    </a>
+                    <div class="block__bottom">
+                    <a class="ahref__noslyle" href="/events/{{ event.id }}">
+                        <div class="block__high">
+                            <div class="block__topic"><span class="block__dot block__dot--paradont" style="background:{{event.color}}"></span>{{event.way_name}}</div>
+                            <div class="block__type">{{event.type_name}}</div>
+                        </div>
+                        <div class="block__center">
+                            <div class="block__title">{{event.event_name|str30()|beautifultext()}}
+                                <span class="block__tooltip">{{event.event_name}}</span>
+                            </div>
+                            <div class="block__price">
+                            {% if event.is_free == 1 %}
+                              {{ event.price }} ₽
+                            {% else %}
+                            Бесплатно
+                            {% endif %}
+                            </div>
+                        </div>
+                        </a>
+                        <div class="block__about">
+                            <div class="block__doctor">
+                                <div class="block__photo"><img src="{{event.photo}}" alt="block__photo"></div>
+                                <div class="block__fio">
+                                    <div class="block__name">{{event.full_name}}</div>
+                                    <div class="block__work">{{event.worker_position}}</div>
+                                </div>
+                            </div>
+                            <div class="block__add">
+                            {% if event.rule_point > 0 %}
+                                <div class="block__star">{{event.rule_point}}</div>
+                            {% endif %}
+                            {% if event.rule_sertificate is not null %}
+                                <div class="block__sert">Сертификат</div>
+                            {% endif %}
+                                <div class="block__more">еще</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+              {% endfor %}
+
+
+                </div>
+
+    </div>
+
+                <h3 class="personal_cabinet__title">Прошедшие мероприятия</h3>
+
+                <div class="personal_cabinet__slider personal_cabinet__slider--events">
+
+                <div class="lectures-slider__main multiple-items">
+
+                    <div class="lectures-group__block block">
+                        <div class="block__top">
+                            <div class="block__when">
+                            <div class="block__data">30.08.2019</div>
+                            <div class="block__time">09:00 - 19:00</div>
+                            </div>
+                            <div class="block__address">г. Москва, ул. Усачева 62</div>
+                        </div>
+                        <div class="block__bottom">
+                            <div class="block__high">
+                                <div class="block__topic"><span class="block__dot block__dot--paradont"></span>Пародонтология</div>
+                                <div class="block__type">Семинар</div>
+                            </div>
+                            <div class="block__center">
+                                <div class="block__title">Пластическая пародонтологическая хирургия</div>
+                                <div class="block__price">25 000 ₽</div>
+                            </div>
+                            <div class="block__about">
+                                <div class="block__doctor">
+                                    <div class="block__photo"><img src="/img/block_photo.png" alt="block__photo"></div>
+                                    <div class="block__fio">
+                                        <div class="block__name">Бадалян К. Ю.</div>
+                                        <div class="block__work">Стоматолог-пародонтолог</div>
+                                    </div>
+                                </div>
+                                <div class="block__add">
+                                    <div class="block__star">10</div>
+                                    <div class="block__sert">Сертификат</div>
+                                    <div class="block__more">еще</div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="lectures-group__block block">
+                        <div class="block__top block__top--second">
+                            <div class="block__when">
+                                <div class="block__data">30.08.2019</div>
+                                <div class="block__time">09:00 - 19:00</div>
+                            </div>
+                            <div class="block__address">г. Москва, ул. Усачева 62</div>
+                        </div>
+                        <div class="block__bottom">
+                            <div class="block__high">
+                                <div class="block__topic"><span class="block__dot block__dot--endo"></span>Эндодонтия</div>
+                                <div class="block__type">Практика</div>
+                            </div>
+                            <div class="block__center">
+                                <div class="block__title">Пластическая пародонтологическая хирургия</div>
+                                <div class="block__price">25 000 ₽</div>
+                            </div>
+                            <div class="block__about">
+                                <div class="block__doctor">
+                                    <div class="block__photo"><img src="/img/block_photo.png" alt="block__photo"></div>
+                                    <div class="block__fio">
+                                        <div class="block__name">Бадалян К. Ю.</div>
+                                        <div class="block__work">Стоматолог-пародонтолог</div>
+                                    </div>
+                                </div>
+                                <div class="block__add">
+                                    <div class="block__star">10</div>
+                                    <div class="block__sert">Сертификат</div>
+                                    <div class="block__more">еще</div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="lectures-group__block block">
+                        <div class="block__top block__top--three">
+                            <div class="block__when">
+                                <div class="block__data">30.08.2019</div>
+                                <div class="block__time">09:00 - 19:00</div>
+                            </div>
+                            <div class="block__address">г. Москва, ул. Усачева 62</div>
+                        </div>
+                        <div class="block__bottom">
+                            <div class="block__high">
+                                <div class="block__topic"><span class="block__dot block__dot--terapia"></span>Терапия</div>
+                                <div class="block__type">Семинар</div>
+                            </div>
+                            <div class="block__center">
+                                <div class="block__title">Пластическая пародонтологическая хирургия</div>
+                                <div class="block__price">25 000 ₽</div>
+                            </div>
+                            <div class="block__about">
+                                <div class="block__doctor">
+                                    <div class="block__photo"><img src="/img/block_photo.png" alt="block__photo"></div>
+                                    <div class="block__fio">
+                                        <div class="block__name">Бадалян К. Ю.</div>
+                                        <div class="block__work">Стоматолог-пародонтолог</div>
+                                    </div>
+                                </div>
+                                <div class="block__add">
+                                    <div class="block__star">10</div>
+                                    <div class="block__sert">Сертификат</div>
+                                    <div class="block__more">еще</div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="lectures-group__block block">
+                        <div class="block__top">
+                            <div class="block__when">
+                                <div class="block__data">30.08.2019</div>
+                                <div class="block__time">09:00 - 19:00</div>
+                            </div>
+                            <div class="block__address">г. Москва, ул. Усачева 62</div>
+                        </div>
+                        <div class="block__bottom">
+                            <div class="block__high">
+                                <div class="block__topic"><span class="block__dot block__dot--paradont"></span>Пародонтология</div>
+                                <div class="block__type">Семинар</div>
+                            </div>
+                            <div class="block__center">
+                                <div class="block__title">Пластическая пародонтологическая хирургия</div>
+                                <div class="block__price">25 000 ₽</div>
+                            </div>
+                            <div class="block__about">
+                                <div class="block__doctor">
+                                    <div class="block__photo"><img src="/img/block_photo.png" alt="block__photo"></div>
+                                    <div class="block__fio">
+                                        <div class="block__name">Бадалян К. Ю.</div>
+                                        <div class="block__work">Стоматолог-пародонтолог</div>
+                                    </div>
+                                </div>
+                                <div class="block__add">
+                                    <div class="block__star">10</div>
+                                    <div class="block__sert">Сертификат</div>
+                                    <div class="block__more">еще</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                    </div>
+                    </div>
+
+    </div>
+    </div>
+
+</div>

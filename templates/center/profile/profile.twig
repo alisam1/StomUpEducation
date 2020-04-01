@@ -1,0 +1,26 @@
+{% extends 'base.center.twig' %}
+
+{% block title %}Профиль {% endblock %}
+
+
+{% block body %}
+
+    <main class="main-center">
+
+    {% if mobileDetect == true %}
+      {{ include('center/profile/profile.mobile.twig') }}
+    {% else %}
+      {{ include('center/profile/profile.desktop.twig') }}
+    {% endif %}
+
+    </main>
+
+
+{% endblock %}
+
+{% block javascripts %}
+
+{# sendservice #}
+<script src="/js/sendservice-min.js" charset="utf-8"></script>
+
+{% endblock %}

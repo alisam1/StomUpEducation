@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset='utf-8' />
+<link href='/js/fullcalendar/core/main.css' rel='stylesheet' />
+<link href='/js/fullcalendar/daygrid/main.css' rel='stylesheet' />
+<link href='/js/fullcalendar/timegrid/main.css' rel='stylesheet' />
+<link href='/js/fullcalendar/list/main.css' rel='stylesheet' />
+<script src='/js/fullcalendar/core/main.js'></script>
+<script src='/js/fullcalendar/interaction/main.js'></script>
+<script src='/js/fullcalendar/daygrid/main.js'></script>
+<script src='/js/fullcalendar/timegrid/main.js'></script>
+<!-- <script src="https://unpkg.com/popper.js/dist/umd/popper.min.js" charset="utf-8"></script>
+<script src='https://unpkg.com/tooltip.js/dist/umd/tooltip.min.js'></script> -->
+<script src='/js/fullcalendar/list/main.js'></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+<script>
+
+  document.addEventListener('DOMContentLoaded', function() {
+    var calendarEl = document.getElementById('calendar');
+
+    var calendar = new FullCalendar.Calendar(calendarEl, {
+      locale: 'ru',
+      firstDay: 1,
+      plugins: [ 'interaction', 'dayGrid', 'timeGrid', 'list' ],
+      header: {
+        left: 'prev,next today',
+        center: 'title',
+        right: 'dayGridMonth,timeGridWeek,timeGridDay,listMonth'
+      },
+      monthNames: ['Январь','Февраль','Март','Апрель','Май','οюнь','οюль','Август','Сентябрь','Октябрь','Ноябрь','Декабрь'],
+                monthNamesShort: ['Янв.','Фев.','Март','Апр.','Май','Июнь','Июль','Авг.','Сент.','Окт.','Ноя.','Дек.'],
+                buttonText: {
+                    prev: "<<",
+                    next: ">>",
+                    prevYear: "<<",
+                    nextYear: ">>",
+                    today: "Сегодня",
+                    month: "Месяц",
+                    week: "Неделя",
+                    day: "День"
+                },
+      defaultDate: '2019-08-12',
+
+
+      eventMouseEnter: function(info) {
+        console.log(info.event._def.extendedProps);
+    // var tooltip = '<div class="tooltipevent" style="width:100px;height:100px;background:#ccc;position:absolute;z-index:10001;">' + calEvent.title + '</div>';
+    // $("body").append(tooltip);
+    // $(this).mouseover(function(e) {
+    //     $(this).css('z-index', 10000);
+    //     $('.tooltipevent').fadeIn('500');
+    //     $('.tooltipevent').fadeTo('10', 1.9);
+    // }).mousemove(function(e) {
+    //     $('.tooltipevent').css('top', e.pageY + 10);
+    //     $('.tooltipevent').css('left', e.pageX + 20);
+    // });
+},
+
+eventMouseLeave: function(calEvent, jsEvent) {
+     // $(this).css('z-index', 8);
+     // $('.tooltipevent').remove();
+     console.log('rrr');
+},
+
+      navLinks: true, // can click day/week names to navigate views
+      businessHours: true, // display business hours
+      editable: true,
+      dayClick: function(data, event, view) {
+        alert(data.title);
+      },
+      events: [
+        {
+          title: 'Business LunchBusiness LunchBusiness LunchBusiness LunchBusiness LunchBusiness LunchBusiness Lunch',
+          start: '2019-08-03T13:00:00',
+          color: '#257e4a',
+          constraint: 'businessHours',
+          description: '<h1>description for All Day Event</h1>',
+          url_link: 'http://google.com/',
+          lector_img: '/img/admin.png',
+        },
+        {
+          title: 'Meeting',
+          start: '2019-08-13T11:00:00',
+          constraint: 'availableForMeeting', // defined below
+          color: '#257e4a'
+        },
+
+
+      ]
+    });
+
+    calendar.render();
+  });
+
+</script>
+<style>
+
+  body {
+    margin: 40px 10px;
+    padding: 0;
+    font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
+    font-size: 14px;
+  }
+
+  #calendar {
+    max-width: auto;
+    margin: 0 auto;
+  }
+
+</style>
+</head>
+<body>
+
+  <div id='calendar'></div>
+
+</body>
+</html>

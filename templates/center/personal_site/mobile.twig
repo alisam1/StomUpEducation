@@ -1,0 +1,31 @@
+{% extends 'base.center.twig' %}
+
+{% block title %}Редактировать сайт {% endblock %}
+
+
+{% block body %}
+
+<main class="main-center">
+
+
+                <div class="main-center__mobile">
+                          {{ include('center/sidebar/_m.sidebar.twig') }}
+                        <div class="main-center__content">
+
+                            <div class="main-center__right">
+
+                            <div class="mobile_site">
+                                <p class="mobile_info">Данный функционал не работает на мобильной версии портала, перейдите на полную версию.</p>
+                                <button class="mobile_button"><a href="/">Вернуться назад</a></button>
+
+                            </div>
+
+                            </div>
+
+                </div>
+
+
+</main>
+
+
+{% endblock %}

@@ -1,0 +1,100 @@
+<div id="add-modal" class="form-events white-popup-block mfp-hide">
+    <p><a class="popup-modal-dismiss" href="#"><img src="/img/close_modal.svg" alt="close_modal"></a></p>
+    <div class="events__card">
+        <h3 class="events-form__title">Новый лектор</h3>
+        <div class="events-form__form">
+
+            <form action="/catch/catch_lector" method="post" enctype="multipart/form-data" id="make_new_lectors">
+                <div class="events-form__top">
+                    <div class="events-form__top-right">
+                        <div class="events-form__top-photo events-form__top-photo--new">
+                            <label class="label">
+                                <input name="new_lector_photo" id="new_lector_photo" type="file">
+                                <img id="new-photo-lector" src="/img/11.png" alt="image">
+                            </label>
+                        </div>
+                    </div>
+                    <div class="events-form__top-left">
+                        <div class="events-form__top--fio">
+                            <div class="events-form__edit">
+                                <label for="form__top--name">ФИО</label>
+                                <input type="text" name="full_name" placeholder="Бадалян Кристина Юрьевна" value="" required >
+                            </div>
+
+                            <div class="events-form__edit">
+                                      <dl class="dropdown"><dt>
+                                          <div class="form__work">
+                                              <a href="#">
+                                                <span class="form__top__work">Должность</span>
+                                                  <input required type="text" name="worker_position" class="text-input" placeholder="Врач-стоматолог">
+                                                </a>
+                                                        </div>
+                                                      </dt>
+                                                        <dd>
+                                                   <div class="mutliSelect">
+                                                        <ul>
+                                                          <div class="form__top__search">
+                                                            <input type="search" id="site-search" name="q" aria-label="Поиск по должности">
+                                                            <button></button>
+                                                          </div>
+                                                              <div class="multiSelect__area">
+                                                              <div>
+                                                                    <label>
+                                                                      <input type="checkbox" class="my-checkbox" value="Стоматолог-терапевт">Стоматолог-терапевт</label>
+                                                              </div>
+                                                              <div>
+                                                                <label>
+                                                                  <input type="checkbox" class="my-checkbox" value="Стоматолог-ортодонт">Стоматолог-ортодонт
+                                                                </label>
+                                                              </div>
+                                                                <div>
+                                                                  <label>
+                                                                    <input type="checkbox" class="my-checkbox" value="Стоматолог-ортопед">Стоматолог-ортопед</label>
+                                                                </div>
+                                                                <div>
+                                                                  <label>
+                                                                    <input type="checkbox" class="my-checkbox" value="Стоматолог-хирург">Стоматолог-хирург</label>
+                                                                </div>
+                                                                  <div>
+                                                                    <label>
+                                                                      <input type="checkbox" class="my-checkbox" value="Детский врач">Детский врач</label>
+                                                                    </div>
+                                                                </div>
+                                                                  </ul>
+                                                                  </div>
+                                                                </dd>
+                                                              </dl>
+                                                          </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="events-form__bottom">
+                    <div class="events-form__edit">
+                        <label for="form__top--phone">Телефон</label>
+                        <input required type="text" class="form__top--phone" name="lector_phone"
+                            placeholder="+7 (921) 375-75-75">
+                    </div>
+                    <div class="events-form__edit">
+                        <label for="form__top--mail">Электронная почта</label>
+                        <input required type="text" class="form__top--mail" name="lector_email"
+                            placeholder="education@volgaex.ru">
+                    </div>
+                </div>
+                {# Из какого центра #}
+                <input type="hidden" name="in_center" value="{{my_id}}">
+
+                <div class="events-form__textarea">
+                  <textarea name="events-lector__textarea" id="events-lector__textarea" cols="30" rows="7" placeholder="О лекторе"></textarea>
+                </div>
+
+                <div class="events-form__addlector events-form__addlector--lectors">
+                    <div class="events-form__span">Вы сможете отредактировать данную информацию позднее в своём личном кабинете</div>
+                    <div class="events-form__button">
+                        <input type="submit" value="Сохранить">
+                    </div>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>

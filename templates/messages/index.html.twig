@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello MessagesController!{% endblock %}
+
+{% block body %}
+
+
+
+    <main class="main-center">
+
+    {# {% if mobileDetect == true %} #}
+      {{ include('messages/index.mobile.twig') }}
+    {# {% else %} #}
+      {{ include('messages/index.desktop.twig') }}
+    {# {% endif %} #}
+
+    </main>
+
+
+{% endblock %}
+
+{% block javascripts %}
+<script src="/js/chats-min.js" charset="utf-8"></script>
+{% endblock %}

@@ -1,0 +1,427 @@
+.lectures-page-top
+{
+    width: 100%;
+    height: auto;
+    background: #F5F5F9;
+    padding-bottom: 200px;
+}
+
+.lectures-page-top--subdomain
+{
+    width: 100%;
+    height: auto;
+    background: #F5F5F9;
+    padding-bottom: 0px;
+}
+
+
+.lectures-page-top__title 
+{   font-family: $font-family;
+    font-weight: 600;
+    font-size: 22px;
+    line-height: 20px;
+    color: #30353E;
+    text-align: left;
+    text-transform: uppercase;
+    padding-top:0px;
+    margin: 0;
+    margin-left: 0px;
+}
+
+.lectures-page-top__choise
+{
+    width: auto;
+}
+
+.lectures-page-top .btn.active
+{
+    padding-left: 0;;
+}
+
+.main-lector-all
+{
+    width: 100%;
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+
+.main__right--lector_view .main-lector-all
+{
+    padding-bottom: 0px;
+}
+
+
+
+.lectures-page-top__choise .template-center-lectures__inputs
+{
+    width: 100%;
+    justify-content: flex-start;
+    margin-top: 30px;
+    margin-bottom: 10px;
+    margin-left: 0px;
+}
+
+.lectures-page-top__choise .template-center-lectures__choise {
+    width: auto;
+    margin-right: 30px;
+}
+
+.lectures-page-top__choise .template-center-lectures__choise select
+{
+    width: 270px;
+    padding-left: 10px;
+    background-position: right 10px center;
+    margin-left: 0px;
+}
+
+.lectures-page-top__choise .template-center-lectures__search {
+    width: 55%;
+}
+
+.lectures-page-bottom
+{
+    background: #fff;;
+    padding-top: 40px;
+    padding-left: 70px;
+    padding-bottom: 80px;
+}
+
+.lectures-page-bottom .container
+{
+    width: 100%;
+}
+
+.lectures-page-bottom .container
+{
+    padding-bottom: 0px;
+}
+
+.lectures-page-top__lat
+{
+    display: block;
+    margin-top: 0px;
+}
+
+.container {
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.filterDiv {
+    float: left;
+    font-family: $font-family;
+    font-weight: bold;
+    font-size: 51px;
+    line-height: 38px;
+    background-color: inherit;
+    color: #EAECEF;
+    text-align: center;
+    margin: 2px;
+    display: none; /* Hidden by default */
+}
+
+.filterDiv span
+{
+    width: 60px;
+    padding-left: 15px;
+}
+
+.lectures-page-top__alphabet
+{
+    width: 100%;
+    margin: 0 auto;
+    padding-left: 5px;
+    display: flex;
+}
+
+.filterDiv-all
+{
+display: flex;
+flex-direction: row;
+justify-content: flex-start;
+flex-wrap: wrap;
+margin-left: 70px;
+}
+
+.filterDiv-card a
+{
+    width: 290px;
+    display: flex;
+    flex-direction: row;
+    margin-right: 30px;
+    margin-bottom: 30px;
+    text-decoration: none;
+}
+
+.filterDiv-info
+{
+    width: 270px;
+    text-align: left;
+    margin-left: 20px;
+}
+
+.filterDiv-fio
+{
+    font-family: $font-family;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 19px;
+    color: #30323E;
+    width: 70%;;
+}
+
+.filterDiv-work
+{
+    font-family: $font-family;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 18px;
+    color: #30323E;
+}
+.filterDiv-lectures
+{
+    font-family: $font-family;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 18px;
+    color: #30323E;
+    position: relative;
+    margin-left: 25px;
+}
+
+.filterDiv-lectures::before
+{
+    content: "";
+    background-image: url("../img/lec_ed_icon.svg");
+    width: 19px;
+    height: 14px;
+    position: absolute;
+    left: -25px;
+    top: 2px;
+}
+
+/* The "show" class is added to the filtered elements */
+.show {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+/* Style the buttons */
+.btn {
+    font-family: $font-family;
+    color: #dfdfdf;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 38px;
+    border: none;
+    outline: none;
+    padding: 12px 10px;
+    padding-left: 8px;
+    background-color: inherit;
+    cursor: pointer;
+}
+
+/* Add a light grey background on mouse-over */
+.btn:hover {
+    background-color: inherit;
+    color:  #2C78F6;
+}
+
+/* Add a dark background to the active button */
+.btn.active {
+  background-color: inherit;
+  color:  #2C78F6;
+}
+
+@media screen and (min-width: 1280px) and (max-width: 1440px) {
+
+    .lectures-page-top__title
+    {
+        padding-top: 0px;
+    }
+
+.main-lector-all
+{
+    width: 100%;
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+
+.lectures-page-bottom
+{
+    margin: 0 auto;
+    width: 90%;
+    padding-left: 0;
+}
+.lectures-page-top__choise .template-center-lectures__inputs
+{
+    margin-left: 0;;
+}
+
+.lectures-page-top
+{
+    padding-left: 0px;
+}
+.lectures-page-bottom
+{
+    padding-left:  0px;
+}
+
+}
+
+@media screen and (min-width: 768px) and (max-width: 1279px) {
+    .lectures-page-bottom
+    {
+        padding-left: 10px;
+    }
+
+    .lectures-page-top__title
+    {
+        padding-top: 0px;
+    }
+
+    .lectures-page-top__choise {
+        width: 100%;
+        margin: 0 auto;
+    }
+}
+
+@media screen and (min-width: 320px) and (max-width: 767px) {
+
+    .lectures-page-top__choise .template-center-lectures__inputs
+    {
+        margin-left: 0;
+    }
+
+    .filterDiv-card a
+{
+    width: 90%;
+    margin: 0 auto;
+}
+    .lectures-page-top__choise
+    {
+        width: 100%;;
+    }
+
+
+    .lectures-page-top__title 
+    {
+        padding-top: 0px;
+    }
+
+    .lectures-page-bottom
+    {
+        padding-top: 10px;
+        padding-left: 0;
+    }
+
+    .lectures-page-top__choise .template-center-lectures__search {
+        width: 100%;
+    }
+
+    .lectures-page-top__choise .template-center-lectures__choise
+    {
+        width: 100%;
+        margin-right: 0;
+    }
+
+    .lectures-page-top__choise .template-center-lectures__choise select
+    {
+        width: 100%;
+        margin-left: 0;;
+    }
+
+    .show
+    {
+        flex-direction: column;
+        text-align: left;
+    }
+
+    .filterDiv-all
+    {
+        margin-top: 20px;
+        margin-left: 0;;
+    }
+
+    .filterDiv-card {
+
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        margin: 0 auto;
+        margin-right: 0;
+        margin-bottom: 20px;;
+        justify-content: revert;
+    }
+
+    .filterDiv-info {
+
+        width: auto;
+        text-align: left;
+        margin-left: 20px;
+        margin-top: 0px;
+    
+    }
+
+    .btn
+    {
+        font-size: 11px;
+        line-height: 22px;
+    }
+
+    .btn.active {
+        color:#fff;
+        background-color:#2C78F6;
+        font-size: 11px;
+        line-height: 22px;
+    }
+
+    .btn {
+        font-family: $font-family;
+        color: #dfdfdf;
+        font-weight: bold;
+        font-size: 18px;
+        line-height: 38px;
+        border: none;
+        outline: none;
+        padding: 12px 10px;
+        background-color: inherit;
+        cursor: pointer;
+    }
+
+    .lectures-page-top__alphabet .btn {
+        font-family: $font-family;
+        color: #dfdfdf;
+        font-weight: bold;
+        font-size: 15px;
+        line-height: 24px;
+        border: none;
+        outline: none;
+        padding: 5px;
+        background-color: inherit;
+        cursor: pointer;
+    }
+    
+    /* Add a light grey background on mouse-over */
+    .lectures-page-top__alphabet .btn:hover {
+        background-color: inherit;
+        color:  #2C78F6;
+    }
+    
+    /* Add a dark background to the active button */
+    .lectures-page-top__alphabet .btn.active {
+      background-color: inherit;
+      color:  #2C78F6;
+    }
+
+    .lectures-page-top__alphabet
+    {
+        padding-bottom: 20px;
+        flex-wrap: wrap;
+    }
+
+    
+    }

@@ -1,0 +1,57 @@
+{# порционное подключение #}
+
+{# <script src="/js/cabinet_events_filter-min.js" charset="utf-8"></script> #}
+
+
+{# {% if app.request.pathinfo == '/login' %}
+<script src="/js/login-min.js"></script>
+        <script src="/js/validate-min.js" charset="utf-8"></script>
+{% endif %}
+
+{% if app.request.pathinfo == '/registration' %}
+<script src="/js/registration-min.js"></script>
+        <script src="/js/validate-min.js" charset="utf-8"></script>
+{% endif %} #}
+{# порционное подключение #}
+
+
+{# <script src="/js/cabinet-min.js"></script> #}
+
+{# <script src="/js/magnific-min.js" charset="utf-8"></script> #}
+{# <script src="/js/chats-min.js" charset="utf-8"></script> #}
+{# добавлен 12.11.2019 #}
+{# <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script> #}
+{# <script src="/js/events-min.js" charset="utf-8"></script> #}
+{# <script src="/js/input_range-min.js" charset="utf-8"></script> #}
+
+{# <script src="/js/popups-min.js" charset="utf-8"></script> #}
+
+{# календарь #}
+{# <script src="/js/calendar_logic-min.js" charset="utf-8"></script>
+<script src="/js/calendar-min.js" charset="utf-8"></script>
+{# sliders #}
+<script src="/js/slick-min.js"></script>
+<script src="/js/sliders-min.js" charset="utf-8"></script>
+<script src="/js/lectors-min.js" charset="utf-8"></script>
+{# popups #}
+<script src="/js/magnific-min.js" charset="utf-8"></script>
+ <script src="/js/steps-min.js" charset="utf-8"></script>
+ <script src="/js/sendservice-min.js" charset="utf-8"></script> #}
+
+
+
+ {# banners #}
+ {# <script src="/js/banners-min.js" charset="utf-8"></script> #}
+
+
+{# main_page #}
+{# <script src="/js/readmore-min.js" charset="utf-8"></script>
+<script src="/js/main_page-min.js" charset="utf-8"></script>
+ <script src="/js/main_map-min.js" charset="utf-8"></script> #}
+
+
+{# gallery #}
+ {# <script src="/js/upload_gallery.js" charset="utf-8"></script> #}
+
+ {# filter_lectors #}
+ {# <script src="/js/lectures_page-min.js" charset="utf-8"></script> #}

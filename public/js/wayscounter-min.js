@@ -1,0 +1,1 @@
+$(document).ready(function(){$.post("/api/count/eventsways",function(e){for(key in e)$("#"+key).text(e[key])})});

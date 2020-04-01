@@ -1,0 +1,471 @@
+{% extends 'subdomain.base.twig' %}
+
+{% block title %}Лекции для стоматологов - стоматологическое обучение{% endblock %}
+{% block description %}Полный список всех лекций для стоматологов на учебной платформе StomUP со всеми направлениями. Все виды стоматологического обучения: бесплатные вебинары, семинары, мастер-классы, форумы.{% endblock %}
+
+
+{% block body %}
+
+<main class="template-center">
+
+{# DESKTOP #}
+
+<header class="template-header">
+
+
+                    <div class="template-header__main">
+                    <div class="template-center-header-back">
+                    <div class="container-subdomain">
+                      <div class = "template-header__block-hidden">
+                        <div class="template-header__left">
+                            <div class="template-header__title"><a href="https://stomup.ru/"><img src="/img/back_site.svg" alt=""></a></div>
+                        </div>
+                        </div>
+                    </div>
+                    </div>
+                    </div>
+                      <div class="template-center-header">
+                      <div class="template-center-header-back">
+                      <div class="template-center-mobile">
+                          <div class="main-header__mobile">
+
+            <div class = "main-header__mobile-info">
+           <div class = "main-header__mobile-menu">
+               <div class = "mobile-menu">
+                   <nav role="navigation">
+                    <div id="menuToggle">
+                    <input type="checkbox" />
+                         <span></span>
+                         <span></span>
+                         <p class="menu">Меню</p>
+                    <ul id="menu" class="main-mobile-menu">
+                        <li class="template-center-item template-center-item--main"><a href="#2">Главная</a></li>
+                        <li class="template-center-item template-center-item--event"><a href="#3">Мероприятия</a></li>
+                        <li class="template-center-item template-center-item--lecture"><a href="#4">Лекторы</a></li>
+                        <li class="template-center-item template-center-item--reviews"><a href="#5">Отзывы</a></li>
+                        <li class="template-center-item template-center-item--contacts"><a href="#6">Контакты</a></li>
+                        <li class="template-center-item template-center-item--about"><a href="#7">О центре</a></li>
+                    </ul>
+                </div>
+          </nav>
+                </div>
+               </div>
+
+           <div class = "main-header__mobile-logo">
+               <a href="/"><img src="{{site_data.site_main_logo}}" alt=""></a>
+           </div>
+           </div>
+
+            <div class = "main-header__mobile-info">
+
+              <div class="main-header__search main-header__search--mobile">
+               <button class="search-mobile" id="open"><img src="/img/search_mobile_1.svg" alt="Search_mobile"></button>
+                <div id="form">
+                <form action="#" method="post">
+                    <input type="text" value="" placeholder="Введите фамилию, или направление" />
+                </form>
+                </div>
+               </div>
+               <div class="main-header__login--mobile">
+               <a href="/"><img src="/img/mobile_login.svg" alt="Mobile_login"></a>
+               </div>
+
+           </div>
+           </div>
+                      </div>
+                      <div class="template-center-desktop">
+                        <div class="container-subdomain">
+                        <div class="template-center-content">
+                        <div class="template-center-header__left">
+                            <div class="template-center-header__logo"><a href="/"><img src="{{site_data.site_main_logo}}" alt=""></a></div>
+                            <div class="template-center-header__menu">
+                                <nav>
+                                   <ul class="nav-site">
+                                      <li><a href="#2">Главная</a>
+                                      <li><a href="#3">Мероприятия</a>
+                                      <li><a href="#4">Лекторы</a>
+                                      <li><a href="#5">Отзывы</a>
+                                      <li><a href="#6">Контакты</a>
+                                      <li><a href="#7">О центре</a>
+                                  </ul>
+                                </nav>
+
+                            </div>
+                        </div>
+                        <div class="template-center-header__right">
+                            <div class="main-header__search main-header__search--mobile">
+                                <div id="form_desktop">
+                                  <form action="#" method="post">
+                                    <input type="text" value="" placeholder="Введите фамилию, или направление" />
+                                  </form>
+                              </div>
+                              </div>
+                             <div class="main-header__login--mobile">
+                              <a href="/"><img src="/img/mobile_login.svg" alt="Mobile_login"></a>
+                              </div>
+                        </div>
+                        </div>
+                        </div>
+                      </div>
+                  </div>
+        </div>
+
+                </header>
+
+<div class="template-center-main">
+
+    <div class="main-center__right">
+       <div class="container-subdomain">
+          <div class="events">
+
+              <h1 class="events__title">Мероприятия</h1>
+
+
+                  <div class="events__type events__type--main events__type--events">
+                  {# направление мероприятия #}
+                  {% for event_way in all_event_way %}
+                  <div class="block__events" data-way_id="{{event_way.id}}"><span class="block__dot" style="background-color:{{event_way.color}}"></span>{{event_way.way_name}}</div>
+                  {% endfor %}
+
+
+                  </div>
+
+                  <div class="events__main">
+                        <div class="events__left">
+                           <div class="main-select-tablet">
+                          <div class="events-tablet__top">
+                              <input type="hidden" id="is_calendar_touch" value="0">
+
+                        <div class="events__calendar">
+                                  {# календарь #}
+                                 <p id="date_calendar"></p>
+                                 <input type="hidden" id="events_data" value="{{my_events | json_encode()}}">
+                                 <input type="hidden" id="events_filter_date" value="">
+
+                                 {# календарь #}
+                        </div>
+
+                        <div class="events__laptop">
+                            <div class="events__choise events__choise--events">
+
+                                {# тип мероприятия #}
+                                <div class="events__event">
+                                    <div class="checkselect checkselect-sub_events">
+                                    {% for event_type in all_event_type %}
+                                        <label><input type="checkbox"  class = "checkselect_event"  name="event_types[]" value="{{event_type.id}}"> {{event_type.type_name}}</label>
+                                    {% endfor %}
+                                    <input type="hidden" name="events_hidden" value="" id="events_hidden_sub" />
+                                        </div>
+                                    </div>
+                                    {# лекторы #}
+                                    <div class="events__lector">
+                                            <div class="checkselect checkselect_lectors checkselect-sub_lectors">
+                                            {% for lector in all_lectors %}
+                                                <label><input type="checkbox" class = "checkselect_lectors" name="lectors[]" value="{{lector.id}}"> {{lector.full_name}}</label>
+                                            {% endfor %}
+                                            <input type="hidden" name="lectors_hidden" value="" id="lectors_hidden_sub" />
+                                                </div>
+                                            </div>
+
+                                            <div id = "range" class="events__range">
+                                            <label for="amount">Стоимость</label>
+
+                                              <div id="slider-range"></div>
+
+                                              <p class="events__polz">
+                                                    <input type="text" id="min" readonly/>
+                                                    <input type="text" id="max" readonly/>
+                                                </p>
+                                            </div>
+
+                                    <div class="events__agree">
+                                        <input name="is_free" id="checkbox__agree" type="checkbox">
+                                        <label for="checkbox__agree">Только бесплатные</label>
+                                    </div>
+
+                                    <div class="events__buttons">
+                                           <button class="events__clear">Очистить</button>
+                                           <button class="events__apply">Применить</button>
+                                    </div>
+                                    </div>
+                                    </div>
+                                    <div class="events__tablet">
+                                        <div class="main-select-main">
+                        <div class="main-select__left">
+
+
+                            <div class="main-select__right">
+                            <div class="main-all__right">
+                                <h3 class="main-select__title">Фильтры</h3>
+
+
+                                <div class="events__type">
+                                {# направление мероприятия #}
+                                {% for event_way in all_event_way %}
+                                <div class="block__events" data-way_id="{{event_way.id}}"><span class="block__dot" style="background-color:{{event_way.color}}"></span>{{event_way.way_name}}</div>
+                                {% endfor %}
+
+                                  </div>
+
+                                <a href="#" class="main-select__button">Показать все фильтры</a>
+                                </div>
+
+                                {# Блок скрытый на планшете и мобилке  #}
+                                <div class="main-select__mobile">
+                                    <div class="main-select__choise">
+                                       <div class="events__event">
+                                            <div class="checkselect">
+                                            {% for event_type in all_event_type %}
+                                                <label><input type="checkbox"  class = "checkselect_event"  name="event_types[]" value="{{event_type.id}}"> {{event_type.type_name}}</label>
+                                            {% endfor %}
+                                            <input type="hidden" name="events_hidden" value="" id="events_hidden_val" />
+                                                </div>
+                                        </div>
+
+                                        {# лекторы #}
+                                        <div class="events__lector">
+                                            <div class="checkselect checkselect_lectors">
+                                                    {% for lector in all_lectors %}
+                                                <label><input type="checkbox" class = "checkselect_lectors" name="lectors[]" value="{{lector.id}}"> {{lector.full_name}}</label>
+                                                    {% endfor %}
+                                                <input type="hidden" name="lectors_hidden" value="" id="lectors_hidden_val" />
+                                            </div>
+                                        </div>
+
+                                        <div id = "range" class="events__range">
+                                                <label for="amount">Стоимость</label>
+
+                                        <div id="slider-range"></div>
+
+                                                <p class="events__polz">
+                                                  <input type="text" id="min" readonly/>
+                                                  <input type="text" id="max" readonly/>
+                                                </p>
+                                          </div>
+
+                                          <div class="events__agree">
+                                                <input name="is_free" id="checkbox__agree" type="checkbox">
+                                                <label for="checkbox__agree">Только бесплатные</label>
+                                            </div>
+
+                                            <div class="events__buttons">
+                                                <button class="events__clear">Очистить</button>
+                                                <button class="events__apply">Применить</button>
+                                            </div>
+                                </div>
+                              </div>
+
+                            </div>
+                        </div>
+
+
+                    <div class="main-mobile__modals">
+                             <a class="popup-modal popup-modal-top" href="#add-modal"><button>Показать все фильтры</button></a>
+
+                             <div id="add-modal" class="form-events mfp-hide white-popup-block">
+                                      <p><a class="popup-modal-dismiss" href="#"><img src="/img/close_modal.svg" alt="close_modal"></a></p>
+                                            <div class="events__card events__card-modal">
+                                                <h3 class="main-modals__title">Фильтры</h3>
+
+                                                   <div class="main-select__choise">
+
+                                                      <div class="events__event">
+                                                          <div class="checkselect">
+                                                              {% for event_type in all_event_type %}
+                                                                  <label><input type="checkbox"  class = "checkselect_event"  name="event_types[]" value="{{event_type.id}}"> {{event_type.type_name}}</label>
+                                                              {% endfor %}
+                                                              <input type="hidden" name="events_hidden" value="" id="events_hidden_val" />
+                                                          </div>
+                                                   </div>
+
+                                    {# лекторы #}
+                                                  <div class="events__lector">
+                                                      <div class="checkselect checkselect_lectors">
+                                                          {% for lector in all_lectors %}
+                                                              <label><input type="checkbox" class = "checkselect_lectors" name="lectors[]" value="{{lector.id}}"> {{lector.full_name}}</label>
+                                                          {% endfor %}
+                                                          <input type="hidden" name="lectors_hidden" value="" id="lectors_hidden_val" />
+                                                      </div>
+                                                  </div>
+
+                                            <div id = "range" class="events__range">
+                                                <label for="amount">Стоимость</label>
+
+                                                  <div id="slider-range__events-mobile"></div>
+
+                                                  <p class="events__polz__events-mobile">
+                                                      <input type="text" id="min__events-mobile" readonly/>
+                                                      <input type="text" id="max__events-mobile" readonly/>
+                                                  </p>
+                                            </div>
+
+                                    <div class="events__agree">
+                                        <input name="is_free" id="checkbox__agree" type="checkbox">
+                                        <label for="checkbox__agree">Только бесплатные</label>
+                                    </div>
+
+                                    <div class="events__buttons">
+                                           <button class="events__clear">Очистить</button>
+                                           <button class="events__apply">Применить</button>
+                                    </div>
+                                                  </div>
+
+                                 </div>
+                              </div>
+                    </div>
+
+                            </div>
+                        </div>
+                      </div>
+
+
+                       {# Планшет #}
+                        <div class="main-select-tablet">
+
+                           <div class="main-select-bottom">
+
+                             <div class="main-select-bottom-first">
+
+                                 <div class="main-select__choise main-select__choise--events">
+                                     <div class="main-select__choise-first">
+
+                                      <div class = "main-select__choise-first-top">
+
+                                           <div class="events__event">
+                                                <div class="checkselect">
+                                                {% for event_type in all_event_type %}
+                                                    <label><input type="checkbox"  class = "checkselect_event"  name="event_types[]" value="{{event_type.id}}"> {{event_type.type_name}}</label>
+                                                {% endfor %}
+                                                <input type="hidden" name="events_hidden" value="" id="events_hidden_val" />
+                                                    </div>
+                                                </div>
+                                                {# лекторы #}
+                                                <div class="events__lector">
+                                                        <div class="checkselect checkselect_lectors">
+                                                        {% for lector in all_lectors %}
+                                                            <label><input type="checkbox" class = "checkselect_lectors" name="lectors[]" value="{{lector.id}}"> {{lector.full_name}}</label>
+                                                        {% endfor %}
+                                                        <input type="hidden" name="lectors_hidden" value="" id="lectors_hidden_val" />
+                                                            </div>
+                                                    </div>
+                                            </div>
+
+                                        </div>
+
+                                        <div class ="main-select__choise-first-top">
+
+                                                      <div class="main-select__choise-first">
+
+                                                      <div id = "range" class="events__range">
+                                                      <label for="amount">Стоимость</label>
+
+                                                        <div id="slider-range__events"></div>
+
+                                                        <p class="events__polz">
+                                                              <input type="text" id="min__events" readonly/>
+                                                              <input type="text" id="max__events" readonly/>
+                                                          </p>
+                                                      </div>
+                                                      </div>
+
+                                              <div class="main-select__choise-first">
+                                              <div class="events__agree">
+                                                  <input name="is_free" id="checkbox__agree" type="checkbox">
+                                                  <label for="checkbox__agree">Только бесплатные</label>
+                                              </div>
+                                         </div>
+
+                                        </div>
+
+                                         <div class ="main-select__choise-first-top">
+
+                                              <div class="events__buttons">
+                                                     <button class="events__clear">Очистить</button>
+                                                     <button class="events__apply">Применить</button>
+                                              </div>
+                                        </div>
+
+                                    </div>
+                                  </div>
+                            </div>
+                          </div>
+                      </div>
+                  </div>
+
+
+                <div class="events__right">
+                      <div class="events__group">
+
+                              {% for event in my_events %}
+
+                              {{ include('elements/event.card.twig', {event:event}) }}
+
+                              {% endfor %}
+                              {# конец блока эвентов #}
+                            </div>
+                        </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      </div>
+
+      <div class="template-footer">
+          <div class="container-subdomain_main">
+             <div class="template-footer__content">
+                <div class="template-footer__left">
+                    <div class="template-footer__left-menu">
+                        <ul class="template-footer__left-list">
+                            <li class="template-footer__left-item"><a href="/">Главная</a></li>
+                            <li class="template-footer__left-item"><a href="#7">о нас</a></li>
+                            <li class="template-footer__left-item"><a href="#4">лекторы</a></li>
+                            <li class="template-footer__left-item"><a href="#5">отзывы</a></li>
+                            <li class="template-footer__left-item"><a href="#3">мероприятия</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="template-footer__right">
+                    <div class="template-footer__right-phone"><a href="">{{site_data.site_phone}}</a></div>
+                    <div class="template-footer__right-mail"><a href="">{{site_data.site_email}} </a></div>
+                </div>
+          </div>
+        </div>
+
+
+</main>
+
+
+
+{% endblock %}
+
+
+{% block javascripts %}
+
+        <script src="/js/cabinet_events_filter-min.js" charset="utf-8"></script>
+
+        {# sliders #}
+        <script src="/js/slick-min.js"></script>
+        <script src="/js/sliders-min.js" charset="utf-8"></script>
+        <script src="/js/lectors-min.js" charset="utf-8"></script>
+
+          {# календарь #}
+        <script src="/js/calendar_logic-min.js" charset="utf-8"></script>
+        <script src="/js/calendar-min.js" charset="utf-8"></script>
+
+        <script src="/js/popups-min.js" charset="utf-8"></script>
+         <script src="/js/magnific-min.js" charset="utf-8"></script>
+         <script src="/js/cabinet-min.js" charset="utf-8"></script>
+
+        <script src="/js/main_filtres-min.js" charset="utf-8"></script>
+
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <script src="/js/events-min.js" charset="utf-8"></script>
+        <script src="/js/input_range-min.js" charset="utf-8"></script>
+
+
+{% endblock %}

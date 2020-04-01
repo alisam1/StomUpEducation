@@ -1,0 +1,19 @@
+.brodcast_content {
+    margin-left: 16%;
+    margin-top: 70px;
+    width: 84%;
+    height: auto;
+    
+    .container {
+        width:100%;
+        height:auto;
+        background-color:#f6f7f9;
+    }
+}
+
+@media screen and (max-width: 1440px) and (min-width: 1280px) {
+    .brodcast_content {
+        margin-left: 3%;
+        width: 97%;
+    }
+}

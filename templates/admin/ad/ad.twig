@@ -1,0 +1,80 @@
+{% extends 'base.listener.twig' %}
+
+{% block title %}Управление рекламой  {% endblock %}
+
+
+{% block body %}
+
+<main class="main-center">
+
+<div class="main-center__desktop">
+
+    <div class="main-center__content">
+      {{ include('admin/sidebar/_sidebar.twig') }}
+
+<div class="main-center__right">
+        <div class="banners">
+            <h1 class="banners__title">Управление рекламой</h1>
+
+            {% if ads_data|length > 0 %}
+              {% for ad in ads_data %}
+
+              <div class = "banners__create">
+              <form class="main_ad_send_form" action="/catch/catch_update_main_ad" method="post" enctype="multipart/form-data">
+
+                  <div class = "banners__block">
+                      <div class = "banners__block-top">
+                          <div class = "banners__block-top_right">
+                          <div class="banners__block-top_right__img">
+                          <label class="label">
+                              <input type="file" name="ad_img" id="create-banner">
+                              <img id="web-banner" src="{{ad.img}}" alt="image">
+                          </label>
+
+                          </div>
+                          </div>
+                          <div class = "banners__block-top_left">
+                              <h3 class = "banners__block-top_lead">{{ad.block_name}}</h3>
+                              <div class = "banners__block-top_link">
+                                  <label for="banners__input-link">Ссылка</label>
+                                  <input id = "banners__input-link" name="banner_link" type="text" value="{{ad.link}}" placeholder = "https://stomup.ru/">
+
+                                  <br>
+                                  <label for="ta_css">CSS:</label>
+                                  <textarea name="ta_css" value="{{ad.css}}" rows="8" cols="80">{{ad.css}}</textarea>
+                              </div>
+                          </div>
+                      </div>
+                      <div class = "banners__block-bottom">
+
+                      <div class = "banners__block-bottom_all">
+
+                          <div class = "banners__block-bottom_right">
+                              <div class = "banners__block-bottom_buttons">
+                                <input type="hidden" class="this_ad_key" name="this_ad_key" value="{{ad.block_name}}">
+                                  <button type="submit" class="ads_save">Сохранить</button>
+                              </div>
+                          </div>
+                  </div>
+                  </div>
+               </div>
+               </form>
+            </div>
+              {% endfor %}
+
+            {% endif %}
+
+
+
+
+
+        </div>
+
+
+    </div>
+</div>
+</div>
+
+</main>
+
+{% endblock %}

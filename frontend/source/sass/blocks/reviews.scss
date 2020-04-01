@@ -1,0 +1,181 @@
+
+.main-reviews
+{
+    width: 93%;
+    margin: 0 auto;
+    position: relative;
+    top: 40px;
+}
+
+.main-reviews__top
+{
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 20px;
+
+}
+
+.main-reviews__title
+{
+    font-family: $font-family;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 22px;
+    line-height: 38px;
+    color: #30353E;
+}
+
+.main-reviews__all
+{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.main-reviews__all .web__create__reviews-block
+{
+    width: 450px;
+    height: 250px;
+    background: #EBF2FF;
+    border-radius: 20px;
+    padding-left: 30px;
+    padding-right: 20px;
+    padding-top: 25px;
+    margin-bottom: 20px;
+}
+
+.main-reviews__all .web__create__reviews-link
+{
+    margin-top: 0;
+}
+
+.main-reviews__button
+{
+    width: 154px;
+    height: 45px;
+    background-color: inherit;
+    border: 2px solid #2C78F6;
+    box-sizing: border-box;
+    border-radius: 5px;
+    font-family: $font-family;
+    font-size: 11px;
+    line-height: 38px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    text-transform: uppercase;
+    color: #2C78F6;
+    text-align: center;
+    flex-direction: column;
+
+
+}
+
+.main-reviews__top a
+{
+    text-decoration: none;
+}
+
+/* Popup */
+
+.form-reviews
+{
+    width: 60%;
+    height: auto;
+    margin: 0 auto;
+    background: #EBF2FF;
+    border-radius: 20px;
+}
+
+.popup-reviews
+{
+    padding-top: 30px;
+    padding-left: 70px;
+    padding-right: 70px;
+    padding-bottom: 70px;
+}
+
+.popup-reviews__top
+{
+    position: relative;
+    margin-left: 50px;
+    margin-bottom: 30px;
+}
+
+.popup-reviews__top::before
+{
+    content: "";
+    position: absolute;
+    background-image: url("../img/rev_icon.svg");
+    width: 39px;
+    height: 37px;
+    left: -50px;
+}
+
+.popup-reviews__name
+{
+    font-family: $font-family;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 15px;
+    color: #30323E;
+}
+
+.popup-reviews__work
+{
+    font-family: $font-family;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 24px;
+    color: #30323E;
+}
+
+.popup-reviews__bottom p
+{
+    font-family: $font-family;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 22px;
+    color: #000000;
+    margin-bottom: 20px;
+}
+
+
+.reviews_buttons
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.reviews__delete
+{
+    background: inherit;
+    border: none;
+    font-family: $font-family;
+    font-weight: 300;
+    font-size: 10px;
+    line-height: 22px;
+    color: #000000;
+    text-transform: uppercase;
+    position: relative;
+}
+
+
+.reviews__delete::before
+{
+    content: "";
+    position: absolute;
+    background-image: url("../img/rev_delete.svg");
+    width: 14px;
+    height: 13px;
+    top: 5px;
+    left: -20px;
+    }

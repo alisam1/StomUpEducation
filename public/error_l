@@ -1,0 +1,21 @@
+[27-Jan-2020 12:30:45 Asia/Riyadh] PHP Fatal error:  Uncaught Symfony\Component\Dotenv\Exception\PathException: Unable to read the "/var/www/StomEducation/.env" environment file. in /var/www/StomEducation/vendor/symfony/dotenv/Dotenv.php:489
+Stack trace:
+#0 /var/www/StomEducation/vendor/symfony/dotenv/Dotenv.php(65): Symfony\Component\Dotenv\Dotenv->doLoad(false, Array)
+#1 /var/www/StomEducation/vendor/symfony/dotenv/Dotenv.php(85): Symfony\Component\Dotenv\Dotenv->load('/var/www/StomEd...')
+#2 /var/www/StomEducation/config/bootstrap.php(17): Symfony\Component\Dotenv\Dotenv->loadEnv('/var/www/StomEd...')
+#3 /var/www/StomEducation/public/index.php(7): require('/var/www/StomEd...')
+#4 {main}
+  thrown in /var/www/StomEducation/vendor/symfony/dotenv/Dotenv.php on line 489
+[27-Jan-2020 12:30:46 Asia/Riyadh] PHP Fatal error:  Uncaught Symfony\Component\Dotenv\Exception\PathException: Unable to read the "/var/www/StomEducation/.env" environment file. in /var/www/StomEducation/vendor/symfony/dotenv/Dotenv.php:489
+Stack trace:
+#0 /var/www/StomEducation/vendor/symfony/dotenv/Dotenv.php(65): Symfony\Component\Dotenv\Dotenv->doLoad(false, Array)
+#1 /var/www/StomEducation/vendor/symfony/dotenv/Dotenv.php(85): Symfony\Component\Dotenv\Dotenv->load('/var/www/StomEd...')
+#2 /var/www/StomEducation/config/bootstrap.php(17): Symfony\Component\Dotenv\Dotenv->loadEnv('/var/www/StomEd...')
+#3 /var/www/StomEducation/public/index.php(7): require('/var/www/StomEd...')
+#4 {main}
+  thrown in /var/www/StomEducation/vendor/symfony/dotenv/Dotenv.php on line 489
+[04-Feb-2020 11:19:16 Asia/Riyadh] PHP Parse error:  syntax error, unexpected '?', expecting function (T_FUNCTION) or const (T_CONST) in /var/www/StomEducation/vendor/ocramius/proxy-manager/src/ProxyManager/Configuration.php on line 29
+[04-Feb-2020 11:59:13 Asia/Riyadh] PHP Warning:  require(/var/www/StomEducation/vendor/autoload.php): failed to open stream: No such file or directory in /var/www/StomEducation/config/bootstrap.php on line 5
+[04-Feb-2020 11:59:13 Asia/Riyadh] PHP Fatal error:  require(): Failed opening required '/var/www/StomEducation/vendor/autoload.php' (include_path='.:/opt/php72/lib/php') in /var/www/StomEducation/config/bootstrap.php on line 5
+[04-Feb-2020 11:59:13 Asia/Riyadh] PHP Warning:  require(/var/www/StomEducation/vendor/autoload.php): failed to open stream: No such file or directory in /var/www/StomEducation/config/bootstrap.php on line 5
+[04-Feb-2020 11:59:13 Asia/Riyadh] PHP Fatal error:  require(): Failed opening required '/var/www/StomEducation/vendor/autoload.php' (include_path='.:/opt/php72/lib/php') in /var/www/StomEducation/config/bootstrap.php on line 5

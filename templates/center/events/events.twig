@@ -1,0 +1,42 @@
+{% extends 'base.center.twig' %}
+
+{% block title %}Список мероприятий  {% endblock %}
+
+
+{% block body %}
+
+<main class="main-center">
+{% if mobileDetect == true %}
+{{ include('center/events/events.mobile.twig') }}
+{% else %}
+{{ include('center/events/events.desktop.twig') }}
+{% endif %}
+
+ </main>
+
+{% endblock %}
+
+
+{% block javascripts %}
+      <script src="/js/cabinet-min.js"></script>
+      <script src="/js/validate-min.js" charset="utf-8"></script>
+<script src="/js/cabinet_events_filter-min.js" charset="utf-8"></script>
+{# INPUT_RANGE #}
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+ <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+ <script src="/js/events-min.js" charset="utf-8"></script>
+ <script src="/js/input_range-min.js" charset="utf-8"></script>
+{# popups #}
+ <script src="/js/magnific-min.js" charset="utf-8"></script>
+ <script src="/js/steps-min.js" charset="utf-8"></script>
+ <script src="/js/sendservice-min.js" charset="utf-8"></script>
+ <script src="/js/popups-min.js" charset="utf-8"></script>
+
+{# фильтры #}
+ <script src="/js/main_filtres-min.js" charset="utf-8"></script>
+
+
+  {# календарь #}
+  <script src="/js/calendar_logic-min.js" charset="utf-8"></script>
+  <script src="/js/calendar-min.js" charset="utf-8"></script>
+{% endblock %}

@@ -1,0 +1,77 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello MessagesController!{% endblock %}
+
+{% block body %}
+
+
+
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<input type="hidden" id="my_event_id" name="" value="{{ my_id }}">
+<input type="hidden" id="he_event_id" name="" value="{{ he_id }}">
+
+<div class="example-wrapper">
+    <h1>Hello ! ✅</h1>
+
+    <b> Сообщения: </b>
+    <br>
+    <div class="message_box" style="max-height: 160px;overflow: auto;">
+
+    {% for messange in messanges %}
+
+    <span>{{ messange.full_name }} - {{ messange.datetime }}</span>
+    <p> {{ messange.message }} </p>
+    <hr>
+    {% endfor %}
+
+    </div>
+
+    <div class="send_box">
+      <textarea name="name" id="msg_text" rows="8" cols="80"></textarea>
+      <span id="send_event">Отправить</span>
+    </div>
+
+
+</div>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" charset="utf-8"></script>
+<script>
+    // DEV
+    // var ws = new WebSocket("ws://127.0.0.1:6820/?user={{ my_id }}");
+    // docker
+    var ws = new WebSocket("ws://{{ip}}:6820/?user={{ my_id }}");
+
+    ws.onmessage = function(evt) {
+
+      var callback_data = $.parseJSON(evt.data);
+
+      $('.message_box').append('<span>'+callback_data[0]+' - '+callback_data[1]+'</span><p>'+callback_data[2]+'</p>');
+
+    };
+
+    //Ивент клика на кнопку
+    $('#send_event').on('click',function(){
+    var my_id = $('#my_event_id').val();
+    var he_id = $('#he_event_id').val();
+    var msg_text = $('#msg_text').val();
+
+    $.post('/message/new',{
+      from_id:my_id,
+      to_id:he_id,
+      msg:msg_text
+    }, function(data){
+
+      var callback_data = $.parseJSON(data);
+
+      $('.message_box').append('<span>'+callback_data[0]+' - '+callback_data[1]+'</span><p>'+callback_data[2]+'</p>');
+
+    });
+
+    });
+</script>
+{% endblock %}

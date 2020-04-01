@@ -1,0 +1,92 @@
+{% extends 'base.center.twig' %}
+
+{% block title %}API {% endblock %}
+
+
+{% block body %}
+
+
+    <main class="main-center">
+
+    <div class="main-center__desktop">
+
+    <div class="main-center__content">
+
+    <div class="main-center__right">
+        <div class="container">
+
+    <div class="content">
+
+    <div class="top-content">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+
+
+
+
+    <form class="apixml" action="/api/make/byxml/event" method="post">
+      <input type="file" name="filexml" value="">
+
+      <input type="submit" name="SEND" value="Отправить XML">
+    </form>
+
+    <script type="text/javascript">
+    //API::Отправка XML
+    $('.apixml').on('submit', function(e){
+
+    //
+      e.preventDefault();
+      var $that = $(this),
+      formData = new FormData($that.get(0)); // создаем новый экземпляр объекта и передаем ему нашу форму (*)
+      $.ajax({
+        url: '/api/make/byxml/event',
+        contentType: false, // важно - убираем форматирование данных по умолчанию
+        processData: false, // важно - убираем преобразование строк по умолчанию
+        data: formData,
+        type: 'POST',
+        success: function(data){
+
+          if(data == 'ok'){
+
+            Swal.fire({
+            icon: 'success',
+            title: 'Успешно!',
+            text: 'Мероприятия созданы',
+          }).then(function() {
+              window.location = "/cabinet/events";
+          });
+
+        }
+
+        }
+      });
+
+    });
+    </script>
+
+
+
+      </div>
+      </div>
+      </div>
+      </div>
+      </div>
+      </div>
+
+    </main>
+
+{% endblock %}
+
+{% block javascripts %}
+{# <script src="/js/cabinet_events_filter-min.js" charset="utf-8"></script> #}
+{# popups #}
+<script src="/js/cabinet-min.js"></script>
+<script src="/js/validate-min.js" charset="utf-8"></script>
+ <script src="/js/magnific-min.js" charset="utf-8"></script>
+ <script src="/js/steps-min.js" charset="utf-8"></script>
+ <script src="/js/sendservice-min.js" charset="utf-8"></script>
+ <script src="/js/popups-min.js" charset="utf-8"></script>
+
+ {# календарь #}
+ <script src="/js/calendar_logic-min.js" charset="utf-8"></script>
+ <script src="/js/calendar-min.js" charset="utf-8"></script>
+{% endblock %}

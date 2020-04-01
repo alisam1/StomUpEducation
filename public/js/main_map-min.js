@@ -1,0 +1,1 @@
+$(".main-map__content-bottom__card").on("click",function(){$(".main-map__content-bottom__card").removeClass("active"),$(this).addClass("active");var a=$(this).attr("data-cord");a=a.split(","),map.remove(),DG.then(function(){map=DG.map("map",{center:a,zoom:15,scrollWheelZoom:!1}),DG.marker(a).addTo(map)})});

@@ -1,0 +1,113 @@
+{% extends 'base.listener.twig' %}
+
+{% block title %}Управление баннерами  {% endblock %}
+
+
+{% block body %}
+
+<main class="main-center">
+
+<div class="main-center__desktop">
+
+    <div class="main-center__content">
+      {{ include('admin/sidebar/_sidebar.twig') }}
+
+<div class="main-center__right">
+    <div class="container">
+
+        <div class="banners">
+            <h1 class = "banners__title">Добавление баннеров</h1>
+
+            {% if banners_data|length > 0 %}
+            {% set count_banners = 0 %}
+              {% for banner in banners_data %}
+
+              {% set count_banners = count_banners + 1 %}
+              <div class = "banners__create">
+              <form class="main_banner_send_form" action="/catch/catch_update_main_banner" method="post" enctype="multipart/form-data">
+
+                  <div class = "banners__block">
+                      <div class = "banners__block-top">
+                          <div class = "banners__block-top_right">
+                          <div class="banners__block-top_right__img">
+                          <label class="label">
+                              <input type="file" name="site_banner" id="create-banner">
+                              <img id="web-banner" src="{{banner.img}}" alt="image">
+                          </label>
+
+                          </div>
+                          </div>
+                          <div class = "banners__block-top_left">
+                              <h3 class = "banners__block-top_lead">Баннер {{count_banners}}</h3>
+                              <div class = "banners__block-top_zag">
+                                  <label for="banners__input-zag">Заголовок</label>
+                                  <input id = "banners__input-zag" required name="banner_zag" type="text" value="{{banner.text_h}}" placeholder = "Питер Экспо">
+                              </div>
+                              <div class = "banners__block-top_link">
+                                  <label for="banners__input-link">Ссылка</label>
+                                  <input id = "banners__input-link" name="banner_link" type="text" value="{{banner.link}}" placeholder = "https://www.mededucation.pro/">
+                              </div>
+                          </div>
+                      </div>
+                      <div class = "banners__block-bottom">
+                           <div class = "banners__block-bottom_desc">
+                                <label for="banners__input-desc">Описание</label>
+                                <input id = "banners__input-desc" name="banner_descr" type="text" value="{{banner.description}}" placeholder = "С 11 по 14 июня, мероприятие пройдет в формате семинара">
+                          </div>
+                      <div class = "banners__block-bottom_all">
+                          <div class = "banners__block-bottom_left">
+                              <div class = "banners__block-bottom_check">
+                                      <div id="inputsForm">
+                                              <div class = "inputsForm-checkbox">
+                                                <label for="id-check">Кнопка на баннере</label>
+                                              </div>
+                                                <input type="text" class="myinput" name="banner_btn_text" value="{{banner.btn_text}}" placeholder="Текст кнопки">
+                                      </div>
+
+
+                                      <div id="inputsForm">
+                                              <div class = "inputsForm-checkbox">
+                                                <label for="id-check">Приоритет(Чем больше тем выше)</label>
+                                              </div>
+                                                <input type="text" class="myinput" name="banner_priority" value="{{banner.priority}}" placeholder="1">
+                                      </div>
+                              </div>
+                          </div>
+                          <div class = "banners__block-bottom_right">
+                              <div class = "banners__block-bottom_buttons">
+                                <input type="hidden" class="this_banner_id" name="banner_id" value="{{banner.id}}">
+                                  <a class="main_banner_delete">Удалить</a>
+                                  <button type="submit" class="banner_save">Сохранить</button>
+                              </div>
+                          </div>
+                  </div>
+                  </div>
+               </div>
+               </form>
+            </div>
+              {% endfor %}
+
+            {% endif %}
+
+
+
+        {# кнопка создания баннера #}
+            <div class = "banners__create">
+                    <div id="make_new_admin_banner" class="banners__block-add">
+                      <p>Добавить новый баннер</p>
+
+                    </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+    </div>
+</div>
+</div>
+
+</main>
+
+{% endblock %}

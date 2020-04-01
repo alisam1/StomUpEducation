@@ -1,0 +1,37 @@
+{% extends 'base.broadcast.twig' %}
+
+{% block title %}Hello BroadcastController!{% endblock %}
+
+{% block body %}
+<style>
+    .main_trans_container {
+        width: 100%;
+        margin-top: 70px;
+        height: calc(100vh - 70px);
+    }
+    
+    @media screen and (max-width: 1439px) and (min-width: 1280px) {
+        .main_trans_container {
+            margin-top: 65px;
+            height: calc(100vh - 65px);
+        }
+    }
+    
+    @media screen and (max-width: 1279px) and (min-width: 768px) {
+        .main_trans_container {
+            margin-top: 55px;
+            height: calc(100vh - 55px);
+        }
+    }
+</style>
+
+<div class="main_trans_container">
+    
+    <div id="trans">
+        <script type=text/javascript src='/vue/trans_dist/static/js/manifest.2ae2e69a05c33dfc65f8.js'></script>
+        <script type=text/javascript src='/vue/trans_dist/static/js/vendor.a473becdfc9661c39d3d.js'></script>
+        <script type=text/javascript src='/vue/trans_dist/static/js/app.efc423de1532d2b23166.js'></script>
+    </div>
+    
+</div>
+{% endblock %}

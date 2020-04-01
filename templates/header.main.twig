@@ -1,0 +1,104 @@
+<header class="main-header">
+
+    <div class="main-header__desktop">
+
+           <div class="main-header__content">
+                <div class="main-header__menu">
+                   <div class = "main-header__mobile-menu">
+                    <div class = "mobile-menu">
+                        <nav role="navigation">
+                            <div id="menuToggle">
+                            <input type="checkbox" />
+                                <span></span>
+                                <span></span>
+                                <p class="menu">Меню</p>
+                            <ul id="menu" class="main-mobile-menu">
+                                <li class="template-center-item template-center-item--main"> <a href="/">Главная</a> </li>
+                                <li class="template-center-item template-center-item--ways"> <a href="/ways">Каталог</a> </li>
+                                <li class="template-center-item template-center-item--lectors"> <a href="/lectors">Лекторы</a> </li>
+                                {# <li class="template-center-item">Каталог</li> #}
+                                <li class="template-center-item template-center-item--events"> <a href="/events">Мероприятия</a> </li>
+                                <li class="template-center-item template-center-item--center"> <a href="/centers">Лекционные центры</a> </li>
+                                <li class="template-center-item template-center-item--reg"> <a href="/login">Войти</a><a class = "reg_class" href="/registration">Регистрация</a> </li>
+                                {# <li class="template-center-item">Литература</li> #}
+                            </ul>
+                            </div>
+                         </nav>
+                    </div>
+                </div>
+               </div>
+                <div class="main-header__logo">
+                    <a href="/">
+                        <img src="/img/logo_new.svg" alt="Logo">
+                   </a>
+               </div>
+
+
+           <div class="main-header__search main-header__search--desktop">
+           {% if 'cabinet' in app.request.uri %}
+               <form action="/cabinet/search" method="GET">
+                   <input type="text" name="q" placeholder="Введите фамилию, или направление">
+                   <button type="submit"></button>
+               </form>
+
+          {% else %}
+            <form action="/search" method="GET">
+                <input type="text" name="q" placeholder="Введите фамилию, или направление">
+                <button type="submit"></button>
+            </form>
+
+          {% endif %}
+           </div>
+       </div>
+    </div>
+
+   {# {% if mobileDetect == true %} #}
+           <div class="main-header__mobile">
+            
+            <div class = "main-header__mobile-info">
+           <div class = "main-header__mobile-menu">
+               <div class = "mobile-menu">
+                   <nav role="navigation">
+                    <div id="menuToggle">
+                    <input type="checkbox" />
+                        <span></span>
+                        <span></span>
+                        <p class="menu">Меню</p>
+                    <ul id="menu" class="main-mobile-menu">
+                     <li class="template-center-item template-center-item--main"> <a href="/">Главная</a> </li>
+                        <li class="template-center-item template-center-item--ways"> <a href="/ways">Каталог</a> </li>
+                        <li class="template-center-item template-center-item--lectors"> <a href="/lectors">Лекторы</a> </li>
+                        {# <li class="template-center-item">Каталог</li> #}
+                        <li class="template-center-item template-center-item--events"> <a href="/events">Мероприятия</a> </li>
+                        <li class="template-center-item template-center-item--center"> <a href="/centers">Лекционные центры</a> </li>
+                        <li class="template-center-item template-center-item--reg"> <a href="/login">Войти</a><a class = "reg_class" href="/registration">Регистрация</a> </li>
+                        {# <li class="template-center-item">Литература</li> #}
+                    </ul>
+                </div> 
+          </nav>
+                </div>
+               </div>
+
+           <div class = "main-header__mobile-logo">
+               <a href="/"><img src="/img/mobile_logo.svg" alt="Logo_mobile"></a>
+           </div>
+           </div>
+
+            <div class = "main-header__mobile-info">
+               <div class="main-header__search main-header__search--mobile">
+               <button class="search-mobile" id="open"><img src="/img/search_mobile_1.svg" alt="Search_mobile"></button>
+                <div id="form">
+                <form action="#" method="post">
+                    <input type="text" value="" placeholder="Введите фамилию, или направление" />
+                </form>
+                </div>
+               </div>
+               <div class="main-header__login--mobile">
+               <a href="/"><img src="/img/mobile_login.svg" alt="Mobile_login"></a>
+               </div>
+               </div>
+
+           </div>
+   {# {% endif %} #}
+
+       </header>
